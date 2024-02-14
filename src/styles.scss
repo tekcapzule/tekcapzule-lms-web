@@ -2,4 +2,61 @@
 body {
   padding: 0;
   margin: 0;
+  background: #F5F5F5;
+  font-family: "Work Sans", sans-serif;
+}
+:root {
+	--primary-color: #464646;
+	--secondary-color: #464646;
+	--tertiary-color: #848484;
+
+	--red-color: #EA4343;
+	--orange-color: #F29528;
+	--green-color: #66BE0F;
+	--blue-color: #3A99EA;
+
+	--border-color: #E0E0E0;
+
+	--dk-gray-100: #F3F4F6;
+	--dk-gray-200: #E5E7EB;
+	--dk-gray-300: #1A1A1A;
+	--dk-gray-500: #6B7280;
+	--dk-gray-600: #4B5563;
+	--dk-gray-700: #374151;
+	--dk-gray-800: #1F2937;
+	--dk-gray-900: #111827;
+	--white-bg: #fff;
+	--dk-darker-bg: #2a2b3d;
+	--navbar-bg-color: #fff;
+	--sidebar-bg-color: #fff;
+	--sidebar-width: 250px;
+}
+
+h1 {
+	font-size: 24px;
+	font-weight: 600;
+}
+h2 {
+	font-size: 20px;
+}
+h3 {
+	font-size: 18px;
+	font-weight: 600;
+}
+h4 {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+footer {
+	background-color: var(--white-bg);
+	height: 90px;
+	border-top: 1px solid var(--border-color);
+	display: flex;
+	justify-content: center;
+	.powered-by {
+		background: url('./assets/poweredby.png') no-repeat;
+		width: 223px;
+  		height: 83px;
+	}
 }
