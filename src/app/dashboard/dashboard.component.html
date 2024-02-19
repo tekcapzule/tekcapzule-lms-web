@@ -1,179 +1,492 @@
 <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
-
-
-
-    <ul class="categories list-unstyled">
-        <li>
-            <a href="#"> Home</a>
-        </li>
-        <li class="">
-            <a href="#"> Courses</a>
-        </li>
-        <li class="">
-            <a href="#"> References</a>
-        </li>
-        <li class="">
-            <a href="#"> Calendar</a>
-        </li>
-        <li class="">
-            <a href="#"> Inbox</a>
-        </li>
-        <li class="">
-            <a href="#"> Reports</a>
-        </li>
-        <li class="">
-            <a href="#"> Settings</a>
-        </li>
-    </ul>
+	<ul>
+		<li>
+			<a href="#"><span class="hamburger-icon"></span></a>
+		</li>
+		<li>
+			<a href="#"><span class="home-icon"></span>Home</a>
+		</li>
+		<li class="">
+			<a href="#"><span class="course-icon"></span> Courses</a>
+		</li>
+		<li class="">
+			<a href="#"><span class="references-icon"></span> References</a>
+		</li>
+		<li class="">
+			<a href="#"><span class="calendar-icon"></span> Calendar</a>
+		</li>
+		<li class="">
+			<a href="#"><span class="inbox-icon"></span> Inbox</a>
+		</li>
+		<li class="">
+			<a href="#"><span class="reports-icon"></span> Reports</a>
+		</li>
+		<li class="">
+			<a href="#"><span class="settings-icon"></span> Settings</a>
+		</li>
+	</ul>
 </aside>
 
 <section id="wrapper">
-    <nav class="navbar navbar-expand-md">
-        <div class="container-fluid mx-2">
-            <div class="navbar-header">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggle-navbar"
-                    aria-controls="toggle-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="uil-bars text-white"></i>
-                </button>
-                <a class="navbar-brand" href="#"><img src="../../assets/tekcapzule-logo.svg" alt=""></a>
-            </div>
-            <div class="collapse navbar-collapse" id="toggle-navbar">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <div class="search position-relative text-center px-4 py-3 mt-2">
-                            <input type="text" class="form-control w-100 border-0 bg-transparent"
-                                placeholder="Search here">
-                            <i class="fa fa-search position-absolute d-block fs-6"></i>
-                        </div>
-                    </li>
-                    <!-- <li class="nav-item">
+	<nav class="navbar navbar-expand-md">
+		<div class="container-fluid mx-2">
+			<div class="navbar-header">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggle-navbar"
+					aria-controls="toggle-navbar" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="uil-bars text-white"></i>
+				</button>
+				<a class="navbar-brand" href="#"><img src="../../assets/tekcapzule-logo.svg" alt="" /></a>
+			</div>
+			<div class="collapse navbar-collapse" id="toggle-navbar">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<div class="search position-relative text-center px-4 py-3 mt-2">
+							<input type="text" class="form-control w-100 border-0 bg-transparent"
+								placeholder="Search here" />
+							<i class="fa fa-search position-absolute d-block fs-6"></i>
+						</div>
+					</li>
+					<!-- <li class="nav-item">
                         <a class="nav-link" href="#"><i class="uil-comments-alt"></i><span>23</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="uil-bell"></i><span>98</span></a>
                     </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i data-show="show-side-navigation1" class="uil-bars show-side-btn"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+					<li class="nav-item">
+						<a class="nav-link" href="#">
+							<i data-show="show-side-navigation1" class="uil-bars show-side-btn"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-    <div class="p-4">
-        <div class="welcome">
-            <div class="content rounded-3 p-3">
-                <h1 class="fs-3">Welcome to Dashboard</h1>
-                <p class="mb-0">Hello Jone Doe, welcome to your awesome dashboard!</p>
-            </div>
-            <section class="statistics mt-4">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
-                            <i class="uil-envelope-shield fs-2 text-center bg-primary rounded-circle"></i>
-                            <div class="ms-3">
-                                <div class="d-flex align-items-center">
-                                    <h2 class="mb-0">7 Courses</h2>
-                                </div>
-                                <p class="fs-normal mb-0">Overdue</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
-                            <i class="uil-file fs-2 text-center bg-danger rounded-circle"></i>
-                            <div class="ms-3">
-                                <div class="d-flex align-items-center">
-                                    <h2 class="mb-0">4 Courses</h2>
-                                </div>
-                                <p class="fs-normal mb-0">In Progress</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="box d-flex rounded-2 align-items-center p-3">
-                            <i class="uil-users-alt fs-2 text-center bg-success rounded-circle"></i>
-                            <div class="ms-3">
-                                <div class="d-flex align-items-center">
-                                    <h2 class="mb-0">2 Courses</h2>
-                                </div>
-                                <p class="fs-normal mb-0">Completed</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="box d-flex rounded-2 align-items-center p-3">
-                            <i class="uil-users-alt fs-2 text-center bg-success rounded-circle"></i>
-                            <div class="ms-3">
-                                <div class="d-flex align-items-center">
-                                    <h2 class="mb-0">345</h2>
-                                </div>
-                                <p class="fs-normal mb-0">Points Scored</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+	<div class="p-4 d-flex">
+		<div class="col-9 mr-3">
+			<div class="box-layout m-0">
+				<div class="pt-3">
+					<h1 class="fs-3">Welcome back, Linjith Kunnon</h1>
+					<p class="mb-0">Greetings Linjith, welcome to your fantastic learning curve dashboard!!!</p>
+					<section class="statistics mt-4">
+						<div class="row">
+							<div class="col-lg-9">
+								<h3>Your Learning Summary</h3>
+								<div class="d-flex">
+									<div class="col-lg-3">
+										<div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
+											<span class="overdue-icon"></span>
+											<div class="ms-3">
+												<div class="d-flex align-items-center">
+													<h2 class="pb-0">7 Courses</h2>
+												</div>
+												<p class="gray-txt mb-0"><span class="status overdue"></span>Overdue
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
+											<span class="inprogress-icon"></span>
+											<div class="ms-3">
+												<div class="d-flex align-items-center">
+													<h2 class="pb-0">4 Courses</h2>
+												</div>
+												<p class="gray-txt mb-0"><span class="status inprogress"></span>In
+													Progress</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<div class="box d-flex rounded-2 align-items-center p-3">
+											<span class="completed-icon"></span>
+											<div class="ms-3">
+												<div class="d-flex align-items-center">
+													<h2 class="pb-0">2 Courses</h2>
+												</div>
+												<p class="gray-txt mb-0"><span class="status completed"></span>Completed
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<div class="box d-flex rounded-2 align-items-center p-3">
+											<span class="scored-icon"></span>
+											<div class="ms-3">
+												<div class="d-flex align-items-center">
+													<h2 class="pb-0">345</h2>
+												</div>
+												<p class="gray-txt mb-0"><span class="status scored"></span>Points
+													Scored</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<h3>Your Badges</h3>
+								<ul class="badges">
+									<li class="bronze"></li>
+									<li class="silver"></li>
+									<li class="gold"></li>
+									<li class="silver"></li>
+								</ul>
+							</div>
 
+						</div>
+					</section>
 
+					<section class="tasks mt-4">
+						<h3>Your Tasks</h3>
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="task-bg-1 rounded-2 p-3">
+									
+									<h4 class="mb-3"><span class="notepad-icon"></span> Module Assessment <span class="gray-txt ps-2">(20 days ago)</span></h4>
+									<p>Sed ut perspiciatis unde omnis iste natus error sit qsiuss volup tatem antium.
+									</p>
+									<div class="d-flex justify-content-between align-items-center">
+										<button class="btn primary-btn">Take Action</button>
+										<div class="gray-txt">2 days overdue <span class="clock-icon"></span></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="task-bg-2 rounded-2 p-3">
+									<h4 class="mb-3"><span class="innovation-icon"></span>Module Assessment <span class="gray-txt ps-2">(3 days ago)</span></h4>
+									<p>Sed ut perspiciatis unde omnis iste natus error sit qsiuss volup tatem antium.
+									</p>
+									<div class="d-flex justify-content-between align-items-center">
+										<button class="btn primary-btn">Take Action</button>
+										<div class="gray-txt">1 day left <span class="clock-icon"></span></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="task-bg-3 rounded-2 p-3">
+									<h4 class="mb-3"><span class="folder-icon"></span>Project <span class="gray-txt ps-2">(10 days ago)</span></h4>
+									<p>Sed ut perspiciatis unde omnis iste natus error sit qsiuss volup tatem antium.
+									</p>
+									<div class="d-flex justify-content-between align-items-center">
+										<button class="btn primary-btn">Take Action</button>
+										<div class="gray-txt">7 days left <span class="clock-icon"></span></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+			<section>
+				<div class="box-layout mx-0">
+					<h3>My Courses</h3>
+					<div class="col-12">
+						<div class="course-card full-width">
+							<div class="course-img">
+								<img src="../../assets/courses/courses-thumbnail-4.png" alt="course thumbnail" />
+								<div class="resume">
+									<div role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="--value:25"></div>
+									<button class="btn primary-btn">Resume</button>
+								</div>
+							</div>
+							<div class="course-info">
+								<div class="course-footer">
+									<div>Specialization <span> | </span> Deep Learning</div>
+									<div class="rating">4.5 <span class="star-icon"></span></div>
+								</div>
+								<h2 class="primary-heading pb-0">Neural Networks and Deep Learning</h2>
+								<p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
+								<div class="course-status">
+									<label><span class="user-icon"></span> Beginner</label>
+									<label><span class="clock-icon me-2"></span> 14hr 30min</label>
+								</div>
+								<div class="progress">
+									<div class="progress-bar w-25" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+								  </div>
+							</div>
+								
+						</div>
+						<div class="course-card full-width">
+							<div class="course-img">
+								<img src="../../assets/courses/courses-thumbnail-5.png" alt="course thumbnail" />
+								<div class="resume">
+									<div role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="--value:50"></div>
+									<button class="btn primary-btn">Resume</button>
+								</div>
+							</div>
+							<div class="course-info">
+								<div class="course-footer">
+									<div>Specialization <span> | </span> Deep Learning</div>
+									<div class="rating">4.5 <span class="star-icon"></span></div>
+								</div>
+								<h2 class="primary-heading pb-0">How to Use Lookup Reference Math and Text Functions…</h2>
+								<p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
+								<div class="course-status">
+									<label><span class="user-icon"></span> Beginner</label>
+									<label><span class="clock-icon me-2"></span> 14hr 30min</label>
+								</div>
+								<div class="progress">
+									<div class="progress-bar w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+								  </div>
+							</div>
+								
+						</div>
+						<div class="course-card full-width">
+							<div class="course-img">
+								<img src="../../assets/courses/courses-thumbnail-6.png" alt="course thumbnail" />
+								<div class="resume">
+									<div role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="--value:75"></div>
+									<button class="btn primary-btn">Resume</button>
+								</div>
+							</div>
+							<div class="course-info">
+								<div class="course-footer">
+									<div>Specialization <span> | </span> Deep Learning</div>
+									<div class="rating">4.5 <span class="star-icon"></span></div>
+								</div>
+								<h2 class="primary-heading pb-0">Investment Risk Management</h2>
+								<p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
+								<div class="course-status">
+									<label><span class="user-icon"></span> Beginner</label>
+									<label><span class="clock-icon me-2"></span> 14hr 30min</label>
+								</div>
+								<div class="progress">
+									<div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+								  </div>
+							</div>
+								
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="box-layout mx-0">
+					<h3>Recommended Courses</h3>
+					<div class="colby3">
+						<div class="course-card">
+							<div class="course-img">
+								<img src="../../assets/courses/courses-thumbnail-1.png" alt="course thumbnail" />
+							</div>
+							<div class="course-info">
+								<h2 class="primary-heading pb-0">Neural Networks and Deep Learning</h2>
+								<p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
+								<div class="course-status">
+									<label><span class="user-icon"></span> Beginner</label>
+									<label><span class="clock-icon me-2"></span> 14hr 30min</label>
+								</div>
+								
+							</div>
+							<div class="course-footer">
+								<div>Specialization <span> | </span> Deep Learning</div>
+								<div class="rating">4.5 <span class="star-icon"></span></div>
 
-        <section class="courses mt-4">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="course-container rounded-2 p-3">
-                        <h4 class="mb-3">Module Assessment</h4>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="course-container rounded-2 p-3">
-                        <h4 class="mb-3">Module Assessment</h4>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="course-container rounded-2 p-3">
-                        <h4 class="mb-3">Project</h4>
-                    </div>
-                </div>
-            </div>
-        </section>
+							</div>
+							
+							
+						</div>
+						<div class="course-card">
+							<div class="course-img">
+								<img src="../../assets/courses/courses-thumbnail-2.png" alt="course thumbnail" />
+							</div>
+							<div class="course-info">
+								<h2 class="primary-heading pb-0">How to Use Lookup Reference Math and Text Functions in Excel</h2>
+								<p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
+								<div class="course-status">
+									<label><span class="user-icon"></span> Beginner</label>
+									<label><span class="clock-icon me-2"></span> 14hr 30min</label>
+								</div>
+								
+							</div>
+							<div class="course-footer">
+								<div>Specialization <span> | </span> Deep Learning</div>
+								<div class="rating">4.5 <span class="star-icon"></span></div>
 
-        <section class="statis mt-4 text-center">
-            
-        </section>
+							</div>
+							
+							
+						</div>
+						<div class="course-card">
+							<div class="course-img">
+								<img src="../../assets/courses/courses-thumbnail-3.png" alt="course thumbnail" />
+							</div>
+							<div class="course-info">
+								<h2 class="primary-heading pb-0">Investment Risk Management
+								</h2>
+								<p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
+								<div class="course-status">
+									<label><span class="user-icon"></span> Beginner</label>
+									<label><span class="clock-icon me-2"></span> 14hr 30min</label>
+								</div>
+								
+							</div>
+							<div class="course-footer">
+								<div>Specialization <span> | </span> Deep Learning</div>
+								<div class="rating">4.5 <span class="star-icon"></span></div>
 
-        <section class="courses mt-4">
-            <div class="course-container p-3">
-                <h2 class="mb-3">Recommended Courses</h2>
-                <div class="row">
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                        <div class="box p-3">
-                            <i class="uil-eye"></i>
-                            <h2>Neural Networks and Deep Learning</h2>
-                            <p class="lead">Neural Networks and Deep Learning</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                        <div class="box p-3">
-                            <i class="uil-user"></i>
-                            <h2>How to Use Lookup Reference Math and Text Functions in Excel</h2>
-                            <p class="lead">Linjith Kunnon</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-4 mb-md-0">
-                        <div class="box p-3">
-                            <i class="uil-shopping-cart"></i>
-                            <h2>Investment Risk Management</h2>
-                            <p class="lead">Linjith Kunnon</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+							</div>
+							
+							
+						</div>
+						
+					</div>
+				</div>
+			</section>
+
+			
+		</div>
+		<div class="col-3">
+			<div class="box-layout mt-0">
+				<h3>Leaderboard</h3>
+				<section id="tabs" class="project-tab">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 px-0">
+								<nav>
+									<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+										<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+											href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">My
+											Rank</a>
+										<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+											href="#nav-profile" role="tab" aria-controls="nav-profile"
+											aria-selected="false">Top 5</a>
+									</div>
+								</nav>
+								<div class="tab-content" id="nav-tabContent">
+									<div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+										aria-labelledby="nav-home-tab">
+										<table class="table" cellspacing="0">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Points</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Mathew Perry</td>
+													<td>122.6</td>
+												</tr>
+												<tr>
+													<td>Jeniffer Aniston</td>
+													<td>122.6</td>
+												</tr>
+												<tr>
+													<td>Billy Grahms</td>
+													<td>122.6</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="tab-pane fade" id="nav-profile" role="tabpanel"
+										aria-labelledby="nav-profile-tab">
+										<table class="table" cellspacing="0">
+											<thead>
+												<tr>
+													<th>Project Name</th>
+													<th>Employer</th>
+													<th>Time</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><a href="#">Work 1</a></td>
+													<td>Doe</td>
+													<td>john@example.com</td>
+												</tr>
+												<tr>
+													<td><a href="#">Work 2</a></td>
+													<td>Moe</td>
+													<td>mary@example.com</td>
+												</tr>
+												<tr>
+													<td><a href="#">Work 3</a></td>
+													<td>Dooley</td>
+													<td>july@example.com</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div class="box-layout">
+				<h3>Upcoming Events</h3>
+				<div class="events">
+					<ul>
+						<li>
+							<div class="time">
+								<h2>24<br><span>June</span></h2>
+							</div>
+							<div class="details">
+								<p>Mentoring session scheduled for you</p>
+							</div>
+							<div style="clear: both;"></div>
+						</li>
+						<li>
+							<div class="time">
+								<h2>24<br><span>June</span></h2>
+							</div>
+							<div class="details">
+								<p>Mentoring session scheduled for you</p>
+							</div>
+							<div style="clear: both;"></div>
+						</li>
+						<li>
+							<div class="time">
+								<h2>24<br><span>June</span></h2>
+							</div>
+							<div class="details">
+								<p>Mentoring session scheduled for you</p>
+							</div>
+							<div style="clear: both;"></div>
+						</li>
+					</ul>
+				</div>
+				<div class="d-flex justify-content-center">
+					<button class="btn primary-btn">View All</button>
+				</div>
+			</div>
+			<div class="box-layout">
+				<h3>Poll</h3>
+				<h4>Which technology is going to be a big boom in the year 2024?</h4>
+				<div class="poll">
+					<div class="options">
+						<input type="radio" value="Artificial Intelligence" />
+						<label for="age1">Artificial Intelligence</label>
+					</div>
+					<div class="options">
+						<input type="radio" value="Artificial Intelligence" />
+						<label for="age1">Machine Learning</label>
+					</div>
+					<div class="options">
+						<input type="radio" value="Artificial Intelligence" />
+						<label for="age1">Metaverse</label>
+					</div>
+					<div class="options">
+						<input type="radio" value="Artificial Intelligence" />
+						<label for="age1">Web 3.0</label>
+					</div>
+				</div>
+				<div class="d-flex justify-content-start mt-3">
+					<button class="btn primary-btn">Submit</button>
+				</div>
+			</div>
+			<div class="box-layout">
+				<h3>Quick Links</h3>
+				<ul class="quick-links">
+					<li>Intranet Home</li>
+					<li>Udemy</li>
+					<li>Pluralsight</li>
+					<li>Coursera</li>
+					<li>Techcollege</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </section>
 <footer>
-    <div class="powered-by"></div>
+	<div class="powered-by"></div>
 </footer>
