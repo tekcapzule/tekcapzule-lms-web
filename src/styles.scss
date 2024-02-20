@@ -22,6 +22,7 @@ body {
 	--lace-color: #FFF4E8;
 	--alice-blue-color: #F0F6FF;
 	--active-color: #EC1A57;
+	--purple: #6E6EF2;
 
 	--border-color: #E0E0E0;
 	--bg-color: #F5F5F5;
@@ -103,7 +104,7 @@ h4 {
 		font-weight: 500;
 }
 .clock-icon {
-	background-image: url('./assets/dashboard/clock-icon.svg');
+	background: url('./assets/dashboard/clock-icon.svg') no-repeat;
 	width: 17px;
 	height: 17px;
 	margin-left: 10px;
@@ -191,8 +192,11 @@ height: 16px;
 			display: flex;
 			padding: 11px;
 			margin-bottom: 8px;
+			font-weight: 500;
 			input {
 				margin-right: 10px;
+				height: 20px;
+				width: 20px;
 			}
 		}
 	}
@@ -246,6 +250,7 @@ height: 16px;
 	width: 100%;
     display: flex;
     height: 172px;
+	margin-bottom: 20px;
 	.course-img {
 		position: relative;
   		text-align: center;
@@ -272,7 +277,9 @@ height: 16px;
 			margin: 20px 0;
 		}
 		.progress-bar {
-			background-color: var(--progress);
+			background: var(--progress);
+			border-radius: 0;
+			--size: 5px;
 		}
 		.course-footer {
 			padding: 0 0 10px 0;
@@ -298,6 +305,8 @@ footer {
 .nav-fill .nav-item,
 .nav-fill>.nav-link {
 	flex: initial !important;
+	border: 0 none;
+	color: var(--tertiary-color);
 
 	&.active {
 		border: 0 0 5px 0 !important;
@@ -321,53 +330,58 @@ footer {
     display: flex;
     align-items: center;
 	cursor: pointer;
+	font-weight: 500;
 	}
 }
 
 
 /*********On overlay image progress***********/
-// .resume {
-// 	position: absolute;
-//     min-width: 378px;
-//     min-height: 156px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     flex-direction: column;
-// }
-// @keyframes growProgressBar {
-// 	0%, 33% { --pgPercentage: 0; }
-// 	100% { --pgPercentage: var(--value); }
-//   }
+.resume {
+	position: absolute;
+    min-width: 378px;
+    min-height: 156px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+@keyframes growProgressBar {
+	0%, 33% { --pgPercentage: 0; }
+	100% { --pgPercentage: var(--value); }
+  }
   
-//   @property --pgPercentage {
-// 	syntax: '<number>';
-// 	inherits: false;
-// 	initial-value: 0;
-//   }
+  @property --pgPercentage {
+	syntax: '<number>';
+	inherits: false;
+	initial-value: 0;
+  }
   
-//   div[role="progressbar"] {
-// 	--size: 72px;
-// 	--fg: var(--active-color);
-// 	--bg: #def;
-// 	--pgPercentage: var(--value);
-// 	animation: growProgressBar 3s 1 forwards;
-// 	width: var(--size);
-// 	height: var(--size);
-// 	border-radius: 50%;
-// 	display: grid;
-// 	place-items: center;
-// 	background: 
-// 	  radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0),
-// 	  conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0)
-// 	  ;
-// 	font-size: calc(var(--size) / 5);
-// 	color: var(--fg);
-// 	margin-bottom: 10px;
-//   }
+  div[role="progressbar"] {
+	--size: 72px;
+	--fg: var(--active-color);
+	--bg: #def;
+	--pgPercentage: var(--value);
+	animation: growProgressBar 3s 1 forwards;
+	width: var(--size);
+	height: var(--size);
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: 
+	//radial-gradient(closest-side, white 86%, transparent 0 101%, white 0), conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
+	radial-gradient(closest-side, white 86%, transparent 0 101%, white 0),
+    conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0)
+    ;
+	font-size: calc(var(--size) / 4);
+	color: var(--fg);
+	margin-bottom: 10px;
+  }
   
-//   div[role="progressbar"]::before {
-// 	counter-reset: percentage var(--value);
-// 	content: counter(percentage) '%';
-//   }
+  div[role="progressbar"]::before {
+	counter-reset: percentage var(--value);
+	content: counter(percentage) '%';
+  }
  
+  .table>tbody {
+	font-weight: 500;
+  }
