@@ -40,7 +40,9 @@
 			<div class="collapse navbar-collapse" id="toggle-navbar">
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item">
-						<div class="search position-relative text-center px-4 py-3 mt-2">
+						<div class="search position-relative text-center px-4 py-3 mt-2"
+             style="display: flex; align-items: center; justify-content: flex-end;"
+             >
 							<input type="text" class="form-control w-100 border-0 bg-transparent"
 								placeholder="Search here" />
 							<i class="fa fa-search position-absolute d-block fs-6"></i>
@@ -57,6 +59,12 @@
 							<i data-show="show-side-navigation1" class="uil-bars show-side-btn"></i>
 						</a>
 					</li>
+          <li class="align-self-center" (click)="logOutUser()">
+            <i
+              class="fas fa-sign-out-alt"
+              style="font-size: 32px; cursor: pointer"
+            ></i>
+          </li>
 				</ul>
 			</div>
 		</div>
@@ -141,7 +149,7 @@
 						<div class="row">
 							<div class="col-lg-4">
 								<div class="task-bg-1 rounded-2 p-3">
-									
+
 									<h4 class="mb-3"><span class="notepad-icon"></span> Module Assessment <span class="gray-txt ps-2">(20 days ago)</span></h4>
 									<p>Sed ut perspiciatis unde omnis iste natus error sit qsiuss volup tatem antium.
 									</p>
@@ -204,7 +212,7 @@
 									<div class="progress-bar w-25" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
 								  </div>
 							</div>
-								
+
 						</div>
 						<div class="course-card full-width">
 							<div class="course-img">
@@ -229,7 +237,7 @@
 									<div class="progress-bar w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 								  </div>
 							</div>
-								
+
 						</div>
 						<div class="course-card full-width">
 							<div class="course-img">
@@ -254,7 +262,7 @@
 									<div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
 								  </div>
 							</div>
-								
+
 						</div>
 					</div>
 				</div>
@@ -274,15 +282,15 @@
 									<label><span class="user-icon"></span> Beginner</label>
 									<label><span class="clock-icon me-2"></span> 14hr 30min</label>
 								</div>
-								
+
 							</div>
 							<div class="course-footer">
 								<div>Specialization <span> | </span> Deep Learning</div>
 								<div class="rating">4.5 <span class="star-icon"></span></div>
 
 							</div>
-							
-							
+
+
 						</div>
 						<div class="course-card">
 							<div class="course-img">
@@ -295,15 +303,15 @@
 									<label><span class="user-icon"></span> Beginner</label>
 									<label><span class="clock-icon me-2"></span> 14hr 30min</label>
 								</div>
-								
+
 							</div>
 							<div class="course-footer">
 								<div>Specialization <span> | </span> Deep Learning</div>
 								<div class="rating">4.5 <span class="star-icon"></span></div>
 
 							</div>
-							
-							
+
+
 						</div>
 						<div class="course-card">
 							<div class="course-img">
@@ -317,22 +325,22 @@
 									<label><span class="user-icon"></span> Beginner</label>
 									<label><span class="clock-icon me-2"></span> 14hr 30min</label>
 								</div>
-								
+
 							</div>
 							<div class="course-footer">
 								<div>Specialization <span> | </span> Deep Learning</div>
 								<div class="rating">4.5 <span class="star-icon"></span></div>
 
 							</div>
-							
-							
+
+
 						</div>
-						
+
 					</div>
 				</div>
 			</section>
 
-			
+
 		</div>
 		<div class="col-3">
 			<div class="box-layout mt-0">
