@@ -1,0 +1,45 @@
+{
+  "auth": {
+    "tekcapzulelmsdevampl": {
+      "customAuth": false,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "imported"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_auth_tekcapzulelmsdevampl_nativeClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "tekcapzulelmsdevampl"
+        }
+      ]
+    },
+    "AMPLIFY_auth_tekcapzulelmsdevampl_userPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "tekcapzulelmsdevampl"
+        }
+      ]
+    },
+    "AMPLIFY_auth_tekcapzulelmsdevampl_userPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "tekcapzulelmsdevampl"
+        }
+      ]
+    },
+    "AMPLIFY_auth_tekcapzulelmsdevampl_webClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "tekcapzulelmsdevampl"
+        }
+      ]
+    }
+  }
+}

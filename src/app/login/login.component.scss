@@ -1,7 +1,7 @@
 a {
-  -webkit-transition: .3s all ease;
-  -o-transition: .3s all ease;
-  transition: .3s all ease;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
 }
 
 a:hover {
@@ -13,7 +13,7 @@ a:hover {
 }
 
 .half,
-.half .container>.row {
+.half .container > .row {
   height: 100vh;
 }
 
@@ -23,8 +23,11 @@ a:hover {
   padding: 87px;
   width: 590px;
 }
-.btn, .input-group-text, .form-control, .forgot-pass {
-  font-family: "Work Sans", sans-serif;
+.btn,
+.input-group-text,
+.form-control,
+.forgot-pass {
+  font-family: 'Work Sans', sans-serif;
   font-weight: 500;
   font-size: 18px;
   font-optical-sizing: auto;
@@ -47,7 +50,6 @@ a:hover {
 }
 
 @media (max-width: 1199.98px) {
-
   .half .contents,
   .half .bg {
     width: 100%;
@@ -68,7 +70,7 @@ a:hover {
 }
 
 .login-btn {
-  background: #EC1A57;
+  background: #ec1a57;
   color: #fff;
 }
 .form-control {
@@ -87,6 +89,10 @@ a:hover {
   height: 60px;
   padding: 20px;
   border: 0 none;
+
+  &.email {
+    padding-left: 56px;
+  }
 }
 .forgot-pass {
   color: #fff;
