@@ -5,8 +5,7 @@ import { LayoutComponent } from './layout/layout.component';
 const routes: Routes = [
   {
     path: 'auth',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
-    // loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: 'lms',
