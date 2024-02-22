@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CourseApiService } from '@app/core';
 import { Router } from '@angular/router';
 import { signOut } from 'aws-amplify/auth';
+import { ICourseDetail } from '@app/shared/models/course-item.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +10,9 @@ import { signOut } from 'aws-amplify/auth';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+
+  courseList: ICourseDetail[] = [];
+
   constructor(private router: Router, private courseApi: CourseApiService) {}
 
   ngOnInit(): void {
@@ -18,6 +22,7 @@ export class DashboardComponent implements OnInit {
   getAllCourses() {
     this.courseApi.getAllCourse().subscribe(
       data => {
+        this.courseList = data;
         console.log('data ----------- >>> ', data);
       },
       err => {}

@@ -10,9 +10,9 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core';
 
 // @ts-ignore
-import awsExports from '../aws-exports';
+//import awsExports from '../aws-exports';
 
-Amplify.configure(awsExports);
+//Amplify.configure(awsExports);
 
 @NgModule({
   declarations: [AppComponent],
