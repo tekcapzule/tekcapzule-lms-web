@@ -1,0 +1,310 @@
+[
+  {
+    "learningMaterialId": "6369a525-8344-42c5-9f7c-4403beb24641",
+    "learningMaterialType": "Course",
+    "topicCode": "AI",
+    "subTopicCode": "ML",
+    "title": "MachineLearning Crash Course",
+    "summary": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda.",
+    "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
+    "publisher": "Linjith Kunnon",
+    "publishedOn": "02/12/2023",
+    "authors": ["Linjith Kunnon"],
+    "tags": ["AI", "cloud"],
+    "duration": {
+      "displayText": null,
+      "inMinutes": 170
+    },
+    "resourceUrl": "https://algoexpert.io",
+    "modules": [
+      {
+        "title": "Introduction",
+        "duration": 10,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      },
+      {
+        "title": "Basic Concepts",
+        "duration": 20,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      }
+    ],
+    "deliveryMode": "ONLINE",
+    "learningMode": null,
+    "overview": null,
+    "level": "INTERMEDIATE",
+    "targetAudience": "STUDENT",
+    "schedule": null,
+    "region": null,
+    "venue": null,
+    "registrationUrl": "registration url",
+    "prizingModel": "FREE",
+    "promotion": null,
+    "recommendations": 0,
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-4.png"
+  },
+  {
+    "learningMaterialId": "cd2f5ee4-d692-4326-bece-38597e6b5cdd",
+    "learningMaterialType": "Course",
+    "topicCode": "AI",
+    "subTopicCode": "ML",
+    "title": "AI Crash Course",
+    "summary": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda.",
+    "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
+    "publisher": "Linjith Kunnon",
+    "publishedOn": "02/12/2023",
+    "authors": ["Linjith Kunnon"],
+    "tags": ["AI", "cloud"],
+    "duration": {
+      "displayText": null,
+      "inMinutes": 170
+    },
+    "resourceUrl": "https://algoexpert.io",
+    "modules": [
+      {
+        "title": "Introduction",
+        "duration": 10,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      },
+      {
+        "title": "Basic Concepts",
+        "duration": 20,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      }
+    ],
+    "deliveryMode": "ONLINE",
+    "learningMode": null,
+    "overview": null,
+    "level": "BIGINNER",
+    "targetAudience": "STUDENT",
+    "schedule": null,
+    "region": null,
+    "venue": null,
+    "registrationUrl": "registration url",
+    "prizingModel": "FREE",
+    "promotion": null,
+    "recommendations": 0,
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-3.png"
+  },
+  {
+    "learningMaterialId": "4f90a727-6184-4c4b-be49-1add40f49b59",
+    "learningMaterialType": "Course",
+    "topicCode": "WEB3",
+    "subTopicCode": "Web3.0",
+    "title": "Web3 Fundamentals",
+    "summary": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda.",
+    "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
+    "publisher": "Linjith Kunnon",
+    "publishedOn": "02/12/2023",
+    "authors": ["Linjith Kunnon"],
+    "tags": ["AI", "cloud"],
+    "duration": {
+      "displayText": null,
+      "inMinutes": 170
+    },
+    "resourceUrl": "https://algoexpert.io",
+    "modules": [
+      {
+        "title": "Introduction",
+        "duration": 10,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      },
+      {
+        "title": "Basic Concepts",
+        "duration": 20,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      }
+    ],
+    "deliveryMode": "ONLINE",
+    "learningMode": null,
+    "overview": null,
+    "level": "BIGINNER",
+    "targetAudience": "STUDENT",
+    "schedule": null,
+    "region": null,
+    "venue": null,
+    "registrationUrl": "registration url",
+    "prizingModel": "FREE",
+    "promotion": null,
+    "recommendations": 0,
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-2.png"
+  },
+  {
+    "learningMaterialId": "b5dd79e6-8d39-4fea-a92d-de72d75a9d78",
+    "learningMaterialType": "Course",
+    "topicCode": "META",
+    "subTopicCode": "Metaverse concepts",
+    "title": "A Frayed New World",
+    "summary": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda.",
+    "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
+    "publisher": "Linjith Kunnon",
+    "publishedOn": "02/12/2023",
+    "authors": ["Linjith Kunnon"],
+    "tags": ["AI", "cloud"],
+    "duration": {
+      "displayText": null,
+      "inMinutes": 170
+    },
+    "resourceUrl": "https://algoexpert.io",
+    "modules": [
+      {
+        "title": "Introduction",
+        "duration": 10,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      },
+      {
+        "title": "Basic Concepts",
+        "duration": 20,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      }
+    ],
+    "deliveryMode": "ONLINE",
+    "learningMode": null,
+    "overview": null,
+    "level": "INTERMEDIATE",
+    "targetAudience": "STUDENT",
+    "schedule": null,
+    "region": null,
+    "venue": null,
+    "registrationUrl": "registration url",
+    "prizingModel": "FREE",
+    "promotion": null,
+    "recommendations": 0,
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-1.png"
+  },
+  {
+    "learningMaterialId": "39c9a853-7fbc-49d9-873c-de0eaf6d6f96",
+    "learningMaterialType": "Course",
+    "topicCode": "WEB3",
+    "subTopicCode": "Web3.0",
+    "title": "BlockChain Fundamentals",
+    "summary": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda.",
+    "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
+    "publisher": "Linjith Kunnon",
+    "publishedOn": "02/12/2023",
+    "authors": ["Linjith Kunnon"],
+    "tags": ["AI", "cloud"],
+    "duration": {
+      "displayText": null,
+      "inMinutes": 170
+    },
+    "resourceUrl": "https://algoexpert.io",
+    "modules": [
+      {
+        "title": "Introduction",
+        "duration": 10,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      },
+      {
+        "title": "Basic Concepts",
+        "duration": 20,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      }
+    ],
+    "deliveryMode": "ONLINE",
+    "learningMode": null,
+    "overview": null,
+    "level": "BIGINNER",
+    "targetAudience": "STUDENT",
+    "schedule": null,
+    "region": null,
+    "venue": null,
+    "registrationUrl": "registration url",
+    "prizingModel": "FREE",
+    "promotion": null,
+    "recommendations": 0,
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-1.png"
+  },
+  {
+    "learningMaterialId": "f667a8d9-364a-490c-b1c2-0e1d70151339",
+    "learningMaterialType": "Course",
+    "topicCode": "META",
+    "subTopicCode": "Metaverse concepts",
+    "title": "The Metaverse",
+    "summary": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda.",
+    "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
+    "publisher": "Linjith Kunnon",
+    "publishedOn": "02/12/2023",
+    "authors": ["Linjith Kunnon"],
+    "tags": ["AI", "cloud"],
+    "duration": {
+      "displayText": null,
+      "inMinutes": 170
+    },
+    "resourceUrl": "https://algoexpert.io",
+    "modules": [
+      {
+        "title": "Introduction",
+        "duration": 10,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      },
+      {
+        "title": "Basic Concepts",
+        "duration": 20,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      }
+    ],
+    "deliveryMode": "ONLINE",
+    "learningMode": null,
+    "overview": null,
+    "level": "HIGH",
+    "targetAudience": "STUDENT",
+    "schedule": null,
+    "region": null,
+    "venue": null,
+    "registrationUrl": "registration url",
+    "prizingModel": "FREE",
+    "promotion": null,
+    "recommendations": 0,
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-1.png"
+  },
+  {
+    "learningMaterialId": "91c71334-1053-4e82-8b1a-967ff194bc3e",
+    "learningMaterialType": "Course",
+    "topicCode": "META",
+    "subTopicCode": "Metaverse concepts",
+    "title": "So, You Want to Be a Coder?",
+    "summary": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda.",
+    "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
+    "publisher": "Linjith Kunnon",
+    "publishedOn": "02/12/2023",
+    "authors": ["Linjith Kunnon"],
+    "tags": ["AI", "cloud"],
+    "duration": {
+      "displayText": null,
+      "inMinutes": 170
+    },
+    "resourceUrl": "https://algoexpert.io",
+    "modules": [
+      {
+        "title": "Introduction",
+        "duration": 10,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      },
+      {
+        "title": "Basic Concepts",
+        "duration": 20,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      }
+    ],
+    "deliveryMode": "ONLINE",
+    "learningMode": null,
+    "overview": null,
+    "level": "BIGINNER",
+    "targetAudience": "STUDENT",
+    "schedule": null,
+    "region": null,
+    "venue": null,
+    "registrationUrl": "registration url",
+    "prizingModel": "FREE",
+    "promotion": null,
+    "recommendations": 0,
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-1.png"
+  }
+]

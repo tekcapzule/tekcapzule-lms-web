@@ -22,16 +22,7 @@ export class CourseApiService {
   }
 
   getAllCourse(): Observable<ICourseDetail[]> {
-    return this.httpClient.post<ICourseDetail[]>(
-      `${COURSE_API_PATH}/getAll`,
-      {},
-      {
-        params: {
-          cache: 'yes',
-          ckey: COURSE_GETALL_COURSE_CACHE_KEY,
-        },
-      }
-    );
+    return this.httpClient.get<ICourseDetail[]>('/assets/json/course.json');
   }
 
   updateRecommendCount(courseId: string): Observable<ApiSuccess> {

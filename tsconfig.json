@@ -21,6 +21,7 @@
     "useDefineForClassFields": false,
     "allowJs": true,
     "lib": ["ES2022", "dom"],
+    "strictPropertyInitialization": false,
     "paths": {
       "@app/*": ["src/app/*"],
       "@env/*": ["src/environments/*"]

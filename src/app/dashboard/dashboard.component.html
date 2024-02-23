@@ -48,12 +48,6 @@
 							<i class="fa fa-search position-absolute d-block fs-6"></i>
 						</div>
 					</li>
-					<!-- <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="uil-comments-alt"></i><span>23</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="uil-bell"></i><span>98</span></a>
-                    </li> -->
 					<li class="nav-item">
 						<a class="nav-link" href="#">
 							<i data-show="show-side-navigation1" class="uil-bars show-side-btn"></i>
@@ -205,165 +199,13 @@
 				<div class="box-layout mx-0">
 					<h3>My Courses</h3>
 					<div class="col-12">
-						<div class="course-card full-width">
-							<div class="course-img">
-								<img src="../../assets/courses/courses-thumbnail-4.png" alt="course thumbnail" />
-								<div class="resume">
-									<div role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-										style="--value:25"></div>
-									<button class="btn primary-btn">Resume</button>
-								</div>
-							</div>
-							<div class="course-info">
-								<div class="course-footer">
-									<div>Specialization <span> | </span> Deep Learning</div>
-									<div class="rating fs-5">4.5 <span class="star-icon"></span></div>
-								</div>
-								<h2 class="primary-heading pb-0">Neural Networks and Deep Learning</h2>
-								<p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-								<div class="course-status">
-									<label><span class="user-icon"></span> Beginner</label>
-									<label><span class="clock-icon me-2"></span> 14hr 30min</label>
-								</div>
-								<div class="progress">
-									<div class="progress-bar w-25" role="progressbar" aria-valuenow="75"
-										aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-							</div>
-
-						</div>
-						<div class="course-card full-width">
-							<div class="course-img">
-								<img src="../../assets/courses/courses-thumbnail-5.png" alt="course thumbnail" />
-								<div class="resume">
-									<div role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
-										style="--value:50"></div>
-									<button class="btn primary-btn">Resume</button>
-								</div>
-							</div>
-							<div class="course-info">
-								<div class="course-footer">
-									<div>Specialization <span> | </span> Deep Learning</div>
-									<div class="rating fs-5">4.5 <span class="star-icon"></span></div>
-								</div>
-								<h2 class="primary-heading pb-0">How to Use Lookup Reference Math and Text Functions…
-								</h2>
-								<p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-								<div class="course-status">
-									<label><span class="user-icon"></span> Beginner</label>
-									<label><span class="clock-icon me-2"></span> 14hr 30min</label>
-								</div>
-								<div class="progress">
-									<div class="progress-bar w-50" role="progressbar" aria-valuenow="50"
-										aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-							</div>
-
-						</div>
-						<div class="course-card full-width">
-							<div class="course-img">
-								<img src="../../assets/courses/courses-thumbnail-6.png" alt="course thumbnail" />
-								<div class="resume">
-									<div role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-										style="--value:75"></div>
-									<button class="btn primary-btn">Resume</button>
-								</div>
-							</div>
-							<div class="course-info">
-								<div class="course-footer">
-									<div>Specialization <span> | </span> Deep Learning</div>
-									<div class="rating fs-5">4.5 <span class="star-icon"></span></div>
-								</div>
-								<h2 class="primary-heading pb-0">Investment Risk Management</h2>
-								<p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-								<div class="course-status">
-									<label><span class="user-icon"></span> Beginner</label>
-									<label><span class="clock-icon me-2"></span> 14hr 30min</label>
-								</div>
-								<div class="progress">
-									<div class="progress-bar w-75" role="progressbar" aria-valuenow="75"
-										aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-							</div>
-
-						</div>
+						<ng-container *ngFor="let course of courseList;">
+							<app-course-card [course]="course"></app-course-card>
+						</ng-container>
 					</div>
 				</div>
 			</section>
-			<section>
-				<div class="box-layout mx-0">
-					<h3>Recommended Courses</h3>
-					<div class="colby3">
-						<div class="course-card">
-							<div class="course-img">
-								<img src="../../assets/courses/courses-thumbnail-1.png" alt="course thumbnail" />
-							</div>
-							<div class="course-info">
-								<h2 class="primary-heading pb-0">Neural Networks and Deep Learning</h2>
-								<p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-								<div class="course-status">
-									<label><span class="user-icon"></span> Beginner</label>
-									<label><span class="clock-icon me-2"></span> 14hr 30min</label>
-								</div>
-
-							</div>
-							<div class="course-footer">
-								<div>Specialization <span> | </span> Deep Learning</div>
-								<div class="rating">4.5 <span class="star-icon"></span></div>
-
-							</div>
-
-
-						</div>
-						<div class="course-card">
-							<div class="course-img">
-								<img src="../../assets/courses/courses-thumbnail-2.png" alt="course thumbnail" />
-							</div>
-							<div class="course-info">
-								<h2 class="primary-heading pb-0">How to Use Lookup Reference Math and Text Functions in
-									Excel</h2>
-								<p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-								<div class="course-status">
-									<label><span class="user-icon"></span> Beginner</label>
-									<label><span class="clock-icon me-2"></span> 14hr 30min</label>
-								</div>
-
-							</div>
-							<div class="course-footer">
-								<div>Specialization <span> | </span> Deep Learning</div>
-								<div class="rating">4.5 <span class="star-icon"></span></div>
-
-							</div>
-
-
-						</div>
-						<div class="course-card">
-							<div class="course-img">
-								<img src="../../assets/courses/courses-thumbnail-3.png" alt="course thumbnail" />
-							</div>
-							<div class="course-info">
-								<h2 class="primary-heading pb-0">Investment Risk Management
-								</h2>
-								<p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-								<div class="course-status">
-									<label><span class="user-icon"></span> Beginner</label>
-									<label><span class="clock-icon me-2"></span> 14hr 30min</label>
-								</div>
-
-							</div>
-							<div class="course-footer">
-								<div>Specialization <span> | </span> Deep Learning</div>
-								<div class="rating">4.5 <span class="star-icon"></span></div>
-
-							</div>
-
-
-						</div>
-
-					</div>
-				</div>
-			</section>
-
+			
 
 		</div>
 		<div class="col-3">

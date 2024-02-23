@@ -1,0 +1,15 @@
+// Courses
+.courses {
+  & .course-container {
+    background-color: var(--white-bg);
+    min-height: 160px;
+
+    .box {
+      min-height: 180px;
+
+      h3 {
+        color: var(--secondary-color);
+      }
+    }
+  }
+}
