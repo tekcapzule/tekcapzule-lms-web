@@ -7,13 +7,15 @@ import { LoginComponent } from './login/login.component';
 import { CallbackComponent } from './callback/callback.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
     AuthComponent,
     LoginComponent,
     CallbackComponent,
-    SignupComponent
+    SignupComponent,
+    ForgotpasswordComponent
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, AuthRoutingModule]
 })
