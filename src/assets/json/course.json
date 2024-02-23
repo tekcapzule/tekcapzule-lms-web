@@ -16,7 +16,6 @@
       "inMinutes": 170
     },
     "resourceUrl": "https://algoexpert.io",
-    "imageUrl": null,
     "modules": [
       {
         "title": "Introduction",
@@ -32,7 +31,7 @@
     "deliveryMode": "ONLINE",
     "learningMode": null,
     "overview": null,
-    "level": "BIGINNER",
+    "level": "INTERMEDIATE",
     "targetAudience": "STUDENT",
     "schedule": null,
     "region": null,
@@ -41,7 +40,8 @@
     "prizingModel": "FREE",
     "promotion": null,
     "recommendations": 0,
-    "status": "SUBMITTED"
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-4.png"
   },
   {
     "learningMaterialId": "cd2f5ee4-d692-4326-bece-38597e6b5cdd",
@@ -60,7 +60,6 @@
       "inMinutes": 170
     },
     "resourceUrl": "https://algoexpert.io",
-    "imageUrl": null,
     "modules": [
       {
         "title": "Introduction",
@@ -85,7 +84,8 @@
     "prizingModel": "FREE",
     "promotion": null,
     "recommendations": 0,
-    "status": "SUBMITTED"
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-3.png"
   },
   {
     "learningMaterialId": "4f90a727-6184-4c4b-be49-1add40f49b59",
@@ -104,7 +104,6 @@
       "inMinutes": 170
     },
     "resourceUrl": "https://algoexpert.io",
-    "imageUrl": null,
     "modules": [
       {
         "title": "Introduction",
@@ -129,7 +128,8 @@
     "prizingModel": "FREE",
     "promotion": null,
     "recommendations": 0,
-    "status": "SUBMITTED"
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-2.png"
   },
   {
     "learningMaterialId": "b5dd79e6-8d39-4fea-a92d-de72d75a9d78",
@@ -148,7 +148,6 @@
       "inMinutes": 170
     },
     "resourceUrl": "https://algoexpert.io",
-    "imageUrl": null,
     "modules": [
       {
         "title": "Introduction",
@@ -164,7 +163,7 @@
     "deliveryMode": "ONLINE",
     "learningMode": null,
     "overview": null,
-    "level": "BIGINNER",
+    "level": "INTERMEDIATE",
     "targetAudience": "STUDENT",
     "schedule": null,
     "region": null,
@@ -173,7 +172,8 @@
     "prizingModel": "FREE",
     "promotion": null,
     "recommendations": 0,
-    "status": "SUBMITTED"
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-1.png"
   },
   {
     "learningMaterialId": "39c9a853-7fbc-49d9-873c-de0eaf6d6f96",
@@ -192,7 +192,6 @@
       "inMinutes": 170
     },
     "resourceUrl": "https://algoexpert.io",
-    "imageUrl": null,
     "modules": [
       {
         "title": "Introduction",
@@ -217,7 +216,8 @@
     "prizingModel": "FREE",
     "promotion": null,
     "recommendations": 0,
-    "status": "SUBMITTED"
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-1.png"
   },
   {
     "learningMaterialId": "f667a8d9-364a-490c-b1c2-0e1d70151339",
@@ -236,7 +236,6 @@
       "inMinutes": 170
     },
     "resourceUrl": "https://algoexpert.io",
-    "imageUrl": null,
     "modules": [
       {
         "title": "Introduction",
@@ -252,7 +251,7 @@
     "deliveryMode": "ONLINE",
     "learningMode": null,
     "overview": null,
-    "level": "BIGINNER",
+    "level": "HIGH",
     "targetAudience": "STUDENT",
     "schedule": null,
     "region": null,
@@ -261,7 +260,8 @@
     "prizingModel": "FREE",
     "promotion": null,
     "recommendations": 0,
-    "status": "SUBMITTED"
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-1.png"
   },
   {
     "learningMaterialId": "91c71334-1053-4e82-8b1a-967ff194bc3e",
@@ -280,7 +280,6 @@
       "inMinutes": 170
     },
     "resourceUrl": "https://algoexpert.io",
-    "imageUrl": null,
     "modules": [
       {
         "title": "Introduction",
@@ -305,6 +304,7 @@
     "prizingModel": "FREE",
     "promotion": null,
     "recommendations": 0,
-    "status": "SUBMITTED"
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-1.png"
   }
 ]

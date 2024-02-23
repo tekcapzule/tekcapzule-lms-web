@@ -5,9 +5,10 @@ export interface ICourseDetail {
   title: string;
   summary: string;
   description: string;
-  author: string;
+  authors: string[];
   publisher: string;
-  duration: string;
+  duration: any;
+  level: string
   courseUrl: string;
   modules: Imodule[];
   prizingModel: string;
