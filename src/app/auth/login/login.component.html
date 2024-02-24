@@ -7,35 +7,79 @@
             <img src="../../assets/logo.png" alt="" />
           </div>
 
-          <form [formGroup]="loginForm" (ngSubmit)="onLoginFormSubmit($event)">
-            <div class="input-group mb-3">
-              <span class="input-group-text email">Email</span>
-              <input
-                type="text"
-                class="form-control"
-                aria-label="Email"
-                formControlName="email"
-              />
+          <form [formGroup]="loginForm" (submit)="onLoginFormSubmit($event)">
+            <div class="d-flex mb-3 flex-column">
+              <div
+                class="input-group"
+                [class.input-group-error]="
+                  isSubmitted &&
+                  loginFormControls.email.touched &&
+                  (loginFormControls.email.errors?.required ||
+                    loginFormControls.email.errors?.email)
+                "
+              >
+                <span class="input-group-text email">Email</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Email"
+                  formControlName="email"
+                />
+              </div>
+              <div
+                *ngIf="
+                  isSubmitted &&
+                  loginFormControls.email.touched &&
+                  (loginFormControls.email.errors?.required ||
+                    loginFormControls.email.errors?.email)
+                "
+                class="input-error-text text-danger"
+              >
+                Please enter a valid email.
+              </div>
             </div>
 
-            <div class="input-group mb-3">
-              <span class="input-group-text">Password</span>
-              <input
-                type="password"
-                class="form-control"
-                aria-label="Password"
-                formControlName="password"
-              />
+            <div class="d-flex mb-3 flex-column">
+              <div
+                class="input-group"
+                [class.input-group-error]="
+                  isSubmitted &&
+                  loginFormControls.password.touched &&
+                  loginFormControls.password.errors?.required
+                "
+              >
+                <span class="input-group-text">Password</span>
+                <input
+                  type="password"
+                  class="form-control"
+                  aria-label="Password"
+                  formControlName="password"
+                />
+              </div>
+              <div
+                *ngIf="
+                  isSubmitted &&
+                  loginFormControls.password.touched &&
+                  loginFormControls.password.errors?.required
+                "
+                class="input-error-text text-danger"
+              >
+                Please enter a valid password.
+              </div>
             </div>
 
             <div class="mb-4 text-end">
               <a href="#" routerLink="/auth/forgotpassword" class="forgot-pass"
-                >Forgot your password?</a
+                >Forgot password?</a
               >
             </div>
 
+            <div *ngIf="loginErrorMessage" class="text-danger text-center mb-2">
+              {{ loginErrorMessage }}
+            </div>
+
             <button type="submit" class="btn btn-block login-btn">Login</button>
-            <!-- <button type="submit" [disabled]="!loginForm.valid" class="btn btn-block login-btn">Login</button> -->
+
             <div class="text-center">
               <span>Need an account?&nbsp;</span>
               <a href="#" routerLink="/auth/signup" class="sign-up">Sign Up</a>
@@ -50,14 +94,16 @@
               class="google btn d-flex justify-content-center align-items-center"
               (click)="continueWithGoogle()"
             >
-              <span class="icon-google mr-3"></span> Continue with Google
+              <span class="icon-google mr-3"></span>
+              <span style="margin: 0 auto">Continue with Google</span>
             </a>
 
             <a
               class="facebook btn d-flex justify-content-center align-items-center"
               (click)="continueWithFacebook()"
             >
-              <span class="icon-facebook mr-3"></span> Continue with Facebook
+              <span class="icon-facebook mr-3"></span>
+              <span style="margin: 0 auto">Continue with Facebook</span>
             </a>
 
             <!-- <a class="apple btn d-flex justify-content-center align-items-center">

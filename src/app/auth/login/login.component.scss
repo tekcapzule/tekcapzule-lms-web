@@ -61,6 +61,19 @@ a:hover {
 .social-login .apple {
   background-color: #fff;
 }
+
+.icon-google {
+  background: url('../../../assets/google2.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-facebook {
+  background: url('../../../assets/fb2.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
 .btn {
   border-radius: 30px;
   height: 60px;
@@ -73,15 +86,18 @@ a:hover {
   background: #ec1a57;
   color: #fff;
 }
+
 .form-control {
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   height: 60px;
   border: 0 none;
 }
+
 .form-control:focus {
   box-shadow: none;
 }
+
 .input-group-text {
   background: #fff;
   border-top-left-radius: 30px;
@@ -94,6 +110,12 @@ a:hover {
     padding-left: 56px;
   }
 }
+
+.input-error-text {
+  font-size: 14px;
+  padding-left: 30px;
+}
+
 .forgot-pass,
 .sign-up {
   color: #fff;
@@ -107,4 +129,12 @@ a:hover {
   bottom: 100px;
   position: absolute;
   left: 7%;
+}
+
+.input-group-error {
+  border: 2px solid var(--red);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
