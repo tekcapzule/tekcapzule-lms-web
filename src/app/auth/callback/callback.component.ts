@@ -1,40 +1,27 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { signOut } from 'aws-amplify/auth';
-import { Hub, HubCapsule } from 'aws-amplify/utils';
-import { AuthHubEventData } from '@aws-amplify/core/dist/esm/Hub/types';
+
+import { BaseAuth } from '@app/auth/base-auth';
 
 @Component({
   selector: 'app-callback',
   templateUrl: './callback.component.html',
-  styleUrls: ['./callback.component.scss'],
+  styleUrls: ['./callback.component.scss']
 })
-export class CallbackComponent implements OnInit, OnDestroy {
-  hubListenerCancelToken: any = null;
-
-  constructor(private router: Router) {}
+export class CallbackComponent extends BaseAuth implements OnInit, OnDestroy {
+  constructor(private router: Router) {
+    super();
+  }
 
   ngOnInit(): void {
-    this.hubListenerCancelToken = Hub.listen('auth', data => {
-      this.authEventListener(data);
-    });
+    this.onInit();
   }
 
   ngOnDestroy(): void {
-    if (this.hubListenerCancelToken) {
-      this.hubListenerCancelToken();
-    }
+    this.onDestroy();
   }
 
-  private authEventListener(data: HubCapsule<'auth', AuthHubEventData>) {
-    switch (data.payload.event) {
-      case 'signedIn':
-        this.handleOAuth2SignedInCallback();
-        break;
-    }
-  }
-
-  private handleOAuth2SignedInCallback() {
+  override signedInCallback(): void {
     this.router.navigateByUrl('/lms/dashboard');
   }
 }

@@ -11,12 +11,14 @@ import { ITaskItem } from '@app/shared/models/task-item.model';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
   courseList: ICourseDetail[] = [];
   taskList: ITaskItem[] = [];
 
-  constructor(private router: Router, private courseApi: CourseApiService,
-    private dashboardApi: DashboradApiService) {}
+  constructor(
+    private router: Router,
+    private courseApi: CourseApiService,
+    private dashboardApi: DashboradApiService
+  ) {}
 
   ngOnInit(): void {
     this.getAllCourses();
