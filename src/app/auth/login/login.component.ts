@@ -1,30 +1,23 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {
-  signIn,
-  signInWithRedirect,
-  decodeJWT,
-  AuthError
-} from 'aws-amplify/auth';
-import { Hub, HubCapsule } from 'aws-amplify/utils';
-import {
-  AuthHubEventData,
-  StopListenerCallback
-} from '@aws-amplify/core/dist/esm/Hub/types';
+import { signIn, signInWithRedirect, AuthError } from 'aws-amplify/auth';
+
+import { BaseAuth } from '@app/auth/base-auth';
 
 @Component({
   selector: 'app-Login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent extends BaseAuth implements OnInit, OnDestroy {
   loginForm: FormGroup;
-  hubListenerCancelToken: StopListenerCallback;
   isSubmitted = false;
   loginErrorMessage = '';
 
   constructor(private fb: FormBuilder, private router: Router) {
+    super();
+
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -32,30 +25,18 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.hubListenerCancelToken = Hub.listen('auth', data => {
-      this.authEventListener(data);
-    });
+    this.onInit();
   }
 
   ngOnDestroy(): void {
-    if (this.hubListenerCancelToken) {
-      this.hubListenerCancelToken();
-    }
+    this.onDestroy();
   }
 
   get loginFormControls() {
     return this.loginForm.controls;
   }
 
-  private authEventListener(data: HubCapsule<'auth', AuthHubEventData>) {
-    switch (data.payload.event) {
-      case 'signedIn':
-        this.handleAwsCognitoAfterSignedIn();
-        break;
-    }
-  }
-
-  private handleAwsCognitoAfterSignedIn() {
+  override signedInCallback(): void {
     this.router.navigateByUrl('/lms/dashboard');
   }
 
