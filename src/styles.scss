@@ -23,6 +23,7 @@ body {
 	--alice-blue-color: #F0F6FF;
 	--active-color: #EC1A57;
 	--purple: #6E6EF2;
+	--merino: #FCEAEA;
 
 	--border-color: #E0E0E0;
 	--bg-color: #F5F5F5;
@@ -60,6 +61,16 @@ h4 {
 	line-height: 24px;
 }
 
+// Wrapper
+#wrapper {
+	margin-left: var(--sidebar-width);
+	transition: all 0.3s ease-in-out;
+  
+	&.fullwidth {
+	  margin-left: 0;
+	}
+  }
+
 .primary-heading {
 	font-size: 18px;
 	color: var(--primary-color);
@@ -69,6 +80,11 @@ h4 {
 	font-size: 16px;
 	color: var(--secondary-color);
 	font-weight: 500;
+}
+.main-title {
+	font-size: 24px;
+	font-weight: 500;
+	letter-spacing: -0.96px;
 }
 .primary-btn {
 	border: 1px solid var(--bs-dark);
@@ -88,6 +104,7 @@ h4 {
 .tasks {
 	.task-bg-1 {
 		background: var(--forgetme-not-color);
+		min-height: 170px;
 	}
 
 	.task-bg-2 {
@@ -214,6 +231,7 @@ height: 16px;
 	border: 1px solid var(--border-color);
 	border-radius: 5px;
 	padding: 7px 7px 20px;
+	margin-bottom: 20px;
 	.course-img {
 		margin-bottom: 15px;
 		width: 378px;
@@ -299,6 +317,9 @@ footer {
 		background: url('./assets/poweredby.png') no-repeat;
 		width: 223px;
 		height: 83px;
+		background-size: 75%;
+		margin-top: 17px;
+	
 	}
 }
 
@@ -383,5 +404,62 @@ footer {
   }
  
   .table>tbody {
+	font-weight: 500;
+  }
+
+  .content-center {
+	display: block;
+	text-align: center;
+  }
+
+
+  /*********Tab Styles********/
+  .nav-tabs {
+		.nav-link
+		{
+		font-size: 18px;
+		font-weight: 500;
+		color: var(--tertiary-color);
+		background: none;
+		border-bottom: 4px solid transparent;
+		&:hover {
+			border-color: none;
+			border: 1px solid #fff;
+			border-bottom: 4px solid ;
+		}
+			&.active {
+				color: var(--primary-color);
+				background-color: #fff;
+				border-left: 0;border-right: 0; border-top: 0;
+				border-bottom: 4px solid var(--active-color) !important;
+			}
+			&:focus, &:visited{
+				outline: none;
+				box-shadow: none;
+			}
+			&:focus-visible{
+				outline: #fff auto 5px 
+			}
+		 }
+
+  }
+
+
+
+  /**********Checkbox Style************/
+  .form-check-input:checked {
+	background-color: var(--active-color);
+    border-color: var(--active-color);
+  }
+  .form-check-input[type=checkbox] {
+	border-radius: 2px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+	border: 1px solid var(--tertiary-color);
+  }
+  .form-check-label {
+	line-height: 30px;
+    margin-left: 10px;
 	font-weight: 500;
   }
