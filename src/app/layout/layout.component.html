@@ -1,34 +1,97 @@
-<aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
-	<ul>
-		<li>
-			<a href="#"><span class="hamburger-icon"></span></a>
-		</li>
-		<li>
-			<a href="/lms/dashboard"><span class="home-icon"></span>Home</a>
-		</li>
-		<li class="">
-			<a href="/lms/courses"><span class="course-icon"></span> Courses</a>
-		</li>
-		<li class="">
-			<a href="/lms/references"><span class="references-icon"></span> References</a>
-		</li>
-		<li class="">
-			<a href="#"><span class="calendar-icon"></span> Calendar</a>
-		</li>
-		<li class="">
-			<a href="#"><span class="inbox-icon"></span> Inbox</a>
-		</li>
-		<li class="">
-			<a href="/lms/reports"><span class="reports-icon"></span> Reports</a>
-		</li>
-		<li class="">
-			<a href="/lms/settings"><span class="settings-icon"></span> Settings</a>
-		</li>
-	</ul>
+<aside
+  class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left"
+  id="show-side-navigation1"
+>
+  <ul>
+    <li>
+      <a href="#"><span class="hamburger-icon"></span></a>
+    </li>
+    <li>
+      <a href="/lms/dashboard"><span class="home-icon"></span>Home</a>
+    </li>
+    <li class="">
+      <a href="/lms/courses"><span class="course-icon"></span> Courses</a>
+    </li>
+    <li class="">
+      <a href="/lms/references"
+        ><span class="references-icon"></span> References</a
+      >
+    </li>
+    <li class="">
+      <a href="#"><span class="calendar-icon"></span> Calendar</a>
+    </li>
+    <li class="">
+      <a href="#"><span class="inbox-icon"></span> Inbox</a>
+    </li>
+    <li class="">
+      <a href="/lms/reports"><span class="reports-icon"></span> Reports</a>
+    </li>
+    <li class="">
+      <a href="/lms/settings"><span class="settings-icon"></span> Settings</a>
+    </li>
+  </ul>
 </aside>
+
+<header style="margin-left: 99px">
+  <nav class="navbar navbar-expand-md">
+    <div class="container-fluid mx-2">
+      <div class="navbar-header">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#toggle-navbar"
+          aria-controls="toggle-navbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="uil-bars text-white"></i>
+        </button>
+        <a class="navbar-brand" href="#"
+          ><img src="../../assets/tekcapzule-logo.svg" alt=""
+        /></a>
+      </div>
+      <div class="collapse navbar-collapse" id="toggle-navbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <div
+              class="search position-relative text-center px-4 py-3 mt-2"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+              "
+            >
+              <input
+                type="text"
+                class="form-control w-100 border-0 bg-transparent"
+                placeholder="Search here"
+              />
+              <i class="fa fa-search position-absolute d-block fs-6"></i>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                data-show="show-side-navigation1"
+                class="uil-bars show-side-btn"
+              ></i>
+            </a>
+          </li>
+          <li class="align-self-center" (click)="signOutUser()">
+            <i
+              class="fas fa-sign-out-alt"
+              style="font-size: 32px; cursor: pointer"
+            ></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
 
 <router-outlet></router-outlet>
 
 <footer>
-	<div class="powered-by"></div>
+  <div class="powered-by"></div>
 </footer>

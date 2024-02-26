@@ -3,11 +3,22 @@ import {
   AuthHubEventData,
   StopListenerCallback
 } from '@aws-amplify/core/dist/esm/Hub/types';
+import { getAwsCognitoUserFromToken } from '@app/shared/utils';
+import { AuthState, AuthStateService } from '@app/core/services';
+import {
+  checkAuthStatusOnPageRefresh,
+  getAccessTokenFromStore,
+  saveAuthStateToStore
+} from '@app/shared/utils/auth-utils';
 
 export abstract class BaseAuth {
   hubListenerCancelToken: StopListenerCallback;
+  authStateService: AuthStateService;
 
-  constructor() {}
+  constructor(authStateService: AuthStateService) {
+    this.authStateService = authStateService;
+    checkAuthStatusOnPageRefresh(authStateService);
+  }
 
   onInit(): void {
     this.hubListenerCancelToken = Hub.listen('auth', data => {
@@ -24,20 +35,21 @@ export abstract class BaseAuth {
   private authEventListener(data: HubCapsule<'auth', AuthHubEventData>) {
     switch (data.payload.event) {
       case 'signedIn':
-        this.signedInCallback();
-        break;
-      case 'signInWithRedirect':
-        this.signInWithRedirectCallback();
-        break;
-      case 'signedOut':
-        this.signedOutCallback();
+        this.handleSignedInAuthEvent();
         break;
     }
   }
 
+  private handleSignedInAuthEvent(): void {
+    const authState: AuthState = {
+      isLoggedIn: true,
+      awsCognitoUser: getAwsCognitoUserFromToken(),
+      accessToken: getAccessTokenFromStore()
+    };
+    this.authStateService.setAuthState(authState);
+    saveAuthStateToStore(authState);
+    this.signedInCallback();
+  }
+
   signedInCallback(): void {}
-
-  signInWithRedirectCallback(): void {}
-
-  signedOutCallback(): void {}
 }

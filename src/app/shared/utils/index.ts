@@ -5,4 +5,10 @@ export {
   toUpperCamelCase,
   isNullOrUndefined
 } from './common-utils';
-export { getAwsCognitoUserFromToken } from './auth-utils';
+export {
+  getAwsCognitoUserFromToken,
+  getAccessTokenFromStore,
+  saveAuthStateToStore,
+  deleteAuthStateFromStore,
+  checkAuthStatusOnPageRefresh
+} from './auth-utils';
