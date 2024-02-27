@@ -7,16 +7,4 @@ export class AwsCognitoUser {
     public family_name: string,
     public cognitoUsername: string
   ) {}
-
-  get firstName() {
-    return this.given_name;
-  }
-
-  get lastName() {
-    return this.family_name;
-  }
-
-  get fullName() {
-    return `${this.given_name} ${this.family_name}`;
-  }
 }

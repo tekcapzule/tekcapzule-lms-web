@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { signIn, signInWithRedirect, AuthError } from 'aws-amplify/auth';
 
 import { BaseAuth } from '@app/auth/base-auth';
+import { AuthStateService } from '@app/core/services';
 
 @Component({
   selector: 'app-Login',
@@ -15,8 +16,12 @@ export class LoginComponent extends BaseAuth implements OnInit, OnDestroy {
   isSubmitted = false;
   loginErrorMessage = '';
 
-  constructor(private fb: FormBuilder, private router: Router) {
-    super();
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    public override authStateService: AuthStateService
+  ) {
+    super(authStateService);
 
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],

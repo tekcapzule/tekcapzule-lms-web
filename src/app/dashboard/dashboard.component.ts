@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseApiService, DashboradApiService } from '@app/core';
-import { Router } from '@angular/router';
-import { signOut } from 'aws-amplify/auth';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { ITaskItem } from '@app/shared/models/task-item.model';
 
@@ -15,7 +13,6 @@ export class DashboardComponent implements OnInit {
   taskList: ITaskItem[] = [];
 
   constructor(
-    private router: Router,
     private courseApi: CourseApiService,
     private dashboardApi: DashboradApiService
   ) {}
@@ -43,9 +40,5 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  logOutUser() {
-    signOut().then(() => {
-      this.router.navigateByUrl('/auth/login');
-    });
-  }
+  logOutUser() {}
 }
