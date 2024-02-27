@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TopicItem } from '@app/shared/models/topic-item.model';
 
 @Component({
@@ -7,21 +7,21 @@ import { TopicItem } from '@app/shared/models/topic-item.model';
   styleUrls: ['./data-filter.component.scss']
 })
 export class DataFilterComponent implements OnInit {
+  
+  selectedTopic: string[] = [];
+  selectedLevel: any[] = [];
+  selectedDeliveryMode: any[] = [];
   topics: TopicItem[] = [
     { code: 'META', title: 'Metaverse'},
     { code: 'WEB3.0', title: 'Web 3.0'},
     { code: 'AI', title: 'Aritifical Intelligence'}
   ];
   levelCategories: any[] = [
-    { name: 'BIGINNER', key: 'BIGINNER' },
-    { name: 'INTERMEDIATE', key: 'INTERMEDIATE' },
-    { name: 'High', key: 'HIGH' }
+    { name: 'BIGINNER', code: 'BIGINNER' },
+    { name: 'INTERMEDIATE', code: 'INTERMEDIATE' },
+    { name: 'High', code: 'HIGH' }
   ];
-  deliveryMode: any[] = [
-    { name: 'Online', key: 'ONLINE' },
-    { name: 'Hybrid', key: 'HYBRID' },
-    { name: 'In Classroom', key: 'IN_CLASSROOM' },
-  ];
+  @Output() filterUpdate = new EventEmitter<any>();
   
   constructor() {}
 
@@ -29,4 +29,10 @@ export class DataFilterComponent implements OnInit {
       
   }
 
+  onFilterChange(event: any, key: string) {
+    console.log('topic ', this.selectedTopic, this.selectedLevel);
+    this.filterUpdate.emit({
+      'topic': this.selectedTopic, 'payments': this.selectedLevel 
+    });
+  }
 }

@@ -8,10 +8,14 @@
 	  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" >
 		<div class="accordion-body">
 			<div *ngFor="let topic of topics" class="form-check">
-				<input class="form-check-input" type="checkbox" value="">
-				<label class="form-check-label">
-				  {{topic.title}}
-				</label>
+				<p-checkbox
+				name="topic"
+				[value]="topic.code"
+				[(ngModel)]="selectedTopic"
+				[inputId]="topic.code"
+				(onChange)="onFilterChange($event, topic.code)"
+				></p-checkbox>
+				<label [for]="topic.code">{{ topic.title }}</label>
 			</div>
 			
 		</div>
@@ -26,10 +30,14 @@
 	  <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" >
 		<div class="accordion-body">
 			<div *ngFor="let level of levelCategories" class="form-check">
-				<input class="form-check-input" type="checkbox" value="">
-				<label class="form-check-label">
-				 {{level.name}}
-				</label>
+				<p-checkbox
+				name="level"
+				[value]="level.code"
+				[(ngModel)]="selectedLevel"
+				[inputId]="level.code"
+				(onChange)="onFilterChange($event, level.code)"
+				></p-checkbox>
+				<label [for]="level.code">{{ level.name }}</label>
 			</div>
 		</div>
 	  </div>
