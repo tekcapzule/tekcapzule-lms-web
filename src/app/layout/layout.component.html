@@ -78,13 +78,14 @@
               ></i>
             </a>
           </li>
-          <li class="d-flex align-self-center" (click)="signOutUser()">
-            <span
-              *ngIf="authStateService.isUserLoggedIn()"
-              class="align-self-center"
-              style="margin-right: 10px"
-              >{{ authStateService.getFirstName() }}</span
-            >
+          <li
+            *ngIf="authStateService.isUserLoggedIn()"
+            class="d-flex align-self-center"
+            (click)="signOutUser()"
+          >
+            <span class="align-self-center" style="margin-right: 10px">{{
+              authStateService.getFirstName()
+            }}</span>
             <i
               class="fas fa-sign-out-alt"
               style="font-size: 32px; cursor: pointer"
