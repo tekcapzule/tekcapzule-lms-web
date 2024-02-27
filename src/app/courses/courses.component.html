@@ -4,295 +4,37 @@
 
         <nav>
             <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
-                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">Active
-                    <span>(2)</span></button>
-                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
-                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Completed
-                    <span>(10)</span></button>
-                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
-                    type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Wishlisted
-                    <span>(20)</span></button>
+                <button class="nav-link" [ngClass]="{'active': selectedTab === 'active' }" type="button" (click)="toggleTab('active')">Active
+                    <span>({{activeList.length}})</span></button>
+                <button class="nav-link" [ngClass]="{'active': selectedTab === 'completed' }" type="button" (click)="toggleTab('completed')">Completed
+                    <span>({{completeList.length}})</span></button>
+                <button class="nav-link" [ngClass]="{'active': selectedTab === 'wishlist' }" type="button" (click)="toggleTab('wishlist')">Wishlisted
+                    <span>({{wishlistList.length}})</span></button>
             </div>
         </nav>
-        <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="tab-content">
+            <div class="tab-pane" [ngClass]="{'active show': selectedTab === 'active' }" *ngIf="selectedTab === 'active'">
                 <div class="colby3">
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-5.png" alt="course thumbnail" />
-                            <!-- <div class="resume"><div role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="--value: 25;"></div><button class="btn primary-btn">Resume</button></div> -->
-                        </div>
+                    <ng-container *ngFor="let course of activeList;">
+                        <app-course-card [course]="course"></app-course-card>
+                    </ng-container>
 
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">Neural Networks and Deep Learning</h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-6.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">How to Use Lookup Reference Math and Text Functions in
-                                Excel</h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-4.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">How to Use Lookup Reference Math and Text Functions in
-                                Excel</h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-3.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">How to Use Lookup Reference Math and Text Functions in
-                                Excel</h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
 
 
                 </div>
             </div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="tab-pane" [ngClass]="{'active show': selectedTab === 'completed' }" *ngIf="selectedTab === 'completed'">
                 <div class="colby3">
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-3.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">Neural Networks and Deep Learning</h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-4.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">How to Use Lookup Reference Math and Text Functions in
-                                Excel</h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-5.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">Investment Risk Management
-                            </h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-6.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">Investment Risk Management
-                            </h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-
+                    <ng-container *ngFor="let course of completeList;">
+                        <app-course-card [course]="course"></app-course-card>
+                    </ng-container>
                 </div>
             </div>
-            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+            <div class="tab-pane" [ngClass]="{'active show': selectedTab === 'wishlist' }" *ngIf="selectedTab === 'wishlist'">
                 <div class="colby3">
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-4.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">Neural Networks and Deep Learning</h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-3.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">How to Use Lookup Reference Math and Text Functions in
-                                Excel</h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-2.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">Investment Risk Management
-                            </h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-1.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">Investment Risk Management
-                            </h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-
+                    <ng-container *ngFor="let course of wishlistList;">
+                        <app-course-card [course]="course"></app-course-card>
+                    </ng-container>
                 </div>
             </div>
         </div>
@@ -301,94 +43,9 @@
             <div class="mt-5 mx-0">
                 <h3 class="main-title">Recommended Courses</h3>
                 <div class="colby3">
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-1.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">Neural Networks and Deep Learning</h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-2.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">How to Use Lookup Reference Math and Text Functions in
-                                Excel</h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-3.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">Investment Risk Management
-                            </h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-4.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">Investment Risk Management
-                            </h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-
+                    <ng-container *ngFor="let course of activeList;">
+                        <app-course-card [course]="course"></app-course-card>
+                    </ng-container>
                 </div>
             </div>
         </section>
@@ -398,218 +55,17 @@
                 <div class="d-flex">
                 <div class="col-3 pe-4">
                 <h3>Filter By</h3>
-                <div class="accordion course-filters">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Topics
-                        </button>
-                      </h2>
-                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" >
-                        <div class="accordion-body">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <label class="form-check-label">
-                                  Web 3.0
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <label class="form-check-label">
-                                  Checkbox Value-2
-                                </label>
-                              </div>
-                            
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                            Level
-                        </button>
-                      </h2>
-                      <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" >
-                        <div class="accordion-body">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <label class="form-check-label">
-                                 Checkbox Value-1
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <label class="form-check-label">
-                                  Checkbox Value-2
-                                </label>
-                              </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                            Duration
-                        </button>
-                      </h2>
-                      <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" >
-                        <div class="accordion-body">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <label class="form-check-label">
-                                 Checkbox Value-1
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <label class="form-check-label">
-                                  Checkbox Value-2
-                                </label>
-                              </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>    
+                <app-data-filter></app-data-filter>
                 </div>
                 <div class="col-9">
-                <div class="colby3">
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-1.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">Neural Networks and Deep Learning</h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
+                    <div class="colby3">
+                        <ng-container *ngFor="let course of wishlistList;">
+                            <app-course-card [course]="course"></app-course-card>
+                        </ng-container>
                     </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-2.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">How to Use Lookup Reference Math and Text Functions in
-                                Excel</h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
+                    <div class="content-center">
+                        <button class="btn primary-btn">Load more</button>
                     </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-3.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">Investment Risk Management
-                            </h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-4.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">Investment Risk Management
-                            </h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-5.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">Investment Risk Management
-                            </h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="course-card">
-                        <div class="course-img">
-                            <img src="../../assets/courses/courses-thumbnail-6.png" alt="course thumbnail" />
-                        </div>
-                        <div class="course-info">
-                            <h2 class="primary-heading pb-0">Investment Risk Management
-                            </h2>
-                            <p class="gray-txt">Linjith Kunnon <span>(2 days ago)</span></p>
-                            <div class="course-status">
-                                <label><span class="user-icon"></span> Beginner</label>
-                                <label><span class="clock-icon me-2"></span> 14hr 30min</label>
-                            </div>
-
-                        </div>
-                        <div class="course-footer">
-                            <div>Specialization <span> | </span> Deep Learning</div>
-                            <div class="rating">4.5 <span class="star-icon"></span></div>
-
-                        </div>
-
-
-                    </div>
-                   
-
-                </div>
-                <div class="content-center">
-                <button class="btn primary-btn">Load more</button>
-            </div>
                 </div>
             </div>
               

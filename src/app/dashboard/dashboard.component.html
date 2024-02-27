@@ -169,7 +169,7 @@
 					<h3>My Courses</h3>
 					<div class="col-12">
 						<ng-container *ngFor="let course of courseList;">
-							<app-course-card [course]="course"></app-course-card>
+							<app-course-card [course]="course" [page]="'Dashboard'"></app-course-card>
 						</ng-container>
 					</div>
 					<div class="no-course content-center">

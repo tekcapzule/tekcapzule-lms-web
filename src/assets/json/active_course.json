@@ -1,0 +1,90 @@
+[
+  {
+    "learningMaterialId": "6369a525-8344-42c5-9f7c-4403beb24641",
+    "learningMaterialType": "Course",
+    "topicCode": "AI",
+    "subTopicCode": "ML",
+    "title": "MachineLearning Crash Course",
+    "summary": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda.",
+    "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
+    "publisher": "Linjith Kunnon",
+    "publishedOn": "02/12/2023",
+    "authors": ["Linjith Kunnon"],
+    "tags": ["AI", "cloud"],
+    "duration": {
+      "displayText": null,
+      "inMinutes": 170
+    },
+    "resourceUrl": "https://algoexpert.io",
+    "modules": [
+      {
+        "title": "Introduction",
+        "duration": 10,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      },
+      {
+        "title": "Basic Concepts",
+        "duration": 20,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      }
+    ],
+    "deliveryMode": "ONLINE",
+    "learningMode": null,
+    "overview": null,
+    "level": "INTERMEDIATE",
+    "targetAudience": "STUDENT",
+    "schedule": null,
+    "region": null,
+    "venue": null,
+    "registrationUrl": "registration url",
+    "prizingModel": "FREE",
+    "promotion": null,
+    "recommendations": 0,
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-4.png"
+  },
+  {
+    "learningMaterialId": "cd2f5ee4-d692-4326-bece-38597e6b5cdd",
+    "learningMaterialType": "Course",
+    "topicCode": "AI",
+    "subTopicCode": "ML",
+    "title": "AI Crash Course",
+    "summary": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda.",
+    "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
+    "publisher": "Linjith Kunnon",
+    "publishedOn": "02/12/2023",
+    "authors": ["Linjith Kunnon"],
+    "tags": ["AI", "cloud"],
+    "duration": {
+      "displayText": null,
+      "inMinutes": 170
+    },
+    "resourceUrl": "https://algoexpert.io",
+    "modules": [
+      {
+        "title": "Introduction",
+        "duration": 10,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      },
+      {
+        "title": "Basic Concepts",
+        "duration": 20,
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+      }
+    ],
+    "deliveryMode": "ONLINE",
+    "learningMode": null,
+    "overview": null,
+    "level": "BIGINNER",
+    "targetAudience": "STUDENT",
+    "schedule": null,
+    "region": null,
+    "venue": null,
+    "registrationUrl": "registration url",
+    "prizingModel": "FREE",
+    "promotion": null,
+    "recommendations": 0,
+    "status": "SUBMITTED",
+    "imageUrl": "../../assets/courses/courses-thumbnail-3.png"
+  }
+]

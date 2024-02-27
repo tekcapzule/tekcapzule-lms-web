@@ -11,6 +11,7 @@ import * as moment from 'moment';
 export class CourseCardComponent implements OnInit {
   
   @Input() course: ICourseDetail;
+  @Input() page: string;
 
   constructor(private router: Router) {}
 
