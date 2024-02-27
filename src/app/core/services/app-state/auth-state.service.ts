@@ -34,6 +34,10 @@ export class AuthStateService extends BaseStateService<AuthState> {
     return this.state.awsCognitoUser;
   }
 
+  public getFirstName(): string | undefined {
+    return this.state.awsCognitoUser?.given_name;
+  }
+
   public getAccessToken(): string | null {
     return this.state.accessToken;
   }
