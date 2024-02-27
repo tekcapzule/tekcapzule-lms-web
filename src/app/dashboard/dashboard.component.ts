@@ -18,12 +18,12 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getAllCourses();
+    this.getActiveCourse();
     this.getAllTask();
   }
 
-  getAllCourses() {
-    this.courseApi.getAllCourse().subscribe(
+  getActiveCourse() {
+    this.courseApi.getActiveCourse().subscribe(
       data => {
         this.courseList = data;
       },
