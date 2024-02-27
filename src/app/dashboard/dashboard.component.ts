@@ -39,4 +39,6 @@ export class DashboardComponent implements OnInit {
       err => {}
     );
   }
+
+  logOutUser() {}
 }
