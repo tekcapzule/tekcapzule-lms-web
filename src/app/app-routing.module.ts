@@ -22,6 +22,11 @@ const routes: Routes = [
           import('./courses/courses.module').then(m => m.CoursesModule)
       },
       {
+        path: 'course-detail/:code',
+        loadChildren: () =>
+          import('./course-detail/course-detail.module').then(m => m.CourseDetailModule)
+      },
+      {
         path: 'feeds',
         loadChildren: () =>
           import('./feeds/feeds.module').then(m => m.FeedsModule)
@@ -35,6 +40,11 @@ const routes: Routes = [
         path: 'references',
         loadChildren: () =>
           import('./references/references.module').then(m => m.ReferencesModule)
+      },
+      {
+        path: 'settings',
+        loadChildren: () =>
+          import('./settings/settings.module').then(m => m.SettingsModule)
       },
       {
         path: '',
