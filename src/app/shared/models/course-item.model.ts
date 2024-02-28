@@ -1,6 +1,6 @@
 
 export interface ICourseDetail {
-  courseId: string;
+  learningMaterialId: string;
   topicCode: string;
   title: string;
   summary: string;
