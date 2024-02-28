@@ -12,7 +12,10 @@ export class CoursesComponent {
   activeList: ICourseDetail[] = [];
   completeList: ICourseDetail[] = [];
   wishlistList: ICourseDetail[] = [];
+  filteredList: ICourseDetail[] = [];
   selectedTab: string = 'active';
+  selectedTopic: string[] = [];
+  selectedLevel: string[] = [];
 
   constructor(
     private router: Router,
@@ -48,6 +51,7 @@ export class CoursesComponent {
     this.courseApi.getWishlistCourse().subscribe(
       data => {
         this.wishlistList = data;
+        this.filteredList = data;
       },
       err => {}
     );
@@ -55,5 +59,22 @@ export class CoursesComponent {
 
   toggleTab(tabName: string) {
     this.selectedTab = tabName;
+  }
+
+  onFilterUpdate(selectedFilters: any) {
+    this.selectedTopic = selectedFilters.topic;
+    this.selectedLevel = selectedFilters.level;
+    this.filterCourse();
+  }
+
+  filterCourse() {
+    let tempList = [...this.wishlistList];
+    if (this.selectedTopic.length) {
+      tempList = tempList.filter(tl => this.selectedTopic.includes(tl.topicCode));
+    }
+    if (this.selectedLevel.length) {
+      tempList = tempList.filter(tl => this.selectedLevel.includes(tl.level));
+    }
+    this.filteredList = tempList
   }
 }

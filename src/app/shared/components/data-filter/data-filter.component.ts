@@ -13,7 +13,7 @@ export class DataFilterComponent implements OnInit {
   selectedDeliveryMode: any[] = [];
   topics: TopicItem[] = [
     { code: 'META', title: 'Metaverse'},
-    { code: 'WEB3.0', title: 'Web 3.0'},
+    { code: 'WEB3', title: 'Web 3.0'},
     { code: 'AI', title: 'Aritifical Intelligence'}
   ];
   levelCategories: any[] = [
@@ -30,9 +30,8 @@ export class DataFilterComponent implements OnInit {
   }
 
   onFilterChange(event: any, key: string) {
-    console.log('topic ', this.selectedTopic, this.selectedLevel);
     this.filterUpdate.emit({
-      'topic': this.selectedTopic, 'payments': this.selectedLevel 
+      'topic': this.selectedTopic, 'level': this.selectedLevel 
     });
   }
 }
