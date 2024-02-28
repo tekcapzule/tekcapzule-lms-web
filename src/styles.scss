@@ -7,7 +7,7 @@ body {
 }
 
 :root {
-	--primary-color: #1A1A1A;
+	--primary-color: #1A1A1A !important;
 	--secondary-color: #464646;
 	--tertiary-color: #848484;
 	--light-gray: #BCBCBC;
@@ -222,7 +222,8 @@ height: 16px;
 .colby3 {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: flex-start;
+	gap: 23px;
 }
 
 .course-card {
@@ -463,3 +464,53 @@ footer {
     margin-left: 10px;
 	font-weight: 500;
   }
+
+
+  /********Accordion*********/
+  .accordion-item {
+	.accordion-header {
+		padding: 0 10px;
+		button {
+			margin-bottom: 20px;
+			border: 0 none;
+			background: var(--bg-color);
+			color: var(--primary-color);
+			font-weight: 600;
+		}
+	}
+	.accordion-collapse {
+		border: 0 none;
+		.accordion-body{
+			padding-left: 0;
+		}
+	}
+  }
+  .form-check {
+	margin-bottom: 10px;
+  
+	.p-checkbox {
+	  margin-right: 10px;
+	}
+  
+	.p-checkbox-box {
+	  border: 2px solid var(--primary-color) !important;
+	  width: 18px !important;
+	  height: 18px !important;
+	  border-radius: 4px !important;
+  
+	  &.p-highlight {
+		border-color: var(--active-color) !important;
+		background:  var(--active-color) !important;
+  
+		.pi {
+		  font-size: .7rem !important;
+		  padding-top: 1px;
+		}
+	  }
+  
+	  &:not(.p-checkbox-disabled):hover {
+		border-color:  var(--active-color) !important;
+	  }
+	}
+  }
+  
