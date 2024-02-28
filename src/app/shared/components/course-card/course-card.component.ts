@@ -20,6 +20,10 @@ export class CourseCardComponent implements OnInit {
   }
 
   onResume() {
-    this.router.navigateByUrl('/lms/course-detail/'+this.course.learningMaterialId);
+    if(this.page === 'Dashboard') {
+      this.router.navigateByUrl('/lms/video-detail/'+this.course.learningMaterialId);
+    } else {
+      this.router.navigateByUrl('/lms/course-detail/'+this.course.learningMaterialId);
+    }
   }
 }
