@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25.662" height="22" viewBox="0 0 25.662 22">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_18161" data-name="Rectangle 18161" width="16.162" height="16.153" fill="#3b4560"/>
+    </clipPath>
+  </defs>
+  <g id="Group_32124" data-name="Group 32124" transform="translate(-1596.576 -96)">
+    <g id="Rectangle_18150" data-name="Rectangle 18150" transform="translate(1596.576 96)" fill="none" stroke="#3b4560" stroke-width="2.5">
+      <rect width="19" height="22" stroke="none"/>
+      <rect x="1.25" y="1.25" width="16.5" height="19.5" fill="none"/>
+    </g>
+    <g id="Group_31990" data-name="Group 31990" transform="translate(1606.076 97.72)">
+      <g id="Group_31989" data-name="Group 31989" clip-path="url(#clip-path)">
+        <path id="Path_81016" data-name="Path 81016" d="M262.177,0a5.1,5.1,0,0,1,.639.454c.626.6,1.234,1.224,1.848,1.839a.9.9,0,0,1,.007,1.4c-.489.492-.983.98-1.475,1.469-.034.034-.072.063-.092.08L259.8,1.933c.545-.57,1.1-1.156,1.663-1.729a1.468,1.468,0,0,1,.383-.2Z" transform="translate(-248.843)" fill="#3b4560"/>
+        <path id="Path_81017" data-name="Path 81017" d="M0,81.11C0,80,0,78.932.006,77.86a.377.377,0,0,1,.118-.226Q1.256,76.491,2.4,75.357q3.673-3.672,7.344-7.346a1.13,1.13,0,0,0,.131-.192l3.393,3.393c-.037.039-.088.095-.141.148q-4.8,4.8-9.6,9.607a.444.444,0,0,1-.347.146c-.981-.006-1.963,0-2.944,0Z" transform="translate(0 -64.96)" fill="#3b4560"/>
+      </g>
+    </g>
+    <rect id="Rectangle_18162" data-name="Rectangle 18162" width="9" height="2" transform="translate(1601 102)" fill="#3b4560"/>
+    <rect id="Rectangle_18163" data-name="Rectangle 18163" width="5" height="2" transform="translate(1601 106)" fill="#3b4560"/>
+    <line id="Line_28" data-name="Line 28" y1="4.5" x2="4.657" transform="translate(1611.5 99.9)" fill="none" stroke="#fff" stroke-width="1"/>
+    <line id="Line_29" data-name="Line 29" y1="4.6" x2="4.657" transform="translate(1612.5 106.9)" fill="none" stroke="#fff" stroke-width="1"/>
+  </g>
+</svg>

@@ -55,11 +55,11 @@
                 <div class="d-flex">
                 <div class="col-3 pe-4">
                 <h3>Filter By</h3>
-                <app-data-filter></app-data-filter>
+                <app-data-filter (filterUpdate)="onFilterUpdate($event)"></app-data-filter>
                 </div>
                 <div class="col-9">
                     <div class="colby3">
-                        <ng-container *ngFor="let course of wishlistList;">
+                        <ng-container *ngFor="let course of filteredList;">
                             <app-course-card [course]="course"></app-course-card>
                         </ng-container>
                     </div>

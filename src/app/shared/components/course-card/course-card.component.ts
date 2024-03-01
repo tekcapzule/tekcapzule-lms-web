@@ -19,4 +19,11 @@ export class CourseCardComponent implements OnInit {
       this.course.publishedOn = this.course.publishedOn ? moment(this.course.publishedOn, 'DD/MM/YYYY').fromNow() : 'NA';
   }
 
+  onResume() {
+    if(this.page === 'Dashboard') {
+      this.router.navigateByUrl('/lms/video-detail/'+this.course.learningMaterialId);
+    } else {
+      this.router.navigateByUrl('/lms/course-detail/'+this.course.learningMaterialId);
+    }
+  }
 }
