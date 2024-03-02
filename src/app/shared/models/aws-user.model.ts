@@ -5,6 +5,6 @@ export class AwsCognitoUser {
     public email_verified: boolean,
     public given_name: string,
     public family_name: string,
-    public cognitoUsername: string
+    public cognito_username: string
   ) {}
 }
