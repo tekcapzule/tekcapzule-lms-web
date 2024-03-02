@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 import { AwsCognitoUser } from '@app/shared/models/aws-user.model';
 import { BaseStateService } from './base-state.service';
 
-export interface AuthState {
+export type AuthState = {
   isLoggedIn: boolean;
   awsCognitoUser: AwsCognitoUser | null;
   accessToken: string | null;
-}
+};
 
 const initialState: AuthState = {
   isLoggedIn: false,
