@@ -1,89 +1,87 @@
 <section id="wrapper">
-    <div class="video-detail-row" *ngIf="course">
-        <div class="video-detail-col">
-            <ul class="breadcrumbs d-flex flex-row gap-2 align-items-center">
-                <li> <a href="javascript:void(0)"> <img src="assets/home.svg" alt=""> </a> </li>
-                <li> <img src="assets/arrow-breadcrumbs.svg" alt=""> </li>
-                <li> <a href="javascript:void(0)"> Course </a> </li>
-                <li> <img src="assets/arrow-breadcrumbs.svg" alt=""> </li>
-                <li> <a href="javascript:void(0)"> Deep Learning Specialization </a> </li>
-                <li> <img src="assets/arrow-breadcrumbs.svg" alt=""> </li>
-                <li> <a href="javascript:void(0)"> Neural Networks and Deep Learning </a> </li>
-            </ul>
-            <div class="video-section">
-                <img src="assets/video-img.jpg" alt="">
-            </div>
-            
+    <div class="row video-detail-row p-0 g-0" *ngIf="course">
+        <div class="col-9 video-detail-col">            
+            <nav class="px-4 py-2 d-flex m-0" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb m-0">
+                  <li class="breadcrumb-item"><a href="#" class="text-decoration-none fw-medium"><img src="assets/home.svg" alt=""></a></li>
+                  <li class="breadcrumb-item"> <a href="javascript:void(0)" class="text-decoration-none fw-medium"> Course </a> </li>
+                  <li class="breadcrumb-item"> <a href="javascript:void(0)" class="text-decoration-none fw-medium">  Deep Learning Specialization </a> </li>
+                  <li class="breadcrumb-item"> <a href="javascript:void(0)" class="text-decoration-none fw-medium"> Neural Networks and Deep Learning </a> </li>
+                </ol>
+              </nav>
+            <div class="d-flex mb-8">
+                <img src="assets/video-img.jpg" alt="" class="d-flex">
+            </div>            
         </div>
         
-        <div class="video-detail-list">
-            <div class="video-detail-progress gap-3 d-flex">
-                <button class="btn btn-link"> <img src="assets/stretch.svg" alt=""> </button>
-                <button class="btn btn-link"> <img src="assets/edit-text.svg" alt=""> </button>
-                <p>70% Progress</p>
-                <span class="progress-bar"></span>
+        <div class="col-3 video-detail-list p-0">
+            <div class="video-detail-progress gap-3 d-flex px-4 py-2 align-items-end border-bottom border-3 position-relative">
+                <button class="btn btn-link p-0"> <img src="assets/stretch.svg" alt=""> </button>
+                <button class="btn btn-link p-0"> <img src="assets/edit-text.svg" alt=""> </button>
+                <p class="m-0 ms-auto fw-600 lh-1 text-uppercase">70% Progress</p>
+                <span class="progress-bar position-absolute start-0 bottom-1"></span>
             </div>
             <div class="video-list">
                 <div class="accordion">
                     <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button gap-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <div class="video-no rounded-circle d-flex justify-content-center align-items-center"> 1 </div>
+                      <h2 class="accordion-header p-0" id="headingOne">
+                        <button class="accordion-button gap-4 px-2 py-3 rounded-0 grid m-0 align-items-start text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <div class="video-no border ratio ratio-1x1 border-3 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"> 1 </div>
                             <div class="video-list-detail">
-                                <h4>Welcome to the Deep Learning</h4>
-                                <p>20 min</p>
+                                <h4 class="m-0">Welcome to the Deep Learning</h4>
+                                <p class="fs-14 m-0">20 min</p>
                             </div>
                         </button>
                       </h2>
                       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" >
                         <div class="accordion-body">
-                            <button class="video-list-innr gap-4">
-                                <div class="video-no d-flex justify-content-center "> <img src="assets/video-icon.svg" alt=""> </div>
+                            <button class="video-list-innr position-relative border-0 gap-4 px-2 py-3 w-100 align-items-start text-start">
+                                <div class="video-no p-0 border ratio ratio-1x1 border-0 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"> <img src="assets/video-icon.svg" alt=""> </div>
                                 <div class="video-list-detail">
-                                    <h4>Welcome to the Deep Learning</h4>
-                                    <p>20 min</p>
+                                    <h4 class="m-0 fs-14 fw-normal">Welcome to the Deep Learning</h4>
+                                    <p class="m-0 fs-14 fw-normal">20 min</p>
                                 </div>
-                                <div class="video-list-icon"> <img src="assets/check-lite.svg" alt=""> </div>
+                                <div class="video-list-icon">  </div>
                             </button> 
-                            <button class="video-list-innr gap-4 current">
-                                <div class="video-no d-flex justify-content-center "> <img src="assets/video-icon.svg" alt=""> </div>
+                            <button class="video-list-innr position-relative border-0 gap-4 px-2 py-3 w-100 align-items-start text-start">
+                                <div class="video-no p-0 border ratio ratio-1x1 border-0 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"> <img src="assets/video-icon.svg" alt=""> </div>
                                 <div class="video-list-detail">
-                                    <h4>Welcome to the Deep Learning</h4>
-                                    <p>20 min</p>
+                                    <h4 class="m-0 fs-14 fw-normal">Welcome to the Deep Learning</h4>
+                                    <p class="m-0 fs-14 fw-normal">20 min</p>
                                 </div>
-                                <div class="video-list-icon"> <img src="assets/check-dark.svg" alt=""> </div>
-                            </button>                 
+                                <div class="video-list-icon video-list-icon-dark">  </div>
+                            </button>                
                         </div>
                       </div>
                     </div>
                     <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button gap-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                            <div class="video-no rounded-circle d-flex justify-content-center align-items-center"> 1 </div>
+                      <h2 class="accordion-header p-0" id="headingTwo">
+                        <button class="accordion-button gap-4 rounded-0 px-2 py-3 grid m-0 align-items-start text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            <div class="video-no border ratio ratio-1x1 border-3 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"> 1 </div>
                             <div class="video-list-detail">
-                                <h4>Welcome to the Deep Learning</h4>
-                                <p>20 min</p>
+                                <h4 class="m-0">Welcome to the Deep Learning</h4>
+                                <p class="fs-14 m-0">20 min</p>
                             </div>
                         </button>
                       </h2>
                       <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" >
                         <div class="accordion-body">
-                            <button class="video-list-innr gap-4">
-                                <div class="video-no d-flex justify-content-center "> <img src="assets/video-icon.svg" alt=""> </div>
+                            <button class="video-list-innr position-relative border-0 gap-4 px-2 py-3 w-100 align-items-start text-start">
+                                <div class="video-no border ratio ratio-1x1 border-0 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"> <img src="assets/video-icon.svg" alt=""> </div>
                                 <div class="video-list-detail">
-                                    <h4>Welcome to the Deep Learning</h4>
-                                    <p>20 min</p>
+                                    <h4 class="m-0 fs-14 fw-normal">Welcome to the Deep Learning</h4>
+                                    <p class="m-0 fs-14 fw-normal">20 min</p>
                                 </div>
-                                <div class="video-list-icon"> <img src="assets/check-lite.svg" alt=""> </div>
+                                <div class="video-list-icon">  </div>
                             </button> 
-                            <button class="video-list-innr gap-4">
-                                <div class="video-no d-flex justify-content-center "> <img src="assets/video-icon.svg" alt=""> </div>
+                            <button class="video-list-innr position-relative border-0 gap-4 px-2 py-3 w-100 align-items-start text-start">
+                                <div class="video-no border ratio ratio-1x1 border-0 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"> <img src="assets/video-icon.svg" alt=""> </div>
                                 <div class="video-list-detail">
-                                    <h4>Welcome to the Deep Learning</h4>
-                                    <p>20 min</p>
+                                    <h4 class="m-0 fs-14 fw-normal">Welcome to the Deep Learning</h4>
+                                    <p class="m-0 fs-14 fw-normal">20 min</p>
                                 </div>
-                                <div class="video-list-icon"> <img src="assets/check-dark.svg" alt=""> </div>
-                            </button>  
+                                <div class="video-list-icon video-list-icon-dark">  </div>
+                            </button>    
                         </div>
                       </div>
                     </div>

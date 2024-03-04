@@ -33,6 +33,10 @@ body {
 	--sidebar-bg-color: #fff;
 	--sidebar-width: 100px;
 	--btn-border-radius: 18px;
+	--link-color: #085EB7;
+
+	--fs-12: 12px;
+	--fs-14: 14px;
 }
 
 $sidebar-width: var(--sidebar-width);
@@ -59,6 +63,13 @@ h4 {
 	align-items: center;
     display: flex;
 	line-height: 24px;
+}
+
+.fw-medium {
+	font-weight: 500;
+}
+.fw-600 {
+	font-weight: 600;
 }
 
 // Wrapper
@@ -516,28 +527,15 @@ footer {
   .video-list {
 	.accordion-item {
 		.accordion-header {
-			padding: 0;
 			button {
-				border-radius: 0;
 				display: grid;
 				grid-template-columns: 2.3025rem 1fr 1.25rem;
-				align-items: flex-start;
-				text-align: left;
 				.video-no {
-					width: 2.3025rem;
-					height: 2.3025rem;
-					border: 3px solid #CECECE;
-					font-size: 0.875rem;
-					color: #414141;
+					color: var(--secondary-color);
 				}
 				.video-list-detail {
-					h4 {
-						margin: 0;
-					}
 					p {
-						font-size: 0.875rem;
-						color: #888888;
-						margin: 0;
+						color: var(--tertiary-color);
 					}
 				}
 			}
@@ -547,15 +545,9 @@ footer {
 			.video-list-innr {
 				display: grid;
 				grid-template-columns: 2.3025rem 1fr 1.25rem;
-				align-items: flex-start;
-				text-align: left;
-				padding: 0.75rem 1.25rem;
-				border: 0;
 				background-color: transparent;
-				width: 100%;
-				position: relative;
 				&.current,&:hover {
-					background-color: #EDF7FF;
+					background-color: var(--bg-color);
 				}
 				&.current::before {
 					content: '';
@@ -567,25 +559,27 @@ footer {
 					background-color: #EC1A57;
 				}
 				.video-no {
-					width: 2.3025rem;
-					height: 2.3025rem;
-					font-size: 0.875rem;
-					color: #414141;
-					padding-block-start: 0.65rem;
+					
 					img {
 						max-height: 0.875rem;
 					}
 				}
 				.video-list-detail {
 					h4 {
-						margin: 0;
-						font-size: 0.875rem;
-						font-weight: 400;
+						color: var(--secondary-color);
 					}
 					p {
-						font-size: 0.875rem;
-						color: #888888;
-						margin: 0;
+						color: var(--tertiary-color);
+					}
+				}
+				.video-list-icon {
+					background-image: url(assets/check-lite.svg);
+					background-position: center left;
+					aspect-ratio: 1;
+					background-repeat: no-repeat;
+					background-size: contain;
+					&.video-list-icon-dark {
+						background-image: url(assets/check-dark.svg);
 					}
 				}
 			}
@@ -596,4 +590,14 @@ button:focus,
 .accordion-button:focus {
 	box-shadow: none;
 	outline: none; 
+}
+
+.breadcrumb-item+.breadcrumb-item a {
+	color: var(--link-color);
+}
+.breadcrumb-item+.breadcrumb-item::before {
+	color: var(--link-color)!important;
+}
+img {
+	max-width: 100%;
 }
