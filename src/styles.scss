@@ -24,6 +24,7 @@ body {
 	--active-color: #EC1A57;
 	--purple: #6E6EF2;
 	--merino: #FCEAEA;
+	--purple-dark: #71266F;
 
 	--border-color: #E0E0E0;
 	--bg-color: #F5F5F5;
@@ -444,6 +445,7 @@ footer {
 				background-color: #fff;
 				border-left: 0;border-right: 0; border-top: 0;
 				border-bottom: 4px solid var(--active-color) !important;
+				font-weight: 600;
 			}
 			&:focus, &:visited{
 				outline: none;
@@ -600,4 +602,43 @@ button:focus,
 }
 img {
 	max-width: 100%;
+}
+.fs-13 {
+	font-size: 0.8125rem;
+}
+.bg-purple {
+	background-color: var(--purple-dark);
+}
+.whats-included {
+	width: 1.8rem;
+	height: 1.8rem;	
+	background-position: center;
+	background-repeat: no-repeat;
+	&.videos {
+		background-image: url(assets/courses/videos.svg);
+	}
+	&.reading {
+		background-image: url(assets/courses/reading.svg);
+	}
+	&.quiz {
+		background-image: url(assets/courses/reading.svg);
+	}
+	&.assessment {
+		background-image: url(assets/courses/reading.svg);
+	}
+	&.certificate {
+		background-image: url(assets/courses/reading.svg);
+	}
+}
+.text-grey {
+	color: #414141;
+}
+.h-100 {
+	height: 100%;
+}
+.fs-14 {
+	font-size: 0.875rem;
+}
+.link {
+	color: #1163B9;
 }
