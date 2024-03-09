@@ -162,15 +162,91 @@
 
                 </div>
                 <!-- Overview -->
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
+                <div class="tab-pane fade px-2 py-2 px-sm-5 py-sm-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="d-flex justify-content-between align-items-center mb-4">                        
+                        <div class="d-inline-flex border px-2 py-1 gap-3">
+                            <p class="m-0 fs-13 fw-semibold">Filter:</p>
+                        </div>                        
+                        <button class="d-flex justify-content-center align-items-center gap-2 border py-2 px-4 fw-medium text-white bg-pink border-0"> <span class="download-ico"></span> Download all </button>
+                    </div>
+                    <div class="resources-row">
+                        <div class="col border p-3 position-relative">
+                            <h4 class="fs-6 text-body fw-medium mb-1 pe-4">Learn to Code Resource</h4>
+                            <p class="fs-14 text-secondary fw-medium mb-1 pe-4">What is a Neural Network?</p>
+                            <div class="reasources-card-icon position-absolute"> <img src="assets/video-icon.svg" alt=""> </div>
+                            <p class="fs-6 text-dark mb-4">Become a Machine Learning expert. Master the fundamentals of deep learning and break into AI.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="download-resource p-0 m-0 border-0 bg-transparent">  </button>
+                                <p class="fs-14 text-black-50 m-0">7.1 MB</p>
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
                 <!-- Resources -->
-                <div class="tab-pane fade" id="discussion" role="tabpanel" aria-labelledby="discussion-tab">
+                <div class="tab-pane fade px-2 py-2 px-sm-5 py-sm-4" id="discussion" role="tabpanel" aria-labelledby="discussion-tab">
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-4">                        
+                        <div class="d-inline-flex gap-2">
+                            <div class="w-75">
+                                <input type="text" placeholder="Search by keywords" class="form-control rounded-0 form-control-search">
+                            </div>
+                            <div class="d-inline-flex align-items-center border px-2 py-1 gap-3">
+                                <p class="m-0 fs-13 fw-semibold">Filter:</p>
+                            </div> 
+                            <button class="filter d-inline-flex border bg-transparent justify-content-center align-items-center"></button>       
+                        </div>                
+                        <button class="d-flex justify-content-center align-items-center gap-2 border py-2 px-4 fw-medium text-white bg-pink border-0"> Create Post </button>
+                    </div>
+
+                    <h4 class="fw-600 text-dark mb-3">All questions in this course (8)</h4>
+
+                    <a href="#" class="list-group-item border list-group-item-action d-flex gap-3 py-3 mb-4" aria-current="true">
+                        <div class="d-inline-flex rounded-circle flex-shrink-0 profile-col justify-content-center align-items-center bg-primary text-white"> GD </div>
+                        <div class="d-flex gap-2 w-100 justify-content-between">
+                          <div class="w-50">
+                            <h6 class="mb-0 fs-14 fw-600 text-dark pt-2">Could you provide the pictures that you based the caricatures on?</h6>
+                            <p class="mb-2 fs-14 text-dark">Become a Machine Learning expert. Master the fundamentals of deep learning and break into AI. Recently updated with cutting-edge techniques!</p>
+                            <h5 class="text-primary fs-13  d-inline-flex gap-3">What is a Neural Network? <span class="text-black-50">2 years ago</span></h5>
+                          </div>
+                          <small class="opacity-50 text-nowrap"> <img src="assets/courses/comment.svg" alt=""> 1 </small>
+                        </div>
+                    </a>
+
+                    <a href="#" class="list-group-item border list-group-item-action d-flex gap-3 py-3 mb-4" aria-current="true">
+                        <div class="d-inline-flex rounded-circle flex-shrink-0 profile-col justify-content-center align-items-center bg-primary text-white"> GD </div>
+                        <div class="d-flex gap-2 w-100 justify-content-between">
+                          <div class="w-50">
+                            <h6 class="mb-0 fs-14 fw-600 text-dark pt-2">Could you provide the pictures that you based the caricatures on?</h6>
+                            <p class="mb-2 fs-14 text-dark">Become a Machine Learning expert. Master the fundamentals of deep learning and break into AI. Recently updated with cutting-edge techniques!</p>
+                            <h5 class="text-primary fs-13  d-inline-flex gap-3">What is a Neural Network? <span class="text-black-50">2 years ago</span></h5>
+                          </div>
+                          <small class="opacity-50 text-nowrap"> <img src="assets/courses/comment.svg" alt=""> 1 </small>
+                        </div>
+                    </a>
+
+                    <div class="block text-center">
+                        <a href="javascript:void(0)" class="d-inline-flex underline text-primary fs-6 fw-medium"> See more </a>
+                    </div>
 
                 </div>
                 <!-- Discussion -->
-                <div class="tab-pane fade" id="announcements" role="tabpanel" aria-labelledby="announcements-tab">
+                <div class="tab-pane fade px-2 py-2 px-sm-5 py-sm-4" id="announcements" role="tabpanel" aria-labelledby="announcements-tab">
+
+                    <div class="border py-3 px-4">
+                        <div class="list-group-item border-0 p-0 list-group-item-action bg-transparent d-flex gap-2 mb-2">
+                            <div class="d-inline-flex rounded-circle flex-shrink-0 profile-col justify-content-center align-items-center bg-primary text-white"> GD </div>
+                            <div class="d-flex gap-2 w-100 justify-content-between">
+                              <div class="">
+                                <h6 class="mb-0 fs-14 fw-600 text-dark">Geoff Ladwig</h6>
+                                <p class="mb-2 fs-14 text-dark">Stanford University</p>
+                              </div>
+                            </div>
+                        </div>
+                        <h4 class="fs-14 fw-600 text-dark mb-1">Could you provide the pictures that you based the caricatures on?</h4>
+                        <p class="fs-14 fw-normal text-secondary mb-2 w-50">Become a Machine Learning expert. Master the fundamentals of deep learning and break into AI. Recently updated with cutting-edge techniques!</p>
+                        <p class="text-black-50 fs-14 m-0">2 years ago</p>
+                    </div>
 
                 </div>
                 <!-- Announcements -->

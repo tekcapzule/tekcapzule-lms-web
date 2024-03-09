@@ -642,3 +642,55 @@ img {
 .link {
 	color: #1163B9;
 }
+.fw-semibold {
+	font-weight: 600;
+}
+.bg-pink {
+	background-color: #EC1A57;
+}
+.download-ico {
+	width: 19px;
+	height: 19px;
+	border-radius: 50%;
+	background-image: url(assets/courses/download-ico.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: inline-flex;
+}
+.download-resource {
+	width: 18px;
+	height: 17px;
+	background-image: url(assets/courses/download-dark.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: inline-flex;
+}
+.reasources-card-icon {
+	width: 20px;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	right: 15px;
+	top: 15px;
+}
+.resources-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+	gap: 1.25rem;
+}
+.form-control-search {
+	background-image: url(assets/courses/search.svg);
+	background-position: right 10px center;
+	background-repeat: no-repeat;
+}
+.filter {
+	background-image: url(assets/courses/filter.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 2.5rem;
+}
+.profile-col {
+	width: 2rem;
+	height: 2rem;
+}
