@@ -26,6 +26,7 @@ body {
 	--merino: #FCEAEA;
 
 	--border-color: #E0E0E0;
+	--border-color-light: #AAAAC3;
 	--bg-color: #F5F5F5;
 
 	--white-bg: #fff;
@@ -60,10 +61,12 @@ h4 {
     display: flex;
 	line-height: 24px;
 }
+main {
+	margin-left: 99px;
+}
 
 // Wrapper
 #wrapper {
-	margin-left: var(--sidebar-width);
 	transition: all 0.3s ease-in-out;
   
 	&.fullwidth {
@@ -86,6 +89,9 @@ h4 {
 	font-weight: 500;
 	letter-spacing: -0.96px;
 }
+.btn:focus {
+	box-shadow: none;
+}
 .primary-btn {
 	border: 1px solid var(--bs-dark);
 	border-radius: var(--btn-border-radius);
@@ -100,11 +106,27 @@ h4 {
 		border: 1px solid var(--active-color);
 	}
 }
+.secondary-btn {
+	border: 1px solid var(--active-color);
+	border-radius: 2px;
+	background: var(--active-color);
+	padding: 5px 20px;
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--bs-white);
+	height: 40px;
+
+	&:hover {
+		background-color: var(--bs-white);
+		color: var(--bs-dark);
+		border: 1px solid var(--bs-dark);
+	}
+}
 
 .tasks {
 	.task-bg-1 {
 		background: var(--forgetme-not-color);
-		min-height: 170px;
+		max-height: 170px;
 	}
 
 	.task-bg-2 {
@@ -163,8 +185,51 @@ height: 16px;
 	width: 14px;
 	height: 14px;
 	display: inline-flex;
+	background-size: 100%;
 }
-
+.reading-icon {
+	background: url('./assets/courses/reading.svg') no-repeat;
+	width: 35px;
+	height: 36px;
+}
+.clock-icon-md {
+	background: url('./assets/courses/clock.svg') no-repeat;
+	width: 32px;
+	height: 32px;
+}
+.way-icon {
+	background: url('./assets/courses/way.svg') no-repeat;
+	width: 35px;
+	height: 36px;
+}
+.badge-icon {
+	background: url('./assets/courses/badge-icon.png');
+	width: 51px;
+	height: 74px;
+	flex-shrink: 0;
+}
+.certificate-icon {
+	background: url('./assets/courses/certificate-icon.png');
+	width: 42px;
+	height: 35px;
+	flex-shrink: 0;
+}
+.rounded {
+	border: 1px solid var(--border-color-light);
+    border-radius: 100px !important;
+    padding: 15px;
+    margin-right: 10px;
+	&.video-icon {
+		background: url('./assets/courses/video-icon.svg') no-repeat center center;
+		width: 16px;
+		height: 11px;
+	}
+	&.notes-icon {
+		background: url('./assets/courses/notes-icon.svg') no-repeat center center;
+		width: 13px;
+		height: 15px;
+	}
+}
 
 .status {
 	width: 10px;
@@ -469,13 +534,16 @@ footer {
   /********Accordion*********/
   .accordion-item {
 	.accordion-header {
-		padding: 0 10px;
+		padding: 0 10px !important;
 		button {
 			margin-bottom: 20px;
 			border: 0 none;
 			background: var(--bg-color);
 			color: var(--primary-color);
 			font-weight: 600;
+			&:focus {
+				box-shadow: none;
+			}
 		}
 	}
 	.accordion-collapse {
@@ -514,3 +582,40 @@ footer {
 	}
   }
   
+
+
+  /********Banner**********/
+  .banner {
+	background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,240,254,1) 35%, rgba(253,221,250,0.34) 66%, rgba(217,222,242,1) 100%);
+	min-height: 307px;
+	height: auto;
+	padding: 70px 160px 35px;
+  }
+  .inner-container {	
+	padding: 0 160px;
+	display: flex;
+  }
+
+  .icon-text {
+	display: flex;
+  }
+  .instructors {
+	display: flex;
+	line-height: normal;
+	.profile-name {
+		background-color: var(--bs-purple);
+		border-radius: 100px;
+		text-align: center;
+		padding: 10px;
+		color: var(--bs-white) !important;
+		height: 43px;
+		width: 43px;
+		margin-right: 20px;
+&.green-bg {
+			background-color: var(--bs-green);
+		}
+		&.orange-bg {
+			background-color: var(--bs-orange);
+		}
+	}
+  }

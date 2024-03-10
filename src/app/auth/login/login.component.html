@@ -5,7 +5,7 @@
         <div class="col-md-7 form-bg">
           
           <!-- Login Form Start -->
-          <div class="w-100 d-none">
+          <div class="w-100">
             <div class="mb-5 text-center">
               <img src="../../assets/logo.png" alt="" />
             </div>
@@ -26,7 +26,7 @@
                   loginFormControls.email.touched &&
                   (loginFormControls.email.errors?.required ||
                     loginFormControls.email.errors?.email)
-                " class="input-error-text text-danger">
+                " class="input-error-text text-white">
                   Please enter a valid email.
                 </div>
               </div>
@@ -43,14 +43,14 @@
                   isSubmitted &&
                   loginFormControls.password.touched &&
                   loginFormControls.password.errors?.required
-                " class="input-error-text text-danger">
+                " class="input-error-text text-white">
                   Please enter a valid password.
                 </div>
               </div>
               <div class="mb-4 text-end">
                 <a href="#" routerLink="/auth/forgotpassword" class="forgot-pass">Forgot password?</a>
               </div>
-              <div *ngIf="loginErrorMessage" class="text-danger text-center mb-2">
+              <div *ngIf="loginErrorMessage" class="text-white text-center mb-2">
                 {{ loginErrorMessage }}
               </div>
               <button type="submit" class="btn btn-block login-btn">Login</button>
@@ -78,7 +78,7 @@
           <!-- Login Form End -->
 
           <!-- Signup Form Start -->
-          <div class="w-100">
+          <div class="w-100 d-none">
             <div class="mb-5 text-center">
               <img src="../../assets/logo.png" alt="" />
             </div>
