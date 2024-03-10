@@ -32,6 +32,7 @@
         line-height: 2;
         &.active, &:hover {
           color: var(--active-color);
+          border-left: 5px solid var(--active-color);
         }
       }
     }
