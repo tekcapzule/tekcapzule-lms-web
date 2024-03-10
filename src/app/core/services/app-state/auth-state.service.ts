@@ -7,13 +7,11 @@ import { BaseStateService } from './base-state.service';
 export type AuthState = {
   isLoggedIn: boolean;
   awsCognitoUser: AwsCognitoUser | null;
-  accessToken: string | null;
 };
 
 const initialState: AuthState = {
   isLoggedIn: false,
-  awsCognitoUser: null,
-  accessToken: null
+  awsCognitoUser: null
 };
 
 @Injectable({
@@ -36,10 +34,6 @@ export class AuthStateService extends BaseStateService<AuthState> {
 
   public getFirstName(): string | undefined {
     return this.state.awsCognitoUser?.given_name;
-  }
-
-  public getAccessToken(): string | null {
-    return this.state.accessToken;
   }
 
   public setAuthState(newState: Partial<AuthState>) {

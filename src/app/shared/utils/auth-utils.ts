@@ -62,8 +62,7 @@ export function getLoggedInStatusFromStore(): boolean {
 export function generateCurrentAuthState(): AuthState {
   const authState: AuthState = {
     isLoggedIn: getLoggedInStatusFromStore(),
-    awsCognitoUser: getAwsCognitoUserFromToken(),
-    accessToken: getAccessTokenFromStore()
+    awsCognitoUser: getAwsCognitoUserFromToken()
   };
 
   return authState;
