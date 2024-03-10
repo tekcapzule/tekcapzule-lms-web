@@ -7,7 +7,9 @@ import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { CallbackComponent } from './callback/callback.component';
 import { SignupComponent } from './signup/signup.component';
-import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ConfirmSignupComponent } from './confirm-signup/confirm-signup.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     LoginComponent,
     CallbackComponent,
     SignupComponent,
-    ForgotpasswordComponent
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
+    ConfirmSignupComponent
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, AuthRoutingModule]
 })

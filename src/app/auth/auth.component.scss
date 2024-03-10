@@ -1,0 +1,59 @@
+a {
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+.content {
+  padding: 7rem 0;
+}
+
+.half,
+.half .container > .row {
+  height: 100vh;
+}
+
+.form-bg {
+  background: rgb(50, 84, 114, 0.57);
+  height: 100vh;
+  padding: 87px;
+  width: 590px;
+  align-items: center;
+  display: flex;
+}
+
+.login-bg {
+  background: url('../../../assets/login-bg.png');
+  background-size: cover;
+}
+
+@media (max-width: 991.98px) {
+  .half .bg {
+    height: 500px;
+  }
+}
+
+.half .contents,
+.half .bg {
+  width: 50%;
+}
+
+@media (max-width: 1199.98px) {
+  .half .contents,
+  .half .bg {
+    width: 100%;
+  }
+}
+
+.poweredby {
+  background: url('../../../assets/poweredby.png') no-repeat;
+  width: 223px;
+  height: 83px;
+  bottom: 100px;
+  position: absolute;
+  left: 7%;
+}

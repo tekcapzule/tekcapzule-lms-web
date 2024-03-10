@@ -1,30 +1,7 @@
-a {
-  -webkit-transition: 0.3s all ease;
-  -o-transition: 0.3s all ease;
-  transition: 0.3s all ease;
+.login-wrapper {
+  width: 416px !important;
 }
 
-a:hover {
-  text-decoration: none !important;
-}
-
-.content {
-  padding: 7rem 0;
-}
-
-.half,
-.half .container > .row {
-  height: 100vh;
-}
-
-.form-bg {
-  background: rgb(50, 84, 114, 0.57);
-  height: 100vh;
-  padding: 87px;
-  width: 590px;
-  align-items: center;
-  display: flex;
-}
 .btn,
 .input-group-text,
 .form-control,
@@ -33,29 +10,6 @@ a:hover {
   font-weight: 500;
   font-size: 18px;
   font-optical-sizing: auto;
-}
-
-.login-bg {
-  background: url('../../../assets/login-bg.png');
-  background-size: cover;
-}
-
-@media (max-width: 991.98px) {
-  .half .bg {
-    height: 500px;
-  }
-}
-
-.half .contents,
-.half .bg {
-  width: 50%;
-}
-
-@media (max-width: 1199.98px) {
-  .half .contents,
-  .half .bg {
-    width: 100%;
-  }
 }
 
 .social-login .google,
@@ -90,17 +44,19 @@ a:hover {
 }
 
 .form-control {
-  // border-top-right-radius: 30px;
-  // border-bottom-right-radius: 30px;
   border-radius: 30px;
   height: 60px;
   border: 0 none;
   padding: 0 30px;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
 }
 
 .form-control:focus {
   box-shadow: none;
+}
+
+.form-control-wrapper {
+  margin-bottom: 20px;
 }
 
 .input-group-text {
@@ -116,6 +72,14 @@ a:hover {
   }
 }
 
+.input-group-error {
+  border: 2px solid var(--red);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
 .input-error-text {
   font-size: 14px;
   padding-left: 30px;
@@ -127,19 +91,20 @@ a:hover {
   font-size: 16px;
 }
 
-.poweredby {
-  background: url('../../../assets/poweredby.png') no-repeat;
-  width: 223px;
-  height: 83px;
-  bottom: 100px;
-  position: absolute;
-  left: 7%;
-}
+.or-text {
+  &:before,
+  &:after {
+    content: '';
+    flex: 1 1;
+    border-bottom: 1px solid #667a8b;
+    margin: auto;
+  }
 
-.input-group-error {
-  border: 2px solid var(--red);
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
+  &:before {
+    margin-right: 10px;
+  }
+
+  &:after {
+    margin-left: 10px;
+  }
 }

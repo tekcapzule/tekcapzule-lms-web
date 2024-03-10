@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { AwsCognitoUser } from '@app/shared/models/aws-user.model';
+import { AwsCognitoUser } from '@app/shared/models';
 import { BaseStateService } from './base-state.service';
 
 export type AuthState = {
@@ -13,7 +13,7 @@ export type AuthState = {
 const initialState: AuthState = {
   isLoggedIn: false,
   awsCognitoUser: null,
-  accessToken: ''
+  accessToken: null
 };
 
 @Injectable({

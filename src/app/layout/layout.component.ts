@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BaseAuth } from '@app/auth/base-auth';
+import { AbstractBaseAuth } from '@app/auth/base-auth';
 import { signOut } from 'aws-amplify/auth';
 
 import { AuthStateService } from '@app/core/services';
@@ -10,7 +10,10 @@ import { deleteAuthStateFromStore } from '@app/shared/utils';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent extends BaseAuth implements OnInit, OnDestroy {
+export class LayoutComponent
+  extends AbstractBaseAuth
+  implements OnInit, OnDestroy
+{
   constructor(
     public override authStateService: AuthStateService,
     private router: Router

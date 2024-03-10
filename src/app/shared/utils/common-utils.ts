@@ -14,3 +14,17 @@ export function toUpperCamelCase(str: string): string {
 export function isNullOrUndefined(value: any) {
   return value === undefined || value === null;
 }
+
+export function allowOnlyNumericInput(event: KeyboardEvent) {
+  const keyCode = event.keyCode || event.which;
+
+  if (
+    keyCode === 8 || // backspace
+    keyCode === 9 || // tab
+    (keyCode >= 48 && keyCode <= 57) // 0-9
+  ) {
+    return true;
+  }
+
+  return false;
+}
