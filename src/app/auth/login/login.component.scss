@@ -85,8 +85,8 @@ a:hover {
 }
 
 .login-btn {
-  background: #ec1a57;
-  color: #fff;
+  background: var(--active-color);
+  color: var(--bs-white);
 }
 
 .form-control {
@@ -96,13 +96,14 @@ a:hover {
   height: 60px;
   border: 0 none;
   padding: 0 30px;
-  margin-bottom: 20px;
 }
 
 .form-control:focus {
   box-shadow: none;
 }
-
+.input-group {
+  margin-bottom: 20px;
+}
 .input-group-text {
   background: var(--bg-color);
   border-top-left-radius: 30px;
@@ -137,7 +138,7 @@ a:hover {
 }
 
 .input-group-error {
-  border: 2px solid var(--red);
+  border: 2px solid var(--bs-white);
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
   border-top-right-radius: 30px;

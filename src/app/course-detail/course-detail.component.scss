@@ -1,4 +1,109 @@
 .course-wrapper {
-    padding: 50px 80px;
     background-color: var(--bs-white);
+    h1 {
+        font-size: 40px;
+        font-weight: 400;
+        color: var(--secondary-color);
+    }
+    h2 {
+        font-size: 24px;
+        color: var(--secondary-color);
+        padding: 35px 0px 15px;
+    }
+    h3 {
+        color: var(--primary-color);
+    }
+    .tasks {
+        padding-top: 30px;
+    }
+    .course-series {
+        display: flex;
+        border: 1px solid #E0E0E0;
+        padding: 25px;
+        margin-bottom: 30px;
+      
+        .course-card {
+            margin-right: 35px;
+            width: 436px;
+            height: auto;
+            .course-img {
+                width: 420px;
+            }
+            .course-info {
+                .primary-heading {
+                    font-size: 20px;
+                    padding-bottom: 16px !important;
+                }
+            }
+        }
+        .course-desc {
+            ul
+            {
+                padding-left: 1rem;
+                > li {
+                    margin-bottom: 25px;
+                }
+            } 
+            
+        }
+    }
+    .enroll-container {
+        position: absolute;
+        top: 155px;
+        float: right;
+        right: 0;
+        .enroll-sec {
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 12px;
+            width: 390px;
+            background-color: var(--bs-white);
+            margin-bottom: 15px;
+        }
+    }
+}
+
+#profileImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #512DA8;
+    font-size: 35px;
+    color: #fff;
+    text-align: center;
+    line-height: 150px;
+    margin: 20px 0;
+  }
+ .banner-pills {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    li {
+        background: var(--bs-white);
+        margin-right: 12px ;
+        border-radius: 20px;
+        width: fit-content;
+        padding: 5px 16px;
+    }
+  }
+.course-status {
+    display: flow-root !important;
+    label {
+        font-weight: normal;
+        margin-right: 20px !important;
+        font-size: 14px;
+        margin-bottom: 20px;
+        .fw-bold {
+            padding-right: 5px;
+        }
+    }
+}
+.task-bg-1, .task-bg-2, .task-bg-3 {
+    display: flex;
+    align-items: center;
+    line-height: 0;
+    .reading-icon, .clock-icon-md, .way-icon {
+        flex-shrink: 0;
+        margin-right: 15px;
+    }
 }

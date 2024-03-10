@@ -1,6 +1,5 @@
 // Wrapper
 #wrapper {
-  margin-left: var(--sidebar-width);
   transition: all 0.3s ease-in-out;
 
   &.fullwidth {
@@ -31,6 +30,9 @@
         font-weight: 500;
         display: grid;
         line-height: 2;
+        &.active, &:hover {
+          color: var(--active-color);
+        }
       }
     }
 
