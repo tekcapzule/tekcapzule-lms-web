@@ -30,6 +30,9 @@
         font-weight: 500;
         display: grid;
         line-height: 2;
+        border-left: 5px solid transparent; /* Default to transparent */
+
+
         &.active, &:hover {
           color: var(--active-color);
           border-left: 5px solid var(--active-color);
