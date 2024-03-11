@@ -5,7 +5,8 @@ export interface ICourseDetail {
   title: string;
   summary: string;
   description: string;
-  authors: string[];
+  authors: IAuthorDetail[];
+  tags: string[];
   publisher: string;
   duration: any;
   level: string
@@ -21,6 +22,16 @@ export interface ICourseDetail {
   publishedOn: string;
   topicName?: string;
   isRecommended?: boolean;
+  faq: IFAQ[];
+}
+export interface IFAQ {
+  qus: string;
+  ans: string;
+}
+
+export interface IAuthorDetail {
+  name: string;
+  title: string;
 }
 
 export interface ICoursePromotion {
@@ -33,6 +44,11 @@ export interface Imodule {
   title: ISchedule;
   duration: string;
   description: string;
+  objective: string[];
+  assement: number;
+  videos: number;
+  quiz: number;
+  imageUrl: string;
 }
 export interface ISchedule {
   startDate: string;

@@ -5,12 +5,16 @@
     "topicCode": "AI",
     "subTopicCode": "ML",
     "title": "MachineLearning Crash Course",
-    "summary": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda.",
-    "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
+    "summary": "Become a Machine Learning expert. Master the fundamentals of deep learning and break into AI. Recently updated with cutting-edge techniques!",
+    "description": "Become a Machine Learning expert. Master the fundamentals of deep learning and break into AI. Recently updated with cutting-edge techniques!",
     "publisher": "Linjith Kunnon",
     "publishedOn": "02/12/2023",
-    "authors": ["Linjith Kunnon"],
-    "tags": ["AI", "cloud"],
+    "authors": [
+      {"name": "Linjith Kunnon", "title": "Stanford University"},
+      {"name": "Geoff Tom", "title": "Harvard University"}, 
+      {"name": "John Smit", "title": "Stanford University"}
+    ],
+    "tags": ["Convolutional Neural Network", "Tensorflow", "Artificial Neural Network", "Artificial Neural Network"],
     "duration": {
       "displayText": null,
       "inMinutes": 170
@@ -20,12 +24,32 @@
       {
         "title": "Introduction",
         "duration": 10,
-        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi",
+        "objective": [
+          "Build and train deep neural networks, identify key architecture parameters, implement vectorized neural networks and deep learning to applications",
+          "Build a CNN and apply it to detection and recognition tasks, use neural style transfer to generate art, and apply algorithms to image and video data",
+          "Train test sets, analyze variance for DL applications, use standard techniques and optimization algorithms, and build neural networks in TensorFlow",
+          "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+        ],
+        "assement": 2,
+        "videos": 2,
+        "quiz": 1,
+        "imageUrl": "../../assets/courses/course-details-thumb.png"
       },
       {
         "title": "Basic Concepts",
         "duration": 20,
-        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi",
+        "objective": [
+          "Build and train deep neural networks, identify key architecture parameters, implement vectorized neural networks and deep learning to applications",
+          "Build a CNN and apply it to detection and recognition tasks, use neural style transfer to generate art, and apply algorithms to image and video data",
+          "Train test sets, analyze variance for DL applications, use standard techniques and optimization algorithms, and build neural networks in TensorFlow",
+          "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+        ],
+        "assement": 2,
+        "videos": 2,
+        "quiz": 1,
+        "imageUrl": "../../assets/courses/course-details-thumb-1.png"
       }
     ],
     "deliveryMode": "ONLINE",
@@ -41,7 +65,21 @@
     "promotion": null,
     "recommendations": 0,
     "status": "SUBMITTED",
-    "imageUrl": "../../assets/courses/courses-thumbnail-4.png"
+    "imageUrl": "../../assets/courses/courses-thumbnail-4.png",
+    "faq": [
+      {
+        "qus": " How does this course different from AI for everyone? ",
+        "ans": "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+      },
+      {
+        "qus": " Who is this course for? ",
+        "ans": "Build and train RNNs, work with NLP and Word."
+      },
+      {
+        "qus": " Do I need prior experience ",
+        "ans": "ormer models to perform NER and Question Answering"
+      }
+    ]
   },
   {
     "learningMaterialId": "cd2f5ee4-d692-4326-bece-38597e6b5cdd",
@@ -53,7 +91,11 @@
     "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
     "publisher": "Linjith Kunnon",
     "publishedOn": "02/12/2023",
-    "authors": ["Linjith Kunnon"],
+    "authors": [
+      {"name": "Linjith Kunnon", "title": "Stanford University"},
+      {"name": "Geoff Tom", "title": "Harvard University"}, 
+      {"name": "John Smit", "title": "Stanford University"}
+    ],
     "tags": ["AI", "cloud"],
     "duration": {
       "displayText": null,
@@ -64,12 +106,32 @@
       {
         "title": "Introduction",
         "duration": 10,
-        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi",
+        "objective": [
+          "Build and train deep neural networks, identify key architecture parameters, implement vectorized neural networks and deep learning to applications",
+          "Build a CNN and apply it to detection and recognition tasks, use neural style transfer to generate art, and apply algorithms to image and video data",
+          "Train test sets, analyze variance for DL applications, use standard techniques and optimization algorithms, and build neural networks in TensorFlow",
+          "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+        ],
+        "assement": 2,
+        "videos": 2,
+        "quiz": 1,
+        "imageUrl": "../../assets/courses/course-details-thumb.png"
       },
       {
         "title": "Basic Concepts",
         "duration": 20,
-        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi",
+        "objective": [
+          "Build and train deep neural networks, identify key architecture parameters, implement vectorized neural networks and deep learning to applications",
+          "Build a CNN and apply it to detection and recognition tasks, use neural style transfer to generate art, and apply algorithms to image and video data",
+          "Train test sets, analyze variance for DL applications, use standard techniques and optimization algorithms, and build neural networks in TensorFlow",
+          "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+        ],
+        "assement": 2,
+        "videos": 2,
+        "quiz": 1,
+        "imageUrl": "../../assets/courses/course-details-thumb-1.png"
       }
     ],
     "deliveryMode": "ONLINE",
@@ -85,7 +147,21 @@
     "promotion": null,
     "recommendations": 0,
     "status": "SUBMITTED",
-    "imageUrl": "../../assets/courses/courses-thumbnail-3.png"
+    "imageUrl": "../../assets/courses/courses-thumbnail-3.png",
+    "faq": [
+      {
+        "qus": " How does this course different from AI for everyone? ",
+        "ans": "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+      },
+      {
+        "qus": " Who is this course for? ",
+        "ans": "Build and train RNNs, work with NLP and Word."
+      },
+      {
+        "qus": " Do I need prior experience ",
+        "ans": "ormer models to perform NER and Question Answering"
+      }
+    ]
   },
   {
     "learningMaterialId": "4f90a727-6184-4c4b-be49-1add40f49b59",
@@ -97,7 +173,11 @@
     "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
     "publisher": "Linjith Kunnon",
     "publishedOn": "02/12/2023",
-    "authors": ["Linjith Kunnon"],
+    "authors": [
+      {"name": "Linjith Kunnon", "title": "Stanford University"},
+      {"name": "Geoff Tom", "title": "Harvard University"}, 
+      {"name": "John Smit", "title": "Stanford University"}
+    ],
     "tags": ["AI", "cloud"],
     "duration": {
       "displayText": null,
@@ -108,12 +188,32 @@
       {
         "title": "Introduction",
         "duration": 10,
-        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi",
+        "objective": [
+          "Build and train deep neural networks, identify key architecture parameters, implement vectorized neural networks and deep learning to applications",
+          "Build a CNN and apply it to detection and recognition tasks, use neural style transfer to generate art, and apply algorithms to image and video data",
+          "Train test sets, analyze variance for DL applications, use standard techniques and optimization algorithms, and build neural networks in TensorFlow",
+          "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+        ],
+        "assement": 2,
+        "videos": 2,
+        "quiz": 1,
+        "imageUrl": "../../assets/courses/course-details-thumb.png"
       },
       {
         "title": "Basic Concepts",
         "duration": 20,
-        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi",
+        "objective": [
+          "Build and train deep neural networks, identify key architecture parameters, implement vectorized neural networks and deep learning to applications",
+          "Build a CNN and apply it to detection and recognition tasks, use neural style transfer to generate art, and apply algorithms to image and video data",
+          "Train test sets, analyze variance for DL applications, use standard techniques and optimization algorithms, and build neural networks in TensorFlow",
+          "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+        ],
+        "assement": 2,
+        "videos": 2,
+        "quiz": 1,
+        "imageUrl": "../../assets/courses/course-details-thumb-1.png"
       }
     ],
     "deliveryMode": "ONLINE",
@@ -129,7 +229,21 @@
     "promotion": null,
     "recommendations": 0,
     "status": "SUBMITTED",
-    "imageUrl": "../../assets/courses/courses-thumbnail-2.png"
+    "imageUrl": "../../assets/courses/courses-thumbnail-2.png",
+    "faq": [
+      {
+        "qus": " How does this course different from AI for everyone? ",
+        "ans": "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+      },
+      {
+        "qus": " Who is this course for? ",
+        "ans": "Build and train RNNs, work with NLP and Word."
+      },
+      {
+        "qus": " Do I need prior experience ",
+        "ans": "ormer models to perform NER and Question Answering"
+      }
+    ]
   },
   {
     "learningMaterialId": "b5dd79e6-8d39-4fea-a92d-de72d75a9d78",
@@ -141,7 +255,11 @@
     "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
     "publisher": "Linjith Kunnon",
     "publishedOn": "02/12/2023",
-    "authors": ["Linjith Kunnon"],
+    "authors": [
+      {"name": "Linjith Kunnon", "title": "Stanford University"},
+      {"name": "Geoff Tom", "title": "Harvard University"}, 
+      {"name": "John Smit", "title": "Stanford University"}
+    ],
     "tags": ["AI", "cloud"],
     "duration": {
       "displayText": null,
@@ -152,12 +270,32 @@
       {
         "title": "Introduction",
         "duration": 10,
-        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi",
+        "objective": [
+          "Build and train deep neural networks, identify key architecture parameters, implement vectorized neural networks and deep learning to applications",
+          "Build a CNN and apply it to detection and recognition tasks, use neural style transfer to generate art, and apply algorithms to image and video data",
+          "Train test sets, analyze variance for DL applications, use standard techniques and optimization algorithms, and build neural networks in TensorFlow",
+          "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+        ],
+        "assement": 2,
+        "videos": 2,
+        "quiz": 1,
+        "imageUrl": "../../assets/courses/course-details-thumb.png"
       },
       {
         "title": "Basic Concepts",
         "duration": 20,
-        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi",
+        "objective": [
+          "Build and train deep neural networks, identify key architecture parameters, implement vectorized neural networks and deep learning to applications",
+          "Build a CNN and apply it to detection and recognition tasks, use neural style transfer to generate art, and apply algorithms to image and video data",
+          "Train test sets, analyze variance for DL applications, use standard techniques and optimization algorithms, and build neural networks in TensorFlow",
+          "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+        ],
+        "assement": 2,
+        "videos": 2,
+        "quiz": 1,
+        "imageUrl": "../../assets/courses/course-details-thumb-1.png"
       }
     ],
     "deliveryMode": "ONLINE",
@@ -173,7 +311,21 @@
     "promotion": null,
     "recommendations": 0,
     "status": "SUBMITTED",
-    "imageUrl": "../../assets/courses/courses-thumbnail-1.png"
+    "imageUrl": "../../assets/courses/courses-thumbnail-1.png",
+    "faq": [
+      {
+        "qus": " How does this course different from AI for everyone? ",
+        "ans": "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+      },
+      {
+        "qus": " Who is this course for? ",
+        "ans": "Build and train RNNs, work with NLP and Word."
+      },
+      {
+        "qus": " Do I need prior experience ",
+        "ans": "ormer models to perform NER and Question Answering"
+      }
+    ]
   },
   {
     "learningMaterialId": "39c9a853-7fbc-49d9-873c-de0eaf6d6f96",
@@ -185,7 +337,11 @@
     "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
     "publisher": "Linjith Kunnon",
     "publishedOn": "02/12/2023",
-    "authors": ["Linjith Kunnon"],
+    "authors": [
+      {"name": "Linjith Kunnon", "title": "Stanford University"},
+      {"name": "Geoff Tom", "title": "Harvard University"}, 
+      {"name": "John Smit", "title": "Stanford University"}
+    ],
     "tags": ["AI", "cloud"],
     "duration": {
       "displayText": null,
@@ -196,12 +352,32 @@
       {
         "title": "Introduction",
         "duration": 10,
-        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi",
+        "objective": [
+          "Build and train deep neural networks, identify key architecture parameters, implement vectorized neural networks and deep learning to applications",
+          "Build a CNN and apply it to detection and recognition tasks, use neural style transfer to generate art, and apply algorithms to image and video data",
+          "Train test sets, analyze variance for DL applications, use standard techniques and optimization algorithms, and build neural networks in TensorFlow",
+          "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+        ],
+        "assement": 2,
+        "videos": 2,
+        "quiz": 1,
+        "imageUrl": "../../assets/courses/course-details-thumb.png"
       },
       {
         "title": "Basic Concepts",
         "duration": 20,
-        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi",
+        "objective": [
+          "Build and train deep neural networks, identify key architecture parameters, implement vectorized neural networks and deep learning to applications",
+          "Build a CNN and apply it to detection and recognition tasks, use neural style transfer to generate art, and apply algorithms to image and video data",
+          "Train test sets, analyze variance for DL applications, use standard techniques and optimization algorithms, and build neural networks in TensorFlow",
+          "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+        ],
+        "assement": 2,
+        "videos": 2,
+        "quiz": 1,
+        "imageUrl": "../../assets/courses/course-details-thumb-1.png"
       }
     ],
     "deliveryMode": "ONLINE",
@@ -217,7 +393,21 @@
     "promotion": null,
     "recommendations": 0,
     "status": "SUBMITTED",
-    "imageUrl": "../../assets/courses/courses-thumbnail-1.png"
+    "imageUrl": "../../assets/courses/courses-thumbnail-1.png",
+    "faq": [
+      {
+        "qus": " How does this course different from AI for everyone? ",
+        "ans": "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+      },
+      {
+        "qus": " Who is this course for? ",
+        "ans": "Build and train RNNs, work with NLP and Word."
+      },
+      {
+        "qus": " Do I need prior experience ",
+        "ans": "ormer models to perform NER and Question Answering"
+      }
+    ]
   },
   {
     "learningMaterialId": "f667a8d9-364a-490c-b1c2-0e1d70151339",
@@ -229,7 +419,11 @@
     "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
     "publisher": "Linjith Kunnon",
     "publishedOn": "02/12/2023",
-    "authors": ["Linjith Kunnon"],
+    "authors": [
+      {"name": "Linjith Kunnon", "title": "Stanford University"},
+      {"name": "Geoff Tom", "title": "Harvard University"}, 
+      {"name": "John Smit", "title": "Stanford University"}
+    ],
     "tags": ["AI", "cloud"],
     "duration": {
       "displayText": null,
@@ -240,12 +434,32 @@
       {
         "title": "Introduction",
         "duration": 10,
-        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi",
+        "objective": [
+          "Build and train deep neural networks, identify key architecture parameters, implement vectorized neural networks and deep learning to applications",
+          "Build a CNN and apply it to detection and recognition tasks, use neural style transfer to generate art, and apply algorithms to image and video data",
+          "Train test sets, analyze variance for DL applications, use standard techniques and optimization algorithms, and build neural networks in TensorFlow",
+          "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+        ],
+        "assement": 2,
+        "videos": 2,
+        "quiz": 1,
+        "imageUrl": "../../assets/courses/course-details-thumb.png"
       },
       {
         "title": "Basic Concepts",
         "duration": 20,
-        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi",
+        "objective": [
+          "Build and train deep neural networks, identify key architecture parameters, implement vectorized neural networks and deep learning to applications",
+          "Build a CNN and apply it to detection and recognition tasks, use neural style transfer to generate art, and apply algorithms to image and video data",
+          "Train test sets, analyze variance for DL applications, use standard techniques and optimization algorithms, and build neural networks in TensorFlow",
+          "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+        ],
+        "assement": 2,
+        "videos": 2,
+        "quiz": 1,
+        "imageUrl": "../../assets/courses/course-details-thumb-1.png"
       }
     ],
     "deliveryMode": "ONLINE",
@@ -261,7 +475,21 @@
     "promotion": null,
     "recommendations": 0,
     "status": "SUBMITTED",
-    "imageUrl": "../../assets/courses/courses-thumbnail-1.png"
+    "imageUrl": "../../assets/courses/courses-thumbnail-1.png",
+    "faq": [
+      {
+        "qus": " How does this course different from AI for everyone? ",
+        "ans": "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+      },
+      {
+        "qus": " Who is this course for? ",
+        "ans": "Build and train RNNs, work with NLP and Word."
+      },
+      {
+        "qus": " Do I need prior experience ",
+        "ans": "ormer models to perform NER and Question Answering"
+      }
+    ]
   },
   {
     "learningMaterialId": "91c71334-1053-4e82-8b1a-967ff194bc3e",
@@ -273,7 +501,11 @@
     "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione voluptatem sequi.",
     "publisher": "Linjith Kunnon",
     "publishedOn": "02/12/2023",
-    "authors": ["Linjith Kunnon"],
+    "authors": [
+      {"name": "Linjith Kunnon", "title": "Stanford University"},
+      {"name": "Geoff RRR", "title": "Harvard University"}, 
+      {"name": "John Smit", "title": "Stanford University"}
+    ],
     "tags": ["AI", "cloud"],
     "duration": {
       "displayText": null,
@@ -284,12 +516,32 @@
       {
         "title": "Introduction",
         "duration": 10,
-        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi",
+        "objective": [
+          "Build and train deep neural networks, identify key architecture parameters, implement vectorized neural networks and deep learning to applications",
+          "Build a CNN and apply it to detection and recognition tasks, use neural style transfer to generate art, and apply algorithms to image and video data",
+          "Train test sets, analyze variance for DL applications, use standard techniques and optimization algorithms, and build neural networks in TensorFlow",
+          "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+        ],
+        "assement": 2,
+        "videos": 2,
+        "quiz": 1,
+        "imageUrl": "../../assets/courses/course-details-thumb.png"
       },
       {
         "title": "Basic Concepts",
         "duration": 20,
-        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi"
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores eos qui ratione voluptatem sequi",
+        "objective": [
+          "Build and train deep neural networks, identify key architecture parameters, implement vectorized neural networks and deep learning to applications",
+          "Build a CNN and apply it to detection and recognition tasks, use neural style transfer to generate art, and apply algorithms to image and video data",
+          "Train test sets, analyze variance for DL applications, use standard techniques and optimization algorithms, and build neural networks in TensorFlow",
+          "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+        ],
+        "assement": 2,
+        "videos": 2,
+        "quiz": 1,
+        "imageUrl": "../../assets/courses/course-details-thumb-1.png"
       }
     ],
     "deliveryMode": "ONLINE",
@@ -305,6 +557,20 @@
     "promotion": null,
     "recommendations": 0,
     "status": "SUBMITTED",
-    "imageUrl": "../../assets/courses/courses-thumbnail-1.png"
+    "imageUrl": "../../assets/courses/courses-thumbnail-1.png",
+    "faq": [
+      {
+        "qus": " How does this course different from AI for everyone? ",
+        "ans": "Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering"
+      },
+      {
+        "qus": " Who is this course for? ",
+        "ans": "Build and train RNNs, work with NLP and Word."
+      },
+      {
+        "qus": " Do I need prior experience ",
+        "ans": "ormer models to perform NER and Question Answering"
+      }
+    ]
   }
 ]
