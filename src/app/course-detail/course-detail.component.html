@@ -2,16 +2,11 @@
     <div class="course-wrapper">
         <div class="banner">
             <div class="col-9 pe-5">
-                <h1>Deep Learning Specialization <span class="rating">4.5 <span class="star-icon"></span></span></h1>
-                <p>Become a Machine Learning expert. Master the fundamentals of deep learning and break into AI.
-                    Recently
-                    updated with cutting-edge techniques!</p>
+                <h1>{{course.title}} <span class="rating">4.5 <span class="star-icon"></span></span></h1>
+                <p>{{course.summary}}</p>
                 <p>Taught in English</p>
                 <ul class="banner-pills">
-                    <li>Recurrent Neural Network</li>
-                    <li>Tensorflow</li>
-                    <li>Convolutional Neural Network</li>
-                    <li>Artificial Neural Network</li>
+                    <li *ngFor="let tag of course.tags">{{tag}}</li>
                 </ul>
             </div>
         </div>
@@ -23,7 +18,7 @@
                             <div class="task-bg-1 rounded-2 p-3">
                                 <div class="reading-icon"></div>
                                 <div>
-                                    <h3 class="mb-3"> Intermediate level</h3>
+                                    <h3 class="mb-3"> {{course.level}} level</h3>
                                     <p>Recommended experience</p>
                                 </div>
 
@@ -52,22 +47,22 @@
                 </section>
                 <section>
                     <h2>Specialization - 5 course series</h2>
-                    <div class="course-series">
+                    <div *ngFor="let modules of course.modules" class="course-series">
 
                         <div class="course-card">
                             <div class="course-img"><img alt="course thumbnail"
-                                    src="../../assets/courses/course-details-thumb.png"></div>
+                                    [src]="modules.imageUrl"></div>
                             <div class="course-info">
-                                <div class="primary-heading pb-0">MachineLearning Crash Course</div>
+                                <div class="primary-heading pb-0">{{modules.title}}</div>
                                 <div class="course-status">
-                                    <label><span class="rounded video-icon"></span><span class="fw-bold">6</span>
+                                    <label><span class="rounded video-icon"></span><span class="fw-bold">{{modules.videos}}</span>
                                         videoes</label>
-                                    <label><span class="rounded notes-icon"></span><span class="fw-bold">2hr</span>
+                                    <label><span class="rounded notes-icon"></span><span class="fw-bold">{{modules.duration}} min</span>
                                         of reading</label>
-                                    <label><span class="rounded notes-icon"></span><span class="fw-bold">1</span>
+                                    <label><span class="rounded notes-icon"></span><span class="fw-bold">{{modules.quiz}}</span>
                                         Quiz</label>
                                     <label><span class="rounded notes-icon"></span><span
-                                            class="fw-bold">2</span>Assessment</label>
+                                            class="fw-bold">{{modules.assement}}</span>Assessment</label>
                                 </div>
                             </div>
                             <div class="course-footer">
@@ -77,58 +72,7 @@
                         <div class="course-desc">
                             <h3>What you’ll learn</h3>
                             <ul>
-                                <li>Build and train deep neural networks, identify key architecture parameters,
-                                    implement
-                                    vectorized neural networks and deep learning to applications</li>
-                                <li>Build a CNN and apply it to detection and recognition tasks, use neural style
-                                    transfer
-                                    to generate art, and apply algorithms to image and video data</li>
-                                <li>Train test sets, analyze variance for DL applications, use standard techniques
-                                    and
-                                    optimization algorithms, and build neural networks in TensorFlow</li>
-                                <li>Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace
-                                    tokenizers
-                                    and transformer models to perform NER and Question Answering</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="course-series">
-                        <div class="course-card">
-                            <div class="course-img"><img alt="course thumbnail"
-                                    src="../../assets/courses/course-details-thumb-1.png"></div>
-                            <div class="course-info">
-                                <div class="primary-heading pb-0">Improving Deep Neural Networks: Hyperparameter Tuning,
-                                    Regularization and Optimization</div>
-                                <div class="course-status">
-                                    <label><span class="rounded video-icon"></span><span class="fw-bold">6</span>
-                                        videoes</label>
-                                    <label><span class="rounded notes-icon"></span><span class="fw-bold">2hr</span>
-                                        of reading</label>
-                                    <label><span class="rounded notes-icon"></span><span class="fw-bold">1</span>
-                                        Quiz</label>
-                                    <label><span class="rounded notes-icon"></span><span
-                                            class="fw-bold">2</span>Assessment</label>
-                                </div>
-                            </div>
-                            <div class="course-footer">
-                                <div>Course</div>
-                            </div>
-                        </div>
-                        <div class="course-desc">
-                            <h3>What you’ll learn</h3>
-                            <ul>
-                                <li>Build and train deep neural networks, identify key architecture parameters,
-                                    implement
-                                    vectorized neural networks and deep learning to applications</li>
-                                <li>Build a CNN and apply it to detection and recognition tasks, use neural style
-                                    transfer
-                                    to generate art, and apply algorithms to image and video data</li>
-                                <li>Train test sets, analyze variance for DL applications, use standard techniques
-                                    and
-                                    optimization algorithms, and build neural networks in TensorFlow</li>
-                                <li>Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace
-                                    tokenizers
-                                    and transformer models to perform NER and Question Answering</li>
+                                <li *ngFor="let obj of modules.objective">{{obj}}</li>
                             </ul>
                         </div>
                     </div>
@@ -138,42 +82,18 @@
 
                     <div class="accordion course-filters">
                        
-                       <div class="accordion-item">
-                          <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                How does this course different from AI for everyone?
+                       <div *ngFor="let faq of course.faq;let i = index" class="accordion-item">
+                          <h2 class="accordion-header" [id]="'faq' + i">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="true" aria-controls="collapseThree">
+                                {{faq.qus}}
                             </button>
                           </h2>
-                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingOne" >
+                          <div [id]="'collapse' + i" class="accordion-collapse collapse" [attr.aria-labelledby]="'faq' + i" >
                             <div class="accordion-body">
-                              <p>Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering</p>
+                              <p>{{faq.ans}}</p>
                             </div>
                           </div>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                Who is this course for?
-                              </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
-                              <div class="accordion-body">
-                                <p>Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                Do I need prior experience
-                              </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" >
-                              <div class="accordion-body">
-                                <p>Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformer models to perform NER and Question Answering</p>
-                              </div>
-                            </div>
-                          </div>
                     </div>
                     </section>
             </div>
@@ -183,34 +103,15 @@
                     <div class="px-3 pt-3">
                         <button class="btn secondary-btn w-100 mb-4">Enroll <span>(Starts Jan 15)</span></button>
                         <h3>Instructors</h3>
-                        <div class="instructors">
+                        <div *ngFor="let author of course.authors" class="instructors">
                             <h3 class="profile-name">
-                                GL
+                                {{author.name.split(" ")[0].charAt(0)}}{{author.name.split(" ")[1].charAt(0)}}
                             </h3>
                             <div>
-                                <h4>Geoff Ladwig</h4>
-                                <p>Stanford University</p>
+                                <h4>{{author.name}}</h4>
+                                <p>{{author.title}}</p>
                             </div>
                         </div>
-                        <div class="instructors">
-                            <h3 class="profile-name green-bg">
-                                LK
-                            </h3>
-                            <div>
-                                <h4>Linjith Kunnon</h4>
-                                <p>Stanford University</p>
-                            </div>
-                        </div>
-                        <div class="instructors">
-                            <h3 class="profile-name orange-bg">
-                                JS
-                            </h3>
-                            <div>
-                                <h4>John Smit</h4>
-                                <p>Stanford University</p>
-                            </div>
-                        </div>
-                       
                     </div>
                 </div>
                 <div class="enroll-sec">

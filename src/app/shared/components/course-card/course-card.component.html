@@ -13,7 +13,7 @@
 			<div class="rating fs-5">4.5 <span class="star-icon"></span></div>
 		</div>
 		<div class="primary-heading pb-0">{{course.title}}</div>
-		<p class="gray-txt">{{course.authors[0]}} <span>({{course.publishedOn}})</span></p>
+		<p class="gray-txt">{{course.authors[0].name}} <span>({{course.publishedOn}})</span></p>
 		<div class="course-status">
 			<label><span class="user-icon"></span> {{course.level}}</label>
 			<label><span class="clock-icon me-2"></span> {{course.duration.inMinutes}}</label>
@@ -34,7 +34,7 @@
 
 	<div class="course-info">
 		<div class="primary-heading pb-0">{{course.title}}</div>
-		<p class="gray-txt">{{course.authors[0]}} <span>({{course.publishedOn}})</span></p>
+		<p class="gray-txt">{{course.authors[0].name}} <span>({{course.publishedOn}})</span></p>
 		<div class="course-status">
 			<label><span class="user-icon"></span> {{course.level}}</label>
 			<label><span class="clock-icon me-2"></span> {{course.duration.inMinutes}}</label>

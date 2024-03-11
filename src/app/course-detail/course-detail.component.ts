@@ -35,6 +35,7 @@ export class CourseDetailComponent implements OnInit {
     this.courseApi.getWishlistCourse().subscribe(
       data => {
         this.course = data.find(c => c.learningMaterialId === code) as ICourseDetail;
+        console.log('this.course --- >> ', this.course);
       },
       err => {}
     );
