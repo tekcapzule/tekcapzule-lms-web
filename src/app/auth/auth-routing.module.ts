@@ -6,8 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { CallbackComponent } from './callback/callback.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ConfirmSignupComponent } from './confirm-signup/confirm-signup.component';
+import { ConfirmResetPasswordComponent } from './confirm-reset-password/confirm-reset-password.component';
 
 const routes: Routes = [
   {
@@ -35,8 +35,8 @@ const routes: Routes = [
         component: ConfirmSignupComponent
       },
       {
-        path: 'reset-password',
-        component: ResetPasswordComponent
+        path: 'confirm-reset-password',
+        component: ConfirmResetPasswordComponent
       },
       {
         path: '',

@@ -1,4 +1,9 @@
-import { AbstractControl, FormGroup, ValidationErrors } from '@angular/forms';
+import {
+  AbstractControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn
+} from '@angular/forms';
 
 const PasswordLiterals = {
   UpperCase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -10,9 +15,7 @@ const PasswordLiterals = {
 const TrailingSpacesRegExp = /^\s+|\s+$/g;
 
 export class AuthValidators {
-  static passwordPolicyValidator(
-    control: AbstractControl
-  ): ValidationErrors | null {
+  static passwordPolicy(control: AbstractControl): ValidationErrors | null {
     const password = (control.value as string).trim();
     let hasAtLeastOneUpperCase = false,
       hasAtLeastOneLowerCase = false,
@@ -58,10 +61,16 @@ export class AuthValidators {
     return { invalid: true };
   }
 
-  static checkPasswordPolicyValidator(
-    control: AbstractControl
-  ): ValidationErrors | null {
-    const password = control.value as string;
-    return null;
+  static match(firstControlKey: string, secondControlKey: string): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const firstControl = (control as FormGroup).get(firstControlKey);
+      const secondControl = (control as FormGroup).get(secondControlKey);
+
+      if (firstControl?.value !== secondControl?.value) {
+        return { nomatch: true };
+      }
+
+      return null;
+    };
   }
 }

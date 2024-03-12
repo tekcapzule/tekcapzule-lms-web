@@ -14,8 +14,6 @@ import { allowOnlyNumericInput } from '@app/shared/utils/common-utils';
 import { AbstractBaseAuth } from '../base-auth';
 import { AuthStateService } from '@app/core/services';
 
-// type ConfirmSignUpType
-
 @Component({
   selector: 'app-confirm-signup',
   templateUrl: './confirm-signup.component.html',
@@ -27,7 +25,7 @@ export class ConfirmSignupComponent
 {
   isSubmitted = false;
   username: string | undefined = '';
-  deliveryDestination: string | undefined = '';
+  deliveryEmail: string | undefined = '';
   allowOnlyNumericInput = allowOnlyNumericInput;
   verificationCodeFormControl: FormControl<string | null>;
   confirmSignupErrorMessage = '';
@@ -45,7 +43,7 @@ export class ConfirmSignupComponent
     this.username = this.router.getCurrentNavigation()?.extras.state
       ?.username as string;
 
-    this.deliveryDestination = this.router.getCurrentNavigation()?.extras.state
+    this.deliveryEmail = this.router.getCurrentNavigation()?.extras.state
       ?.destination as string;
   }
 
@@ -58,10 +56,10 @@ export class ConfirmSignupComponent
   }
 
   getDeliveryEmailIfPresent(): string {
-    return this.deliveryDestination ? ` to ${this.deliveryDestination}` : '';
+    return this.deliveryEmail ? ` to ${this.deliveryEmail}` : '';
   }
 
-  onConfirmSignupFormSubmit(event: Event) {
+  onFormSubmit(event: Event) {
     event.preventDefault();
     this.isSubmitted = true;
 
@@ -90,8 +88,6 @@ export class ConfirmSignupComponent
         username,
         confirmationCode
       });
-
-      console.info(isSignUpComplete, nextStep);
 
       if (isSignUpComplete && nextStep.signUpStep === 'COMPLETE_AUTO_SIGN_IN') {
         await this.handleAutoSignIn();

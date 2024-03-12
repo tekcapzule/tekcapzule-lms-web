@@ -60,7 +60,7 @@ export class SignupComponent
       password: this.fb.control('', [
         Validators.required,
         Validators.minLength(8),
-        AuthValidators.passwordPolicyValidator
+        AuthValidators.passwordPolicy
       ])
     });
   }

@@ -8,8 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { CallbackComponent } from './callback/callback.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ConfirmSignupComponent } from './confirm-signup/confirm-signup.component';
+import { ConfirmResetPasswordComponent } from './confirm-reset-password/confirm-reset-password.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +18,8 @@ import { ConfirmSignupComponent } from './confirm-signup/confirm-signup.componen
     CallbackComponent,
     SignupComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent,
-    ConfirmSignupComponent
+    ConfirmSignupComponent,
+    ConfirmResetPasswordComponent
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, AuthRoutingModule]
 })

@@ -97,7 +97,7 @@ export class LoginComponent
   async handleSignIn({ username, password }: SignInInput) {
     try {
       const { isSignedIn, nextStep } = await signIn({ username, password });
-      console.info(isSignedIn, nextStep);
+      console.warn('Login:signIn => ', isSignedIn, nextStep.signInStep);
     } catch (error) {
       if (error instanceof AuthError) {
         this.loginErrorMessage = error.message;
