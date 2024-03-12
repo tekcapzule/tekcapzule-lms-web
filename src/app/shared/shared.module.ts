@@ -5,6 +5,7 @@ import { CourseCardComponent } from './components/course-card/course-card.compon
 import { DataFilterComponent } from './components/data-filter/data-filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckboxModule } from 'primeng/checkbox';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    CheckboxModule
+    CheckboxModule,
+    BreadcrumbModule
   ],
   exports: [
     CourseCardComponent,

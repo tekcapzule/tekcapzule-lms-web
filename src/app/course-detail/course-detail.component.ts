@@ -10,6 +10,9 @@ import { ICourseDetail } from '@app/shared/models/course-item.model';
 })
 export class CourseDetailComponent implements OnInit {
   course: ICourseDetail;
+  firstName: string;
+  lastName: string;
+  profileImage: string;
 
   constructor(
     private router: Router,
@@ -22,12 +25,17 @@ export class CourseDetailComponent implements OnInit {
       //this.pageId = params['pageId'];
       this.getWishlistCourse(params['code']);
     });
+    this.firstName = 'John'; 
+    this.lastName = 'Doe';   
+    this.profileImage = this.firstName.charAt(0) + this.lastName.charAt(0);
+
   }
 
   getWishlistCourse(code: string) {
     this.courseApi.getWishlistCourse().subscribe(
       data => {
         this.course = data.find(c => c.learningMaterialId === code) as ICourseDetail;
+        console.log('this.course --- >> ', this.course);
       },
       err => {}
     );
