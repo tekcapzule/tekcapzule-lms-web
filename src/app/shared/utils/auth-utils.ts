@@ -3,6 +3,8 @@ import { decodeJWT } from 'aws-amplify/auth';
 import awsExports from '../../../aws-exports';
 import { AwsCognitoUser } from '../models/aws-user.model';
 
+const TekCapsuleLastAuthStateKey = `TekCapzule.${awsExports.aws_user_pools_web_client_id}.LastAuthState`;
+
 export function getAwsCognitoUserFromToken(): AwsCognitoUser | null {
   const store = window.localStorage;
   const lastAuthUser = store.getItem(
@@ -45,32 +47,50 @@ export function getAccessTokenFromStore(): string | null {
   return null;
 }
 
-export function saveAuthStateToStore(authState: AuthState): void {
+export function getLoggedInStatusFromStore(): boolean {
+  const lastAuthUser = window.localStorage.getItem(
+    `CognitoIdentityServiceProvider.${awsExports.aws_user_pools_web_client_id}.LastAuthUser`
+  );
+
+  if (lastAuthUser) {
+    return true;
+  }
+
+  return false;
+}
+
+export function generateCurrentAuthState(): AuthState {
+  const authState: AuthState = {
+    isLoggedIn: getLoggedInStatusFromStore(),
+    awsCognitoUser: getAwsCognitoUserFromToken()
+  };
+
+  return authState;
+}
+
+export function saveAuthStateToStore(): void {
   const store = window.localStorage;
   const lastAuthUser = store.getItem(
     `CognitoIdentityServiceProvider.${awsExports.aws_user_pools_web_client_id}.LastAuthUser`
   );
 
   if (lastAuthUser) {
-    store.setItem(
-      `TekCapzule.${awsExports.aws_user_pools_web_client_id}.AuthState`,
-      JSON.stringify(authState)
-    );
+    const authState: AuthState = generateCurrentAuthState();
+
+    store.setItem(TekCapsuleLastAuthStateKey, JSON.stringify(authState));
   }
+}
+
+export function getAuthStateFromStore(): AuthState | null {
+  const authState = window.localStorage.getItem(TekCapsuleLastAuthStateKey);
+
+  if (authState) {
+    return JSON.parse(authState);
+  }
+
+  return null;
 }
 
 export function deleteAuthStateFromStore(): void {
-  window.localStorage.removeItem(
-    `TekCapzule.${awsExports.aws_user_pools_web_client_id}.AuthState`
-  );
-}
-
-export function checkAuthStatusOnPageRefresh(authStateSvc: AuthStateService) {
-  const authState = window.localStorage.getItem(
-    `TekCapzule.${awsExports.aws_user_pools_web_client_id}.AuthState`
-  );
-
-  if (authState) {
-    authStateSvc.setAuthState(JSON.parse(authState));
-  }
+  window.localStorage.removeItem(TekCapsuleLastAuthStateKey);
 }

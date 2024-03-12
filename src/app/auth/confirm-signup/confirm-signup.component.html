@@ -1,0 +1,56 @@
+<!-- Confirm Account Start -->
+<div class="w-100 confirm-account-wrapper">
+  <div class="mb-5 text-center">
+    <img src="../../assets/logo.png" alt="" />
+  </div>
+  <h2 class="text-white text-center pb-3">Confirm Signup</h2>
+  <p class="text-center">
+    We have sent a code by email{{ getDeliveryEmailIfPresent() }}. Enter it
+    below to confirm your account.
+  </p>
+  <form (submit)="onFormSubmit($event)">
+    <div class="form-control-wrapper">
+      <div
+        class="input-group"
+        [class.input-group-error]="
+          isSubmitted &&
+          verificationCodeFormControl.touched &&
+          verificationCodeFormControl.errors?.required
+        "
+      >
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Verification Code"
+          placeholder="Verification Code"
+          [formControl]="verificationCodeFormControl"
+          (keydown)="allowOnlyNumericInput($event)"
+        />
+      </div>
+      <div
+        class="input-error-text text-danger"
+        *ngIf="
+          isSubmitted &&
+          verificationCodeFormControl.touched &&
+          verificationCodeFormControl.errors?.required
+        "
+      >
+        Please enter a valid verification code
+      </div>
+    </div>
+
+    <div *ngIf="confirmSignupErrorMessage" class="text-danger text-center mb-4">
+      {{ confirmSignupErrorMessage }}
+    </div>
+
+    <button type="submit" class="btn btn-block login-btn">Confirm</button>
+  </form>
+
+  <div class="text-center">
+    <span>Didn't receive a code? </span>
+    <a href="#" class="send-code" (click)="onSendNewCode($event)"
+      >Send new code</a
+    >
+  </div>
+</div>
+<!-- Confirm Account End -->

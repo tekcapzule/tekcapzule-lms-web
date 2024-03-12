@@ -1,1 +1,156 @@
-<p>signup works!</p>
+<!-- Signup Form Start -->
+<div class="w-100 signup-wrapper">
+  <div class="mb-5 text-center">
+    <img src="../../assets/logo.png" alt="" />
+  </div>
+  <h2 class="text-white text-center pb-3">Sign Up</h2>
+  <form [formGroup]="signupForm" (submit)="onSignupFormSubmit($event)">
+    <div class="form-control-wrapper">
+      <div
+        class="input-group"
+        [class.input-group-error]="
+          isSubmitted &&
+          signupFormControls.email.touched &&
+          (signupFormControls.email.errors?.required ||
+            signupFormControls.email.errors?.email)
+        "
+      >
+        <input
+          type="email"
+          class="form-control"
+          aria-label="Email"
+          formControlName="email"
+          placeholder="Email"
+        />
+      </div>
+      <div
+        class="input-error-text text-danger"
+        *ngIf="
+          isSubmitted &&
+          signupFormControls.email.touched &&
+          (signupFormControls.email.errors?.required ||
+            signupFormControls.email.errors?.email)
+        "
+      >
+        Please enter a valid email
+      </div>
+    </div>
+
+    <div class="form-control-wrapper">
+      <div
+        class="input-group"
+        [class.input-group-error]="
+          isSubmitted &&
+          signupFormControls.firstName.touched &&
+          signupFormControls.firstName.errors?.required
+        "
+      >
+        <input
+          type="text"
+          class="form-control"
+          aria-label="First Name"
+          formControlName="firstName"
+          placeholder="First Name"
+        />
+      </div>
+      <div
+        class="input-error-text text-danger"
+        *ngIf="
+          isSubmitted &&
+          signupFormControls.firstName.touched &&
+          signupFormControls.firstName.errors?.required
+        "
+      >
+        Please enter a first name
+      </div>
+    </div>
+
+    <div class="form-control-wrapper">
+      <div
+        class="input-group"
+        [class.input-group-error]="
+          isSubmitted &&
+          signupFormControls.lastName.touched &&
+          signupFormControls.lastName.errors?.required
+        "
+      >
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Last Name"
+          formControlName="lastName"
+          placeholder="Last Name"
+        />
+      </div>
+      <div
+        class="input-error-text text-danger"
+        *ngIf="
+          isSubmitted &&
+          signupFormControls.lastName.touched &&
+          signupFormControls.lastName.errors?.required
+        "
+      >
+        Please enter a last name
+      </div>
+    </div>
+
+    <div class="form-control-wrapper">
+      <div
+        class="input-group"
+        [class.input-group-error]="
+          isSubmitted &&
+          signupFormControls.password.touched &&
+          (signupFormControls.password.errors?.required ||
+            signupFormControls.password.errors?.minlength ||
+            signupFormControls.password.errors?.invalid)
+        "
+      >
+        <input
+          type="password"
+          class="form-control"
+          aria-label="Password"
+          formControlName="password"
+          placeholder="Password"
+        />
+      </div>
+      <div
+        class="input-error-text text-danger"
+        *ngIf="
+          isSubmitted &&
+          signupFormControls.password.touched &&
+          (signupFormControls.password.errors?.required ||
+            signupFormControls.password.errors?.minlength ||
+            signupFormControls.password.errors?.invalid)
+        "
+      >
+        <span>Please enter a valid password</span>
+        <i
+          class="far fa-info-circle password-tooltip"
+          data-bs-toggle="tooltip"
+          data-bs-placement="right"
+          data-bs-delay="0"
+          data-bs-trigger="hover"
+          title="Password must contain al least one upper case letter, at least one lower case letter, at least one number and at least one special character."
+        ></i>
+      </div>
+    </div>
+
+    <div *ngIf="signupErrorMessage" class="text-danger text-center mb-2">
+      {{ signupErrorMessage }}
+    </div>
+
+    <p class="text-center">
+      By clicking the Sign Up button, agree to our <br />
+      <a href="#" class="sign-up">Terms and Condition</a> and
+      <a href="#" class="sign-up">Policy Privacy</a>
+    </p>
+
+    <button type="submit" class="btn btn-block login-btn">Sign Up</button>
+  </form>
+
+  <div class="text-center">
+    <span>Already have an account? </span>
+    <a href="#" routerLink="/auth/login" class="sign-up">Login</a>
+  </div>
+</div>
+<!-- Signup Form End -->

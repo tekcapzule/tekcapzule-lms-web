@@ -1,18 +1,44 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 import { Router } from '@angular/router';
-import { signIn, signInWithRedirect, AuthError } from 'aws-amplify/auth';
+import {
+  signIn,
+  signInWithRedirect,
+  AuthError,
+  SignInInput,
+  SignInWithRedirectInput
+} from 'aws-amplify/auth';
+import { AuthProvider } from '@aws-amplify/auth/dist/esm/types/inputs';
 
-import { BaseAuth } from '@app/auth/base-auth';
+import { AbstractBaseAuth } from '@app/auth/base-auth';
 import { AuthStateService } from '@app/core/services';
+import { OAuth2Provider } from '@app/shared/models';
+
+interface LoginFormType {
+  email: FormControl<string | null>;
+  password: FormControl<string | null>;
+}
+
+type LoginFormValueType = Partial<{
+  email: string | null;
+  password: string | null;
+}>;
 
 @Component({
   selector: 'app-Login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent extends BaseAuth implements OnInit, OnDestroy {
-  loginForm: FormGroup;
+export class LoginComponent
+  extends AbstractBaseAuth
+  implements OnInit, OnDestroy
+{
+  loginForm: FormGroup<LoginFormType>;
   isSubmitted = false;
   loginErrorMessage = '';
 
@@ -23,9 +49,9 @@ export class LoginComponent extends BaseAuth implements OnInit, OnDestroy {
   ) {
     super(authStateService);
 
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+    this.loginForm = this.fb.group<LoginFormType>({
+      email: this.fb.control('', [Validators.required, Validators.email]),
+      password: this.fb.control('', [Validators.required])
     });
   }
 
@@ -41,20 +67,16 @@ export class LoginComponent extends BaseAuth implements OnInit, OnDestroy {
     return this.loginForm.controls;
   }
 
-  override signedInCallback(): void {
-    this.router.navigateByUrl('/lms/dashboard');
-  }
-
   continueWithGoogle() {
-    signInWithRedirect({ provider: 'Google' }).catch(err => {
-      console.error(err);
-    });
+    this.handleSignInWithRedirect(OAuth2Provider.Google);
   }
 
   continueWithFacebook() {
-    signInWithRedirect({ provider: 'Facebook' }).catch(err => {
-      console.error(err);
-    });
+    this.handleSignInWithRedirect(OAuth2Provider.Facebook);
+  }
+
+  override signedInCallback(): void {
+    this.router.navigateByUrl('/lms/dashboard');
   }
 
   onLoginFormSubmit(event: Event) {
@@ -62,17 +84,38 @@ export class LoginComponent extends BaseAuth implements OnInit, OnDestroy {
     this.isSubmitted = true;
     this.loginErrorMessage = '';
 
-    if (this.loginForm && this.loginForm.valid) {
-      signIn({
-        username: this.loginForm.value.email,
-        password: this.loginForm.value.password
-      }).catch(err => {
-        if (err instanceof AuthError) {
-          this.loginErrorMessage = err.message;
-        } else {
-          console.error(err);
-        }
+    if (this.loginForm.valid) {
+      const formValue: LoginFormValueType = this.loginForm.value;
+
+      this.handleSignIn({
+        username: formValue.email!,
+        password: formValue.password!
       });
+    }
+  }
+
+  async handleSignIn({ username, password }: SignInInput) {
+    try {
+      const { isSignedIn, nextStep } = await signIn({ username, password });
+      console.warn('Login:signIn => ', isSignedIn, nextStep.signInStep);
+    } catch (error) {
+      if (error instanceof AuthError) {
+        this.loginErrorMessage = error.message;
+      } else {
+        console.error(error);
+      }
+    }
+  }
+
+  async handleSignInWithRedirect(provider: AuthProvider) {
+    try {
+      await signInWithRedirect({ provider });
+    } catch (error) {
+      if (error instanceof AuthError) {
+        this.loginErrorMessage = error.message;
+      } else {
+        console.error(error);
+      }
     }
   }
 }

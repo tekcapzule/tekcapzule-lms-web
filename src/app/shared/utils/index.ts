@@ -10,5 +10,7 @@ export {
   getAccessTokenFromStore,
   saveAuthStateToStore,
   deleteAuthStateFromStore,
-  checkAuthStatusOnPageRefresh
+  generateCurrentAuthState as getCurrentAuthState,
+  getAuthStateFromStore
 } from './auth-utils';
+export { AuthValidators } from './auth-validators';
