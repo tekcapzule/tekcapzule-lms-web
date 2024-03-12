@@ -23,7 +23,7 @@ Amplify.configure(awsExports);
     LayoutModule,
     SharedModule,
     CoreModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
