@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -6,16 +6,18 @@ import {
   Validators
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthValidators } from '@app/shared/utils';
-import { allowOnlyNumericInput } from '@app/shared/utils/common-utils';
 import {
   AuthError,
-  autoSignIn,
   confirmResetPassword,
   ConfirmResetPasswordInput,
   signIn,
   SignInInput
 } from 'aws-amplify/auth';
+
+import { AuthStateService } from '@app/core/services';
+import { AuthValidators } from '@app/shared/utils';
+import { allowOnlyNumericInput } from '@app/shared/utils/common-utils';
+import { AbstractBaseAuth } from '../base-auth';
 
 interface ConfirmResetPasswordFormType {
   confirmationCode: FormControl<string | null>;
@@ -28,7 +30,10 @@ interface ConfirmResetPasswordFormType {
   templateUrl: './confirm-reset-password.component.html',
   styleUrls: ['./confirm-reset-password.component.scss']
 })
-export class ConfirmResetPasswordComponent {
+export class ConfirmResetPasswordComponent
+  extends AbstractBaseAuth
+  implements OnInit, OnDestroy
+{
   isSubmitted = false;
   username: string | undefined = '';
   deliveryEmail: string | undefined = '';
@@ -36,7 +41,13 @@ export class ConfirmResetPasswordComponent {
   resetPasswordForm: FormGroup<ConfirmResetPasswordFormType>;
   confirmResetPasswordErrorMessage = '';
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    public override authStateService: AuthStateService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
+    super(authStateService);
+
     this.resetPasswordForm = this.fb.group<ConfirmResetPasswordFormType>(
       {
         confirmationCode: this.fb.control('', [Validators.required]),
@@ -57,6 +68,14 @@ export class ConfirmResetPasswordComponent {
 
     this.deliveryEmail = this.router.getCurrentNavigation()?.extras.state
       ?.destination as string;
+  }
+
+  ngOnDestroy(): void {
+    this.onInit();
+  }
+
+  ngOnInit(): void {
+    this.onDestroy();
   }
 
   getDeliveryEmailIfPresent(): string {
@@ -114,7 +133,8 @@ export class ConfirmResetPasswordComponent {
       );
 
       if (isSignedIn && nextStep.signInStep === 'DONE') {
-        this.router.navigateByUrl('/auth/login');
+        this.saveCurrentAuthStateToStore();
+        this.router.navigateByUrl('/lms/dashboard');
       }
     } catch (error) {
       if (error instanceof AuthError) {
