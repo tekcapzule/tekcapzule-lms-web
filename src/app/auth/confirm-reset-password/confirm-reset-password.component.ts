@@ -53,8 +53,7 @@ export class ConfirmResetPasswordComponent
         confirmationCode: this.fb.control('', [Validators.required]),
         newPassword: this.fb.control('', [
           Validators.required,
-          Validators.minLength(8),
-          AuthValidators.passwordPolicy
+          AuthValidators.checkPasswordPolicy
         ]),
         confirmPassword: this.fb.control('', [Validators.required])
       },
