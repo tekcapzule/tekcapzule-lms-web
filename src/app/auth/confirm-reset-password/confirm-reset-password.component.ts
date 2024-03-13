@@ -16,7 +16,7 @@ import {
 
 import { AuthStateService } from '@app/core/services';
 import { AuthValidators } from '@app/shared/utils';
-import { allowOnlyNumericInput } from '@app/shared/utils/common-utils';
+import { allowOnlyNumericInput } from '@app/shared/utils';
 import { AbstractBaseAuth } from '../base-auth';
 
 interface ConfirmResetPasswordFormType {

@@ -106,11 +106,12 @@
         "
       >
         <input
-          type="password"
+          type="text"
           class="form-control"
           aria-label="Password"
           formControlName="password"
           placeholder="Password"
+          (keydown)="allowNonSpaceCharacterInput($event)"
         />
       </div>
       <div
@@ -118,20 +119,114 @@
         *ngIf="
           isSubmitted &&
           signupFormControls.password.touched &&
-          (signupFormControls.password.errors?.required ||
-            signupFormControls.password.errors?.minlength ||
-            signupFormControls.password.errors?.invalid)
+          signupFormControls.password.errors?.required
         "
       >
         <span>Please enter a valid password</span>
-        <i
-          class="far fa-info-circle password-tooltip"
-          data-bs-toggle="tooltip"
-          data-bs-placement="right"
-          data-bs-delay="0"
-          data-bs-trigger="hover"
-          title="Password must contain al least one upper case letter, at least one lower case letter, at least one number and at least one special character."
-        ></i>
+      </div>
+      <div
+        class="input-error-text text-danger mt-2"
+        *ngIf="
+          signupFormControls.password.dirty &&
+          signupFormControls.password.errors?.noUpperCase
+        "
+      >
+        <i class="fa fa-times-circle" style="margin-right: 4px"></i>
+        <span>Password must contain an upper case letter</span>
+      </div>
+      <div
+        class="input-error-text text-success mt-2"
+        *ngIf="
+          signupFormControls.password.dirty &&
+          !signupFormControls.password.errors?.noUpperCase
+        "
+      >
+        <i class="fa fa-check-circle" style="margin-right: 4px"></i>
+        <span>Password must contain an upper case letter</span>
+      </div>
+
+      <div
+        class="input-error-text text-danger"
+        *ngIf="
+          signupFormControls.password.dirty &&
+          signupFormControls.password.errors?.noLowerCase
+        "
+      >
+        <i class="fa fa-times-circle" style="margin-right: 4px"></i>
+        <span>Password must contain a lower case letter</span>
+      </div>
+      <div
+        class="input-error-text text-success"
+        *ngIf="
+          signupFormControls.password.dirty &&
+          !signupFormControls.password.errors?.noLowerCase
+        "
+      >
+        <i class="fa fa-check-circle" style="margin-right: 4px"></i>
+        <span>Password must contain a lower case letter</span>
+      </div>
+
+      <div
+        class="input-error-text text-danger"
+        *ngIf="
+          signupFormControls.password.dirty &&
+          signupFormControls.password.errors?.noNumber
+        "
+      >
+        <i class="fa fa-times-circle" style="margin-right: 4px"></i>
+        <span>Password must contain a number</span>
+      </div>
+      <div
+        class="input-error-text text-success"
+        *ngIf="
+          signupFormControls.password.dirty &&
+          !signupFormControls.password.errors?.noNumber
+        "
+      >
+        <i class="fa fa-check-circle" style="margin-right: 4px"></i>
+        <span>Password must contain a number</span>
+      </div>
+
+      <div
+        class="input-error-text text-danger"
+        *ngIf="
+          signupFormControls.password.dirty &&
+          signupFormControls.password.errors?.noMinLength
+        "
+      >
+        <i class="fa fa-times-circle" style="margin-right: 4px"></i>
+        <span>Password must contain at least 8 characters</span>
+      </div>
+      <div
+        class="input-error-text text-success"
+        *ngIf="
+          signupFormControls.password.dirty &&
+          !signupFormControls.password.errors?.noMinLength
+        "
+      >
+        <i class="fa fa-check-circle" style="margin-right: 4px"></i>
+        <span>Password must contain at least 8 characters</span>
+      </div>
+
+      <div
+        class="input-error-text text-danger"
+        *ngIf="
+          signupFormControls.password.dirty &&
+          signupFormControls.password.errors?.noSpecialChar
+        "
+      >
+        <i class="fa fa-times-circle" style="margin-right: 4px"></i>
+        <span>Password must contain a special character</span>
+      </div>
+      <div
+        class="input-error-text text-success"
+        *ngIf="
+          signupFormControls.password.dirty &&
+          !signupFormControls.password.errors?.noSpecialChar
+        "
+      >
+        <i class="fa fa-check-circle" style="margin-right: 4px"></i>
+        <span>Password must contain a special character</span>
       </div>
     </div>
 

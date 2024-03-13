@@ -28,3 +28,15 @@ export function allowOnlyNumericInput(event: KeyboardEvent) {
 
   return false;
 }
+
+export function allowNonSpaceCharacterInput(event: KeyboardEvent) {
+  const keyCode = event.keyCode || event.which;
+
+  if (
+    keyCode === 32 // space
+  ) {
+    return false;
+  }
+
+  return true;
+}

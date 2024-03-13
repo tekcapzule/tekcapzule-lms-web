@@ -3,7 +3,9 @@ export { cacheManager, CacheItem, CacheManager } from './cache-manager';
 export {
   shuffleArray,
   toUpperCamelCase,
-  isNullOrUndefined
+  isNullOrUndefined,
+  allowOnlyNumericInput,
+  allowNonSpaceCharacterInput
 } from './common-utils';
 export {
   getAwsCognitoUserFromToken,
