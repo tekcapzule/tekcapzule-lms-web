@@ -10,7 +10,7 @@ import {
   ResendSignUpCodeInput
 } from 'aws-amplify/auth';
 
-import { allowOnlyNumericInput } from '@app/shared/utils/common-utils';
+import { allowOnlyNumericInput } from '@app/shared/utils';
 import { AbstractBaseAuth } from '../base-auth';
 import { AuthStateService } from '@app/core/services';
 

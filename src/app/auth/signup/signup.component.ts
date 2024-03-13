@@ -10,7 +10,7 @@ import { AuthError, signUp } from 'aws-amplify/auth';
 
 import { AbstractBaseAuth } from '@app/auth/base-auth';
 import { AuthStateService } from '@app/core/services';
-import { AuthValidators } from '@app/shared/utils';
+import { allowNonSpaceCharacterInput, AuthValidators } from '@app/shared/utils';
 
 interface SignUpFormType {
   email: FormControl<string | null>;
@@ -45,6 +45,7 @@ export class SignupComponent
   signupForm: FormGroup<SignUpFormType>;
   isSubmitted = false;
   signupErrorMessage = '';
+  allowNonSpaceCharacterInput = allowNonSpaceCharacterInput;
 
   constructor(
     private fb: FormBuilder,
@@ -59,8 +60,7 @@ export class SignupComponent
       lastName: this.fb.control('', [Validators.required]),
       password: this.fb.control('', [
         Validators.required,
-        Validators.minLength(8),
-        AuthValidators.passwordPolicy
+        AuthValidators.checkPasswordPolicy
       ])
     });
   }

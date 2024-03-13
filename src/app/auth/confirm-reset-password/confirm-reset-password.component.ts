@@ -16,7 +16,7 @@ import {
 
 import { AuthStateService } from '@app/core/services';
 import { AuthValidators } from '@app/shared/utils';
-import { allowOnlyNumericInput } from '@app/shared/utils/common-utils';
+import { allowOnlyNumericInput } from '@app/shared/utils';
 import { AbstractBaseAuth } from '../base-auth';
 
 interface ConfirmResetPasswordFormType {
@@ -53,8 +53,7 @@ export class ConfirmResetPasswordComponent
         confirmationCode: this.fb.control('', [Validators.required]),
         newPassword: this.fb.control('', [
           Validators.required,
-          Validators.minLength(8),
-          AuthValidators.passwordPolicy
+          AuthValidators.checkPasswordPolicy
         ]),
         confirmPassword: this.fb.control('', [Validators.required])
       },
