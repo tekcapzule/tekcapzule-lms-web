@@ -8,6 +8,7 @@ import { OverviewComponent } from './overview/overview.component';
 import { ResourceComponent } from './resource/resource.component';
 import { DiscussionComponent } from './discussion/discussion.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
+import { VideoListComponent } from './video-list/video-list.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AnnouncementComponent } from './announcement/announcement.component';
     OverviewComponent,
     ResourceComponent,
     DiscussionComponent,
-    AnnouncementComponent
+    AnnouncementComponent,
+    VideoListComponent
   ],
   imports: [
     CommonModule,
