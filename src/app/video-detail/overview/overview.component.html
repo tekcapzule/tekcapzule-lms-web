@@ -1,0 +1,105 @@
+<div>                
+    <div class="row gx-5 mb-4">
+        <div class="col-12 col-sm-8">
+            <h3>About this Course</h3>
+            <p>{{course.summary}}</p>
+        </div>
+        <div class="col-12 col-sm-4">
+            <h3>Instructors</h3>
+            <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0">
+                <div *ngFor="let author of course.authors" class="instructors">
+                    <h3 class="profile-name">
+                        {{author.name.split(" ")[0].charAt(0)}}{{author.name.split(" ")[1].charAt(0)}}
+                    </h3>
+                    <div>
+                        <h4>{{author.name}}</h4>
+                        <p>{{author.title}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="border p-4 mb-4">
+        <h3>What’s included</h3>
+        <div class="d-flex justify-content-start align-items-center flex-wrap gap-5">
+            <div class="d-inline-flex align-items-center">
+                <div class="flex-shrink-0 whats-included videos rounded-circle border">  </div>
+                <div class="flex-grow-1 ms-2 text-grey">
+                    <b>2 hr</b> of videoes
+                </div>
+            </div>
+            <div class="d-inline-flex align-items-center">
+                <div class="flex-shrink-0 whats-included reading rounded-circle border">  </div>
+                <div class="flex-grow-1 ms-2 text-grey">
+                    <b>2hr</b> of reading
+                </div>
+            </div>
+            <div class="d-inline-flex align-items-center">
+                <div class="flex-shrink-0 whats-included quiz rounded-circle border">  </div>
+                <div class="flex-grow-1 ms-2 text-grey">
+                    <b>1</b> Quiz
+                </div>
+            </div>
+            <div class="d-inline-flex align-items-center">
+                <div class="flex-shrink-0 whats-included assessment rounded-circle border">  </div>
+                <div class="flex-grow-1 ms-2 text-grey">
+                    <b>1</b> Assessment
+                </div>
+            </div>
+            <div class="d-inline-flex align-items-center">
+                <div class="flex-shrink-0 whats-included certificate rounded-circle border">  </div>
+                <div class="flex-grow-1 ms-2 text-grey">
+                    <b>C</b>ourse completion certificate
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-sm-4 mb-4">
+        <div class="col-12 col-sm-4">
+            <div class="h-100 border p-3">
+                <h3 class="mb-4">What you’ll learn?</h3>
+                <ul>
+                    <li class="mb-4">What generative AI is and how it works, its common use cases, and what this technology can and cannot do.</li>
+                    <li>What generative AI is and how it works, its common use cases, and what this technology can and cannot do.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-sm-4">
+            <div class="h-100 border p-3">
+                <h3 class="mb-4">Any course requirements?</h3>
+                <ul>
+                    <li class="mb-3">Pencils, paper, eraser </li>
+                    <li class="mb-3">Computer and Sketchbook Pro(or similar software) for the</li>
+                    <li class="mb-3">Spare time </li>
+                    <li>Enthusiasm</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-sm-4">
+            <div class="h-100 border p-3">
+                <h3 class="mb-4">Who this course is for?</h3>
+                <ul>
+                    <li class="mb-4">What generative AI is and how it works, its common use cases, and what this technology can and cannot do.</li>
+                    <li>What generative AI is and how it works, its common use cases, and what this technology can and cannot do.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="mb-2">Frequently asked questions</h3>
+
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div  *ngFor="let faq of course.faq;let i = index" class="accordion-item border">
+          <h2 class="accordion-header p-0" [id]="'faq' + i">
+            <button class="accordion-button collapsed mb-0 border-0 bg-white" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i"  aria-expanded="false" aria-controls="flush-collapseOne">
+                {{faq.qus}}
+            </button>
+          </h2>
+          <div [id]="'collapse' + i" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body pt-0 p-4">{{faq.ans}}</div>
+          </div>
+        </div>
+      </div>
+</div>

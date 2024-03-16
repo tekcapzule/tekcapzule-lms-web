@@ -46,9 +46,13 @@ export interface Imodule {
   description: string;
   objective: string[];
   assement: number;
-  videos: number;
+  videos: IVideoDetail[];
   quiz: number;
   imageUrl: string;
+}
+export interface IVideoDetail {
+  src: string;
+  poster?: string;
 }
 export interface ISchedule {
   startDate: string;

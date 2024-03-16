@@ -9,9 +9,9 @@
                   <li class="breadcrumb-item"> <a href="javascript:void(0)" class="text-decoration-none fw-medium"> Neural Networks and Deep Learning </a> </li>
                 </ol>
               </nav>
-            <div class="d-flex mb-4">
+            <div class="d-flex mb-4 video-js-container">
                 <!-- <img src="assets/video-img.jpg" alt="" class="d-flex"> -->
-                <iframe width="100%" height="650" src="https://www.youtube.com/embed/fNxaJsNG3-s?si=HdPCAussKXcWbddG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <app-video-player class="" [options]="options"></app-video-player>
             </div>            
             
             <ul class="nav nav-tabs px-2 nav-fill gap-1" id="myTab" role="tablist">
@@ -35,220 +35,19 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active px-2 py-2 px-sm-5 py-sm-4" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    
-                    <div class="row gx-5 mb-4">
-                        <div class="col-12 col-sm-8">
-                            <h3>About this Course</h3>
-                            <p>Become a Machine Learning expert. Master the fundamentals of deep learning and break into AI. Recently updated with cutting-edge technique. Become a Machine Learning expert. Master the fundamentals of deep learning and break into AI. Recently updated with cutting-edge technique. Become a Machine Learning expert. Master the fundamentals of deep learning and break into AI. Recently updated with cutting-edge technique. Become a Machine Learning expert.</p>
-                        </div>
-                        <div class="col-12 col-sm-4">
-                            <h3>Instructors</h3>
-                            <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0">
-                                <div class="col-1"> <span class="ratio ratio-1x1 d-flex rounded-circle bg-purple text-white align-items-center justify-content-center"> GL </span> </div>
-                                <div class="ms-3">
-                                    <div class="d-flex align-items-center">
-                                        <h2 class="pb-0 fs-6 m-0 fw-bold">Geoff Ladwig</h2>
-                                    </div>
-                                    <p class="text-dark mb-0 fs-6 fw-normal">Stanford University</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="border p-4 mb-4">
-                        <h3>What’s included</h3>
-                        <div class="d-flex justify-content-start align-items-center flex-wrap gap-5">
-                            <div class="d-inline-flex align-items-center">
-                                <div class="flex-shrink-0 whats-included videos rounded-circle border">  </div>
-                                <div class="flex-grow-1 ms-2 text-grey">
-                                    <b>6hr</b> of videoes
-                                </div>
-                            </div>
-                            <div class="d-inline-flex align-items-center">
-                                <div class="flex-shrink-0 whats-included reading rounded-circle border">  </div>
-                                <div class="flex-grow-1 ms-2 text-grey">
-                                    <b>2hr</b> of reading
-                                </div>
-                            </div>
-                            <div class="d-inline-flex align-items-center">
-                                <div class="flex-shrink-0 whats-included quiz rounded-circle border">  </div>
-                                <div class="flex-grow-1 ms-2 text-grey">
-                                    <b>1</b> Quiz
-                                </div>
-                            </div>
-                            <div class="d-inline-flex align-items-center">
-                                <div class="flex-shrink-0 whats-included assessment rounded-circle border">  </div>
-                                <div class="flex-grow-1 ms-2 text-grey">
-                                    <b>1</b> Assessment
-                                </div>
-                            </div>
-                            <div class="d-inline-flex align-items-center">
-                                <div class="flex-shrink-0 whats-included certificate rounded-circle border">  </div>
-                                <div class="flex-grow-1 ms-2 text-grey">
-                                    <b>C</b>ourse completion certificate
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row g-sm-4 mb-4">
-                        <div class="col-12 col-sm-4">
-                            <div class="h-100 border p-3">
-                                <h3 class="mb-4">What you’ll learn?</h3>
-                                <ul>
-                                    <li class="mb-4">What generative AI is and how it works, its common use cases, and what this technology can and cannot do.</li>
-                                    <li>What generative AI is and how it works, its common use cases, and what this technology can and cannot do.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-4">
-                            <div class="h-100 border p-3">
-                                <h3 class="mb-4">Any course requirements?</h3>
-                                <ul>
-                                    <li class="mb-3">Pencils, paper, eraser </li>
-                                    <li class="mb-3">Computer and Sketchbook Pro(or similar software) for the</li>
-                                    <li class="mb-3">Spare time </li>
-                                    <li>Enthusiasm</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-4">
-                            <div class="h-100 border p-3">
-                                <h3 class="mb-4">Who this course is for?</h3>
-                                <ul>
-                                    <li class="mb-4">What generative AI is and how it works, its common use cases, and what this technology can and cannot do.</li>
-                                    <li>What generative AI is and how it works, its common use cases, and what this technology can and cannot do.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3 class="mb-2">Frequently asked questions</h3>
-
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item border">
-                          <h2 class="accordion-header p-0" id="flush-headingOne">
-                            <button class="accordion-button collapsed mb-0 border-0 bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                How does this course different from AI for everyone?
-                            </button>
-                          </h2>
-                          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body pt-0 p-4">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                          </div>
-                        </div>
-                        <div class="accordion-item border">
-                          <h2 class="accordion-header p-0" id="flush-headingTwo">
-                            <button class="accordion-button collapsed mb-0 border-0 bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                Who is this course for?
-                            </button>
-                          </h2>
-                          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body pt-0 p-4">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                          </div>
-                        </div>
-                        <div class="accordion-item border">
-                          <h2 class="accordion-header p-0" id="flush-headingThree">
-                            <button class="accordion-button collapsed mb-0 border-0 bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                Do I need prior experience
-                            </button>
-                          </h2>
-                          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body pt-0 p-4">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="d-flex justify-content-center align-items-center p-3 border">
-                        <a href="javascript:Void(0)" class="underline fs-14 fw-600 link">Show more</a>
-                      </div>
-
+                    <app-overview [course]="course"></app-overview>
                 </div>
                 <!-- Overview -->
                 <div class="tab-pane fade px-2 py-2 px-sm-5 py-sm-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <div class="d-flex justify-content-between align-items-center mb-4">                        
-                        <div class="d-inline-flex border px-2 py-1 gap-3">
-                            <p class="m-0 fs-13 fw-semibold">Filter:</p>
-                        </div>                        
-                        <button class="d-flex justify-content-center align-items-center gap-2 border py-2 px-4 fw-medium text-white bg-pink border-0"> <span class="download-ico"></span> Download all </button>
-                    </div>
-                    <div class="resources-row">
-                        <div class="col border p-3 position-relative">
-                            <h4 class="fs-6 text-body fw-medium mb-1 pe-4">Learn to Code Resource</h4>
-                            <p class="fs-14 text-secondary fw-medium mb-1 pe-4">What is a Neural Network?</p>
-                            <div class="reasources-card-icon position-absolute"> <img src="assets/video-icon.svg" alt=""> </div>
-                            <p class="fs-6 text-dark mb-4">Become a Machine Learning expert. Master the fundamentals of deep learning and break into AI.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <button class="download-resource p-0 m-0 border-0 bg-transparent">  </button>
-                                <p class="fs-14 text-black-50 m-0">7.1 MB</p>
-                            </div>
-                        </div>
-                        
-                    </div>
+                    <app-resource [course]="course"></app-resource>
                 </div>
                 <!-- Resources -->
                 <div class="tab-pane fade px-2 py-2 px-sm-5 py-sm-4" id="discussion" role="tabpanel" aria-labelledby="discussion-tab">
-                    
-                    <div class="d-flex justify-content-between align-items-center mb-4">                        
-                        <div class="d-inline-flex gap-2">
-                            <div class="w-75">
-                                <input type="text" placeholder="Search by keywords" class="form-control rounded-0 form-control-search">
-                            </div>
-                            <div class="d-inline-flex align-items-center border px-2 py-1 gap-3">
-                                <p class="m-0 fs-13 fw-semibold">Filter:</p>
-                            </div> 
-                            <button class="filter d-inline-flex border bg-transparent justify-content-center align-items-center"></button>       
-                        </div>                
-                        <button class="d-flex justify-content-center align-items-center gap-2 border py-2 px-4 fw-medium text-white bg-pink border-0"> Create Post </button>
-                    </div>
-
-                    <h4 class="fw-600 text-dark mb-3">All questions in this course (8)</h4>
-
-                    <a href="#" class="list-group-item border list-group-item-action d-flex gap-3 py-3 mb-4" aria-current="true">
-                        <div class="d-inline-flex rounded-circle flex-shrink-0 profile-col justify-content-center align-items-center bg-primary text-white"> GD </div>
-                        <div class="d-flex gap-2 w-100 justify-content-between">
-                          <div class="w-50">
-                            <h6 class="mb-0 fs-14 fw-600 text-dark pt-2">Could you provide the pictures that you based the caricatures on?</h6>
-                            <p class="mb-2 fs-14 text-dark">Become a Machine Learning expert. Master the fundamentals of deep learning and break into AI. Recently updated with cutting-edge techniques!</p>
-                            <h5 class="text-primary fs-13  d-inline-flex gap-3">What is a Neural Network? <span class="text-black-50">2 years ago</span></h5>
-                          </div>
-                          <small class="opacity-50 text-nowrap"> <img src="assets/courses/comment.svg" alt=""> 1 </small>
-                        </div>
-                    </a>
-
-                    <a href="#" class="list-group-item border list-group-item-action d-flex gap-3 py-3 mb-4" aria-current="true">
-                        <div class="d-inline-flex rounded-circle flex-shrink-0 profile-col justify-content-center align-items-center bg-primary text-white"> GD </div>
-                        <div class="d-flex gap-2 w-100 justify-content-between">
-                          <div class="w-50">
-                            <h6 class="mb-0 fs-14 fw-600 text-dark pt-2">Could you provide the pictures that you based the caricatures on?</h6>
-                            <p class="mb-2 fs-14 text-dark">Become a Machine Learning expert. Master the fundamentals of deep learning and break into AI. Recently updated with cutting-edge techniques!</p>
-                            <h5 class="text-primary fs-13  d-inline-flex gap-3">What is a Neural Network? <span class="text-black-50">2 years ago</span></h5>
-                          </div>
-                          <small class="opacity-50 text-nowrap"> <img src="assets/courses/comment.svg" alt=""> 1 </small>
-                        </div>
-                    </a>
-
-                    <div class="block text-center">
-                        <a href="javascript:void(0)" class="d-inline-flex underline text-primary fs-6 fw-medium"> See more </a>
-                    </div>
-
+                    <app-discussion [course]="course"></app-discussion>
                 </div>
                 <!-- Discussion -->
                 <div class="tab-pane fade px-2 py-2 px-sm-5 py-sm-4" id="announcements" role="tabpanel" aria-labelledby="announcements-tab">
-
-                    <div class="border py-3 px-4">
-                        <div class="list-group-item border-0 p-0 list-group-item-action bg-transparent d-flex gap-2 mb-2">
-                            <div class="d-inline-flex rounded-circle flex-shrink-0 profile-col justify-content-center align-items-center bg-primary text-white"> GD </div>
-                            <div class="d-flex gap-2 w-100 justify-content-between">
-                              <div class="">
-                                <h6 class="mb-0 fs-14 fw-600 text-dark">Geoff Ladwig</h6>
-                                <p class="mb-2 fs-14 text-dark">Stanford University</p>
-                              </div>
-                            </div>
-                        </div>
-                        <h4 class="fs-14 fw-600 text-dark mb-1">Could you provide the pictures that you based the caricatures on?</h4>
-                        <p class="fs-14 fw-normal text-secondary mb-2 w-50">Become a Machine Learning expert. Master the fundamentals of deep learning and break into AI. Recently updated with cutting-edge techniques!</p>
-                        <p class="text-black-50 fs-14 m-0">2 years ago</p>
-                    </div>
-
+                    <app-announcement [course]="course"></app-announcement>
                 </div>
                 <!-- Announcements -->
             </div>

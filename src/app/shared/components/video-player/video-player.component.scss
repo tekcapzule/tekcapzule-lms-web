@@ -1,0 +1,6 @@
+/* Container for the video player */
+/* Video.js player customization */
+.video-js {
+  width: 650px !important; /* Ensures the player stretches to container width */
+  height: 500px !important; /* Adjusts height automatically based on the aspect ratio */
+}
