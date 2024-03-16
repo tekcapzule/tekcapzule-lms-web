@@ -34,14 +34,20 @@
         "assement": 2,
         "videos": [
           {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
+            "title": "Welcome to the Deep Learning",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 10,
+            "completed": true
+          },
+          {
+            "title": "Welcome to Tensor Flow",
+            "src": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            "duration": 46,
+            "watchedDuration": 20,
+            "completed": false
           }
         ],
-        
         "quiz": 1,
         "imageUrl": "../../assets/courses/course-details-thumb.png"
       },
@@ -58,14 +64,20 @@
         "assement": 2,
         "videos": [
           {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
+            "title": "Welcome to AI",
+            "src": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            "duration": 46,
+            "watchedDuration": 10,
+            "completed": false
+          },
+          {
+            "title": "Welcome to Data Science",
+            "src": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "duration": 46,
+            "watchedDuration": 20,
+            "completed": false
           }
         ],
-        
         "quiz": 1,
         "imageUrl": "../../assets/courses/course-details-thumb-1.png"
       }
@@ -134,14 +146,20 @@
         "assement": 2,
         "videos": [
           {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
+            "title": "Welcome to the Deep Learning",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 10,
+            "completed": false
+          },
+          {
+            "title": "Welcome to Tensor Flow",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 20,
+            "completed": false
           }
         ],
-        
         "quiz": 1,
         "imageUrl": "../../assets/courses/course-details-thumb.png"
       },
@@ -158,14 +176,20 @@
         "assement": 2,
         "videos": [
           {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
+            "title": "Welcome to the Deep Learning",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 10,
+            "completed": false
+          },
+          {
+            "title": "Welcome to Tensor Flow",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 20,
+            "completed": false
           }
         ],
-        
         "quiz": 1,
         "imageUrl": "../../assets/courses/course-details-thumb-1.png"
       }
@@ -234,14 +258,20 @@
         "assement": 2,
         "videos": [
           {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
+            "title": "Welcome to the Deep Learning",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 10,
+            "completed": false
+          },
+          {
+            "title": "Welcome to Tensor Flow",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 20,
+            "completed": false
           }
         ],
-        
         "quiz": 1,
         "imageUrl": "../../assets/courses/course-details-thumb.png"
       },
@@ -258,14 +288,20 @@
         "assement": 2,
         "videos": [
           {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
+            "title": "Welcome to the Deep Learning",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 10,
+            "completed": false
+          },
+          {
+            "title": "Welcome to Tensor Flow",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 20,
+            "completed": false
           }
         ],
-        
         "quiz": 1,
         "imageUrl": "../../assets/courses/course-details-thumb-1.png"
       }
@@ -334,14 +370,20 @@
         "assement": 2,
         "videos": [
           {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
+            "title": "Welcome to the Deep Learning",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 10,
+            "completed": false
+          },
+          {
+            "title": "Welcome to Tensor Flow",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 20,
+            "completed": false
           }
         ],
-        
         "quiz": 1,
         "imageUrl": "../../assets/courses/course-details-thumb.png"
       },
@@ -358,14 +400,20 @@
         "assement": 2,
         "videos": [
           {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
+            "title": "Welcome to the Deep Learning",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 10,
+            "completed": false
+          },
+          {
+            "title": "Welcome to Tensor Flow",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 20,
+            "completed": false
           }
         ],
-        
         "quiz": 1,
         "imageUrl": "../../assets/courses/course-details-thumb-1.png"
       }
@@ -434,14 +482,20 @@
         "assement": 2,
         "videos": [
           {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
+            "title": "Welcome to the Deep Learning",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 10,
+            "completed": false
+          },
+          {
+            "title": "Welcome to Tensor Flow",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 20,
+            "completed": false
           }
         ],
-        
         "quiz": 1,
         "imageUrl": "../../assets/courses/course-details-thumb.png"
       },
@@ -458,14 +512,20 @@
         "assement": 2,
         "videos": [
           {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
+            "title": "Welcome to the Deep Learning",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 10,
+            "completed": false
+          },
+          {
+            "title": "Welcome to Tensor Flow",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 20,
+            "completed": false
           }
         ],
-        
         "quiz": 1,
         "imageUrl": "../../assets/courses/course-details-thumb-1.png"
       }
@@ -534,14 +594,20 @@
         "assement": 2,
         "videos": [
           {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
+            "title": "Welcome to the Deep Learning",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 10,
+            "completed": false
+          },
+          {
+            "title": "Welcome to Tensor Flow",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 20,
+            "completed": false
           }
         ],
-        
         "quiz": 1,
         "imageUrl": "../../assets/courses/course-details-thumb.png"
       },
@@ -558,14 +624,21 @@
         "assement": 2,
         "videos": [
           {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
+            "title": "Welcome to the Deep Learning",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 10,
+            "completed": false
+          },
+          {
+            "title": "Welcome to Tensor Flow",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 20,
+            "completed": false
           }
         ],
-        
+
         "quiz": 1,
         "imageUrl": "../../assets/courses/course-details-thumb-1.png"
       }
@@ -634,11 +707,18 @@
         "assement": 2,
         "videos": [
           {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
+            "title": "Welcome to the Deep Learning",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 10,
+            "completed": false
+          },
+          {
+            "title": "Welcome to Tensor Flow",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 20,
+            "completed": false
           }
         ],
         "quiz": 1,
@@ -657,14 +737,20 @@
         "assement": 2,
         "videos": [
           {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
-          }, {
-            "src": "//vjs.zencdn.net/v/oceans.mp4"
+            "title": "Welcome to the Deep Learning",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 10,
+            "completed": false
+          },
+          {
+            "title": "Welcome to Tensor Flow",
+            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "duration": 46,
+            "watchedDuration": 20,
+            "completed": false
           }
         ],
-        
         "quiz": 1,
         "imageUrl": "../../assets/courses/course-details-thumb-1.png"
       }

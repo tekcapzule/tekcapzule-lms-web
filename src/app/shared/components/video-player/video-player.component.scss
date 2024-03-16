@@ -4,3 +4,11 @@
   width: 650px !important; /* Ensures the player stretches to container width */
   height: 500px !important; /* Adjusts height automatically based on the aspect ratio */
 }
+
+
+
+/* Example: Progress bar color */
+.video-js .vjs-play-progress,
+.video-js .vjs-volume-level {
+    background-color: #EC1A57; /* Red progress and volume bars */
+}

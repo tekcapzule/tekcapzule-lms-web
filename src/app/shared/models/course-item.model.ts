@@ -51,7 +51,11 @@ export interface Imodule {
   imageUrl: string;
 }
 export interface IVideoDetail {
+  title: string;
   src: string;
+  duration: number;
+  watchedDuration: number;
+  completed: boolean;
   poster?: string;
 }
 export interface ISchedule {

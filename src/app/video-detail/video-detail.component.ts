@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseApiService } from '@app/core';
-import { ICourseDetail } from '@app/shared/models/course-item.model';
+import { VideoPlayerComponent } from '@app/shared/components/video-player/video-player.component';
+import { ICourseDetail, IVideoDetail } from '@app/shared/models/course-item.model';
 
 @Component({
   selector: 'app-video-detail',
@@ -18,6 +19,8 @@ export class VideoDetailComponent implements OnInit {
     controls: true,
     sources: [{ src: 'https://vjs.zencdn.net/v/oceans.mp4', type: 'video/mp4' }
   ]}
+  @ViewChild('videoPlayer') videoPlayer: VideoPlayerComponent;
+
   constructor(
     private router: Router,
     private courseApi: CourseApiService,
@@ -38,5 +41,10 @@ export class VideoDetailComponent implements OnInit {
       },
       err => {}
     );
+  }
+
+  onVideoChange(videoDetail: IVideoDetail) {
+    this.videoPlayer.player.src({src: videoDetail.src, type: 'video/mp4'});
+    console.log('video changed');
   }
 }
