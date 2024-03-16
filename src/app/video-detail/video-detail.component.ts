@@ -10,7 +10,14 @@ import { ICourseDetail } from '@app/shared/models/course-item.model';
 })
 export class VideoDetailComponent implements OnInit {
   course: ICourseDetail;
-
+  options = {
+    fluid: true,
+    loop: true,
+    autoplay: true,
+    muted: true,
+    controls: true,
+    sources: [{ src: 'https://vjs.zencdn.net/v/oceans.mp4', type: 'video/mp4' }
+  ]}
   constructor(
     private router: Router,
     private courseApi: CourseApiService,

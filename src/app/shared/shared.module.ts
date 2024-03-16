@@ -6,11 +6,13 @@ import { DataFilterComponent } from './components/data-filter/data-filter.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckboxModule } from 'primeng/checkbox';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { VideoPlayerComponent } from './components/video-player/video-player.component';
 
 @NgModule({
   declarations: [
     CourseCardComponent,
-    DataFilterComponent
+    DataFilterComponent,
+    VideoPlayerComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
   ],
   exports: [
     CourseCardComponent,
-    DataFilterComponent
+    DataFilterComponent,
+    VideoPlayerComponent
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
