@@ -1,12 +1,12 @@
 <div>                
     <div class="row gx-5 mb-4">
-        <div class="col-12 col-sm-8">
+        <div class="col-12 col-sm-9">
             <h3>About this Course</h3>
             <p>{{course.summary}}</p>
         </div>
-        <div class="col-12 col-sm-4">
+        <div class="col-12 col-sm-3">
             <h3>Instructors</h3>
-            <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0">
+            <div class="box rounded-2 align-items-center mb-4 mb-lg-0">
                 <div *ngFor="let author of course.authors" class="instructors">
                     <h3 class="profile-name">
                         {{author.name.split(" ")[0].charAt(0)}}{{author.name.split(" ")[1].charAt(0)}}
@@ -20,45 +20,27 @@
         </div>
     </div>
 
-    <div class="border p-4 mb-4">
+    <div class="course-card mb-5">
+        <div class="course-info">
         <h3>What’s included</h3>
-        <div class="d-flex justify-content-start align-items-center flex-wrap gap-5">
-            <div class="d-inline-flex align-items-center">
-                <div class="flex-shrink-0 whats-included videos rounded-circle border">  </div>
-                <div class="flex-grow-1 ms-2 text-grey">
-                    <b>2 hr</b> of videoes
+                <div class="course-status">
+                    <label><span class="rounded video-icon"></span><span class="fw-bold">6hr </span>
+                         of videos</label>
+                    <label><span class="rounded notes-icon"></span><span class="fw-bold">2hr </span>
+                         of reading</label>
+                    <label><span class="rounded notes-icon"></span><span class="fw-bold">1 </span>
+                         Quiz</label>
+                    <label><span class="rounded notes-icon"></span><span
+                            class="fw-bold">1</span> Assessment</label>
+                    <label><span class="rounded notes-icon"></span><span
+                            class="fw-bold">1</span> Course completion certificate</label>
                 </div>
-            </div>
-            <div class="d-inline-flex align-items-center">
-                <div class="flex-shrink-0 whats-included reading rounded-circle border">  </div>
-                <div class="flex-grow-1 ms-2 text-grey">
-                    <b>2hr</b> of reading
-                </div>
-            </div>
-            <div class="d-inline-flex align-items-center">
-                <div class="flex-shrink-0 whats-included quiz rounded-circle border">  </div>
-                <div class="flex-grow-1 ms-2 text-grey">
-                    <b>1</b> Quiz
-                </div>
-            </div>
-            <div class="d-inline-flex align-items-center">
-                <div class="flex-shrink-0 whats-included assessment rounded-circle border">  </div>
-                <div class="flex-grow-1 ms-2 text-grey">
-                    <b>1</b> Assessment
-                </div>
-            </div>
-            <div class="d-inline-flex align-items-center">
-                <div class="flex-shrink-0 whats-included certificate rounded-circle border">  </div>
-                <div class="flex-grow-1 ms-2 text-grey">
-                    <b>C</b>ourse completion certificate
-                </div>
-            </div>
         </div>
     </div>
 
-    <div class="row g-sm-4 mb-4">
+    <div class="row g-sm-4 mb-5">
         <div class="col-12 col-sm-4">
-            <div class="h-100 border p-3">
+            <div class="h-100 border p-4">
                 <h3 class="mb-4">What you’ll learn?</h3>
                 <ul>
                     <li class="mb-4">What generative AI is and how it works, its common use cases, and what this technology can and cannot do.</li>
@@ -67,7 +49,7 @@
             </div>
         </div>
         <div class="col-12 col-sm-4">
-            <div class="h-100 border p-3">
+            <div class="h-100 border p-4">
                 <h3 class="mb-4">Any course requirements?</h3>
                 <ul>
                     <li class="mb-3">Pencils, paper, eraser </li>
@@ -78,7 +60,7 @@
             </div>
         </div>
         <div class="col-12 col-sm-4">
-            <div class="h-100 border p-3">
+            <div class="h-100 border p-4">
                 <h3 class="mb-4">Who this course is for?</h3>
                 <ul>
                     <li class="mb-4">What generative AI is and how it works, its common use cases, and what this technology can and cannot do.</li>
@@ -88,7 +70,7 @@
         </div>
     </div>
 
-    <h3 class="mb-2">Frequently asked questions</h3>
+    <h3 class="mb-3">Frequently asked questions</h3>
 
     <div class="accordion accordion-flush" id="accordionFlushExample">
         <div  *ngFor="let faq of course.faq;let i = index" class="accordion-item border">

@@ -22,3 +22,21 @@
         }
     }
 }
+.course-card {
+    padding: 20px;
+    height: auto;
+    width: auto;
+    .course-info {
+        min-height: max-content;
+        .course-status 
+        {
+            display: flow;
+            label {
+                margin-right: 70px;
+                .fw-bold {
+                    padding-right: 5px;
+                }
+            }
+        }
+    }
+}
