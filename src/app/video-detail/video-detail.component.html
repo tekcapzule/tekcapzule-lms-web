@@ -11,7 +11,7 @@
               </nav>
             <div class="mb-4 video-js-container">
                 <!-- <img src="assets/video-img.jpg" alt="" class="d-flex"> -->
-                <app-video-player #videoPlayer [options]="options"></app-video-player>
+                <app-video-player #videoPlayer [options]="options" (playerReady)="onPlayerReady()" (videoEnded)="onVideoEnded()"></app-video-player>
             </div>            
             
            <div>
