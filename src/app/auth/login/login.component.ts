@@ -100,7 +100,12 @@ export class LoginComponent
       console.warn('Login:signIn => ', isSignedIn, nextStep.signInStep);
     } catch (error) {
       if (error instanceof AuthError) {
-        this.loginErrorMessage = error.message;
+        console.warn(error);
+        if (error.name === 'UserAlreadyAuthenticatedException') {
+          this.signedInCallback();
+        } else {
+          this.loginErrorMessage = error.message;
+        }
       } else {
         console.error(error);
       }

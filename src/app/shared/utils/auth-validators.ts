@@ -10,7 +10,8 @@ const PasswordPolicyLiterals = {
   LowerCase: 'abcdefghijklmnopqrstuvwxyz',
   Numerals: '0123456789',
   MinLength: 8,
-  // Not supporting single quote, double quote and forward slash even though aws allows it.
+  // Not supporting single quote, double quote and forward slash
+  // even though aws cognito password policy allows it.
   SpecialChars: '^$*.[]{}()?-!@#%&/,><:;|_~`+='
 };
 
@@ -64,11 +65,12 @@ export class AuthValidators {
     return { invalid: true };
   }
 
+  // New aws cognito password policy validator
   static checkPasswordPolicy(
     control: AbstractControl
   ): ValidationErrors | null {
     const password = control.value as string;
-    let validationErrors: { [key: string]: boolean } = {};
+    let validationErrors: { [key: string]: boolean } | null = null;
 
     const policyFlags: { [key: string]: boolean } = {
       hasAtLeastOneUpperCase: false,
@@ -104,16 +106,14 @@ export class AuthValidators {
       ['hasAtLeastOneSpecialChar', 'noSpecialChar']
     ].forEach(opt => {
       if (!policyFlags[opt[0]]) {
+        validationErrors = validationErrors ?? {};
         validationErrors[opt[1]] = true;
-      } else {
-        validationErrors[opt[1]] = false;
       }
     });
 
     if (password.length < PasswordPolicyLiterals.MinLength) {
+      validationErrors = validationErrors ?? {};
       validationErrors['noMinLength'] = true;
-    } else {
-      validationErrors['noMinLength'] = false;
     }
 
     return validationErrors;
