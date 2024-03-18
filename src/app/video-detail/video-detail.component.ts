@@ -13,13 +13,15 @@ export class VideoDetailComponent implements OnInit {
   course: ICourseDetail;
   options = {
     fluid: true,
-    loop: true,
-    autoplay: true,
-    muted: true,
-    controls: true,
-    sources: [{ src: 'https://vjs.zencdn.net/v/oceans.mp4', type: 'video/mp4' }
-  ]}
+    loop: false,
+    autoplay: false,
+    muted: false,
+    controls: true
+  }
   @ViewChild('videoPlayer') videoPlayer: VideoPlayerComponent;
+  playerReady: boolean;
+  currentVideo: IVideoDetail | null;
+  isVideoPlaying: boolean;
 
   constructor(
     private router: Router,
@@ -29,7 +31,6 @@ export class VideoDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      //this.pageId = params['pageId'];
       this.getWishlistCourse(params['code']);
     });
   }
@@ -38,13 +39,40 @@ export class VideoDetailComponent implements OnInit {
     this.courseApi.getWishlistCourse().subscribe(
       data => {
         this.course = data.find(c => c.learningMaterialId === code) as ICourseDetail;
+        this.getPlayVideo();
       },
       err => {}
     );
   }
 
+  getPlayVideo() {
+    this.course.modules.forEach(module => {
+      module.videos.forEach(video => {
+        if(!video.completed && !this.currentVideo) {
+          this.currentVideo = video;
+          if(this.playerReady) {
+            this.isVideoPlaying = true;
+            this.onVideoChange(video);
+          }
+        }
+      });
+    });
+  }
+
+  onPlayerReady() {
+    this.playerReady = true;
+    if (!this.isVideoPlaying && this.currentVideo) {
+      this.isVideoPlaying = true;
+      this.onVideoChange(this.currentVideo);
+    }
+  }
+
+  onVideoEnded() {
+    this.currentVideo = null;
+    this.getPlayVideo();
+  }
+
   onVideoChange(videoDetail: IVideoDetail) {
-    this.videoPlayer.player.src({src: videoDetail.src, type: 'video/mp4'});
-    console.log('video changed');
+    this.videoPlayer.changeVideo(videoDetail);
   }
 }

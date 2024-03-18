@@ -9,6 +9,8 @@ import { ICourseDetail, IVideoDetail } from '@app/shared/models/course-item.mode
 export class VideoListComponent implements OnInit {
   @Input() course: ICourseDetail;
   @Output() videoChange = new EventEmitter<IVideoDetail>();
+  math = Math;
+  
   constructor(
   ) {}
 

@@ -476,7 +476,7 @@ footer {
 	margin-bottom: 10px;
   }
   
-  div[role="progressbar"]::before {
+  div[role="progressbar"]:not(.playlist-progress)::before {
 	counter-reset: percentage var(--value);
 	content: counter(percentage) '%';
   }

@@ -37,6 +37,11 @@ const routes: Routes = [
           import('./feeds/feeds.module').then(m => m.FeedsModule)
       },
       {
+        path: 'course-editor',
+        loadChildren: () =>
+          import('./course-editor/course-editor.module').then(m => m.CourseEditorModule)
+      },
+      {
         path: 'reports',
         loadChildren: () =>
           import('./reports/reports.module').then(m => m.ReportsModule)

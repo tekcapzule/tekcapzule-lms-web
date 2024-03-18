@@ -35,16 +35,18 @@
         "videos": [
           {
             "title": "Welcome to the Deep Learning",
-            "src": "https://vjs.zencdn.net/v/oceans.mp4",
+            "src": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            "poster": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerBlazes.jpg",
             "duration": 46,
             "watchedDuration": 10,
-            "completed": true
+            "completed": false
           },
           {
             "title": "Welcome to Tensor Flow",
-            "src": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-            "duration": 46,
-            "watchedDuration": 20,
+            "src": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4",
+            "poster": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/VolkswagenGTIReview.jpg",
+            "duration": 594,
+            "watchedDuration": 120,
             "completed": false
           }
         ],
