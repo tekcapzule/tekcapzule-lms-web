@@ -44,7 +44,6 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
   }
   onTimeupdate(data: any) {
     this.videoDetail.watchedDuration = this.player.currentTime() || 0;
-    console.log('(video.watchedDuratio00  ', (Math.floor(this.videoDetail.watchedDuration)/this.videoDetail.duration) * 100)
   }
 
   onVideoEnded() {
@@ -65,9 +64,11 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
     this.videoDetail = videoDetail;
     this.player.src({ src: this.videoDetail.src, type: 'video/mp4'});
     this.player.poster(this.videoDetail.poster);
-    this.player.load(); 
-    this.player.currentTime(this.videoDetail.watchedDuration);
-    
+    this.player.load();
+    if(!this.videoDetail.completed) {
+      this.player.currentTime(this.videoDetail.watchedDuration);
+    }
+    this.videoDetail.completed = false;
     this.player.play()!.catch(error => {
       if (error.name === 'NotAllowedError') {
         // Inform the user that they need to interact with the document to play the video
