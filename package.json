@@ -6,7 +6,18 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "install:deps": "npm install --force",
+    "start:dev": "ng serve --host 0.0.0.0",
+    "start:hmr": "ng serve --hmr",
+    "start:win": "SET NODE_OPTIONS=--openssl-legacy-provider && ng serve",
+    "build:prod": "ng build --configuration production",
+    "build:staging": "ng build --configuration=staging",
+    "prettify": "prettier --config ./.prettierrc --write 'src/app/**/*.{js,ts,json,css,scss,html}'",
+    "test:headless": "ng test --browsers=ChromeHeadless --reporters=spec",
+    "test:headless:sr": "ng test --browsers=ChromeHeadless --reporters=spec --watch=false"
   },
   "private": true,
   "dependencies": {
