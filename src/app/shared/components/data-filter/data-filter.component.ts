@@ -17,8 +17,8 @@ export class DataFilterComponent implements OnInit {
     { code: 'AI', title: 'Aritifical Intelligence'}
   ];
   levelCategories: any[] = [
-    { name: 'BIGINNER', code: 'BIGINNER' },
-    { name: 'INTERMEDIATE', code: 'INTERMEDIATE' },
+    { name: 'Biginner', code: 'BIGINNER' },
+    { name: 'Intermediate', code: 'INTERMEDIATE' },
     { name: 'High', code: 'HIGH' }
   ];
   @Output() filterUpdate = new EventEmitter<any>();
