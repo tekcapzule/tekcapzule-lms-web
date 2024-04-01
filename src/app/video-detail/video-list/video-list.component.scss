@@ -30,3 +30,10 @@
         }
     }
 }
+
+div[role=progressbar] {
+    --size: 40px;
+}
+.ratio>* {
+    position: initial;
+}
