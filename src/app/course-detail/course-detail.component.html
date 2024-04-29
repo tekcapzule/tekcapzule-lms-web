@@ -45,21 +45,103 @@
                         </div>
                     </div>
                 </section>
+                <!-- What you will learn section start-->
+                <section class="mt-5">
+                    <div class="course-series">
+                        <div class="course-desc">
+                            <h3>What you’ll learn</h3>
+                            <ul class="learning-desc">
+                                <li>Build and train deep neural networks, identify key architecture parameters,
+                                    implement vectorized neural networks and deep learning to applications</li>
+                                <li>Build a CNN and apply it to detection and recognition tasks, use neural style
+                                    transfer to generate art, and apply algorithms to image and video data</li>
+                                <li>Train test sets, analyze variance for DL applications, use standard techniques and
+                                    optimization algorithms, and build neural networks in TensorFlow</li>
+                                <li>Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace
+                                    tokenizers and transformer models to perform NER and Question Answering
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>4 modules in this course</h2>
+                        <div class="course-module accordion accordion-flush mb-5">
+
+                            <div *ngFor="let faq of course.faq;let i = index" class="accordion-item border">
+                                <h2 class="accordion-header p-0" [id]="'faq' + i">
+                                    <button class="accordion-button collapsed mb-0 border-0 bg-white" type="button"
+                                        data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i"
+                                        aria-expanded="true" aria-controls="collapseThree">
+                                    </button>
+                                    <div>
+
+                                        <div class="primary-heading"><span class="course-list">1</span>Introduction to
+                                            Deep Learning</div>
+                                        <div class="gray-txt pl-5">2 hours</div>
+                                    </div>
+                                </h2>
+                                <div [id]="'collapse' + i" class="accordion-collapse collapse"
+                                    [attr.aria-labelledby]="'faq' + i">
+                                    <div class="accordion-body pb-0">
+
+                                        <p>Build and train RNNs, work with NLP and Word Embeddings, and use HuggingFace
+                                            tokenizers and transformer models to perform NER and Question Answering</p>
+                                        <h3>What's included</h3>
+                                        <div class="course-info">
+                                            <div class="course-status">
+                                                <label><span class="rounded video-icon"></span>
+                                                    2 Videos </label>
+                                                <label><span class="rounded notes-icon"></span>
+                                                    2 Reading</label>
+                                                <label><span class="rounded notes-icon"></span>
+                                                    1 Quiz</label>
+                                                <label><span class="rounded notes-icon"></span>4 Assessment</label>
+                                            </div>
+                                        </div>
+                                        <div class="module-content">
+                                            <h3>Module Content</h3>
+                                            <div class="course-status">
+                                                <label><span class="rounded video-icon"></span>
+                                                    Welcome <span class="gray-txt">20 mins</span></label>
+                                                <label><span class="rounded video-icon"></span>
+                                                    What is a Nueral Network? <span class="gray-txt">20
+                                                        mins</span></label>
+                                                <label><span class="rounded notes-icon"></span>
+                                                    Supervised Learning with Nueral Network <span class="gray-txt">20
+                                                        mins</span></label>
+                                                <label><span class="rounded notes-icon"></span>
+                                                    Why is Deep Learning taking off? <span class="gray-txt">20
+                                                        mins</span></label>
+                                                <label><span class="rounded notes-icon"></span>
+                                                    Quiz <span class="gray-txt">20 mins</span></label>
+                                                <label><span class="rounded notes-icon"></span>
+                                                    Assignment<span class="gray-txt">20 mins</span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- What you will learn section End-->
                 <section>
                     <h2>Specialization - 5 course series</h2>
                     <div *ngFor="let modules of course.modules" class="course-series">
 
                         <div class="course-card">
-                            <div class="course-img"><img alt="course thumbnail"
-                                    [src]="modules.imageUrl"></div>
+                            <div class="course-img"><img alt="course thumbnail" [src]="modules.imageUrl"></div>
                             <div class="course-info">
                                 <div class="primary-heading pb-0">{{modules.title}}</div>
                                 <div class="course-status">
-                                    <label><span class="rounded video-icon"></span><span class="fw-bold">{{modules.videos.length}}</span>
+                                    <label><span class="rounded video-icon"></span><span
+                                            class="fw-bold">{{modules.videos.length}}</span>
                                         videoes</label>
-                                    <label><span class="rounded notes-icon"></span><span class="fw-bold">{{modules.duration}} min</span>
+                                    <label><span class="rounded notes-icon"></span><span
+                                            class="fw-bold">{{modules.duration}} min</span>
                                         of reading</label>
-                                    <label><span class="rounded notes-icon"></span><span class="fw-bold">{{modules.quiz}}</span>
+                                    <label><span class="rounded notes-icon"></span><span
+                                            class="fw-bold">{{modules.quiz}}</span>
                                         Quiz</label>
                                     <label><span class="rounded notes-icon"></span><span
                                             class="fw-bold">{{modules.assement}}</span>Assessment</label>
@@ -80,22 +162,25 @@
                 <section>
                     <h2>Frequently asked questions</h2>
 
-                    <div class="accordion course-filters">
-                       
-                       <div *ngFor="let faq of course.faq;let i = index" class="accordion-item">
-                          <h2 class="accordion-header" [id]="'faq' + i">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="true" aria-controls="collapseThree">
-                                {{faq.qus}}
-                            </button>
-                          </h2>
-                          <div [id]="'collapse' + i" class="accordion-collapse collapse" [attr.aria-labelledby]="'faq' + i" >
-                            <div class="accordion-body">
-                              <p>{{faq.ans}}</p>
+                    <div class="accordion accordion-flush mb-5">
+
+                        <div *ngFor="let faq of course.faq;let i = index" class="accordion-item border">
+                            <h2 class="accordion-header p-0" [id]="'faq' + i">
+                                <button class="accordion-button collapsed mb-0 border-0 bg-white" type="button"
+                                    data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i"
+                                    aria-expanded="true" aria-controls="collapseThree">
+                                    {{faq.qus}}
+                                </button>
+                            </h2>
+                            <div [id]="'collapse' + i" class="accordion-collapse collapse"
+                                [attr.aria-labelledby]="'faq' + i">
+                                <div class="accordion-body pb-0">
+                                    <p>{{faq.ans}}</p>
+                                </div>
                             </div>
-                          </div>
                         </div>
                     </div>
-                    </section>
+                </section>
             </div>
             <div class="col-3 enroll-container">
                 <div class="enroll-sec">

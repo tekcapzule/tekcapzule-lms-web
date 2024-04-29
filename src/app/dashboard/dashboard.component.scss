@@ -240,9 +240,7 @@ section {
   background: var(--white-bg);
   line-height: 3rem;
   border-radius: 3rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 16px;
+  margin:20px auto;  
   border: 1px solid var(--tertiary-color);
 
   input {
@@ -310,7 +308,7 @@ section {
 }
 
 .course-icon-bg {
-  background: var(--forgetme-not-color) url('../../assets/dashboard/course-icon.svg') no-repeat center center;
+  background: var(--forgetme-not-color) url('../../assets/dashboard/course-menu-icon.svg') no-repeat center center;
   padding: 52px;
   border-radius: 50px;
   width: 50px;

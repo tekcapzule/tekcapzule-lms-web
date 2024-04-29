@@ -17,7 +17,7 @@ export class DataFilterComponent implements OnInit {
     { code: 'AI', title: 'Aritifical Intelligence'}
   ];
   levelCategories: any[] = [
-    { name: 'Biginner', code: 'BIGINNER' },
+    { name: 'Beginner', code: 'BEGINNER' },
     { name: 'Intermediate', code: 'INTERMEDIATE' },
     { name: 'High', code: 'HIGH' }
   ];
