@@ -154,6 +154,7 @@ main {
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
 		min-height: 48px;
+		color: var(--tertiary-color);
 	}
 }
 .gray-txt {
@@ -415,6 +416,7 @@ footer {
 	flex: initial !important;
 	border: 0 none;
 	color: var(--tertiary-color);
+	margin-right: 35px;
 
 	&.active {
 		border: 0 0 5px 0 !important;
@@ -425,7 +427,9 @@ footer {
 		border-right: 0;
 	}
 }
-
+.badge {
+	left: 90px !important
+}
 .quick-links 
 {
 	padding-left: 0;
@@ -493,6 +497,13 @@ footer {
   .table>tbody {
 	font-weight: 500;
   }
+  .table>thead {
+	color: #848484;
+    font-size: 14px;
+	th {
+		font-weight: 500 !important;
+	}
+  }
 
   .content-center {
 	display: block;
@@ -502,17 +513,21 @@ footer {
 
   /*********Tab Styles********/
   .nav-tabs {
+	gap: 30px;
 		.nav-link
 		{
 		font-size: 18px;
 		font-weight: 500;
+		padding: .5rem 0rem;
 		color: var(--tertiary-color);
 		background: none;
+		border:0 none;
 		border-bottom: 4px solid transparent;
 		&:hover {
 			border-color: none;
-			border: 1px solid transparent;
-			border-bottom: 4px  solid transparent;
+			border:0 none;
+			// border: 1px solid transparent;
+			 border-bottom: 4px  solid transparent;
 		}
 			&.active {
 				color: var(--primary-color);
@@ -524,11 +539,11 @@ footer {
 			&:focus, &:visited{
 				outline: none;
 				box-shadow: none;
-				border-bottom: 4px solid transparent;
+				//border-bottom: 4px solid transparent;
 			}
 			&:focus-visible{
 				outline: 0 none;
-				border-bottom: 0 ;
+				//border-bottom: 0 ;
 			}
 		 }
 
@@ -565,6 +580,7 @@ footer {
 			background: var(--bg-color);
 			color: var(--primary-color);
 			font-weight: 600;
+			height: 40px;
 			&:focus {
 				box-shadow: none;
 			}
@@ -572,9 +588,9 @@ footer {
 	}
 	.accordion-collapse {
 		border: 0 none;
-		.accordion-body{
-			padding-left: 0;
-		}
+		// .accordion-body{
+		// 	padding-left: 0;
+		// }
 	}
   }
   .form-check {
@@ -585,7 +601,7 @@ footer {
 	}
   
 	.p-checkbox-box {
-	  border: 1px solid var(--primary-color) !important;
+	  border: 1px solid var(--secondary-color) !important;
 	  width: 18px !important;
 	  height: 18px !important;
 	  border-radius: 2px !important;
@@ -815,3 +831,40 @@ img {
 .video-list .accordion-item .accordion-header {
 	padding: 0!important;
 }
+header {
+	position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+// Course Page
+.course-wrapper {
+    padding: 50px 80px;
+    background-color: var(--bs-white);
+}
+.accordion.course-filters
+{
+    .accordion-item {
+         margin-bottom: 20px;
+        .accordion-header button{
+            border: 0 none;
+            background: #F5F5F5;
+            color: #2C2C2C;
+            font-size: 16px;
+            font-weight: 600;
+            height: 40px;
+        }
+        .accordion-collapse {
+            border: 0 none;
+        }
+    }
+    }
+
+	.accordion{
+		&.accordion-flush {
+			.accordion-item {
+				padding: 20px 20px 10px;
+			}
+		}
+	}
+	
