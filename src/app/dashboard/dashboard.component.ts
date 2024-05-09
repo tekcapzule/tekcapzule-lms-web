@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CourseApiService, DashboradApiService } from '@app/core';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { ITaskItem } from '@app/shared/models/task-item.model';
@@ -14,7 +15,8 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private courseApi: CourseApiService,
-    private dashboardApi: DashboradApiService
+    private dashboardApi: DashboradApiService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -38,6 +40,15 @@ export class DashboardComponent implements OnInit {
       },
       err => {}
     );
+  }
+
+  onSwitch(event: any) {
+    console.log('eve ', event);
+    if (event.currentTarget.value === 'Dashboard') {
+      this.router.navigateByUrl('/lms/dashboard');
+    } else {
+      this.router.navigateByUrl('/lms/feeds');
+    }
   }
 
   logOutUser() {}
