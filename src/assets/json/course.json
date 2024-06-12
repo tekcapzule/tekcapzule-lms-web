@@ -34,8 +34,8 @@
         "assement": 2,
         "videos": [
           {
-            "title": "Welcome to the Deep Learning",
-            "src": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            "title": "Test Welcome to the Deep Learning",
+            "src": "https://s3.amazonaws.com/transcodedvideos.tekcapzule.com/mobile/VIDEO-2024-01-20-15-14-00.mp4 ",
             "poster": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerBlazes.jpg",
             "duration": 15,
             "watchedDuration": 0,

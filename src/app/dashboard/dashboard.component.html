@@ -67,8 +67,8 @@
 		<div class="row">
 	<div class="col-12">
 		<div class="switches-container">
-			<input type="radio" id="switchMonthly" name="switchPlan" value="Dashboard" checked="checked" />
-			<input type="radio" id="switchYearly" name="switchPlan" value="Socials" />
+			<input type="radio" id="switchMonthly" name="switchPlan" value="Dashboard" (click)="onSwitch($event)" checked="checked" />
+			<input type="radio" id="switchYearly" name="switchPlan" value="Socials"  (click)="onSwitch($event)"/>
 			<label for="switchMonthly">Dashboard</label>
 			<label for="switchYearly">Socials</label>
 			<div class="switch-wrapper">
