@@ -1,17 +1,20 @@
 
 export interface ICourseDetail {
+  courseId: string;
   learningMaterialId: string;
   topicCode: string;
   title: string;
   summary: string;
   description: string;
   authors: IAuthorDetail[];
+  author: string;
   tags: string[];
   publisher: string;
   duration: any;
-  level: string
+  level: string;
+  courseLevel: string;
   courseUrl: string;
-  modules: Imodule[];
+  modules: IModule[];
   prizingModel: string;
   deliveryMode: string;
   learningMode: string;
@@ -40,15 +43,24 @@ export interface ICoursePromotion {
   imageUrl: string;
   campaignUrl: string;
 }
-export interface Imodule {
+export interface IModule {
   title: ISchedule;
   duration: string;
   description: string;
   objective: string[];
   assement: number;
   videos: IVideoDetail[];
+  chapters: IChapter[];
   quiz: number;
   imageUrl: string;
+}
+export interface IChapter {
+  title: string;
+  src: string;
+  duration: number;
+  watchedDuration: number;
+  completed: boolean;
+  poster?: string;
 }
 export interface IVideoDetail {
   title: string;

@@ -6,8 +6,8 @@ import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
 
-const COURSE_API_PATH = `${environment.apiEndpointTemplate}/course`
-  .replace('{{api-gateway}}', environment.courseApiGateway)
+const COURSE_API_PATH = `${environment.apiEndpointTemplate}/lmscourse`
+  .replace('{{api-gateway}}', environment.lmsCourseApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
 const COURSE_GETALL_COURSE_CACHE_KEY = 'com.tekcapzule.course.allcourses';
@@ -15,6 +15,8 @@ const COURSE_GETALL_COURSE_CACHE_KEY = 'com.tekcapzule.course.allcourses';
   providedIn: 'root',
 })
 export class CourseApiService {
+  courses: ICourseDetail[] = [];
+
   constructor(private httpClient: HttpClient) {}
 
   getCourseApiPath(): string {
@@ -22,8 +24,25 @@ export class CourseApiService {
   }
 
   getAllCourse(): Observable<ICourseDetail[]> {
-    return this.httpClient.get<ICourseDetail[]>('/assets/json/course.json');
+    return this.httpClient.post<ICourseDetail[]>(
+      `${COURSE_API_PATH}/getAll`,
+      {},
+      {
+        params: {
+          cache: 'yes',
+          ckey: COURSE_GETALL_COURSE_CACHE_KEY,
+        },
+      }
+    );
   }
+
+  getCourse(courseIds: string[]): Observable<ICourseDetail[]> {
+    return this.httpClient.post<ICourseDetail[]>(`${COURSE_API_PATH}/get`,{courseIds});
+  }
+
+  /*getAllCourse(): Observable<ICourseDetail[]> {
+    return this.httpClient.get<ICourseDetail[]>('/assets/json/course.json');
+  }*/
 
   getActiveCourse(): Observable<ICourseDetail[]> {
     return this.httpClient.get<ICourseDetail[]>('/assets/json/active_course.json');

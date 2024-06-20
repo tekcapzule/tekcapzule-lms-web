@@ -31,23 +31,17 @@ export class VideoDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.getWishlistCourse(params['code']);
+      this.getCourse(params['code']);
     });
   }
 
-  getWishlistCourse(code: string) {
-    this.courseApi.getWishlistCourse().subscribe(
-      data => {
-        this.course = data.find(c => c.learningMaterialId === code) as ICourseDetail;
-        this.getPlayVideo();
-      },
-      err => {}
-    );
+  getCourse(code: string) {
+    this.course = this.courseApi.courses.find(c => c.courseId === code) as ICourseDetail;
   }
 
   getPlayVideo() {
     this.course.modules.forEach(module => {
-      module.videos.forEach(video => {
+      module.chapters.forEach(video => {
         if(!video.completed && !this.currentVideo) {
           this.currentVideo = video;
           if(this.playerReady) {
