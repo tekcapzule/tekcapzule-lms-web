@@ -62,7 +62,7 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
       this.videoDetail.watchedDuration = this.player.currentTime() || 0;
     }
     this.videoDetail = videoDetail;
-    this.player.src({ src: this.videoDetail.src, type: 'video/mp4'});
+    this.player.src({ src: this.videoDetail.resourceUrl, type: 'video/mp4'});
     this.player.poster(this.videoDetail.poster);
     this.player.load();
     if(!this.videoDetail.completed) {

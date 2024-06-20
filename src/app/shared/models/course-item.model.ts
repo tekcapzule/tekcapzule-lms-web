@@ -45,6 +45,7 @@ export interface ICoursePromotion {
 }
 export interface IModule {
   title: ISchedule;
+  name: string;
   duration: string;
   description: string;
   objective: string[];
@@ -57,6 +58,7 @@ export interface IModule {
 export interface IChapter {
   title: string;
   src: string;
+  name: string;
   duration: number;
   watchedDuration: number;
   completed: boolean;
@@ -65,6 +67,7 @@ export interface IChapter {
 export interface IVideoDetail {
   title: string;
   src: string;
+  resourceUrl?: string;
   duration: number;
   watchedDuration: number;
   completed: boolean;
