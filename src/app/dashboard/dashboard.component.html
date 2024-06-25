@@ -174,7 +174,7 @@
 							<app-course-card [course]="course" [page]="'Dashboard'"></app-course-card>
 						</ng-container>
 					</div>
-					<div class="no-course content-center">
+					<div *ngIf="!courseList.length" class="no-course content-center">
 						<div class="course-icon-bg"></div>
 						<p class="secondary-heading">You do not have any new course assigned to you.</p>
 					<button class="btn primary-btn">Explore</button>

@@ -31,23 +31,24 @@ export class VideoDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.getWishlistCourse(params['code']);
+      this.getCourse(params['code']);
     });
   }
 
-  getWishlistCourse(code: string) {
-    this.courseApi.getWishlistCourse().subscribe(
-      data => {
-        this.course = data.find(c => c.learningMaterialId === code) as ICourseDetail;
-        this.getPlayVideo();
-      },
-      err => {}
-    );
+  getCourse(code: string) {
+    this.courseApi.getCourse([code]).subscribe(data => {
+      this.course = data[0];  
+      this.getPlayVideo();
+    });
+    //this.course = this.courseApi.courses.find(c => c.courseId === code) as ICourseDetail;
   }
 
   getPlayVideo() {
+    this.course.duration = 0;
     this.course.modules.forEach(module => {
-      module.videos.forEach(video => {
+      module.duration = 0;
+      module.chapters.forEach(video => {
+        module.duration = module.duration + video.duration; 
         if(!video.completed && !this.currentVideo) {
           this.currentVideo = video;
           if(this.playerReady) {
@@ -56,12 +57,17 @@ export class VideoDetailComponent implements OnInit {
           }
         }
       });
+      this.course.duration = this.course.duration + module.duration; 
+      if(module.duration) {
+        module.duration = module.duration;
+      }
     });
   }
 
   onPlayerReady() {
     this.playerReady = true;
     if (!this.isVideoPlaying && this.currentVideo) {
+      console.log('this.isVideoPlaying && this.currentVideo  ', this.isVideoPlaying, this.currentVideo)
       this.isVideoPlaying = true;
       this.onVideoChange(this.currentVideo);
     }

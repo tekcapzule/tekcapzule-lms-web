@@ -20,18 +20,28 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getActiveCourse();
     this.getAllTask();
+    this.getCourses();
   }
 
-  getActiveCourse() {
-    this.courseApi.getActiveCourse().subscribe(
-      data => {
-        this.courseList = data;
-      },
-      err => {}
-    );
+  getCourses() {
+    this.dashboardApi.getUserDetails().subscribe(data => {
+      console.log('Dashboard ', data);
+      const courseIds: string[] = [];
+      data.enrollments.forEach((enrollment) => {
+        if (enrollment.courseId !== '666666') {
+          courseIds.push(enrollment.courseId);
+        }
+      });
+      console.log('courseId --- >>> ', courseIds);
+      this.courseApi.getCourse(courseIds).subscribe((course) => {
+        this.courseList = course;
+        this.courseApi.courses = course; 
+        console.log('course', course);
+      })
+    });
   }
+
 
   getAllTask() {
     this.dashboardApi.getAllTask().subscribe(
