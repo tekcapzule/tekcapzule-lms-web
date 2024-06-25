@@ -13,7 +13,7 @@
                   <div class="video-no border ratio ratio-1x1 border-3 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"> 1 </div>
                   <div class="video-list-detail">
                       <h4 class="m-0">{{module.name}}</h4>
-                      <p class="fs-14 m-0">{{module.duration}} min</p>
+                      <p class="fs-14 m-0">{{module.duration | secToMin}} min</p>
                   </div>
               </button>
             </h2>
@@ -26,7 +26,7 @@
                     </div>    
                     <div class="video-list-detail">
                         <h4 class="m-0 fs-14 fw-normal">{{video.name}}</h4>
-                        <p class="m-0 fs-14 fw-normal">{{video.duration}} min</p>
+                        <p class="m-0 fs-14 fw-normal">{{video.duration | secToMin}} min</p>
                     </div>
                     <div *ngIf="video.completed" class="video-list-icon">  </div>
                   </button>                

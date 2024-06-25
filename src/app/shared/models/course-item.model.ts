@@ -46,7 +46,7 @@ export interface ICoursePromotion {
 export interface IModule {
   title: ISchedule;
   name: string;
-  duration: string;
+  duration: any;
   description: string;
   objective: string[];
   assement: number;

@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckboxModule } from 'primeng/checkbox';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
+import { SecondsToMinutesPipe } from '@app/core/pipe/seconds-to-minutes.pipe';
 
 @NgModule({
   declarations: [
