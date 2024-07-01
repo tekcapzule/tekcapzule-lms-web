@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { ITaskItem } from '@app/shared/models/task-item.model';
-import { IUser } from '@app/shared/models/user-item.model';
+import { ICourseStatus, IUser } from '@app/shared/models/user-item.model';
 
 import { Observable } from 'rxjs';
 
@@ -25,5 +25,15 @@ export class DashboradApiService {
         "userId": "06.prerna@gmail.com",
         "tenantId": ""
       });
+  }
+
+  updateVideoStatus(courseStatus: ICourseStatus) {
+    return this.httpClient.post<any>(
+      'https://aj4w1i4vdc.execute-api.us-east-1.amazonaws.com/dev/lms/user/updateProgress',
+      {
+        userId: "06.prerna@gmail.com",
+        tenantId: "",
+        course: courseStatus
+      });  
   }
 }

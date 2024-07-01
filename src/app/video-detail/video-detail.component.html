@@ -11,7 +11,7 @@
               </nav>
             <div class="mb-4 video-js-container">
                 <!-- <img src="assets/video-img.jpg" alt="" class="d-flex"> -->
-                <app-video-player #videoPlayer [options]="options" (playerReady)="onPlayerReady()" (videoEnded)="onVideoEnded()"></app-video-player>
+                <app-video-player #videoPlayer [options]="options" [course]="course" (playerReady)="onPlayerReady()" (videoEnded)="onVideoEnded()"></app-video-player>
             </div>            
             
            <div>
@@ -57,7 +57,7 @@
         </div>
         
         <div class="col-3 video-detail-list p-0">
-            <app-video-list [course]="course" (videoChange)="onVideoChange($event)"></app-video-list>
+            <app-video-list [course]="course" [courseStatus]="courseStatus" (videoChange)="onVideoChange($event)"></app-video-list>
         </div>
     </div>
 </section>

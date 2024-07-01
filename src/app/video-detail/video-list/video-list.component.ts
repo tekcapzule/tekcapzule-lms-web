@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ICourseDetail, IVideoDetail } from '@app/shared/models/course-item.model';
+import { IChapter, ICourseDetail } from '@app/shared/models/course-item.model';
+import { ICourseStatus } from '@app/shared/models/user-item.model';
 
 @Component({
   selector: 'app-video-list',
@@ -8,16 +9,16 @@ import { ICourseDetail, IVideoDetail } from '@app/shared/models/course-item.mode
 })
 export class VideoListComponent implements OnInit {
   @Input() course: ICourseDetail;
-  @Output() videoChange = new EventEmitter<IVideoDetail>();
+  @Input() courseStatus: ICourseStatus;
+  @Output() videoChange = new EventEmitter<IChapter>();
   math = Math;
   
-  constructor(
-  ) {}
+  constructor() {}
 
   ngOnInit(): void {
   }
 
-  onChangeVideo(video: IVideoDetail) {
+  onChangeVideo(video: IChapter) {
     console.log('video ', video)
     this.videoChange.emit(video);
   }
