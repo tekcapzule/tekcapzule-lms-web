@@ -20,6 +20,8 @@ export interface ICourseStatus {
   watchedDuration: number;
   status: string;
   modules: IModuleStatus[];
+  lastVisitedChapter: number;
+  lastVisitedModule: number;
 }
 
 export interface IModuleStatus {

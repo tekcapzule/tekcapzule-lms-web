@@ -11,6 +11,8 @@ import { CoreModule } from './core';
 
 // @ts-ignore
 import awsExports from '../aws-exports';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ApiInterceptor } from './core/interceptors/api.interceptor';
 
 Amplify.configure(awsExports);
 
@@ -25,7 +27,9 @@ Amplify.configure(awsExports);
     CoreModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

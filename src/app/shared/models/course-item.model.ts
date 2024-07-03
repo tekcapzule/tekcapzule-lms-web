@@ -21,10 +21,11 @@ export interface ICourseDetail {
   imageUrl: string;
   promotion: ICoursePromotion;
   recommendations: number;
-  status: string;
+  status?: string;
   publishedOn: string;
   topicName?: string;
   isRecommended?: boolean;
+  watchedDuration: number;
   faq: IFAQ[];
 }
 export interface IFAQ {
@@ -44,32 +45,29 @@ export interface ICoursePromotion {
   campaignUrl: string;
 }
 export interface IModule {
+  serialNumber: number;
   title: ISchedule;
   name: string;
   duration: any;
+  watchedDuration: number;
+  status: string;
   description: string;
   objective: string[];
   assement: number;
-  videos: IVideoDetail[];
+  videos: IChapter[];
   chapters: IChapter[];
   quiz: number;
   imageUrl: string;
 }
 export interface IChapter {
+  serialNumber: number;
   title: string;
-  src: string;
   name: string;
-  duration: number;
-  watchedDuration: number;
-  completed: boolean;
-  poster?: string;
-}
-export interface IVideoDetail {
-  title: string;
   src: string;
   resourceUrl?: string;
   duration: number;
   watchedDuration: number;
+  status: string;
   completed: boolean;
   poster?: string;
 }
