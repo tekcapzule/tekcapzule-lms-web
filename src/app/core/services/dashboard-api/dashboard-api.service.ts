@@ -29,7 +29,7 @@ export class DashboradApiService {
 
   updateVideoStatus(courseStatus: ICourseStatus) {
     return this.httpClient.post<any>(
-      'https://aj4w1i4vdc.execute-api.us-east-1.amazonaws.com/dev/lms/user/updateProgress',
+      'https://aj4w1i4vdc.execute-api.us-east-1.amazonaws.com/dev/lms/user/updateActivity',
       {
         userId: "06.prerna@gmail.com",
         tenantId: "",
