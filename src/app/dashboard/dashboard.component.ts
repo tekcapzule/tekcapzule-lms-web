@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CourseApiService, DashboradApiService } from '@app/core';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { ITaskItem } from '@app/shared/models/task-item.model';
+import { IEnrollment } from '@app/shared/models/user-item.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +13,7 @@ import { ITaskItem } from '@app/shared/models/task-item.model';
 export class DashboardComponent implements OnInit {
   courseList: ICourseDetail[] = [];
   taskList: ITaskItem[] = [];
+  enrollmentStatus: IEnrollment[] = [];
 
   constructor(
     private courseApi: CourseApiService,
@@ -27,19 +29,32 @@ export class DashboardComponent implements OnInit {
   getCourses() {
     this.dashboardApi.getUserDetails().subscribe(data => {
       console.log('Dashboard ', data);
+      this.enrollmentStatus = data.enrollments;
       const courseIds: string[] = [];
       data.enrollments.forEach((enrollment) => {
-        if (enrollment.courseId !== '666666') {
-          courseIds.push(enrollment.courseId);
-        }
+        courseIds.push(enrollment.courseId);
       });
       console.log('courseId --- >>> ', courseIds);
-      this.courseApi.getCourse(courseIds).subscribe((course) => {
-        this.courseList = course;
-        this.courseApi.courses = course; 
-        console.log('course', course);
-      })
+      this.courseApi.getCourse(courseIds).subscribe(courses => {
+        this.courseList = courses;
+        this.courseApi.courses = courses;
+        this.courseList.forEach(course => {
+          course.watchedDuration = this.getWatchedDuration(course.courseId);
+          console.log('course', course.watchedDuration);
+        });
+      });
     });
+  }
+
+  getWatchedDuration(courseId: string) {
+    let watchedDuration = 0;
+    const courseStatus = this.enrollmentStatus.find(enroll => enroll.courseId === courseId)?.course;
+    courseStatus?.modules.forEach(module => {
+      module.chapters.forEach(chapter => {
+        watchedDuration += +chapter.watchedDuration;
+      });
+    });
+    return watchedDuration;
   }
 
 
