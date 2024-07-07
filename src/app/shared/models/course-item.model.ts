@@ -3,6 +3,7 @@ export interface ICourseDetail {
   courseId: string;
   learningMaterialId: string;
   topicCode: string;
+  courseRating: number;
   title: string;
   summary: string;
   description: string;
@@ -19,6 +20,7 @@ export interface ICourseDetail {
   deliveryMode: string;
   learningMode: string;
   imageUrl: string;
+  coverImageUrl: string;
   promotion: ICoursePromotion;
   recommendations: number;
   status?: string;
