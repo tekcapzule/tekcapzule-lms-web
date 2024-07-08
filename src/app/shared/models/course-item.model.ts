@@ -1,7 +1,6 @@
 
 export interface ICourseDetail {
   courseId: string;
-  learningMaterialId: string;
   topicCode: string;
   courseRating: number;
   title: string;
@@ -12,14 +11,12 @@ export interface ICourseDetail {
   tags: string[];
   publisher: string;
   duration: any;
-  level: string;
   courseLevel: string;
   courseUrl: string;
   modules: IModule[];
   prizingModel: string;
   deliveryMode: string;
   learningMode: string;
-  imageUrl: string;
   coverImageUrl: string;
   promotion: ICoursePromotion;
   recommendations: number;
