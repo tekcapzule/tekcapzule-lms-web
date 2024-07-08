@@ -9,16 +9,19 @@ export class ApiInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const isUserLoggedIn = this.authState.isUserLoggedIn();
-    //const awsUserInfo = this.authState.getAwsUserInfo();
-    //const accessToken = this.authState.getAccessToken();
-
-    //const userInfo = isUserLoggedIn ? awsUserInfo : null;
-    //const loggedInUserName = userInfo ? userInfo.username || userInfo.email : 'guest';
+    let loggedInUserName = 'prena';
+    if(isUserLoggedIn) {
+      const awsUserInfo = this.authState.getAwsCognitoUser();
+      //const accessToken = this.authState.getAccessToken();
+      
+      const userInfo = isUserLoggedIn ? awsUserInfo : null;
+      loggedInUserName = userInfo ? userInfo.cognito_username || userInfo.email : 'guest';
+      console.log('userInfo  ', userInfo);
+    }
 
     request = request.clone({
       headers: request.headers
-        //.set('x-user-login', loggedInUserName)
-        .set('x-user-login', 'prena')
+        .set('x-user-login', loggedInUserName)
         .set('x-channel-code', 'WEB_CLIENT'),
     });
 
