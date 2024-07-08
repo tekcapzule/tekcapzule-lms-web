@@ -56,7 +56,6 @@ export interface IModule {
   description: string;
   objective: string[];
   assement: number;
-  videos: IChapter[];
   chapters: IChapter[];
   quiz: number;
   imageUrl: string;
