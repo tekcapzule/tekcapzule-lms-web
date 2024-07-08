@@ -73,7 +73,7 @@ export class CoursesComponent {
       tempList = tempList.filter(tl => this.selectedTopic.includes(tl.topicCode));
     }
     if (this.selectedLevel.length) {
-      tempList = tempList.filter(tl => this.selectedLevel.includes(tl.level));
+      tempList = tempList.filter(tl => this.selectedLevel.includes(tl.courseLevel));
     }
     this.filteredList = tempList
   }

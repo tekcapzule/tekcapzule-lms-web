@@ -40,21 +40,17 @@ export class CourseApiService {
     return this.httpClient.post<ICourseDetail[]>(`${COURSE_API_PATH}/get`,{courseIds});
   }
 
-  /*getAllCourse(): Observable<ICourseDetail[]> {
-    return this.httpClient.get<ICourseDetail[]>('/assets/json/course.json');
-  }*/
-
   getActiveCourse(): Observable<ICourseDetail[]> {
-    return this.httpClient.get<ICourseDetail[]>('/assets/json/active_course.json');
+    return this.httpClient.post<ICourseDetail[]>(`${COURSE_API_PATH}/getAll`,{});
   }
 
 
   getCompletedCourse(): Observable<ICourseDetail[]> {
-    return this.httpClient.get<ICourseDetail[]>('/assets/json/completed_course.json');
+    return this.httpClient.post<ICourseDetail[]>(`${COURSE_API_PATH}/getAll`,{});
   }
 
   getWishlistCourse(): Observable<ICourseDetail[]> {
-    return this.httpClient.get<ICourseDetail[]>('/assets/json/course.json');
+    return this.httpClient.post<ICourseDetail[]>(`${COURSE_API_PATH}/getAll`,{});
   }
 
   updateRecommendCount(courseId: string): Observable<ApiSuccess> {

@@ -32,9 +32,9 @@ export class CourseDetailComponent implements OnInit {
   }
 
   getWishlistCourse(code: string) {
-    this.courseApi.getWishlistCourse().subscribe(
+    this.courseApi.getCourse([code]).subscribe(
       data => {
-        this.course = data.find(c => c.learningMaterialId === code) as ICourseDetail;
+        this.course = data[0] as ICourseDetail;
       },
       err => {}
     );

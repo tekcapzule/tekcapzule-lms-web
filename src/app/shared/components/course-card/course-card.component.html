@@ -1,6 +1,6 @@
 <div *ngIf="page === 'Dashboard'" class="course-card full-width">
 	<div class="course-img">
-		<img [src]="course.imageUrl" alt="course thumbnail" />
+		<img [src]="course.coverImageUrl" alt="course thumbnail" />
 		<div class="resume">
 			<div role="progressbar" [attr.aria-valuenow]="(course.watchedDuration/course.duration) * 100" aria-valuemin="0" aria-valuemax="100"
 				style="--value: {{math.floor((course.watchedDuration/course.duration) * 100)}}"></div>
