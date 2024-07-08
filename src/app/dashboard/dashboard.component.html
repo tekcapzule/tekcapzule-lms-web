@@ -96,9 +96,9 @@
 											<span class="overdue-icon"></span>
 											<div class="ms-3">
 												<div class="d-flex align-items-center">
-													<h2 class="pb-0">7 Courses</h2>
+													<h2 class="pb-0">{{activeCourses + completedCourses}} Courses</h2>
 												</div>
-												<p class="gray-txt mb-0"><span class="status overdue"></span>Overdue
+												<p class="gray-txt mb-0"><span class="status overdue"></span>Enrolled
 												</p>
 											</div>
 										</div>
@@ -108,7 +108,7 @@
 											<span class="inprogress-icon"></span>
 											<div class="ms-3">
 												<div class="d-flex align-items-center">
-													<h2 class="pb-0">4 Courses</h2>
+													<h2 class="pb-0">{{activeCourses}} Courses</h2>
 												</div>
 												<p class="gray-txt mb-0"><span class="status inprogress"></span>In
 													Progress</p>
@@ -120,7 +120,7 @@
 											<span class="completed-icon"></span>
 											<div class="ms-3">
 												<div class="d-flex align-items-center">
-													<h2 class="pb-0">2 Courses</h2>
+													<h2 class="pb-0">{{completedCourses}} Courses</h2>
 												</div>
 												<p class="gray-txt mb-0"><span class="status completed"></span>Completed
 												</p>
@@ -132,7 +132,7 @@
 											<span class="scored-icon"></span>
 											<div class="ms-3">
 												<div class="d-flex align-items-center">
-													<h2 class="pb-0">345</h2>
+													<h2 class="pb-0">{{userData.points}}</h2>
 												</div>
 												<p class="gray-txt mb-0"><span class="status scored"></span>Points
 													Scored</p>

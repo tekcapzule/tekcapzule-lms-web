@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { CourseApiService, DashboradApiService } from '@app/core';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { ITaskItem } from '@app/shared/models/task-item.model';
-import { IEnrollment } from '@app/shared/models/user-item.model';
+import { IEnrollment, IUser } from '@app/shared/models/user-item.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +13,10 @@ import { IEnrollment } from '@app/shared/models/user-item.model';
 export class DashboardComponent implements OnInit {
   courseList: ICourseDetail[] = [];
   taskList: ITaskItem[] = [];
-  enrollmentStatus: IEnrollment[] = [];
+  userData: IUser;
+  courseStatus: IEnrollment[] = [];
+  activeCourses: number = 0;
+  completedCourses: number = 0;
 
   constructor(
     private courseApi: CourseApiService,
@@ -29,10 +32,16 @@ export class DashboardComponent implements OnInit {
   getCourses() {
     this.dashboardApi.getUserDetails().subscribe(data => {
       console.log('Dashboard ', data);
-      this.enrollmentStatus = data.enrollments;
+      this.userData = data;
+      this.courseStatus = data.enrollments;
       const courseIds: string[] = [];
-      data.enrollments.forEach((enrollment) => {
-        courseIds.push(enrollment.courseId);
+      data.enrollments.forEach((course) => {
+        if(course.course.status === 'complete') {
+          this.completedCourses += 1;
+        } else {
+          this.activeCourses += 1;
+        }
+        courseIds.push(course.courseId);
       });
       console.log('courseId --- >>> ', courseIds);
       this.courseApi.getCourse(courseIds).subscribe(courses => {
@@ -48,7 +57,7 @@ export class DashboardComponent implements OnInit {
 
   getWatchedDuration(courseId: string) {
     let watchedDuration = 0;
-    const courseStatus = this.enrollmentStatus.find(enroll => enroll.courseId === courseId)?.course;
+    const courseStatus = this.courseStatus.find(enroll => enroll.courseId === courseId)?.course;
     courseStatus?.modules.forEach(module => {
       module.chapters.forEach(chapter => {
         watchedDuration += +chapter.watchedDuration;
