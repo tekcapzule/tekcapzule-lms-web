@@ -32,8 +32,19 @@ export class AuthStateService extends BaseStateService<AuthState> {
     return this.state.awsCognitoUser;
   }
 
+  public getEmail(): string | undefined {
+    return this.state.awsCognitoUser?.email || "06.prerna@gmail.com";
+  }
+
   public getFirstName(): string | undefined {
     return this.state.awsCognitoUser?.given_name;
+  }
+
+  public getFullName(): string {
+    if(this.state.awsCognitoUser) {
+      return this.state.awsCognitoUser.given_name + ' ' + this.state.awsCognitoUser.family_name;
+    }
+    return 'Linjith Kunnon';
   }
 
   public setAuthState(newState: Partial<AuthState>) {

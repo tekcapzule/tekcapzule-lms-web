@@ -7,6 +7,7 @@ export interface IUser {
   lastName: string;
   enrollments: IEnrollment[];
   points: number;
+  badges: any;
 }
 
 export interface IEnrollment {

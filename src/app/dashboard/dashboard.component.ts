@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CourseApiService, DashboradApiService } from '@app/core';
+import { AuthStateService } from '@app/core/services';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { ITaskItem } from '@app/shared/models/task-item.model';
 import { IEnrollment, IUser } from '@app/shared/models/user-item.model';
@@ -17,21 +18,25 @@ export class DashboardComponent implements OnInit {
   courseStatus: IEnrollment[] = [];
   activeCourses: number = 0;
   completedCourses: number = 0;
+  fullName: string;
+  firstName: string;
 
   constructor(
     private courseApi: CourseApiService,
+    private authState: AuthStateService,
     private dashboardApi: DashboradApiService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.firstName = this.authState.getFirstName() || "Linjith";
+    this.fullName = this.authState.getFullName();
     this.getAllTask();
     this.getCourses();
   }
 
   getCourses() {
     this.dashboardApi.getUserDetails().subscribe(data => {
-      console.log('Dashboard ', data);
       this.userData = data;
       this.courseStatus = data.enrollments;
       const courseIds: string[] = [];

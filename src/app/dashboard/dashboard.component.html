@@ -84,8 +84,8 @@
 		<div class="col-9">
 			<div class="box-layout m-0">
 				<div class="pt-3">
-					<h1 class="fs-3">Welcome back, Linjith Kunnon</h1>
-					<p class="mb-0">Greetings Linjith, welcome to your fantastic learning curve dashboard!!!</p>
+					<h1 class="fs-3">Welcome back, {{fullName}}</h1>
+					<p class="mb-0">Greetings {{firstName}}, welcome to your fantastic learning curve dashboard!!!</p>
 					<section class="statistics mt-4">
 						<div class="row">
 							<div class="col-lg-9">
@@ -143,7 +143,8 @@
 							</div>
 							<div class="col-lg-3">
 								<h3>Your Badges</h3>
-								<ul class="badges">
+								<p *ngIf="!userData.badges">No Badges Yet</p>
+								<ul *ngIf="userData.badges" class="badges">
 									<li class="bronze"></li>
 									<li class="silver"></li>
 									<li class="gold"></li>

@@ -5,13 +5,14 @@ import { ITaskItem } from '@app/shared/models/task-item.model';
 import { ICourseStatus, IUser } from '@app/shared/models/user-item.model';
 
 import { Observable } from 'rxjs';
+import { AuthStateService } from '../app-state/auth-state.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DashboradApiService {
   
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private authState: AuthStateService) {}
 
   getAllTask(): Observable<ITaskItem[]> {
     return this.httpClient.get<ITaskItem[]>('/assets/json/task.json');
@@ -22,7 +23,7 @@ export class DashboradApiService {
     return this.httpClient.post<IUser>(
       'https://aj4w1i4vdc.execute-api.us-east-1.amazonaws.com/dev/lms/user/get',
       {
-        "userId": "06.prerna@gmail.com",
+        "userId": this.authState.getEmail(),
         "tenantId": ""
       });
   }
@@ -31,9 +32,19 @@ export class DashboradApiService {
     return this.httpClient.post<any>(
       'https://aj4w1i4vdc.execute-api.us-east-1.amazonaws.com/dev/lms/user/updateActivity',
       {
-        userId: "06.prerna@gmail.com",
+        userId: this.authState.getEmail(),
         tenantId: "",
         course: courseStatus
+      });  
+  }
+  
+  enrollCourse(courseId: string) {
+    return this.httpClient.post<any>(
+      'https://aj4w1i4vdc.execute-api.us-east-1.amazonaws.com/dev/lms/user/optin',
+      {
+        userId: this.authState.getEmail(),
+        tenantId: "",
+        course: courseId
       });  
   }
 }
