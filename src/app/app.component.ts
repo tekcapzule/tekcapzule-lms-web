@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AbstractBaseAuth } from './auth/base-auth';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor() {
-    // window.sessionStorage.setItem(
-    //   'tekcapzule.loaded.time.ms',
-    //   Date.now().toString()
-    // );
   }
+  
 }

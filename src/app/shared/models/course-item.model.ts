@@ -55,7 +55,7 @@ export interface IModule {
   assement: number;
   chapters: IChapter[];
   quiz: number;
-  imageUrl: string;
+  coverImageUrl: string;
 }
 export interface IChapter {
   serialNumber: number;
@@ -68,6 +68,7 @@ export interface IChapter {
   status: string;
   completed: boolean;
   poster?: string;
+  coverImageUrl: string;
 }
 export interface ISchedule {
   startDate: string;

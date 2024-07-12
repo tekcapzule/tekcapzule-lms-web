@@ -97,7 +97,7 @@ export class VideoDetailComponent implements OnInit {
       this.currentVideo = chapter;
       console.log('not complete ---- ', lastModuleIndex, this.currentVideo);
       this.createCourseStatus(modules, this.currentVideo);
-    } else if((lastChapterIndex + 1) < modules.chapters.length) {
+    } else if((lastChapterIndex + 1) < modules.chapters.length - 1) {
       this.currentVideo = modules.chapters[lastChapterIndex + 1];
       console.log('same module ---- ',lastModuleIndex, this.currentVideo);
       if(this.currentVideo.status === 'complete') {
@@ -105,7 +105,7 @@ export class VideoDetailComponent implements OnInit {
         this.currentVideo.status = '';
       }
       this.createCourseStatus(modules, this.currentVideo);
-    } else if((lastModuleIndex + 1) < this.course.modules.length) {
+    } else if((lastModuleIndex + 1) < this.course.modules.length - 1) {
       console.log('next module ---- ', lastModuleIndex + 1, this.currentVideo);
       modules = this.course.modules[lastModuleIndex + 1];
       this.currentVideo = modules.chapters[0];
