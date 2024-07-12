@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 
 import { AwsCognitoUser } from '@app/shared/models';
 import { BaseStateService } from './base-state.service';
+import { Router } from '@angular/router';
 
 export type AuthState = {
   isLoggedIn: boolean;
@@ -20,7 +21,7 @@ const initialState: AuthState = {
 export class AuthStateService extends BaseStateService<AuthState> {
   isLoggedIn$: Observable<boolean> = this.select(state => state.isLoggedIn);
 
-  constructor() {
+  constructor( private router: Router) {
     super(initialState);
   }
 
@@ -28,11 +29,16 @@ export class AuthStateService extends BaseStateService<AuthState> {
     return this.state.isLoggedIn;
   }
 
+  public signInUser() {
+    this.router.navigateByUrl('/lms/login');
+  }
+
   public getAwsCognitoUser(): AwsCognitoUser | null {
     return this.state.awsCognitoUser;
   }
 
   public getEmail(): string | undefined {
+    //return "06.prerna@gmail.com";
     return this.state.awsCognitoUser?.email || "06.prerna@gmail.com";
   }
 

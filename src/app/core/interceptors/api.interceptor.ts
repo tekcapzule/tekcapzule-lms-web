@@ -16,7 +16,6 @@ export class ApiInterceptor implements HttpInterceptor {
       
       const userInfo = isUserLoggedIn ? awsUserInfo : null;
       loggedInUserName = userInfo ? userInfo.cognito_username || userInfo.email : 'guest';
-      console.log('userInfo  ', userInfo);
     }
 
     request = request.clone({

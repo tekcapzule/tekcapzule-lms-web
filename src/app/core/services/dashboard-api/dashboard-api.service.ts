@@ -44,7 +44,7 @@ export class DashboradApiService {
       {
         userId: this.authState.getEmail(),
         tenantId: "",
-        course: courseId
+        coursesId: courseId
       });  
   }
 }

@@ -132,7 +132,7 @@
 											<span class="scored-icon"></span>
 											<div class="ms-3">
 												<div class="d-flex align-items-center">
-													<h2 class="pb-0">{{userData.points}}</h2>
+													<h2 class="pb-0">{{userData?.points}}</h2>
 												</div>
 												<p class="gray-txt mb-0"><span class="status scored"></span>Points
 													Scored</p>
@@ -143,8 +143,8 @@
 							</div>
 							<div class="col-lg-3">
 								<h3>Your Badges</h3>
-								<p *ngIf="!userData.badges">No Badges Yet</p>
-								<ul *ngIf="userData.badges" class="badges">
+								<p *ngIf="!userData?.badges">No Badges Yet</p>
+								<ul *ngIf="userData?.badges" class="badges">
 									<li class="bronze"></li>
 									<li class="silver"></li>
 									<li class="gold"></li>
