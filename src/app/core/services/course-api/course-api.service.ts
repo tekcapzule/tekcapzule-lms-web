@@ -53,6 +53,10 @@ export class CourseApiService {
     return this.httpClient.post<ICourseDetail[]>(`${COURSE_API_PATH}/getAll`,{});
   }
 
+  getCourseQuiz(): Observable<any> {
+    return this.httpClient.get<any>('/assets/json/quiz.json');
+  }
+
   updateRecommendCount(courseId: string): Observable<ApiSuccess> {
     return this.httpClient
       .post<ApiSuccess>(`${COURSE_API_PATH}/recommend`, { courseId });

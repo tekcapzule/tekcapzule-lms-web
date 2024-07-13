@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CourseApiService } from '@app/core';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 
 @Component({
@@ -9,10 +11,20 @@ import { ICourseDetail } from '@app/shared/models/course-item.model';
 export class OverviewComponent implements OnInit {
   @Input() course: ICourseDetail;
 
-  constructor(
+  constructor(private router: Router,
+    private courseApi: CourseApiService
   ) {}
 
   ngOnInit(): void {
+    this.loadQuizData();
   }
 
+  loadQuizData() {
+    this.courseApi.getCourseQuiz().subscribe((quiz) => {
+    });
+  }
+
+  openQuiz() {
+    this.router.navigateByUrl('lms/quiz/'+this.course.courseId);
+  }
 }

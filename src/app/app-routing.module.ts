@@ -54,6 +54,10 @@ const routes: Routes = [
         loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
       },
       {
+        path: 'quiz/:code',
+        loadChildren: () => import('./quiz/quiz.module').then(m => m.QuizModule)
+      },
+      {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full'

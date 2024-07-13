@@ -1,0 +1,94 @@
+{
+  "quiz": [
+    {
+      "question": "What is Artificial Intelligence (AI)?",
+      "options": [
+        { "id": 0, "name": "A type of natural intelligence found in humans" },
+        { "id": 1, "name": "Intelligence demonstrated by machines" },
+        { "id": 2, "name": "A computer virus" },
+        { "id": 3, "name": "A programming language" }
+      ]
+    },
+    {
+      "question": "Who is considered the 'father of AI'?",
+      "options": [
+        { "id": 0, "name": "Alan Turing" },
+        { "id": 1, "name": "John McCarthy" },
+        { "id": 2, "name": "Elon Musk" },
+        { "id": 3, "name": "Steve Jobs" }
+      ]
+    },
+    {
+      "question": "Which of the following is NOT a type of AI?",
+      "options": [
+        { "id": 0, "name": "Reactive Machines" },
+        { "id": 1, "name": "Limited Memory" },
+        { "id": 2, "name": "Theory of Mind" },
+        { "id": 3, "name": "Inanimate Objects" }
+      ]
+    },
+    {
+      "question": "What is Machine Learning?",
+      "options": [
+        { "id": 0, "name": "The ability of machines to perform tasks" },
+        { "id": 1, "name": "The study of algorithms and statistical models that computer systems use to perform tasks without explicit instructions" },
+        { "id": 2, "name": "A type of computer hardware" },
+        { "id": 3, "name": "A programming language" }
+      ]
+    },
+    {
+      "question": "Which of these is an example of supervised learning?",
+      "options": [
+        { "id": 0, "name": "K-means clustering" },
+        { "id": 1, "name": "Decision trees" },
+        { "id": 2, "name": "Genetic algorithms" },
+        { "id": 3, "name": "Ant colony optimization" }
+      ]
+    },
+    {
+      "question": "What is a neural network?",
+      "options": [
+        { "id": 0, "name": "A network of nerves in the human brain" },
+        { "id": 1, "name": "A computing system inspired by the structure and functions of the brain" },
+        { "id": 2, "name": "A network of computers" },
+        { "id": 3, "name": "A type of computer virus" }
+      ]
+    },
+    {
+      "question": "What is Natural Language Processing (NLP)?",
+      "options": [
+        { "id": 0, "name": "The ability of machines to process and understand human language" },
+        { "id": 1, "name": "A way to program computers" },
+        { "id": 2, "name": "A method of network encryption" },
+        { "id": 3, "name": "The study of natural disasters" }
+      ]
+    },
+    {
+      "question": "Which programming language is commonly used for AI development?",
+      "options": [
+        { "id": 0, "name": "HTML" },
+        { "id": 1, "name": "Python" },
+        { "id": 2, "name": "CSS" },
+        { "id": 3, "name": "PHP" }
+      ]
+    },
+    {
+      "question": "What is a Turing Test?",
+      "options": [
+        { "id": 0, "name": "A test for determining the efficiency of an algorithm" },
+        { "id": 1, "name": "A test to evaluate a machine's ability to exhibit intelligent behavior equivalent to a human" },
+        { "id": 2, "name": "A test for the strength of computer hardware" },
+        { "id": 3, "name": "A test for the efficiency of a network" }
+      ]
+    },
+    {
+      "question": "What is Deep Learning?",
+      "options": [
+        { "id": 0, "name": "A subset of machine learning involving neural networks with many layers" },
+        { "id": 1, "name": "A type of machine hardware" },
+        { "id": 2, "name": "A programming technique" },
+        { "id": 3, "name": "An AI method for playing chess" }
+      ]
+    }
+  ]
+}
