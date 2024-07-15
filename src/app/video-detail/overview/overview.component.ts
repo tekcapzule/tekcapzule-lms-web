@@ -8,21 +8,12 @@ import { ICourseDetail } from '@app/shared/models/course-item.model';
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss']
 })
-export class OverviewComponent implements OnInit {
+export class OverviewComponent {
   @Input() course: ICourseDetail;
 
   constructor(private router: Router,
     private courseApi: CourseApiService
   ) {}
-
-  ngOnInit(): void {
-    this.loadQuizData();
-  }
-
-  loadQuizData() {
-    this.courseApi.getCourseQuiz().subscribe((quiz) => {
-    });
-  }
 
   openQuiz() {
     this.router.navigateByUrl('lms/quiz/'+this.course.courseId);

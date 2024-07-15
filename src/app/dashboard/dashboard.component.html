@@ -132,10 +132,9 @@
 											<span class="scored-icon"></span>
 											<div class="ms-3">
 												<div class="d-flex align-items-center">
-													<h2 class="pb-0">{{userData?.points}}</h2>
+													<h2 class="pb-0">{{(userData && userData.points) ? userData.points : 0}}</h2>
 												</div>
-												<p class="gray-txt mb-0"><span class="status scored"></span>Points
-													Scored</p>
+												<p class="gray-txt mb-0"><span class="status scored"></span>Points Scored</p>
 											</div>
 										</div>
 									</div>

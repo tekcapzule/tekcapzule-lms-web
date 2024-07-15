@@ -1,10 +1,10 @@
-export interface IOption {
-  id: number;
-  name: string;
+export interface IValidateQuiz {
+  courseId: string;
+  quizId: string;
+  userAnswers: IUserAnswer[]; 
 }
 
-export interface IQuestion {
-  question: string;
-  options: IOption[];
-  answer: number;
+export interface IUserAnswer {
+  questionId: string;
+  selectedAnswers: string[];
 }

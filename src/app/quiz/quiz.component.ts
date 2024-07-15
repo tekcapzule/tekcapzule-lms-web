@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CourseApiService } from '@app/core';
-import { IQuestion } from '@app/shared/models/quiz.model';
+import { IQuestion, IQuiz } from '@app/shared/models';
+import { IUserAnswer, IValidateQuiz } from '@app/shared/models/quiz.model';
 
 @Component({
   selector: 'app-quiz',
@@ -10,25 +12,44 @@ import { IQuestion } from '@app/shared/models/quiz.model';
 export class QuizComponent implements OnInit {
   quizFinished:boolean = false;
   currentQuestionIndex:number = 0;
+  quiz: IQuiz;
   questions: IQuestion[] = [];
-  selectedOption: number[] = [];
+  selectedOption: any[] = [];
   score: number;
+  validateRequestBody: IValidateQuiz;
+  isAnswerSelected: boolean;
 
-  constructor(private courseApi: CourseApiService) {}
+  constructor(private courseApi: CourseApiService,
+    private route: ActivatedRoute) {}
 
 
   ngOnInit(): void {
-    this.loadQuizData();
-  }
-
-  loadQuizData() {
-    this.courseApi.getCourseQuiz().subscribe((data) => {
-      this.questions = data.quiz;
+    this.route.params.subscribe(params => {
+      this.loadQuizData(params['code']);
     });
   }
 
-  onOptionSelect(optionId: number) {
-    this.selectedOption[this.currentQuestionIndex] = optionId;
+  loadQuizData(courseId: string) {
+    this.courseApi.getCourse([courseId]).subscribe((data) => {
+      this.quiz = data[0].quiz;
+      this.questions = this.quiz.questions;
+      this.validateRequestBody = {
+        courseId: data[0].courseId,
+        quizId: this.quiz.quizId,
+        userAnswers: []
+      }
+    });
+  }
+
+  onOptionSelect(option: string) {
+    this.isAnswerSelected = true;
+    const questionId = this.questions[this.currentQuestionIndex].questionId;
+    const answer = this.validateRequestBody.userAnswers.find((answer: IUserAnswer) => answer.questionId === questionId);
+    if(answer) {
+      answer.selectedAnswers = [option];
+    } else {
+      this.validateRequestBody.userAnswers.push({questionId: questionId, selectedAnswers:[option]});
+    }
   }
 
   nextQuestion() {
@@ -39,6 +60,9 @@ export class QuizComponent implements OnInit {
 
   submitAnswer() {
     console.log(' this.sell ', this.selectedOption);
+    this.courseApi.validateQuizAnswer(this.validateRequestBody).subscribe(data => {
+      console.log('  submitAnswer  --- ', data);
+    })
   }
   
   restartQuiz() {
