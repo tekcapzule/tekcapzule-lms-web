@@ -18,6 +18,7 @@ export class QuizComponent implements OnInit {
   score: number;
   validateRequestBody: IValidateQuiz;
   isAnswerSelected: boolean;
+  quizResult: any;
 
   constructor(private courseApi: CourseApiService,
     private route: ActivatedRoute) {}
@@ -61,6 +62,8 @@ export class QuizComponent implements OnInit {
   submitAnswer() {
     console.log(' this.sell ', this.selectedOption);
     this.courseApi.validateQuizAnswer(this.validateRequestBody).subscribe(data => {
+      this.quizFinished = true;
+      this.quizResult = data;
       console.log('  submitAnswer  --- ', data);
     })
   }
@@ -69,5 +72,9 @@ export class QuizComponent implements OnInit {
     this.currentQuestionIndex = 0;
     this.score = 0;
     this.quizFinished = false;
+  }
+
+  onBack() {
+    
   }
 }

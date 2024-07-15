@@ -1,4 +1,4 @@
-<div *ngIf="questions && !quizFinished;">
+<div *ngIf="quiz && !quizFinished;">
     <h2>Question {{ currentQuestionIndex + 1 }}:</h2>
     <p>{{ questions[currentQuestionIndex].questionText }}</p>
     <ul>
@@ -16,8 +16,10 @@
     <button *ngIf="currentQuestionIndex === this.questions.length - 1" (click)="submitAnswer()" [disabled]="!isAnswerSelected">Submit Answer</button>
   </div>
   
-  <ng-template #quizResult>
-    <h2>Your Score: {{ score }} / {{ questions.length }}</h2>
-    <button (click)="restartQuiz()">Restart Quiz</button>
-  </ng-template>
+  <div *ngIf="quizFinished">
+    <h2>Result: {{quizResult.passed}}</h2>
+    <h2>Your Score: {{quizResult.scorePercentage.toFixed(2)}}</h2>
+    <button (click)="onBack()">Back</button>
+    <button *ngIf="quizResult.scorePercentage < 100" (click)="restartQuiz()">Retake Quiz</button>
+  </div>
   
