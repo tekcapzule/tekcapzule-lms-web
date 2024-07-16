@@ -25,8 +25,21 @@ export interface ICourseDetail {
   topicName?: string;
   isRecommended?: boolean;
   watchedDuration: number;
+  quiz: IQuiz;
   faq: IFAQ[];
 }
+
+export interface IQuiz {
+  quizId: string;
+  questions: IQuestion[];
+}
+
+export interface IQuestion {
+  questionId: string;
+  questionText: string;
+  options: string[];
+}
+
 export interface IFAQ {
   qus: string;
   ans: string;

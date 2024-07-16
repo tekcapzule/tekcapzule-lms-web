@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiSuccess } from '@app/shared/models/api.model';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
+import { IValidateQuiz } from '@app/shared/models/quiz.model';
 
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
@@ -51,6 +52,10 @@ export class CourseApiService {
 
   getWishlistCourse(): Observable<ICourseDetail[]> {
     return this.httpClient.post<ICourseDetail[]>(`${COURSE_API_PATH}/getAll`,{});
+  }
+
+  validateQuizAnswer(validateRequestBody: IValidateQuiz) {
+    return this.httpClient.post<any>(`${COURSE_API_PATH}/validateQuiz`, validateRequestBody);
   }
 
   updateRecommendCount(courseId: string): Observable<ApiSuccess> {
