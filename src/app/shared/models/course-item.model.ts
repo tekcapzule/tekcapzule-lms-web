@@ -37,7 +37,12 @@ export interface IQuiz {
 export interface IQuestion {
   questionId: string;
   questionText: string;
-  options: string[];
+  options: IOption[];
+}
+
+export interface IOption {
+  id: string;
+  name: string;
 }
 
 export interface IFAQ {

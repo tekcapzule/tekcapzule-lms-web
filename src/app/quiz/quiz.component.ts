@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CourseApiService } from '@app/core';
-import { IQuestion, IQuiz } from '@app/shared/models';
+import { IOption, IQuestion, IQuiz } from '@app/shared/models';
 import { IUserAnswer, IValidateQuiz } from '@app/shared/models/quiz.model';
 
 @Component({
@@ -49,7 +49,7 @@ export class QuizComponent implements OnInit {
     if(answer) {
       answer.selectedAnswers = [option];
     } else {
-      this.validateRequestBody.userAnswers.push({questionId: questionId, selectedAnswers:[option]});
+      this.validateRequestBody.userAnswers.push({questionId: questionId, selectedAnswers: [option]});
     }
   }
 
@@ -75,6 +75,6 @@ export class QuizComponent implements OnInit {
   }
 
   onBack() {
-    
+
   }
 }
