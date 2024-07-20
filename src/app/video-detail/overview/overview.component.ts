@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CourseApiService } from '@app/core';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 
 @Component({
@@ -6,13 +8,14 @@ import { ICourseDetail } from '@app/shared/models/course-item.model';
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss']
 })
-export class OverviewComponent implements OnInit {
+export class OverviewComponent {
   @Input() course: ICourseDetail;
 
-  constructor(
+  constructor(private router: Router,
+    private courseApi: CourseApiService
   ) {}
 
-  ngOnInit(): void {
+  openQuiz() {
+    this.router.navigateByUrl('lms/quiz/'+this.course.courseId);
   }
-
 }

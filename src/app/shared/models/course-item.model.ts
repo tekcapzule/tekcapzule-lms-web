@@ -1,29 +1,50 @@
 
 export interface ICourseDetail {
-  learningMaterialId: string;
+  courseId: string;
   topicCode: string;
+  courseRating: number;
   title: string;
   summary: string;
   description: string;
   authors: IAuthorDetail[];
+  author: string;
   tags: string[];
   publisher: string;
   duration: any;
-  level: string
+  courseLevel: string;
   courseUrl: string;
-  modules: Imodule[];
+  modules: IModule[];
   prizingModel: string;
   deliveryMode: string;
   learningMode: string;
-  imageUrl: string;
+  coverImageUrl: string;
   promotion: ICoursePromotion;
   recommendations: number;
-  status: string;
+  status?: string;
   publishedOn: string;
   topicName?: string;
   isRecommended?: boolean;
+  watchedDuration: number;
+  quiz: IQuiz;
   faq: IFAQ[];
 }
+
+export interface IQuiz {
+  quizId: string;
+  questions: IQuestion[];
+}
+
+export interface IQuestion {
+  questionId: string;
+  questionText: string;
+  options: IOption[];
+}
+
+export interface IOption {
+  id: string;
+  name: string;
+}
+
 export interface IFAQ {
   qus: string;
   ans: string;
@@ -40,23 +61,32 @@ export interface ICoursePromotion {
   imageUrl: string;
   campaignUrl: string;
 }
-export interface Imodule {
+export interface IModule {
+  serialNumber: number;
   title: ISchedule;
-  duration: string;
+  name: string;
+  duration: any;
+  watchedDuration: number;
+  status: string;
   description: string;
   objective: string[];
   assement: number;
-  videos: IVideoDetail[];
+  chapters: IChapter[];
   quiz: number;
-  imageUrl: string;
+  coverImageUrl: string;
 }
-export interface IVideoDetail {
+export interface IChapter {
+  serialNumber: number;
   title: string;
+  name: string;
   src: string;
+  resourceUrl?: string;
   duration: number;
   watchedDuration: number;
+  status: string;
   completed: boolean;
   poster?: string;
+  coverImageUrl: string;
 }
 export interface ISchedule {
   startDate: string;

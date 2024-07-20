@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CourseApiService } from '@app/core';
+import { CourseApiService, DashboradApiService } from '@app/core';
+import { AuthStateService } from '@app/core/services';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 
 @Component({
@@ -13,30 +14,38 @@ export class CourseDetailComponent implements OnInit {
   firstName: string;
   lastName: string;
   profileImage: string;
+  isUserLoggedIn: boolean;
 
   constructor(
     private router: Router,
     private courseApi: CourseApiService,
+    private dashboardApi: DashboradApiService,
+    public authState: AuthStateService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.isUserLoggedIn = this.authState.isUserLoggedIn();
     this.route.params.subscribe(params => {
-      //this.pageId = params['pageId'];
       this.getWishlistCourse(params['code']);
     });
     this.firstName = 'John'; 
     this.lastName = 'Doe';   
     this.profileImage = this.firstName.charAt(0) + this.lastName.charAt(0);
-
   }
 
   getWishlistCourse(code: string) {
-    this.courseApi.getWishlistCourse().subscribe(
+    this.courseApi.getCourse([code]).subscribe(
       data => {
-        this.course = data.find(c => c.learningMaterialId === code) as ICourseDetail;
+        this.course = data[0] as ICourseDetail;
       },
       err => {}
     );
+  }
+
+  onEnrollCourse() {
+    this.dashboardApi.enrollCourse(this.course.courseId).subscribe(data => {
+      console.log('enrollCourse', data);
+    })
   }
 }

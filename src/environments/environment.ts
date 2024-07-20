@@ -9,6 +9,7 @@ export const environment = {
   userApiGateway: 'hu2qbprk7j',
   eventApiGateway: 't9uk11ucqa',
   courseApiGateway: 'pir8ksji0b',
+  lmsCourseApiGateway: 'lkyrfc5qhl',
   marketplaceApiGateway: '2qdikhxbob',
   capsuleApiGateway: 'zgzztfoaxe',
   topicApiGateway: 'q7y9oyz0d9',

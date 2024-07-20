@@ -18,7 +18,7 @@
                             <div class="task-bg-1 rounded-2 p-3">
                                 <div class="reading-icon"></div>
                                 <div>
-                                    <h3 class="mb-3"> {{course.level}} level</h3>
+                                    <h3 class="mb-3"> {{course.courseLevel}} level</h3>
                                     <p>Recommended experience</p>
                                 </div>
 
@@ -130,12 +130,12 @@
                     <div *ngFor="let modules of course.modules" class="course-series">
 
                         <div class="course-card">
-                            <div class="course-img"><img alt="course thumbnail" [src]="modules.imageUrl"></div>
+                            <div class="course-img"><img alt="course thumbnail" [src]="modules.coverImageUrl"></div>
                             <div class="course-info">
                                 <div class="primary-heading pb-0">{{modules.title}}</div>
                                 <div class="course-status">
                                     <label><span class="rounded video-icon"></span><span
-                                            class="fw-bold">{{modules.videos.length}}</span>
+                                            class="fw-bold">{{modules.chapters.length}}</span>
                                         videoes</label>
                                     <label><span class="rounded notes-icon"></span><span
                                             class="fw-bold">{{modules.duration}} min</span>
@@ -186,7 +186,7 @@
                 <div class="enroll-sec">
                     <img src="../../assets/courses/courses-thumbnail-5.png" class="w-100" alt="course thumbnail">
                     <div class="px-3 pt-3">
-                        <button class="btn secondary-btn w-100 mb-4">Enroll <span>(Starts Jan 15)</span></button>
+                        <button *ngIf="isUserLoggedIn" class="btn secondary-btn w-100 mb-4" (click)="onEnrollCourse()">Enroll</button>
                         <h3>Instructors</h3>
                         <div *ngFor="let author of course.authors" class="instructors">
                             <h3 class="profile-name">

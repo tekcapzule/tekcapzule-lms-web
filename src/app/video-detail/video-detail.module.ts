@@ -9,6 +9,7 @@ import { ResourceComponent } from './resource/resource.component';
 import { DiscussionComponent } from './discussion/discussion.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { VideoListComponent } from './video-list/video-list.component';
+import { SecondsToMinutesPipe } from '@app/core/pipe/seconds-to-minutes.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { VideoListComponent } from './video-list/video-list.component';
     ResourceComponent,
     DiscussionComponent,
     AnnouncementComponent,
-    VideoListComponent
+    VideoListComponent,
+    SecondsToMinutesPipe
   ],
   imports: [
     CommonModule,

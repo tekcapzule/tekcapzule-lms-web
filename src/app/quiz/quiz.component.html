@@ -1,0 +1,29 @@
+<div id="wrapper">
+    <div class="quiz-wrapper">
+        <h3 class="main-title">Quiz</h3>
+        <div *ngIf="quiz && !quizFinished;">
+            <h2>Question {{ currentQuestionIndex + 1 }}:</h2>
+            <p>{{ questions[currentQuestionIndex].questionText }}</p>
+            <ul class="quiz-list">
+                <li *ngFor="let option of questions[currentQuestionIndex].options">
+                    <input class="pr-3" type="radio" [id]="option.id" [value]="option.id" name="option" (change)="onOptionSelect(option.id)">
+                    <label [for]="option">{{ option.name }}</label>
+                </li>
+            </ul>
+
+            <div class="m-3">
+                <button *ngIf="currentQuestionIndex < this.questions.length - 1" (click)="nextQuestion()"
+                    [disabled]="!isAnswerSelected">Next</button>
+                <button *ngIf="currentQuestionIndex === this.questions.length - 1" (click)="submitAnswer()"
+                    [disabled]="!isAnswerSelected">Submit Answer</button>
+            </div>
+        </div>
+
+        <div *ngIf="quizFinished">
+            <h2>Result: {{quizResult.passed ? 'Pass': 'Fail'}}</h2>
+            <h2>Your Score: {{quizResult.scorePercentage ? quizResult.scorePercentage.toFixed(2) : 0}}</h2>
+            <button (click)="onBack()">Back</button>
+            <button *ngIf="quizResult.scorePercentage < 100" (click)="restartQuiz()">Retake Quiz</button>
+        </div>
+    </div>
+</div>

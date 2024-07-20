@@ -3,6 +3,7 @@ export const environment = {
   apiStageEnv: 'prod',
   apiCacheExpiryHours: 12,
   userApiGateway: 'klpgscbxhh',
+  lmsCourseApiGateway: 'lkyrfc5qhl',
   eventApiGateway: 'df12haib2m',
   capsuleApiGateway: 'zap74fwmn4',
   topicApiGateway: 'wrgfcz5pde',

@@ -84,8 +84,8 @@
 		<div class="col-9">
 			<div class="box-layout m-0">
 				<div class="pt-3">
-					<h1 class="fs-3">Welcome back, Linjith Kunnon</h1>
-					<p class="mb-0">Greetings Linjith, welcome to your fantastic learning curve dashboard!!!</p>
+					<h1 class="fs-3">Welcome back, {{fullName}}</h1>
+					<p class="mb-0">Greetings {{firstName}}, welcome to your fantastic learning curve dashboard!!!</p>
 					<section class="statistics mt-4">
 						<div class="row">
 							<div class="col-lg-9">
@@ -96,9 +96,9 @@
 											<span class="overdue-icon"></span>
 											<div class="ms-3">
 												<div class="d-flex align-items-center">
-													<h2 class="pb-0">7 Courses</h2>
+													<h2 class="pb-0">{{activeCourses + completedCourses}} Courses</h2>
 												</div>
-												<p class="gray-txt mb-0"><span class="status overdue"></span>Overdue
+												<p class="gray-txt mb-0"><span class="status overdue"></span>Enrolled
 												</p>
 											</div>
 										</div>
@@ -108,7 +108,7 @@
 											<span class="inprogress-icon"></span>
 											<div class="ms-3">
 												<div class="d-flex align-items-center">
-													<h2 class="pb-0">4 Courses</h2>
+													<h2 class="pb-0">{{activeCourses}} Courses</h2>
 												</div>
 												<p class="gray-txt mb-0"><span class="status inprogress"></span>In
 													Progress</p>
@@ -120,7 +120,7 @@
 											<span class="completed-icon"></span>
 											<div class="ms-3">
 												<div class="d-flex align-items-center">
-													<h2 class="pb-0">2 Courses</h2>
+													<h2 class="pb-0">{{completedCourses}} Courses</h2>
 												</div>
 												<p class="gray-txt mb-0"><span class="status completed"></span>Completed
 												</p>
@@ -132,10 +132,9 @@
 											<span class="scored-icon"></span>
 											<div class="ms-3">
 												<div class="d-flex align-items-center">
-													<h2 class="pb-0">345</h2>
+													<h2 class="pb-0">{{(userData && userData.points) ? userData.points : 0}}</h2>
 												</div>
-												<p class="gray-txt mb-0"><span class="status scored"></span>Points
-													Scored</p>
+												<p class="gray-txt mb-0"><span class="status scored"></span>Points Scored</p>
 											</div>
 										</div>
 									</div>
@@ -143,7 +142,8 @@
 							</div>
 							<div class="col-lg-3">
 								<h3>Your Badges</h3>
-								<ul class="badges">
+								<p *ngIf="!userData?.badges">No Badges Yet</p>
+								<ul *ngIf="userData?.badges" class="badges">
 									<li class="bronze"></li>
 									<li class="silver"></li>
 									<li class="gold"></li>
@@ -174,7 +174,7 @@
 							<app-course-card [course]="course" [page]="'Dashboard'"></app-course-card>
 						</ng-container>
 					</div>
-					<div class="no-course content-center">
+					<div *ngIf="!courseList.length" class="no-course content-center">
 						<div class="course-icon-bg"></div>
 						<p class="secondary-heading">You do not have any new course assigned to you.</p>
 					<button class="btn primary-btn">Explore</button>

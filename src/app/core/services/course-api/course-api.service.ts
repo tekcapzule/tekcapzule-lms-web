@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiSuccess } from '@app/shared/models/api.model';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
+import { IValidateQuiz } from '@app/shared/models/quiz.model';
 
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
 
-const COURSE_API_PATH = `${environment.apiEndpointTemplate}/course`
-  .replace('{{api-gateway}}', environment.courseApiGateway)
+const COURSE_API_PATH = `${environment.apiEndpointTemplate}/lmscourse`
+  .replace('{{api-gateway}}', environment.lmsCourseApiGateway)
   .replace('{{aws-region}}', environment.awsRegion);
 
 const COURSE_GETALL_COURSE_CACHE_KEY = 'com.tekcapzule.course.allcourses';
@@ -15,6 +16,8 @@ const COURSE_GETALL_COURSE_CACHE_KEY = 'com.tekcapzule.course.allcourses';
   providedIn: 'root',
 })
 export class CourseApiService {
+  courses: ICourseDetail[] = [];
+
   constructor(private httpClient: HttpClient) {}
 
   getCourseApiPath(): string {
@@ -22,20 +25,37 @@ export class CourseApiService {
   }
 
   getAllCourse(): Observable<ICourseDetail[]> {
-    return this.httpClient.get<ICourseDetail[]>('/assets/json/course.json');
+    return this.httpClient.post<ICourseDetail[]>(
+      `${COURSE_API_PATH}/getAll`,
+      {},
+      {
+        params: {
+          cache: 'yes',
+          ckey: COURSE_GETALL_COURSE_CACHE_KEY,
+        },
+      }
+    );
+  }
+
+  getCourse(courseIds: string[]): Observable<ICourseDetail[]> {
+    return this.httpClient.post<ICourseDetail[]>(`${COURSE_API_PATH}/get`,{courseIds});
   }
 
   getActiveCourse(): Observable<ICourseDetail[]> {
-    return this.httpClient.get<ICourseDetail[]>('/assets/json/active_course.json');
+    return this.httpClient.post<ICourseDetail[]>(`${COURSE_API_PATH}/getAll`,{});
   }
 
 
   getCompletedCourse(): Observable<ICourseDetail[]> {
-    return this.httpClient.get<ICourseDetail[]>('/assets/json/completed_course.json');
+    return this.httpClient.post<ICourseDetail[]>(`${COURSE_API_PATH}/getAll`,{});
   }
 
   getWishlistCourse(): Observable<ICourseDetail[]> {
-    return this.httpClient.get<ICourseDetail[]>('/assets/json/course.json');
+    return this.httpClient.post<ICourseDetail[]>(`${COURSE_API_PATH}/getAll`,{});
+  }
+
+  validateQuizAnswer(validateRequestBody: IValidateQuiz) {
+    return this.httpClient.post<any>(`${COURSE_API_PATH}/validateQuiz`, validateRequestBody);
   }
 
   updateRecommendCount(courseId: string): Observable<ApiSuccess> {

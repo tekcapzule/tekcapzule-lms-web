@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CourseApiService } from '@app/core';
+import { InitService } from '@app/core/services/app-state/init.service';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
+import { IEnrollment, IUser } from '@app/shared/models/user-item.model';
 
 @Component({
   selector: 'app-courses',
@@ -16,16 +18,42 @@ export class CoursesComponent {
   selectedTab: string = 'active';
   selectedTopic: string[] = [];
   selectedLevel: string[] = [];
-
+  userData: IUser;
+  courseStatus: IEnrollment[] = [];
+  
   constructor(
     private router: Router,
+    private initService: InitService,
     private courseApi: CourseApiService
   ) {}
 
   ngOnInit(): void {
-    this.getActiveCourse();
-    this.getCompletedCourse();
-    this.getWishlistCourse();
+    this.userData = this.initService.getUserData();
+    this.courseStatus = this.userData.enrollments;
+    
+    this.getAllCourse();
+  }
+
+  getAllCourse() {
+    this.courseApi.getAllCourse().subscribe(
+      data => {
+        this.wishlistList = data;
+        this.filteredList = data;
+        data.forEach(course => {
+          let courseStatus = this.getCourseStatus(course.courseId);
+          if(courseStatus?.course.status === 'complete') {
+            this.completeList.push(course);
+          } else {
+            this.activeList.push(course);
+          }
+        });
+      },
+      err => {}
+    );
+  }
+
+  getCourseStatus(courseId: string) {
+    return this.courseStatus.find(c => c.courseId === courseId);
   }
 
   getActiveCourse() {
@@ -40,7 +68,6 @@ export class CoursesComponent {
   getCompletedCourse() {
     this.courseApi.getCompletedCourse().subscribe(
       data => {
-        this.completeList = data;
       },
       err => {}
     );
@@ -73,7 +100,7 @@ export class CoursesComponent {
       tempList = tempList.filter(tl => this.selectedTopic.includes(tl.topicCode));
     }
     if (this.selectedLevel.length) {
-      tempList = tempList.filter(tl => this.selectedLevel.includes(tl.level));
+      tempList = tempList.filter(tl => this.selectedLevel.includes(tl.courseLevel));
     }
     this.filteredList = tempList
   }
