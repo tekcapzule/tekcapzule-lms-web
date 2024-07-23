@@ -1,3 +1,4 @@
+import { IStatus } from "./user-item.model";
 
 export interface ICourseDetail {
   courseId: string;
@@ -20,7 +21,7 @@ export interface ICourseDetail {
   coverImageUrl: string;
   promotion: ICoursePromotion;
   recommendations: number;
-  status?: string;
+  status?: IStatus;
   publishedOn: string;
   topicName?: string;
   isRecommended?: boolean;
@@ -67,7 +68,7 @@ export interface IModule {
   name: string;
   duration: any;
   watchedDuration: number;
-  status: string;
+  status: IStatus;
   description: string;
   objective: string[];
   assement: number;
@@ -80,12 +81,10 @@ export interface IChapter {
   title: string;
   name: string;
   src: string;
-  resourceUrl?: string;
+  resourceUrl: string;
   duration: number;
   watchedDuration: number;
-  status: string;
-  completed: boolean;
-  poster?: string;
+  status: IStatus;
   coverImageUrl: string;
 }
 export interface ISchedule {

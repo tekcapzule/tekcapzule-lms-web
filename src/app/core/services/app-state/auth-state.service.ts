@@ -38,12 +38,16 @@ export class AuthStateService extends BaseStateService<AuthState> {
   }
 
   public getEmail(): string | undefined {
-    return "06.prerna@gmail.com";
+    //return "06.prerna@gmail.com";
     return this.state.awsCognitoUser?.email || "06.prerna@gmail.com";
   }
 
   public getFirstName(): string | undefined {
     return this.state.awsCognitoUser?.given_name;
+  }
+
+  public getLastName(): string | undefined {
+    return this.state.awsCognitoUser?.family_name;
   }
 
   public getFullName(): string {

@@ -17,6 +17,7 @@ interface SignUpFormType {
   firstName: FormControl<string | null>;
   lastName: FormControl<string | null>;
   password: FormControl<string | null>;
+  phoneNumber: FormControl<string | null>;
 }
 
 type SignUpFormValueType = Partial<{
@@ -24,6 +25,7 @@ type SignUpFormValueType = Partial<{
   firstName: string | null;
   lastName: string | null;
   password: string | null;
+  phoneNumber: string | null;
 }>;
 
 type SignUpParameters = {
@@ -31,6 +33,7 @@ type SignUpParameters = {
   password: string;
   given_name: string;
   family_name: string;
+  phone_number: string;
 };
 
 @Component({
@@ -61,7 +64,8 @@ export class SignupComponent
       password: this.fb.control('', [
         Validators.required,
         AuthValidators.checkPasswordPolicy
-      ])
+      ]),
+      phoneNumber: this.fb.control('', [Validators.required])
     });
   }
 
@@ -88,7 +92,8 @@ export class SignupComponent
         username: formValue.email!,
         password: formValue.password!,
         given_name: formValue.firstName!,
-        family_name: formValue.lastName!
+        family_name: formValue.lastName!,
+        phone_number: formValue.phoneNumber!
       });
     }
   }
@@ -97,7 +102,8 @@ export class SignupComponent
     username,
     password,
     given_name,
-    family_name
+    family_name,
+    phone_number
   }: SignUpParameters) {
     try {
       const { isSignUpComplete, nextStep } = await signUp({
@@ -106,7 +112,8 @@ export class SignupComponent
         options: {
           userAttributes: {
             given_name,
-            family_name
+            family_name,
+            phone_number
           },
           autoSignIn: true
         }

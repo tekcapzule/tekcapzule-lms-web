@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CourseApiService, DashboradApiService } from '@app/core';
 import { VideoPlayerComponent } from '@app/shared/components/video-player/video-player.component';
 import { IChapter, ICourseDetail, IModule } from '@app/shared/models/course-item.model';
-import { IChapterStatus, ICourseStatus, IEnrollment, IModuleStatus } from '@app/shared/models/user-item.model';
+import { IChapterStatus, ICourseStatus, IEnrollment, IModuleStatus, IStatus } from '@app/shared/models/user-item.model';
 
 @Component({
   selector: 'app-video-detail',
@@ -84,8 +84,10 @@ export class VideoDetailComponent implements OnInit {
   getPlayVideo() {
     this.currentVideo = null;
     this.course.duration = 0;
-    if(this.enrollmentCourseStatus.lastVisitedModule === 0 || this.enrollmentCourseStatus.lastVisitedModule === 0) {
+    if(this.enrollmentCourseStatus.lastVisitedModule === 0 || this.enrollmentCourseStatus.lastVisitedChapter === 0) {
       this.currentVideo = this.course.modules[0].chapters[0];
+      this.enrollmentCourseStatus.lastVisitedModule = this.course.modules[0].serialNumber; 
+      this.enrollmentCourseStatus.lastVisitedChapter = this.course.modules[0].chapters[0].serialNumber;
       this.createCourseStatus(this.course.modules[0], this.currentVideo);
       return;
     }
@@ -93,24 +95,27 @@ export class VideoDetailComponent implements OnInit {
     let lastChapterIndex = this.getIndex(this.course.modules[lastModuleIndex].chapters, this.enrollmentCourseStatus.lastVisitedChapter);
     let modules = this.course.modules[lastModuleIndex]; 
     let chapter = modules.chapters[lastChapterIndex]; 
-    if (chapter.status !== 'complete') {
+    if (chapter.status !== IStatus.COMPLETED) {
       this.currentVideo = chapter;
       console.log('not complete ---- ', lastModuleIndex, this.currentVideo);
       this.createCourseStatus(modules, this.currentVideo);
-    } else if((lastChapterIndex + 1) < modules.chapters.length - 1) {
+    } else if((lastChapterIndex + 1) < modules.chapters.length) {
       this.currentVideo = modules.chapters[lastChapterIndex + 1];
       console.log('same module ---- ',lastModuleIndex, this.currentVideo);
-      if(this.currentVideo.status === 'complete') {
+      if(this.currentVideo.status === IStatus.COMPLETED) {
         this.currentVideo.watchedDuration = 0;
-        this.currentVideo.status = '';
       }
+      this.enrollmentCourseStatus.lastVisitedChapter = this.currentVideo.serialNumber;
       this.createCourseStatus(modules, this.currentVideo);
-    } else if((lastModuleIndex + 1) < this.course.modules.length - 1) {
+    } else if((lastModuleIndex + 1) < this.course.modules.length) {
       console.log('next module ---- ', lastModuleIndex + 1, this.currentVideo);
       modules = this.course.modules[lastModuleIndex + 1];
       this.currentVideo = modules.chapters[0];
+      this.enrollmentCourseStatus.lastVisitedModule = modules.serialNumber;
+      this.enrollmentCourseStatus.lastVisitedChapter = this.currentVideo.serialNumber;
       this.createCourseStatus(modules, this.currentVideo);
     } else {
+      this.enrollmentCourseStatus.status = IStatus.COMPLETED;
       console.log('course completed');
     }
     
@@ -138,18 +143,20 @@ export class VideoDetailComponent implements OnInit {
     this.courseStatus = {
       courseId: this.course.courseId,
       watchedDuration: 0,
-      status: '',
+      status: this.enrollmentCourseStatus.status || IStatus.IN_PROGRESS,
       lastVisitedModule: module.serialNumber,
       lastVisitedChapter: chapter.serialNumber,
+      quizScore: this.enrollmentCourseStatus.quizScore || 0,
+      quizStatus: this.enrollmentCourseStatus.quizStatus,
       modules: [
         {
           serialNumber: module.serialNumber,
           watchedDuration: 0,
-          status: '',
+          status: IStatus.IN_PROGRESS,
           chapters:[{
             serialNumber: chapter.serialNumber,
             watchedDuration: 0,
-            status: '',
+            status: IStatus.IN_PROGRESS,
           }]
         }]     
     }
@@ -166,7 +173,9 @@ export class VideoDetailComponent implements OnInit {
   onVideoEnded() {
     this.currentVideo = null;
     this.getPlayVideo();
-    this.onVideoChange(this.currentVideo);
+    if(this.currentVideo) {
+      this.onVideoChange(this.currentVideo);
+    }
   }
 
   onVideoChange(chapter: IChapter) {

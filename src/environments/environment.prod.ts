@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   apiStageEnv: 'prod',
   apiCacheExpiryHours: 12,
-  userApiGateway: 'klpgscbxhh',
+  userApiGateway: '1co3pectr2',
   lmsCourseApiGateway: 'lkyrfc5qhl',
   eventApiGateway: 'df12haib2m',
   capsuleApiGateway: 'zap74fwmn4',
@@ -20,6 +20,7 @@ export const environment = {
   insightsApiGateway: '878m5ejncb',
   feedApiGateway: 'b0jqzywk9l',
   skillStudioApiGateway: 'jcsh0salef',
+  certificateApiGateway: '4saoyr6ura',
   awsRegion: 'us-east-1',
   apiEndpointTemplate: 'https://{{api-gateway}}.execute-api.{{aws-region}}.amazonaws.com/prod',
   awsCognitoConfigs: {
