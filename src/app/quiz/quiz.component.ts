@@ -21,7 +21,7 @@ export class QuizComponent implements OnInit {
   quizResult: any;
   selectedAnswer: string[] = [];
   isSubmitted: boolean;
-
+  currentQuestion: IQuestion;
   constructor(private courseApi: CourseApiService,
     private route: ActivatedRoute) {}
 
@@ -36,6 +36,7 @@ export class QuizComponent implements OnInit {
     this.courseApi.getCourse([courseId]).subscribe((data) => {
       this.quiz = data[0].quiz;
       this.questions = this.quiz.questions;
+      this.currentQuestion = this.questions[0];
       this.validateRequestBody = {
         courseId: data[0].courseId,
         quizId: this.quiz.quizId,
@@ -51,14 +52,15 @@ export class QuizComponent implements OnInit {
 
   nextQuestion() {
     if(this.currentQuestionIndex < this.questions.length - 1) {
+      this.isSubmitted = false;
+      this.selectedAnswer = [];
       this.currentQuestionIndex ++;
+      this.currentQuestion = this.questions[this.currentQuestionIndex];
     }
   }
 
   onSubmit() {
-    if(this.questions[this.currentQuestionIndex].correctAnswer[0] === this.selectedAnswer[0]) {
-      
-    }
+    this.isSubmitted = true;
   }
 
   submitAnswer() {

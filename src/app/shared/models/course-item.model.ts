@@ -39,6 +39,7 @@ export interface IQuestion {
   questionId: string;
   questionText: string;
   options: IOption[];
+  correctAnswer: string[];
 }
 
 export interface IOption {
