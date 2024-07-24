@@ -19,6 +19,8 @@ export class QuizComponent implements OnInit {
   validateRequestBody: IValidateQuiz;
   isAnswerSelected: boolean;
   quizResult: any;
+  selectedAnswer: string[] = [];
+  isSubmitted: boolean;
 
   constructor(private courseApi: CourseApiService,
     private route: ActivatedRoute) {}
@@ -44,18 +46,18 @@ export class QuizComponent implements OnInit {
 
   onOptionSelect(option: string) {
     this.isAnswerSelected = true;
-    const questionId = this.questions[this.currentQuestionIndex].questionId;
-    const answer = this.validateRequestBody.userAnswers.find((answer: IUserAnswer) => answer.questionId === questionId);
-    if(answer) {
-      answer.selectedAnswers = [option];
-    } else {
-      this.validateRequestBody.userAnswers.push({questionId: questionId, selectedAnswers: [option]});
-    }
+    this.selectedAnswer = [option];
   }
 
   nextQuestion() {
     if(this.currentQuestionIndex < this.questions.length - 1) {
       this.currentQuestionIndex ++;
+    }
+  }
+
+  onSubmit() {
+    if(this.questions[this.currentQuestionIndex].correctAnswer[0] === this.selectedAnswer[0]) {
+      
     }
   }
 
