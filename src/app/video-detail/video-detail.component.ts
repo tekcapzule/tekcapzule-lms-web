@@ -60,19 +60,21 @@ export class VideoDetailComponent implements OnInit {
     this.course.watchedDuration = 0;
     this.course.status = this.enrollmentCourseStatus.status;
     this.course.modules.forEach((module, i) => {
-      const enrollmentModule = this.enrollmentCourseStatus.modules[i]
       module.watchedDuration = 0;
-      if (enrollmentModule) {
-        module['status'] = enrollmentModule.status;
-        module.chapters.forEach((chapter, j) => {
-          const enrollmentChapter = enrollmentModule.chapters[j];
-          chapter.watchedDuration = 0;
-          if(enrollmentChapter) {
-            chapter.watchedDuration = enrollmentChapter.watchedDuration;
-            chapter['status'] = enrollmentChapter.status;
-          }
-          module.watchedDuration = module.watchedDuration + chapter.watchedDuration; 
-        });
+      if(this.enrollmentCourseStatus.modules && this.enrollmentCourseStatus.modules.length) {
+        const enrollmentModule = this.enrollmentCourseStatus.modules[i]
+        if (enrollmentModule) {
+          module['status'] = enrollmentModule.status;
+          module.chapters.forEach((chapter, j) => {
+            const enrollmentChapter = enrollmentModule.chapters[j];
+            chapter.watchedDuration = 0;
+            if(enrollmentChapter) {
+              chapter.watchedDuration = enrollmentChapter.watchedDuration;
+              chapter['status'] = enrollmentChapter.status;
+            }
+            module.watchedDuration = module.watchedDuration + chapter.watchedDuration; 
+          });
+        }
       }
       this.course.watchedDuration = this.course.watchedDuration + module.watchedDuration; 
       if(module.watchedDuration) {

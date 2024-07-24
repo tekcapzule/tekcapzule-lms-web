@@ -14,16 +14,15 @@
             <div class="m-3">
                 <button *ngIf="currentQuestionIndex < this.questions.length - 1" (click)="nextQuestion()"
                     [disabled]="!isAnswerSelected">Next</button>
+                <button *ngIf="currentQuestionIndex < this.questions.length - 1" (click)="onSubmit()"
+                    [disabled]="!isAnswerSelected">Submit</button>
                 <button *ngIf="currentQuestionIndex === this.questions.length - 1" (click)="submitAnswer()"
-                    [disabled]="!isAnswerSelected">Submit Answer</button>
+                    [disabled]="!isAnswerSelected">Back to course</button>
             </div>
         </div>
 
         <div *ngIf="quizFinished">
-            <h2>Result: {{quizResult.passed ? 'Pass': 'Fail'}}</h2>
-            <h2>Your Score: {{quizResult.scorePercentage ? quizResult.scorePercentage.toFixed(2) : 0}}</h2>
-            <button (click)="onBack()">Back</button>
-            <button *ngIf="quizResult.scorePercentage < 100" (click)="restartQuiz()">Retake Quiz</button>
+            
         </div>
     </div>
 </div>

@@ -18,7 +18,7 @@ export class CourseCardComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.updateCourseTime();
+    //this.updateCourseTime();
     this.course.publishedOn = this.course.publishedOn ? moment(this.course.publishedOn, 'DD/MM/YYYY').fromNow() : 'NA';
   }
 

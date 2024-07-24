@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit {
   getWatchedDuration(courseId: string) {
     let watchedDuration = 0;
     const courseStatus = this.courseStatus.find(enroll => enroll.courseId === courseId)?.course;
-    courseStatus?.modules.forEach(module => {
+    courseStatus?.modules?.forEach(module => {
       module.chapters.forEach(chapter => {
         watchedDuration += +chapter.watchedDuration;
       });
