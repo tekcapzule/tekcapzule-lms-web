@@ -4,7 +4,7 @@
 		<div class="resume">
 			<div role="progressbar" [attr.aria-valuenow]="(course.watchedDuration / course.duration) * 100" aria-valuemin="0" aria-valuemax="100"
 				style="--value: {{math.floor((course.watchedDuration/course.duration) * 100)}}"></div>
-			<button class="btn primary-btn" (click)="onResume()">{{(course.status === 'complete'|| course.watchedDuration === 0) ? 'Start' : 'Resume'}}</button>
+			<button class="btn primary-btn" (click)="onResume()">{{(course.status === 'Completed' || course.watchedDuration === 0) ? 'Start' : 'Resume'}}</button>
 		</div>
 	</div>
 	<div class="course-info">

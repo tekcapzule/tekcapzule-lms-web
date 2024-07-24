@@ -5,7 +5,7 @@ import { AuthStateService } from '@app/core/services';
 import { InitService } from '@app/core/services/app-state/init.service';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { ITaskItem } from '@app/shared/models/task-item.model';
-import { IEnrollment, IUser } from '@app/shared/models/user-item.model';
+import { IEnrollment, IStatus, IUser } from '@app/shared/models/user-item.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -45,20 +45,21 @@ export class DashboardComponent implements OnInit {
       return;
     }
     this.courseStatus.forEach((course) => {
-      if(course.course.status === 'complete') {
+      if(course.course.status === IStatus.COMPLETED) {
         this.completedCourses += 1;
       } else {
         this.activeCourses += 1;
       }
       courseIds.push(course.courseId);
     });
-    console.log('courseId --- >>> ', courseIds);
     this.courseApi.getCourse(courseIds).subscribe(courses => {
       this.courseList = courses;
       this.courseApi.courses = courses;
       this.courseList.forEach(course => {
-        course.watchedDuration = this.getWatchedDuration(course.courseId);
-        console.log('course', course.watchedDuration);
+        if(course) {
+          course.watchedDuration = this.getWatchedDuration(course.courseId);
+          // console.log('course', course.watchedDuration);
+        }
       });
     });
   }
@@ -66,7 +67,7 @@ export class DashboardComponent implements OnInit {
   getWatchedDuration(courseId: string) {
     let watchedDuration = 0;
     const courseStatus = this.courseStatus.find(enroll => enroll.courseId === courseId)?.course;
-    courseStatus?.modules.forEach(module => {
+    courseStatus?.modules?.forEach(module => {
       module.chapters.forEach(chapter => {
         watchedDuration += +chapter.watchedDuration;
       });

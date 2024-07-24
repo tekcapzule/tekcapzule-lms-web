@@ -1,6 +1,6 @@
 {
   "auth": {
-    "tekcapzulelmsdevampl": {
+    "tekcapzulelmsauthapp": {
       "customAuth": false,
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
@@ -9,6 +9,38 @@
     }
   },
   "parameters": {
+    "AMPLIFY_auth_tekcapzulelmsauthapp_nativeClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "tekcapzulelmsauthapp"
+        }
+      ]
+    },
+    "AMPLIFY_auth_tekcapzulelmsauthapp_userPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "tekcapzulelmsauthapp"
+        }
+      ]
+    },
+    "AMPLIFY_auth_tekcapzulelmsauthapp_userPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "tekcapzulelmsauthapp"
+        }
+      ]
+    },
+    "AMPLIFY_auth_tekcapzulelmsauthapp_webClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "tekcapzulelmsauthapp"
+        }
+      ]
+    },
     "AMPLIFY_auth_tekcapzulelmsdevampl_nativeClientId": {
       "usedBy": [
         {

@@ -21,7 +21,7 @@ export class DashboradApiService {
   
   getUserDetails(): Observable<IUser> {
     return this.httpClient.post<IUser>(
-      'https://aj4w1i4vdc.execute-api.us-east-1.amazonaws.com/dev/lms/user/get',
+      'https://1co3pectr2.execute-api.us-east-1.amazonaws.com/dev/lms/user/get',
       {
         "userId": this.authState.getEmail(),
         "tenantId": ""
@@ -30,7 +30,7 @@ export class DashboradApiService {
 
   updateVideoStatus(courseStatus: ICourseStatus) {
     return this.httpClient.post<any>(
-      'https://aj4w1i4vdc.execute-api.us-east-1.amazonaws.com/dev/lms/user/updateActivity',
+      'https://1co3pectr2.execute-api.us-east-1.amazonaws.com/dev/lms/user/updateActivity',
       {
         userId: this.authState.getEmail(),
         tenantId: "",
@@ -40,11 +40,11 @@ export class DashboradApiService {
   
   enrollCourse(courseId: string) {
     return this.httpClient.post<any>(
-      'https://aj4w1i4vdc.execute-api.us-east-1.amazonaws.com/dev/lms/user/optin',
+      'https://1co3pectr2.execute-api.us-east-1.amazonaws.com/dev/lms/user/optin',
       {
         userId: this.authState.getEmail(),
         tenantId: "",
-        coursesId: courseId
+        courseId: courseId
       });  
   }
 }

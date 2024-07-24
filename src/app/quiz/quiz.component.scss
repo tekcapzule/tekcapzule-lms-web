@@ -7,4 +7,14 @@
             list-style: none;
         }
     }
+    .correct-answer {
+        background-color: #75bf21 !important;
+    }
+      
+    .wrong-answer {
+        background-color: #ec3434 !important;
+    }
+    .answer-selected {
+        background-color: #3059B4 !important;
+    }
 }
