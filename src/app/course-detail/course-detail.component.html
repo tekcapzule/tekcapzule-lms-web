@@ -1,5 +1,11 @@
 <div *ngIf="course">
     <div class="course-wrapper">
+        <!--div class="back-link">
+            <a class="url-link" [routerLink]="['/skill-dashboard']">SkillStudio</a>
+            <a *ngIf="pageId !=='Skill_Studio'" class="url-link" [routerLink]="['/ai-hub/courses']">Courses</a>
+            <span>{{learningMt.title}}</span>
+        </!--div-->
+
         <div class="banner">
             <div class="col-9 pe-5">
                 <h1>{{course.title}} <span class="rating">4.5 <span class="star-icon"></span></span></h1>
@@ -64,7 +70,7 @@
                         </div>
                     </div>
                     <div>
-                        <h2>4 modules in this course</h2>
+                        <h2>{{course.modules.length}} modules in this course</h2>
                         <div class="course-module accordion accordion-flush mb-5">
 
                             <div *ngFor="let faq of course.faq;let i = index" class="accordion-item border">
@@ -186,9 +192,9 @@
                 <div class="enroll-sec">
                     <img src="../../assets/courses/courses-thumbnail-5.png" class="w-100" alt="course thumbnail">
                     <div class="px-3 pt-3">
-                        <button *ngIf="isUserLoggedIn" class="btn secondary-btn w-100 mb-4" (click)="onEnrollCourse()">Enroll</button>
+                        <button *ngIf="isUserLoggedIn && !isCourseEnrolled" class="btn secondary-btn w-100 mb-4" (click)="onEnrollCourse()">Enroll</button>
                         <h3>Instructors</h3>
-                        <div *ngFor="let author of course.authors" class="instructors">
+                        <!--div-- *ngFor="let author of course.authors" class="instructors">
                             <h3 class="profile-name">
                                 {{author.name.split(" ")[0].charAt(0)}}{{author.name.split(" ")[1].charAt(0)}}
                             </h3>
@@ -196,6 +202,11 @@
                                 <h4>{{author.name}}</h4>
                                 <p>{{author.title}}</p>
                             </div>
+                        </!--div-->
+                        <div  class="instructors">
+                            <h3 class="profile-name">{{course.author.split(" ")[0].charAt(0)}}
+                                {{course.author.split(" ").length > 1 ? course.author.split(" ")[1].charAt(0) : ''}}</h3>
+                                <h3> {{course.author}}</h3>
                         </div>
                     </div>
                 </div>

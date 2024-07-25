@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CourseApiService } from '@app/core';
-import { IOption, IQuestion, IQuiz } from '@app/shared/models';
+import { ICourseDetail, IOption, IQuestion, IQuiz } from '@app/shared/models';
 import { IUserAnswer, IValidateQuiz } from '@app/shared/models/quiz.model';
 
 @Component({
@@ -22,6 +22,8 @@ export class QuizComponent implements OnInit {
   selectedAnswer: string[] = [];
   isSubmitted: boolean;
   currentQuestion: IQuestion;
+  course: ICourseDetail;
+
   constructor(private courseApi: CourseApiService,
     private route: ActivatedRoute) {}
 
@@ -34,7 +36,8 @@ export class QuizComponent implements OnInit {
 
   loadQuizData(courseId: string) {
     this.courseApi.getCourse([courseId]).subscribe((data) => {
-      this.quiz = data[0].quiz;
+      this.course = data[0];
+      this.quiz = this.course.quiz;
       this.questions = this.quiz.questions;
       this.currentQuestion = this.questions[0];
       this.validateRequestBody = {
