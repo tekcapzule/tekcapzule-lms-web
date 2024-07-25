@@ -58,6 +58,10 @@ const routes: Routes = [
         loadChildren: () => import('./quiz/quiz.module').then(m => m.QuizModule)
       },
       {
+        path: 'assessment/:code',
+        loadChildren: () => import('./assessment/assessment.module').then(m => m.AssessmentModule)
+      },
+      {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full'

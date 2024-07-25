@@ -1,7 +1,7 @@
 import {Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild, ViewEncapsulation} from '@angular/core';
 import { DashboradApiService } from '@app/core';
 import { IChapter, ICourseDetail } from '@app/shared/models';
-import { ICourseStatus } from '@app/shared/models/user-item.model';
+import { ICourseStatus, IStatus } from '@app/shared/models/user-item.model';
 import videojs from 'video.js';
 import Player from "video.js/dist/types/player";
 
@@ -66,30 +66,30 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
     let isModuleCompleted = true;
     let isChapterCompleted = true;
     this.courseStatus.modules[0].chapters[0].watchedDuration = this.videoDetail.duration;
-    this.courseStatus.modules[0].chapters[0].status = 'complete';
+    this.courseStatus.modules[0].chapters[0].status = IStatus.COMPLETED;
     console.log('this.courseStatus.modules[0]', this.courseStatus.modules[0].chapters[0].watchedDuration, this.videoDetail.duration)
     this.course.modules.forEach(module => {
       if(module.serialNumber === this.courseStatus.modules[0].serialNumber) {
         module.chapters.forEach(chapter => {
           if(chapter.serialNumber === this.courseStatus.modules[0].chapters[0].serialNumber) {
-            chapter.status = 'complete';
+            chapter.status = IStatus.COMPLETED;
           }
-          if(chapter.status !== 'complete') {
+          if(chapter.status !== IStatus.COMPLETED) {
             isChapterCompleted = false;
           }
         });
         if(isChapterCompleted) {
-          module.status = 'complete';
-          this.courseStatus.modules[0].status = 'complete';
+          module.status = IStatus.COMPLETED;
+          this.courseStatus.modules[0].status = IStatus.COMPLETED;
         }
-        if(module.status !== 'complete') {
+        if(module.status !== IStatus.COMPLETED) {
           isModuleCompleted = false;
         }
       }
     });
     if(isModuleCompleted) {
-      this.course.status = 'complete';
-      this.courseStatus.status = 'complete';
+      this.course.status = IStatus.COMPLETED;
+      this.courseStatus.status = IStatus.COMPLETED;
     }
 
     this.updateProgress();
@@ -115,7 +115,7 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
     this.videoDetail = chapter;
     //this.videoDetail.watchedDuration = this.player.currentTime() || 0;
     this.player.src({ src: this.videoDetail.resourceUrl, type: 'video/mp4'});
-    this.player.poster(this.videoDetail.poster);
+    this.player.poster(this.videoDetail.coverImageUrl);
     this.player.load();
     console.log('this.videoDetail.watchedDuration --', this.videoDetail, this.videoDetail.watchedDuration)
     this.player.currentTime(this.videoDetail.watchedDuration);

@@ -99,6 +99,36 @@
         class="input-group"
         [class.input-group-error]="
           isSubmitted &&
+          signupFormControls.phoneNumber.touched &&
+          signupFormControls.phoneNumber.errors?.required
+        "
+      >
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Phone Number"
+          formControlName="phoneNumber"
+          placeholder="Phone Number"
+        />
+      </div>
+      <div
+        class="input-error-text text-danger"
+        *ngIf="
+          isSubmitted &&
+          signupFormControls.phoneNumber.touched &&
+          signupFormControls.phoneNumber.errors?.required
+        "
+      >
+        Please enter phone number
+      </div>
+    </div>
+
+    
+    <div class="form-control-wrapper">
+      <div
+        class="input-group"
+        [class.input-group-error]="
+          isSubmitted &&
           signupFormControls.password.touched &&
           (signupFormControls.password.errors?.required ||
             signupFormControls.password.errors?.minlength ||
@@ -229,6 +259,8 @@
         <span>Password must contain a special character</span>
       </div>
     </div>
+
+    
 
     <div *ngIf="signupErrorMessage" class="text-danger text-center mb-2">
       {{ signupErrorMessage }}

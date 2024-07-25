@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { CourseApiService } from '@app/core';
 import { InitService } from '@app/core/services/app-state/init.service';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
-import { IEnrollment, IUser } from '@app/shared/models/user-item.model';
+import { IEnrollment, IStatus, IUser } from '@app/shared/models/user-item.model';
 
 @Component({
   selector: 'app-courses',
@@ -41,7 +41,7 @@ export class CoursesComponent {
         this.filteredList = data;
         data.forEach(course => {
           let courseStatus = this.getCourseStatus(course.courseId);
-          if(courseStatus?.course.status === 'complete') {
+          if(courseStatus?.course.status === IStatus.COMPLETED) {
             this.completeList.push(course);
           } else {
             this.activeList.push(course);

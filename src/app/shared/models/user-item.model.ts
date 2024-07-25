@@ -20,21 +20,29 @@ export interface IEnrollment {
 export interface ICourseStatus {
   courseId: string;
   watchedDuration: number;
-  status: string;
+  status: IStatus;
   modules: IModuleStatus[];
   lastVisitedChapter: number;
   lastVisitedModule: number;
+  quizScore: number;
+  quizStatus: IStatus;
+}
+
+export enum IStatus {
+  IN_PROGRESS = 'In Progress',
+  ENROLLED = 'Enrolled',
+  COMPLETED = 'Completed'
 }
 
 export interface IModuleStatus {
   serialNumber: number;
   watchedDuration: number;
-  status: string;
+  status: IStatus;
   chapters: IChapterStatus[];
 }
 
 export interface IChapterStatus {
   serialNumber: number;
   watchedDuration: number;
-  status: string;
+  status: IStatus;
 }

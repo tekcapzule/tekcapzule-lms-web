@@ -26,7 +26,7 @@
                     <div class="video-list-detail">
                         <h4 class="m-0 fs-14 fw-normal" [ngClass]="{'current-topic': courseStatus.modules[0].chapters[0].serialNumber === chapter.serialNumber && courseStatus.modules[0].serialNumber === module.serialNumber}">{{chapter.name}} {{chapter.duration | secToMin}} min</h4>
                     </div>
-                    <div *ngIf="chapter.completed" class="video-list-icon">  </div>
+                    <div *ngIf="chapter.status === 'Completed'" class="video-list-icon">  </div>
                   </button>                
               </div>
             </div>

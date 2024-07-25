@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { CourseApiService } from '@app/core';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 
 @Component({
@@ -11,11 +10,9 @@ import { ICourseDetail } from '@app/shared/models/course-item.model';
 export class OverviewComponent {
   @Input() course: ICourseDetail;
 
-  constructor(private router: Router,
-    private courseApi: CourseApiService
-  ) {}
+  constructor(private router: Router) {}
 
-  openQuiz() {
-    this.router.navigateByUrl('lms/quiz/'+this.course.courseId);
+  openLink(page: string) {
+    this.router.navigateByUrl(`lms/${page}/${this.course.courseId}`);
   }
 }

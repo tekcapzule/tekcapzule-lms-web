@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CourseApiService } from '@app/core';
+import { AuthStateService } from '@app/core/services';
+import { InitService } from '@app/core/services/app-state/init.service';
 import { ICourseDetail, IOption, IQuestion, IQuiz } from '@app/shared/models';
 import { IUserAnswer, IValidateQuiz } from '@app/shared/models/quiz.model';
 
 @Component({
-  selector: 'app-quiz',
-  templateUrl: './quiz.component.html',
-  styleUrls: ['./quiz.component.scss']
+  selector: 'app-assessment',
+  templateUrl: './assessment.component.html',
+  styleUrls: ['./assessment.component.scss']
 })
-export class QuizComponent implements OnInit {
+export class AssessmentComponent implements OnInit {
   quizFinished:boolean = false;
   currentQuestionIndex:number = 0;
   quiz: IQuiz;
@@ -19,13 +21,14 @@ export class QuizComponent implements OnInit {
   validateRequestBody: IValidateQuiz;
   isAnswerSelected: boolean;
   quizResult: any;
-  selectedAnswer: string[] = [];
-  isSubmitted: boolean;
-  currentQuestion: IQuestion;
   course: ICourseDetail;
+  pdfSource: string;
+  isPDFLoaded: boolean;
 
   constructor(private courseApi: CourseApiService,
-    private route: ActivatedRoute) {}
+    private initService: InitService,
+    private route: ActivatedRoute,
+    private authState: AuthStateService) {}
 
 
   ngOnInit(): void {
@@ -39,7 +42,6 @@ export class QuizComponent implements OnInit {
       this.course = data[0];
       this.quiz = this.course.quiz;
       this.questions = this.quiz.questions;
-      this.currentQuestion = this.questions[0];
       this.validateRequestBody = {
         courseId: data[0].courseId,
         quizId: this.quiz.quizId,
@@ -50,20 +52,19 @@ export class QuizComponent implements OnInit {
 
   onOptionSelect(option: string) {
     this.isAnswerSelected = true;
-    this.selectedAnswer = [option];
+    const questionId = this.questions[this.currentQuestionIndex].questionId;
+    const answer = this.validateRequestBody.userAnswers.find((answer: IUserAnswer) => answer.questionId === questionId);
+    if(answer) {
+      answer.selectedAnswers = [option];
+    } else {
+      this.validateRequestBody.userAnswers.push({questionId: questionId, selectedAnswers: [option]});
+    }
   }
 
   nextQuestion() {
     if(this.currentQuestionIndex < this.questions.length - 1) {
-      this.isSubmitted = false;
-      this.selectedAnswer = [];
       this.currentQuestionIndex ++;
-      this.currentQuestion = this.questions[this.currentQuestionIndex];
     }
-  }
-
-  onSubmit() {
-    this.isSubmitted = true;
   }
 
   submitAnswer() {
@@ -72,7 +73,26 @@ export class QuizComponent implements OnInit {
       this.quizFinished = true;
       this.quizResult = data;
       console.log('  submitAnswer  --- ', data);
-    })
+    });
+  }
+
+  loadCertificate() {
+    const requestBody = {
+      userId: this.authState.getEmail(),
+      firstName: this.authState.getFirstName(),
+      lastName: this.authState.getLastName(),
+      courseId: this.course.courseId,
+      courseName: this.course.title,
+      courseInstructor: this.course.author,
+      courseDuration: 24,
+      certificateType: "certificate"
+    }
+    this.initService.downloadCertificate(requestBody).subscribe(data => {
+      const blob = new Blob([data], { type: 'application/pdf' });
+      this.pdfSource = URL.createObjectURL(blob);
+      console.log('this.pdfSource -- ', this.pdfSource);
+      this.isPDFLoaded = true;
+    });
   }
   
   restartQuiz() {

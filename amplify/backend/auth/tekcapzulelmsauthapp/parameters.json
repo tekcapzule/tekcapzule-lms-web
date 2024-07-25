@@ -1,19 +1,18 @@
 {
   "authSelections": "userPoolOnly",
-  "resourceName": "tekcapzulelmsdevampl",
+  "resourceName": "tekcapzulelmsauthapp",
   "serviceType": "imported",
   "region": "us-east-1",
   "usernameAttributes": [
-    "email"
-  ],
-  "authProvidersUserPool": [
-    "Facebook",
-    "Google"
-  ],
-  "requiredAttributes": [
     "email",
+    "phone_number"
+  ],
+  "authProvidersUserPool": [],
+  "requiredAttributes": [
     "given_name",
-    "family_name"
+    "family_name",
+    "email",
+    "phone_number"
   ],
   "passwordPolicyMinLength": 8,
   "passwordPolicyCharacters": [

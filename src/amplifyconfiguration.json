@@ -1,32 +1,30 @@
 {
   "aws_project_region": "us-east-1",
   "aws_cognito_region": "us-east-1",
-  "aws_user_pools_id": "us-east-1_3tVrpEzWZ",
-  "aws_user_pools_web_client_id": "6vo1ho9vao6nkgh5scm3e4vssr",
+  "aws_user_pools_id": "us-east-1_d7dscTtIS",
+  "aws_user_pools_web_client_id": "16ms5l9dea7g3d3tllbjjpcvf6",
   "oauth": {
-    "domain": "tekcapzule-lms-dev.auth.us-east-1.amazoncognito.com",
+    "domain": "tekcapzuledev.auth.us-east-1.amazoncognito.com",
     "scope": [
       "aws.cognito.signin.user.admin",
       "email",
       "openid",
-      "profile"
+      "phone"
     ],
-    "redirectSignIn": "http://localhost:4200/auth/callback",
-    "redirectSignOut": "http://localhost:4200/auth/login",
+    "redirectSignIn": "https://dev.lms.tekcapzule.com/,https://localhost:4200/",
+    "redirectSignOut": "https://dev.lms.tekcapzule.com/,https://localhost:4200/",
     "responseType": "code"
   },
   "federationTarget": "COGNITO_USER_POOLS",
   "aws_cognito_username_attributes": [
     "EMAIL"
   ],
-  "aws_cognito_social_providers": [
-    "FACEBOOK",
-    "GOOGLE"
-  ],
+  "aws_cognito_social_providers": [],
   "aws_cognito_signup_attributes": [
-    "EMAIL",
     "GIVEN_NAME",
-    "FAMILY_NAME"
+    "FAMILY_NAME",
+    "EMAIL",
+    "PHONE_NUMBER"
   ],
   "aws_cognito_mfa_configuration": "OFF",
   "aws_cognito_mfa_types": [],
