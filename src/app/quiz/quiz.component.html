@@ -1,23 +1,24 @@
 <div id="wrapper">
     <div class="quiz-wrapper">
-        <h3 class="main-title">Quiz</h3>
-        <div *ngIf="quiz && !quizFinished;">
+        <div class="back-link m-3">
+            <a class="url-link" [routerLink]="['/lms/video-detail/'+ course.courseId]">{{course.title}}</a>
+            <span> > Quiz</span>
+        </div>
+
+        <div class="m-3" *ngIf="quiz">
             <h2>Question {{ currentQuestionIndex + 1 }}:</h2>
             <p>{{ currentQuestion.questionText }}</p>
             <ul class="quiz-list">
                 <li [ngClass]="{'answer-selected': selectedAnswer.includes(option.id) && !isSubmitted, 'correct-answer': currentQuestion.correctAnswer.includes(option.id) && isSubmitted, 'wrong-answer': selectedAnswer.includes(option.id) && !currentQuestion.correctAnswer.includes(option.id) && isSubmitted}" *ngFor="let option of currentQuestion.options">
-                    <input class="pr-3" type="radio" [id]="option.id" [value]="option.id" name="option" (change)="onOptionSelect(option.id)">
+                    <input class="p-3" type="radio" [id]="option.id" [value]="option.id" name="option" (change)="onOptionSelect(option.id)">
                     <label [for]="option">{{ option.name }}</label>
                 </li>
             </ul>
 
             <div class="m-3">
-                <button *ngIf="currentQuestionIndex < this.questions.length - 1" [disabled]="!isSubmitted" (click)="nextQuestion()"
-                    [disabled]="!isAnswerSelected">Next</button>
-                <button [disabled]="isSubmitted" (click)="onSubmit()"
-                    [disabled]="!isAnswerSelected">Submit</button>
-                <button *ngIf="currentQuestionIndex === this.questions.length - 1" (click)="submitAnswer()"
-                    [disabled]="!isAnswerSelected">Back to course</button>
+                <button class="pr-3" (click)="onSubmit()" [disabled]="!isAnswerSelected || isSubmitted">Submit</button>
+                <button class="pr-3" *ngIf="currentQuestionIndex < this.questions.length - 1" [disabled]="!isSubmitted" (click)="nextQuestion()">Next</button>
+                <button class="pr-3" *ngIf="currentQuestionIndex === this.questions.length - 1" (click)="submitAnswer()">Back to course</button>
             </div>
         </div>
 

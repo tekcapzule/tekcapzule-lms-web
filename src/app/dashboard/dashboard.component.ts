@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   taskList: ITaskItem[] = [];
   userData: IUser;
   courseStatus: IEnrollment[] = [];
+  enrolledCourses: number = 0;
   activeCourses: number = 0;
   completedCourses: number = 0;
   fullName: string;
@@ -47,8 +48,10 @@ export class DashboardComponent implements OnInit {
     this.courseStatus.forEach((course) => {
       if(course.course.status === IStatus.COMPLETED) {
         this.completedCourses += 1;
-      } else {
+      } else if(course.course.status === IStatus.IN_PROGRESS) {
         this.activeCourses += 1;
+      } else {
+        this.enrolledCourses += 1;
       }
       courseIds.push(course.courseId);
     });

@@ -1,6 +1,11 @@
 <div id="wrapper">
     <div *ngIf="!isPDFLoaded" class="quiz-wrapper">
-        <h3 class="main-title">Assessment</h3>
+        
+        <div class="back-link">
+            <a class="url-link" [routerLink]="['/lms/video-detail/'+ course.courseId]">{{course.title}}</a>
+            <span> > Assessment</span>
+        </div>
+
         <div *ngIf="quiz && !quizFinished;">
             <h2>Question {{ currentQuestionIndex + 1 }}:</h2>
             <p>{{ questions[currentQuestionIndex].questionText }}</p>
