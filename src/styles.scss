@@ -399,6 +399,9 @@ footer {
 	border-top: 1px solid var(--border-color);
 	display: flex;
 	justify-content: center;
+	position: absolute;
+    bottom: 0;
+    width: 94%;
 
 	.powered-by {
 		background: url('./assets/poweredby.png') no-repeat;
@@ -973,3 +976,13 @@ header {
     }
   }
 }
+
+.fa-search {
+	margin-right: 20px;
+}
+.pass-text {
+    color: green;
+  }
+  .fail-text {
+    color: red;
+  }

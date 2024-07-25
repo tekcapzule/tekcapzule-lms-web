@@ -47,7 +47,12 @@ export class QuizComponent implements OnInit {
       }
     });
   }
-
+  previousQuestion() {
+    if (this.currentQuestionIndex > 0) {
+        this.currentQuestionIndex--;
+        this.isAnswerSelected = false; // Or however you manage selected answers
+    }
+}
   onOptionSelect(option: string) {
     this.isAnswerSelected = true;
     this.selectedAnswer = [option];

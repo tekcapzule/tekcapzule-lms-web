@@ -53,7 +53,9 @@ export class DashboardComponent implements OnInit {
       } else {
         this.enrolledCourses += 1;
       }
-      courseIds.push(course.courseId);
+      if(course.courseId){
+        courseIds.push(course.courseId);
+      }
     });
     this.courseApi.getCourse(courseIds).subscribe(courses => {
       this.courseList = courses;

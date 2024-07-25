@@ -1,10 +1,33 @@
 .quiz-wrapper {
     padding: 50px 80px;
     background-color: var(--bs-white);
+    .quiz-question {
+        background: #FFE6E6;
+        padding: 10px;
+        font-weight: bold;
+        font-size: 18px;
+        width: fit-content;
+        min-width: 600px;
+    }
     .quiz-list {
+        padding-left: 0;
         li {
 
             list-style: none;
+            list-style: none;
+            background: #E3EEFF;
+            border: 1px solid #b0caf1;
+            padding: 10px;
+            margin-bottom: 12px;
+            max-width: 600px;
+            display: flex;
+    align-items: center;
+            input {
+                margin-right: 15px;
+                margin-right: 10px;
+                height: 20px;
+                width: 20px;
+            }
         }
     }
     .correct-answer {
@@ -16,4 +39,31 @@
     .answer-selected {
         background-color: #3059B4 !important;
     }
+}
+
+#quiz-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    
+     /* You can change this to any color you prefer */
+}
+
+.quiz-wrapper {
+    background-color: #FFF; /* Example background color */
+    border-radius:20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 50px 100px;
+    min-width: 800px;
+}
+
+.quiz-wrapper h2, .quiz-wrapper h3 {
+   text-align: center;
+}
+.quiz-component {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
 }
