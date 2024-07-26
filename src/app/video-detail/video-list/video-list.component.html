@@ -18,16 +18,16 @@
             </h2>
             <div  [id]="'collapse' + i"  class="accordion-collapse collapse show" aria-labelledby="headingOne" >
               <div class="accordion-body">
-                  <button type="button" *ngFor="let chapter of module.chapters; let i = index" class="video-list-innr position-relative border-0 gap-4 px-2 py-3 w-100 align-items-start text-start"
+                  <button type="button" *ngFor="let chapter of module.chapters; let i = index" class="video-list-inner position-relative border-0 gap-4 px-2 py-3 w-100 align-items-start text-start"
                   (click)="onChangeVideo(module, chapter)">
                     <div role="progressbar" class="playlist-progress" [attr.aria-valuenow]="math.floor((chapter.watchedDuration / chapter.duration) * 100)" aria-valuemin="0" aria-valuemax="100" style="--value: {{math.floor((chapter.watchedDuration / chapter.duration) * 100)}}">
                         <div class="video-no p-0 border ratio ratio-1x1 border-0 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"> <img src="assets/video-icon.svg" alt=""> </div>
-                    </div>    
+                    </div>
                     <div class="video-list-detail">
                         <h4 class="m-0 fs-14 fw-normal" [ngClass]="{'current-topic': courseStatus.modules[0].chapters[0].serialNumber === chapter.serialNumber && courseStatus.modules[0].serialNumber === module.serialNumber}">{{chapter.name}} {{chapter.duration | secToMin}} min</h4>
                     </div>
                     <div *ngIf="chapter.status === 'Completed'" class="video-list-icon">  </div>
-                  </button>                
+                  </button>
               </div>
             </div>
           </div>
@@ -43,22 +43,22 @@
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" >
               <div class="accordion-body">
-                  <button class="video-list-innr position-relative border-0 gap-4 px-2 py-3 w-100 align-items-start text-start">
+                  <button class="video-list-inner position-relative border-0 gap-4 px-2 py-3 w-100 align-items-start text-start">
                       <div class="video-no border ratio ratio-1x1 border-0 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"> <img src="assets/video-icon.svg" alt=""> </div>
                       <div class="video-list-detail">
                           <h4 class="m-0 fs-14 fw-normal">Welcome to the Deep Learning</h4>
                           <p class="m-0 fs-14 fw-normal">20 min</p>
                       </div>
                       <div class="video-list-icon">  </div>
-                  </button> 
-                  <button class="video-list-innr position-relative border-0 gap-4 px-2 py-3 w-100 align-items-start text-start">
+                  </button>
+                  <button class="video-list-inner position-relative border-0 gap-4 px-2 py-3 w-100 align-items-start text-start">
                       <div class="video-no border ratio ratio-1x1 border-0 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"> <img src="assets/video-icon.svg" alt=""> </div>
                       <div class="video-list-detail">
                           <h4 class="m-0 fs-14 fw-normal">Welcome to the Deep Learning</h4>
                           <p class="m-0 fs-14 fw-normal">20 min</p>
                       </div>
                       <div class="video-list-icon video-list-icon-dark">  </div>
-                  </button>    
+                  </button>
               </div>
             </div>
           </div-->

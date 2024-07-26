@@ -21,7 +21,7 @@ body {
 	--forgetme-not-color: #FFF0F0;
 	--lace-color: #FFF4E8;
 	--alice-blue-color: #F0F6FF;
-	--active-color: #EC1A57;
+	--active-color: #1a73e8;
 	--purple: #6E6EF2;
 	--merino: #FCEAEA;
 	--purple-dark: #71266F;
@@ -39,6 +39,7 @@ body {
 
 	--fs-12: 12px;
 	--fs-14: 14px;
+  --navy-blue: #07182F;
 }
 
 $sidebar-width: var(--sidebar-width);
@@ -118,6 +119,21 @@ main {
 		border: 1px solid var(--active-color);
 	}
 }
+.primary-btn-filled {
+	border: 1px solid var(--active-color);
+	border-radius: var(--btn-border-radius);
+	background: var(--active-color);
+	padding: 5px 20px;
+	font-size: 14px;
+	font-weight: 500;
+  color: var(--bs-white);
+
+	&:hover {
+		background-color: var(--white-bg);
+		color: var(--active-color);
+		border: 1px solid var(--active-color);
+	}
+}
 .secondary-btn {
 	border: 1px solid var(--active-color);
 	border-radius: 2px;
@@ -136,6 +152,9 @@ main {
 }
 
 .tasks {
+  .task-list {
+    border: 1px solid var(--active-color);
+  }
 	.task-bg-1 {
 		background: var(--forgetme-not-color);
 		max-height: 170px;
@@ -241,6 +260,7 @@ height: 16px;
     border-radius: 100px !important;
     padding: 15px;
     margin-right: 10px;
+    transition: border 0.3s ease;
 	&.video-icon {
 		background: url('./assets/courses/video-icon.svg') no-repeat center center;
 		width: 16px;
@@ -399,9 +419,9 @@ footer {
 	border-top: 1px solid var(--border-color);
 	display: flex;
 	justify-content: center;
-	position: absolute;
+	position: relative;
     bottom: 0;
-    width: 94%;
+    width: 100%;
 
 	.powered-by {
 		background: url('./assets/poweredby.png') no-repeat;
@@ -423,7 +443,7 @@ footer {
 	&.active {
 		border: 0 0 5px 0 !important;
 		font-weight: 500;
-		border-bottom: 5px solid #EC1A57;
+		border-bottom: 5px solid #1a73e8;
 		border-top:0 ;
 		border-left: 0;
 		border-right: 0;
@@ -629,7 +649,8 @@ footer {
 			button {
 				display: grid;
 				grid-template-columns: 2.3025rem 1fr 1.25rem;
-        height: 86px;
+        height: 70px;
+        align-items: center !important;
 				.video-no {
 					color: var(--secondary-color);
 				}
@@ -646,10 +667,11 @@ footer {
 		}
 		.accordion-body {
 			padding: 0;
-			.video-list-innr {
+			.video-list-inner {
 				display: grid;
 				grid-template-columns: 2.3025rem 1fr 1.25rem;
 				background-color: transparent;
+        align-items: center !important;
 				&.current,&:hover {
 					background-color: #EDF7FF;
 				}
@@ -660,7 +682,7 @@ footer {
 					top: 0;
 					width: 0.3125rem;
 					height: 100%;
-					background-color: #EC1A57;
+					background-color: #1a73e8;
 				}
 				.video-no {
 
@@ -695,12 +717,15 @@ button:focus,
 	box-shadow: none;
 	outline: none;
 }
+.breadcrumb-nav {
+  background-color: var(--navy-blue);
+}
 
 .breadcrumb-item+.breadcrumb-item a {
-	color: var(--link-color);
+	color: var(--bs-white);
 }
 .breadcrumb-item+.breadcrumb-item::before {
-	color: var(--link-color)!important;
+	color: var(--bs-white)!important;
 }
 img {
 	max-width: 100%;
@@ -748,7 +773,7 @@ img {
 	font-weight: 600;
 }
 .bg-pink {
-	background-color: #EC1A57;
+	background-color: #1a73e8;
 }
 .download-ico {
 	width: 19px;
@@ -986,3 +1011,12 @@ header {
   .fail-text {
     color: red;
   }
+  .text-danger {
+    color: #a80000 !important;
+}
+.link-btn, .quiz-btn{
+  cursor: pointer;
+}
+.rounded-pill {
+  background: var(--active-color) !important;
+}

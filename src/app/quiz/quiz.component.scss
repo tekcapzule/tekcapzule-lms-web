@@ -32,12 +32,15 @@
     }
     .correct-answer {
         background-color: #75bf21 !important;
+        color: #fff;;
     }
     .wrong-answer {
         background-color: #ec3434 !important;
+        color: #fff;;
     }
     .answer-selected {
         background-color: #3059B4 !important;
+        color: #fff;;
     }
 }
 
@@ -47,7 +50,7 @@
     align-items: center;
     height: 100vh;
     background-color: #f0f0f0;
-    
+
      /* You can change this to any color you prefer */
 }
 
@@ -66,4 +69,26 @@
     display: flex;
     justify-content: center;
     margin: 50px;
+}
+
+.success-message {
+  display: flex;
+  align-items: center;
+  color: green;
+}
+.thumbs-up {
+  background: url('../../assets/quiz/thumbs-up.svg');
+  height: 35px;
+  width: 35px;
+  background-size: 33px;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+.thumbs-down {
+  background: url('../../assets/quiz/thumbs-down.svg');
+  height: 35px;
+  width: 35px;
+  background-size: 33px;
+  background-repeat: no-repeat;
+  margin-right: 10px;
 }
