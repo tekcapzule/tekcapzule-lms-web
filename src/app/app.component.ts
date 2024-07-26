@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AbstractBaseAuth } from './auth/base-auth';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
