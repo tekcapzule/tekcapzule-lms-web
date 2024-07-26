@@ -1,4 +1,4 @@
-<div id="wrapper">
+<div *ngIf="course" id="wrapper">
     <div *ngIf="!isPDFLoaded" class="quiz-wrapper">
         
         <div class="back-link">
@@ -17,16 +17,32 @@
             </ul>
 
             <div class="m-3">
+                <button *ngIf="currentQuestionIndex > 0" (click)="lastQuestion()"
+                    [disabled]="!isAnswerSelected">Back</button>
                 <button *ngIf="currentQuestionIndex < this.questions.length - 1" (click)="nextQuestion()"
-                    [disabled]="!isAnswerSelected">Next</button>
+                    [disabled]="!answer">Next</button>
                 <button *ngIf="currentQuestionIndex === this.questions.length - 1" (click)="submitAnswer()"
-                    [disabled]="!isAnswerSelected">Submit Answer</button>
+                    [disabled]="!answer">Submit Answer</button>
             </div>
         </div>
 
         <div *ngIf="quizFinished && !isPDFLoaded">
             <h2>Result: {{quizResult.passed ? 'Pass': 'Fail'}}</h2>
             <h2>Your Score: {{quizResult.scorePercentage ? quizResult.scorePercentage.toFixed(2) : 0}}</h2>
+
+            <ng-container *ngFor="let question of questions; let i = index;">
+                <div *ngIf="question.correctAnswer[0] !== validateRequestBody.userAnswers[i].selectedAnswers[0]">
+                    <p>{{ question.questionText }}</p>
+                    
+                    <ul class="quiz-list">
+                        <li *ngFor="let option of question.options">
+                            <input class="pr-3" type="radio" [id]="option.id" [value]="option.id" name="option" (change)="onOptionSelect(option.id)">
+                            <label [for]="option">{{ option.name }}</label>
+                        </li>
+                    </ul>
+                </div>
+            </ng-container>
+
             <button (click)="onBack()">Back</button>
             <button *ngIf="quizResult.scorePercentage < 100" (click)="restartQuiz()">Retake Quiz</button>
             <button *ngIf="quizResult.passed" (click)="loadCertificate()">View Certificate</button>
@@ -35,11 +51,6 @@
 
     
     <div *ngIf="isPDFLoaded" style="text-align: center;">
-        <iframe
-            [src]="pdfSource | safe: 'resourceUrl'"
-            width="100%"
-            height="800px"
-            style="border: none;"
-        ></iframe>
+        <iframe [src]="pdfSource" width="100%" height="1000px" style="border: none;"></iframe>
     </div>
 </div>
