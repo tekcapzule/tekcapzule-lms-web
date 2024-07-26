@@ -29,7 +29,7 @@
     .overdue-icon {
       background-image: url(../../assets/dashboard/overdue.svg);
     }
-    
+
     .inprogress-icon {
       background-image: url(../../assets/dashboard/inprogress.svg);
     }
@@ -59,15 +59,15 @@
     width: 43px;
     height: 50px;
   }
-  
+
   .bronze {
     background-image: url(../../assets/dashboard/bronze.svg);
   }
-  
+
   .silver {
     background-image: url(../../assets/dashboard/silver.svg);
   }
-  
+
   .gold {
     background-image: url(../../assets/dashboard/gold.svg);
   }
@@ -151,7 +151,7 @@ section {
         background-color: #fff;
         box-sizing: border-box;
         display: grid;
-        grid-template-columns: 25% 1fr;
+        grid-template-columns: 20% 1fr;
         grid-template-rows: 1fr;
         grid-gap: 0;
         grid-template-areas:
@@ -180,7 +180,7 @@ section {
           align-items: center;
           width: 100%;
           transition: 0.5s;
-          
+          text-align: center;
 
           &:hover {
             background-color: var(--active-color);
@@ -194,7 +194,10 @@ section {
             line-height: 30px;
 
             span {
-              font-size: 18px;
+              font-size: 14px;
+    text-transform: uppercase;
+    color: var(--tertiary-color);
+    font-weight: 400;
             }
           }
         }
@@ -240,7 +243,7 @@ section {
   background: var(--white-bg);
   line-height: 3rem;
   border-radius: 3rem;
-  margin:20px auto;  
+  margin:20px auto;
   border: 1px solid var(--tertiary-color);
 
   input {
@@ -313,4 +316,11 @@ section {
   border-radius: 50px;
   width: 50px;
   display: inline-block;
+}
+
+.dashboard-banner {
+  background: url('../../assets/banner.png') no-repeat center center;
+  background-size: cover;
+  width: 100%;
+  padding: 40px;
 }

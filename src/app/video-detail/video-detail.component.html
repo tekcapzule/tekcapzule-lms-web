@@ -1,7 +1,7 @@
 <section id="wrapper">
     <div class="row video-detail-row p-0 g-0 bg-white" *ngIf="course">
-        <div class="col-9 video-detail-col">            
-            <nav class="px-4 py-2 d-flex m-0" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <div class="col-9 video-detail-col">
+            <nav class="breadcrumb-nav px-4 py-2 d-flex m-0" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
                 <ol class="breadcrumb m-0">
                   <li class="breadcrumb-item"><a href="#" class="text-decoration-none fw-medium"><img src="assets/home.svg" alt=""></a></li>
                   <li class="breadcrumb-item"> <a href="javascript:void(0)" class="text-decoration-none fw-medium"> Course </a> </li>
@@ -12,8 +12,8 @@
             <div class="mb-4 video-js-container">
                 <!-- <img src="assets/video-img.jpg" alt="" class="d-flex"> -->
                 <app-video-player #videoPlayer [options]="options" [course]="course" (playerReady)="onPlayerReady()" (videoEnded)="onVideoEnded()"></app-video-player>
-            </div>            
-            
+            </div>
+
            <div>
             <ul class="nav nav-tabs px-2 nav-fill gap-1" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -21,7 +21,7 @@
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link position-relative fs-6" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">
-                        Resources <span class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-danger fs-13 fw-medium">
+                        Resources <span class="position-absolute top-1 start-100 translate-middle badge rounded-pill fs-13 fw-medium">
                             10
                             <span class="visually-hidden">unread messages</span>
                           </span>
@@ -55,7 +55,7 @@
 
            </div>
         </div>
-        
+
         <div class="col-3 video-detail-list p-0">
             <app-video-list [course]="course" [courseStatus]="courseStatus" (videoSelect)="onVideoSelect($event)"></app-video-list>
         </div>

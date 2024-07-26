@@ -1,4 +1,4 @@
-<div id="wrapper">
+<div id="wrapper" class="quiz-component">
     <div class="quiz-wrapper">
         <div class="back-link m-3">
             <a class="url-link" [routerLink]="['/lms/video-detail/'+ course.courseId]">{{course.title}}</a>
@@ -15,16 +15,16 @@
                 </li>
             </ul>
 
-            <div class="m-3">
-                <button class="pr-3" (click)="onSubmit()" [disabled]="!isAnswerSelected || isSubmitted">Submit</button>
-                <button class="pr-3" *ngIf="currentQuestionIndex < this.questions.length - 1" [disabled]="!isSubmitted" (click)="nextQuestion()">Next</button>
-                <button class="pr-3" *ngIf="currentQuestionIndex === this.questions.length - 1" (click)="submitAnswer()">Back to course</button>
+            <div class="my-3">
+                <button class="me-3 btn primary-btn" (click)="onSubmit()" [disabled]="!isAnswerSelected || isSubmitted">Submit</button>
+                <button class="me-3 btn primary-btn" *ngIf="currentQuestionIndex < this.questions.length - 1" [disabled]="!isSubmitted" (click)="nextQuestion()">Next</button>
+                <button class="me-3 btn primary-btn" *ngIf="currentQuestionIndex === this.questions.length - 1" (click)="submitAnswer()">Back to course</button>
             </div>
         </div>
 
         <div *ngIf="isSubmitted">
-            <p *ngIf="selectedAnswer[0] === currentQuestion.correctAnswer[0]" class="success-message">That's Right!!!</p>
-            <p *ngIf="selectedAnswer[0] !== currentQuestion.correctAnswer[0]" class="error-message">That's wrong!</p>
+            <p *ngIf="selectedAnswer[0] === currentQuestion.correctAnswer[0]" class="success-message"><span class="thumbs-up"></span>That's Right!!!</p>
+            <p *ngIf="selectedAnswer[0] !== currentQuestion.correctAnswer[0]" class="error-message"><span class="thumbs-down"></span>That's wrong!</p>
         </div>
     </div>
 </div>

@@ -101,7 +101,7 @@
     .overdue-icon {
       background-image: url(../../assets/dashboard/overdue.svg);
     }
-    
+
     .inprogress-icon {
       background-image: url(../../assets/dashboard/inprogress.svg);
     }
@@ -131,15 +131,15 @@
     width: 43px;
     height: 50px;
   }
-  
+
   .bronze {
     background-image: url(../../assets/dashboard/bronze.svg);
   }
-  
+
   .silver {
     background-image: url(../../assets/dashboard/silver.svg);
   }
-  
+
   .gold {
     background-image: url(../../assets/dashboard/gold.svg);
   }
@@ -243,6 +243,7 @@ section {
           align-items: center;
           width: 100%;
           transition: 0.5s;
+          text-align: center;
 
           &:hover {
             background-color: var(--active-color);
