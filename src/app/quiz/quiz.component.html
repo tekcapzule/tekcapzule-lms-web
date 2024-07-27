@@ -21,7 +21,7 @@
                 <button class="me-3 btn primary-btn" 
                     *ngIf="(isVideoListPage && currentQuestionIndex < questions.length - 1) || (!isVideoListPage && moduleIndex < course.modules.length)" [disabled]="!isSubmitted"
                     (click)="nextQuestion()">Next</button>
-                <button class="me-3 btn primary-btn" *ngIf="(isVideoListPage && currentQuestionIndex === questions.length - 1) || (!isVideoListPage && moduleIndex === course.modules.length - 1)" (click)="backToCourse()">Back to course</button>
+                <button class="me-3 btn primary-btn" *ngIf="(isVideoListPage && currentQuestionIndex === questions.length - 1) || (!isVideoListPage && moduleIndex === course.modules.length - 1 && currentQuestionIndex == questions.length - 1)" (click)="backToCourse()">Back to course</button>
             </div>
         </div>
 
