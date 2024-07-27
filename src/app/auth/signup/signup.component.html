@@ -108,7 +108,7 @@
           class="form-control"
           aria-label="Phone Number"
           formControlName="phoneNumber"
-          placeholder="Phone Number"
+          placeholder="Phone Number (with country code)"
         />
       </div>
       <div
@@ -119,11 +119,10 @@
           signupFormControls.phoneNumber.errors?.required
         "
       >
-        Please enter phone number
+        Please enter phone number with country code
       </div>
     </div>
 
-    
     <div class="form-control-wrapper">
       <div
         class="input-group"
@@ -136,7 +135,7 @@
         "
       >
         <input
-          type="text"
+          type="password"
           class="form-control"
           aria-label="Password"
           formControlName="password"
@@ -259,8 +258,6 @@
         <span>Password must contain a special character</span>
       </div>
     </div>
-
-    
 
     <div *ngIf="signupErrorMessage" class="text-danger text-center mb-2">
       {{ signupErrorMessage }}
