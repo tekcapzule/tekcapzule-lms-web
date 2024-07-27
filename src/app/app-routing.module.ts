@@ -54,6 +54,10 @@ const routes: Routes = [
         loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
       },
       {
+        path: 'quiz/:code/:moduleIndex',
+        loadChildren: () => import('./quiz/quiz.module').then(m => m.QuizModule)
+      },
+      {
         path: 'quiz/:code',
         loadChildren: () => import('./quiz/quiz.module').then(m => m.QuizModule)
       },

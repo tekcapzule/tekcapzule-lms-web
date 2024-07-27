@@ -1,11 +1,12 @@
 <div id="wrapper" class="quiz-component">
-    <div class="quiz-wrapper">
+    <div *ngIf="course" class="quiz-wrapper">
         <div class="back-link m-3">
             <a class="url-link" [routerLink]="['/lms/video-detail/'+ course.courseId]">{{course.title}}</a>
             <span> > Quiz</span>
         </div>
 
         <div class="m-3" *ngIf="quiz">
+            <h2>Module {{ moduleIndex + 1 }}:</h2>
             <h2>Question {{ currentQuestionIndex + 1 }}:</h2>
             <p>{{ currentQuestion.questionText }}</p>
             <ul class="quiz-list">
@@ -17,8 +18,10 @@
 
             <div class="my-3">
                 <button class="me-3 btn primary-btn" (click)="onSubmit()" [disabled]="!isAnswerSelected || isSubmitted">Submit</button>
-                <button class="me-3 btn primary-btn" *ngIf="currentQuestionIndex < this.questions.length - 1" [disabled]="!isSubmitted" (click)="nextQuestion()">Next</button>
-                <button class="me-3 btn primary-btn" *ngIf="currentQuestionIndex === this.questions.length - 1" (click)="submitAnswer()">Back to course</button>
+                <button class="me-3 btn primary-btn" 
+                    *ngIf="(isVideoListPage && currentQuestionIndex < questions.length - 1) || (!isVideoListPage && moduleIndex < course.modules.length)" [disabled]="!isSubmitted"
+                    (click)="nextQuestion()">Next</button>
+                <button class="me-3 btn primary-btn" *ngIf="(isVideoListPage && currentQuestionIndex === questions.length - 1) || (!isVideoListPage && moduleIndex === course.modules.length - 1)" (click)="backToCourse()">Back to course</button>
             </div>
         </div>
 

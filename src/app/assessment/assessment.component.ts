@@ -43,7 +43,7 @@ export class AssessmentComponent implements OnInit {
   loadQuizData(courseId: string) {
     this.courseApi.getCourse([courseId]).subscribe((data) => {
       this.course = data[0];
-      this.quiz = this.course.quiz;
+      this.quiz = this.course.assessment;
       this.questions = this.quiz.questions;
       this.validateRequestBody = {
         courseId: data[0].courseId,
