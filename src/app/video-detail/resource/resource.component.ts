@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ICourseDetail } from '@app/shared/models/course-item.model';
+import { ICourseDetail, IResources } from '@app/shared/models/course-item.model';
 
 @Component({
   selector: 'app-resource',
@@ -8,11 +8,16 @@ import { ICourseDetail } from '@app/shared/models/course-item.model';
 })
 export class ResourceComponent implements OnInit {
   @Input() course: ICourseDetail;
+  resources: IResources[];
 
   constructor(
   ) {}
 
   ngOnInit(): void {
+    this.resources = this.course.resources || [];
+  }
+
+  openResource(resource: IResources) {
   }
 
 }
