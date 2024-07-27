@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { IChapter, ICourseDetail, IModule } from '@app/shared/models/course-item.model';
 import { ICourseStatus } from '@app/shared/models/user-item.model';
 
@@ -13,14 +14,18 @@ export class VideoListComponent implements OnInit {
   @Output() videoSelect = new EventEmitter<any>();
   math = Math;
   
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
   }
 
   onChangeVideo(module: IModule, chapter: IChapter) {
-    console.log('chapter ', chapter)
+    console.log('chapter ', chapter);
     this.videoSelect.emit({module, chapter});
+  }
+
+  openQuiz(moduleIndex: number) {
+    this.router.navigateByUrl(`lms/quiz/${this.course.courseId}/${moduleIndex}`);
   }
 
 }

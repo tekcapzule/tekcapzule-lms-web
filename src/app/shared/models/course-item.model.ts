@@ -27,6 +27,7 @@ export interface ICourseDetail {
   isRecommended?: boolean;
   watchedDuration: number;
   quiz: IQuiz;
+  assessment: IQuiz; 
   faq: IFAQ[];
 }
 
@@ -74,7 +75,7 @@ export interface IModule {
   objective: string[];
   assement: number;
   chapters: IChapter[];
-  quiz: number;
+  quiz: IQuiz;
   coverImageUrl: string;
 }
 export interface IChapter {

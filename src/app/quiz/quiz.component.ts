@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CourseApiService } from '@app/core';
 import { ICourseDetail, IOption, IQuestion, IQuiz } from '@app/shared/models';
 import { IUserAnswer, IValidateQuiz } from '@app/shared/models/quiz.model';
@@ -23,13 +23,20 @@ export class QuizComponent implements OnInit {
   isSubmitted: boolean;
   currentQuestion: IQuestion;
   course: ICourseDetail;
+  moduleIndex: number = 0;
+  isVideoListPage: boolean;
 
   constructor(private courseApi: CourseApiService,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute,
+    private router: Router) {}
 
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
+      if(params['moduleIndex'] || params['moduleIndex'] === 0) {
+        this.isVideoListPage = true;
+        this.moduleIndex = params['moduleIndex'];
+      }
       this.loadQuizData(params['code']);
     });
   }
@@ -37,22 +44,17 @@ export class QuizComponent implements OnInit {
   loadQuizData(courseId: string) {
     this.courseApi.getCourse([courseId]).subscribe((data) => {
       this.course = data[0];
-      this.quiz = this.course.quiz;
+      this.quiz = this.course.modules[this.moduleIndex].quiz;
       this.questions = this.quiz.questions;
       this.currentQuestion = this.questions[0];
-      this.validateRequestBody = {
-        courseId: data[0].courseId,
-        quizId: this.quiz.quizId,
-        userAnswers: []
-      }
     });
   }
   previousQuestion() {
     if (this.currentQuestionIndex > 0) {
-        this.currentQuestionIndex--;
-        this.isAnswerSelected = false; // Or however you manage selected answers
+      this.currentQuestionIndex--;
     }
-}
+  }
+  
   onOptionSelect(option: string) {
     this.isAnswerSelected = true;
     this.selectedAnswer = [option];
@@ -64,6 +66,14 @@ export class QuizComponent implements OnInit {
       this.selectedAnswer = [];
       this.currentQuestionIndex ++;
       this.currentQuestion = this.questions[this.currentQuestionIndex];
+    } else if (!this.isVideoListPage && this.moduleIndex < this.course.modules.length) {
+      this.moduleIndex++;
+      this.quiz = this.course.modules[this.moduleIndex].quiz;
+      this.questions = this.quiz.questions;
+      this.currentQuestion = this.questions[0];
+      this.currentQuestionIndex = 0;
+      this.isSubmitted = false;
+      this.selectedAnswer = [];      
     }
   }
 
@@ -71,22 +81,7 @@ export class QuizComponent implements OnInit {
     this.isSubmitted = true;
   }
 
-  submitAnswer() {
-    console.log(' this.sell ', this.selectedOption);
-    this.courseApi.validateQuizAnswer(this.validateRequestBody).subscribe(data => {
-      this.quizFinished = true;
-      this.quizResult = data;
-      console.log('  submitAnswer  --- ', data);
-    })
-  }
-  
-  restartQuiz() {
-    this.currentQuestionIndex = 0;
-    this.score = 0;
-    this.quizFinished = false;
-  }
-
-  onBack() {
-
+  backToCourse() {
+    this.router.navigateByUrl('/lms/video-detail/'+ this.course.courseId);
   }
 }
