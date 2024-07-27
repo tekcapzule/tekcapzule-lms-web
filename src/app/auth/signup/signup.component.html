@@ -135,13 +135,18 @@
         "
       >
         <input
-          type="password"
-          class="form-control"
+          [type]="isPasswordMasked ? 'password' : 'text'"
+          class="form-control password-input"
           aria-label="Password"
           formControlName="password"
           placeholder="Password"
           (keydown)="allowNonSpaceCharacterInput($event)"
         />
+        <span
+          class="input-group-text toggle-password"
+          (click)="isPasswordMasked = !isPasswordMasked"
+          ><i [class]="isPasswordMasked ? 'fa fa-eye' : 'fa fa-eye-slash'"></i
+        ></span>
       </div>
       <div
         class="input-error-text text-danger"

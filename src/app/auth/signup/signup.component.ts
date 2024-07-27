@@ -49,6 +49,7 @@ export class SignupComponent
   isSubmitted = false;
   signupErrorMessage = '';
   allowNonSpaceCharacterInput = allowNonSpaceCharacterInput;
+  isPasswordMasked = true;
 
   constructor(
     private fb: FormBuilder,
