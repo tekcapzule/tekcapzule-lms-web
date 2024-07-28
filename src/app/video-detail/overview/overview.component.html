@@ -7,14 +7,10 @@
         <div class="col-12 col-sm-3">
             <h3>Instructors</h3>
             <div class="box rounded-2 align-items-center mb-4 mb-lg-0">
-                <div *ngFor="let author of course.authors" class="instructors">
-                    <h3 class="profile-name">
-                        {{author.name.split(" ")[0].charAt(0)}}{{author.name.split(" ")[1].charAt(0)}}
-                    </h3>
-                    <div>
-                        <h4>{{author.name}}</h4>
-                        <p>{{author.title}}</p>
-                    </div>
+                <div  class="instructors">
+                    <h3 class="profile-name">{{course.author.split(" ")[0].charAt(0)}}
+                        {{course.author.split(" ").length > 1 ? course.author.split(" ")[1].charAt(0) : ''}}</h3>
+                    <h3> {{course.author}}</h3>
                 </div>
             </div>
         </div>
@@ -28,8 +24,7 @@
                          of videos</label>
                     <label><span class="rounded notes-icon"></span><span class="fw-bold">2hr </span>
                          of reading</label>
-                    <label class="quiz-btn" (click)="openLink('quiz')"><span class="rounded notes-icon"></span><span class="fw-bold">1 </span>
-                         Quiz</label>
+                    <label class="quiz-btn" (click)="openLink('quiz')"><span class="rounded notes-icon"></span>Quiz</label>
                     <label class="link-btn"  (click)="openLink('assessment')"><span class="rounded notes-icon"></span><span
                             class="fw-bold">1</span> Assessment</label>
                     <label><span class="rounded notes-icon"></span><span

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CourseApiService } from '@app/core';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import * as moment from 'moment';
 
@@ -15,7 +16,9 @@ export class CourseCardComponent implements OnInit {
   parseInt = parseInt;
   math = Math;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+    private courseApi: CourseApiService
+  ) {}
 
   ngOnInit(): void {
     //this.updateCourseTime();
@@ -34,6 +37,7 @@ export class CourseCardComponent implements OnInit {
   }
 
   onResume() {
+    this.courseApi.currentCourse = this.course;
     if(this.page === 'Dashboard') {
       this.router.navigateByUrl('/lms/video-detail/'+this.course.courseId);
     } else {

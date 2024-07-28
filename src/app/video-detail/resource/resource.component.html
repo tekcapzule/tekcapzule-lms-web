@@ -3,18 +3,18 @@
         <div class="d-inline-flex border px-2 py-1 gap-3">
             <p class="m-0 fs-13 fw-semibold">Filter:</p>
         </div>                        
-        <button class="d-flex justify-content-center align-items-center gap-2 border py-2 px-4 fw-medium text-white bg-pink border-0" disabled> <span class="download-ico"></span> Download all </button>
+        <!--button class="d-flex justify-content-center align-items-center gap-2 border py-2 px-4 fw-medium text-white bg-pink border-0" disabled> <span class="download-ico"></span> Download all </!--button-->
     </div>
     <div *ngFor="let resource of resources" class="resources-row" (click)="openResource(resource)">
-        <div class="col border p-3 position-relative">
+        <div class="col border p-3 position-relative" (click)="openResource(resource)">
             <h4 class="fs-6 text-body fw-medium mb-1 pe-4">Learn to Code Resource</h4>
             <p class="fs-14 text-secondary fw-medium mb-1 pe-4">{{resource.title}}</p>
             <div class="reasources-card-icon position-absolute"> <img src="assets/video-icon.svg" alt=""> </div>
             <p class="fs-6 text-dark mb-4">{{resource.summary}}</p>
-            <div class="d-flex justify-content-between align-items-center">
+            <!--div class="d-flex justify-content-between align-items-center">
                 <button class="download-resource p-0 m-0 border-0 bg-transparent">  </button>
                 <p class="fs-14 text-black-50 m-0">7.1 MB</p>
-            </div>
+            </!--div-->
         </div>
         
     </div>

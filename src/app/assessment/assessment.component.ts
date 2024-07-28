@@ -36,21 +36,30 @@ export class AssessmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.loadQuizData(params['code']);
+      if(this.courseApi.currentCourse && this.courseApi.currentCourse.courseId === params['code']) {
+        this.course = this.courseApi.currentCourse;
+        this.loadQuizData();
+      } else {
+        this.getCourse(params['code']);
+      }
     });
   }
 
-  loadQuizData(courseId: string) {
+  getCourse(courseId: string) {
     this.courseApi.getCourse([courseId]).subscribe((data) => {
       this.course = data[0];
-      this.quiz = this.course.assessment;
-      this.questions = this.quiz.questions;
-      this.validateRequestBody = {
-        courseId: data[0].courseId,
-        quizId: this.quiz.quizId,
-        userAnswers: []
-      }
+      this.loadQuizData();
     });
+  }
+
+  loadQuizData() {
+    this.quiz = this.course.assessment;
+    this.questions = this.quiz.questions;
+    this.validateRequestBody = {
+      courseId: this.course.courseId,
+      quizId: this.quiz.quizId,
+      userAnswers: []
+    }
   }
 
   onOptionSelect(option: string) {

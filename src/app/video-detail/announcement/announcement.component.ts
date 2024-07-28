@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IAnnouncements, ICourseDetail } from '@app/shared/models/course-item.model';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-announcement',
@@ -15,6 +16,9 @@ export class AnnouncementComponent implements OnInit {
 
   ngOnInit(): void {
     this.announcements = this.course.announcements || [];
+    this.announcements.forEach(ann => {
+      ann.date = ann.date ? moment(ann.date, 'DD/MM/YYYY').fromNow() : 'NA';
+    });
   }
 
 }
