@@ -29,6 +29,21 @@ export interface ICourseDetail {
   quiz: IQuiz;
   assessment: IQuiz; 
   faq: IFAQ[];
+  announcements: IAnnouncements[];
+  resources: IResources[];
+}
+
+export interface IAnnouncements {
+  imageUrl: string;
+  summary: string;
+  title: string;
+}
+
+export interface IResources {
+  imageUrl: string;
+  coverImageUrl: string;
+  summary: string;
+  title: string;
 }
 
 export interface IQuiz {

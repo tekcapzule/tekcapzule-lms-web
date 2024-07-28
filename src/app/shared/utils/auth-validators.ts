@@ -16,55 +16,6 @@ const PasswordPolicyLiterals = {
 };
 
 export class AuthValidators {
-  static passwordPolicy(control: AbstractControl): ValidationErrors | null {
-    const password = (control.value as string).trim();
-    let hasAtLeastOneUpperCase = false,
-      hasAtLeastOneLowerCase = false,
-      hasAtLeastOneNumber = false,
-      hasAtLeastOneSpecialChar = false;
-
-    for (const char of password) {
-      if (
-        !hasAtLeastOneUpperCase &&
-        PasswordPolicyLiterals.UpperCase.includes(char)
-      ) {
-        hasAtLeastOneUpperCase = true;
-      }
-
-      if (
-        !hasAtLeastOneLowerCase &&
-        PasswordPolicyLiterals.LowerCase.includes(char)
-      ) {
-        hasAtLeastOneLowerCase = true;
-      }
-
-      if (
-        !hasAtLeastOneNumber &&
-        PasswordPolicyLiterals.Numerals.includes(char)
-      ) {
-        hasAtLeastOneNumber = true;
-      }
-
-      if (
-        !hasAtLeastOneSpecialChar &&
-        PasswordPolicyLiterals.SpecialChars.includes(char)
-      ) {
-        hasAtLeastOneSpecialChar = true;
-      }
-    }
-
-    if (
-      hasAtLeastOneUpperCase &&
-      hasAtLeastOneLowerCase &&
-      hasAtLeastOneNumber &&
-      hasAtLeastOneSpecialChar
-    ) {
-      return null;
-    }
-
-    return { invalid: true };
-  }
-
   // New aws cognito password policy validator
   static checkPasswordPolicy(
     control: AbstractControl

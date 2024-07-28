@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ICourseDetail } from '@app/shared/models/course-item.model';
+import { IAnnouncements, ICourseDetail } from '@app/shared/models/course-item.model';
 
 @Component({
   selector: 'app-announcement',
@@ -8,11 +8,13 @@ import { ICourseDetail } from '@app/shared/models/course-item.model';
 })
 export class AnnouncementComponent implements OnInit {
   @Input() course: ICourseDetail;
+  announcements: IAnnouncements[];
 
   constructor(
   ) {}
 
   ngOnInit(): void {
+    this.announcements = this.course.announcements || [];
   }
 
 }

@@ -1,6 +1,6 @@
 <div>
 
-    <div class="border py-3 px-4">
+    <div *ngFor="let ann of announcements" class="border py-3 px-4">
         <div class="list-group-item border-0 p-0 list-group-item-action bg-transparent d-flex gap-2 mb-2">
             <div class="d-inline-flex rounded-circle flex-shrink-0 profile-col justify-content-center align-items-center bg-primary text-white"> GD </div>
             <div class="d-flex gap-2 w-100 justify-content-between">
@@ -10,8 +10,8 @@
               </div>
             </div>
         </div>
-        <h4 class="fs-14 fw-600 text-dark mb-1">Could you provide the pictures that you based the caricatures on?</h4>
-        <p class="fs-14 fw-normal text-secondary mb-2 w-50">Become a Machine Learning expert. Master the fundamentals of deep learning and break into AI. Recently updated with cutting-edge techniques!</p>
+        <h4 class="fs-14 fw-600 text-dark mb-1">{{ann.title}}</h4>
+        <p class="fs-14 fw-normal text-secondary mb-2 w-50">{{ann.summary}}</p>
         <p class="text-black-50 fs-14 m-0">2 years ago</p>
     </div>
 
