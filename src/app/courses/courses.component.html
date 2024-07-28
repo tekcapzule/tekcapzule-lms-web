@@ -6,11 +6,11 @@
             <nav>
                 <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
                     <button class="nav-link" [ngClass]="{'active': selectedTab === 'active' }" type="button" (click)="toggleTab('active')">Active
-                        <span>({{activeList.length}})</span></button>
+                        <span class="badge rounded-pill fw-medium">{{formatCount(activeList.length)}}</span></button>
                     <button class="nav-link" [ngClass]="{'active': selectedTab === 'completed' }" type="button" (click)="toggleTab('completed')">Completed
-                        <span>({{completeList.length}})</span></button>
+                        <span class="badge rounded-pill fw-medium">{{formatCount(completeList.length)}}</span></button>
                     <button class="nav-link" [ngClass]="{'active': selectedTab === 'wishlist' }" type="button" (click)="toggleTab('wishlist')">Wishlisted
-                        <span>({{wishlistList.length}})</span></button>
+                        <span class="badge rounded-pill fw-medium">{{formatCount(wishlistList.length)}}</span></button>
                 </div>
             </nav>
             <div class="tab-content">

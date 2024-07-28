@@ -10,7 +10,7 @@ import { IUserAnswer, IValidateQuiz } from '@app/shared/models/quiz.model';
 @Component({
   selector: 'app-assessment',
   templateUrl: './assessment.component.html',
-  styleUrls: ['./assessment.component.scss']
+  styleUrls: ['./../quiz/quiz.component.scss']
 })
 export class AssessmentComponent implements OnInit {
   quizFinished:boolean = false;
@@ -117,8 +117,8 @@ export class AssessmentComponent implements OnInit {
     const byteArray = new Uint8Array(byteNumbers);
     return new Blob([byteArray], { type: contentType });
   }
-  
-  
+
+
   restartQuiz() {
     this.currentQuestionIndex = 0;
     this.score = 0;
