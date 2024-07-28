@@ -1,43 +1,49 @@
 <div id="wrapper">
+
   <div *ngIf="course">
-    <div class="back-link m-3">
-      <a class="url-link" [routerLink]="['/lms/video-detail/'+ course.courseId]">{{course.title}}</a>
-      <span> > Quiz</span>
+    <div *ngIf="!isQuizAvailable">
+      <h3>Quiz not available at this time!</h3>
     </div>
-    <div class="quiz-component">
-      <div class="quiz-wrapper">
-        <div class="m-3" *ngIf="quiz">
-          <h2>Module {{ moduleIndex + 1 }}:</h2>
-          <!-- <h2>Question {{ currentQuestionIndex + 1 }}:</h2> -->
-          <p class="quiz-question">Q{{ currentQuestionIndex + 1 }}. {{ currentQuestion.questionText }}</p>
-          <ul class="quiz-list">
-            <li
-              [ngClass]="{'answer-selected': selectedAnswer.includes(option.id) && !isSubmitted, 'correct-answer': currentQuestion.correctAnswer.includes(option.id) && isSubmitted, 'wrong-answer': selectedAnswer.includes(option.id) && !currentQuestion.correctAnswer.includes(option.id) && isSubmitted}"
-              *ngFor="let option of currentQuestion.options">
-              <input class="p-3" type="radio" [id]="option.id" [value]="option.id" name="option"
-                (change)="onOptionSelect(option.id)">
-              <label [for]="option">{{ option.name }}</label>
-            </li>
-          </ul>
+    <div *ngIf="isQuizAvailable">
+      <div class="back-link m-3">
+        <a class="url-link" [routerLink]="['/lms/video-detail/'+ course.courseId]">{{course.title}}</a>
+        <span> > Quiz</span>
+      </div>
+      <div class="quiz-component">
+        <div class="quiz-wrapper">
+      <div class="m-3" *ngIf="quiz">
+        <!-- <h2>Module {{ moduleIndex + 1 }}:</h2> -->
+        <h2>Question {{ currentQuestionIndex + 1 }}:</h2>
+        <p class="quiz-question">{{ currentQuestion.questionText }}</p>
+        <ul class="quiz-list">
+          <li
+            [ngClass]="{'answer-selected': selectedAnswer.includes(option.id) && !isSubmitted, 'correct-answer': currentQuestion.correctAnswer.includes(option.id) && isSubmitted, 'wrong-answer': selectedAnswer.includes(option.id) && !currentQuestion.correctAnswer.includes(option.id) && isSubmitted}"
+            *ngFor="let option of currentQuestion.options">
+            <input class="p-3" type="radio" [id]="option.id" [value]="option.id" name="option"
+              (change)="onOptionSelect(option.id)" [disabled]="isSubmitted">
+            <label [for]="option">{{ option.name }}</label>
+          </li>
+        </ul>
 
-          <div class="my-3 pt-4">
-            <button class="me-3 btn primary-btn" (click)="onSubmit()"
-              [disabled]="!isAnswerSelected || isSubmitted">Submit</button>
-            <button class="me-3 btn primary-btn"
-              *ngIf="(isVideoListPage && currentQuestionIndex < questions.length - 1) || (!isVideoListPage && moduleIndex < course.modules.length)"
-              [disabled]="!isSubmitted" (click)="nextQuestion()">Next</button>
-            <button class="me-3 btn primary-btn"
-              *ngIf="(isVideoListPage && currentQuestionIndex === questions.length - 1) || (!isVideoListPage && moduleIndex === course.modules.length - 1 && currentQuestionIndex == questions.length - 1)"
-              (click)="backToCourse()">Back to course</button>
-          </div>
+        <div class="my-3 pt-4">
+          <button class="me-3 btn primary-btn" (click)="onSubmit()"
+            [disabled]="!isAnswerSelected || isSubmitted">Submit</button>
+          <button class="me-3 btn primary-btn"
+            *ngIf="(isVideoListPage && currentQuestionIndex < questions.length - 1) || (!isVideoListPage && moduleIndex < course.modules.length)"
+            [disabled]="!isSubmitted" (click)="nextQuestion()">Next</button>
+          <button class="me-3 btn primary-btn"
+            *ngIf="(isVideoListPage && currentQuestionIndex === questions.length - 1) || (!isVideoListPage && moduleIndex === course.modules.length - 1 && currentQuestionIndex == questions.length - 1)"
+            (click)="backToCourse()">Back to course</button>
         </div>
+      </div>
 
-        <div *ngIf="isSubmitted">
-          <p *ngIf="selectedAnswer[0] === currentQuestion.correctAnswer[0]" class="success-message m-3"><span
-              class="thumbs-up"></span>That's Right!!!</p>
-          <p *ngIf="selectedAnswer[0] !== currentQuestion.correctAnswer[0]" class="error-message m-3"><span
-              class="thumbs-down"></span>That's wrong!</p>
-        </div>
+      <div *ngIf="isSubmitted" class="m-3">
+        <p *ngIf="selectedAnswer[0] === currentQuestion.correctAnswer[0]" class="success-message me-3"><span
+            class="thumbs-up"></span>That's Right!!!</p>
+        <p *ngIf="selectedAnswer[0] !== currentQuestion.correctAnswer[0]" class="error-message"><span
+            class="thumbs-down"></span>That's wrong!</p>
+      </div>
+      </div>
       </div>
     </div>
   </div>

@@ -18,6 +18,7 @@ export class ResourceComponent implements OnInit {
   }
 
   openResource(resource: IResources) {
+    window.open(resource.resourceUrl, '_blank');
   }
 
 }

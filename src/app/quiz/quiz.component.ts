@@ -25,36 +25,44 @@ export class QuizComponent implements OnInit {
   course: ICourseDetail;
   moduleIndex: number = 0;
   isVideoListPage: boolean;
+  isQuizAvailable: boolean;
 
   constructor(private courseApi: CourseApiService,
     private route: ActivatedRoute,
     private router: Router) {}
 
-
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       if(params['moduleIndex'] || params['moduleIndex'] === 0) {
         this.isVideoListPage = true;
-        this.moduleIndex = params['moduleIndex'];
+        this.moduleIndex = parseInt(params['moduleIndex']);
       }
-      this.loadQuizData(params['code']);
+      if(this.courseApi.currentCourse && this.courseApi.currentCourse.courseId === params['code']) {
+        this.course = this.courseApi.currentCourse;
+        this.loadQuizData();
+      } else {
+        this.getCourse(params['code']);
+      }
     });
   }
 
-  loadQuizData(courseId: string) {
+  
+  getCourse(courseId: string) {
     this.courseApi.getCourse([courseId]).subscribe((data) => {
       this.course = data[0];
-      this.quiz = this.course.modules[this.moduleIndex].quiz;
-      this.questions = this.quiz.questions;
-      this.currentQuestion = this.questions[0];
+      this.loadQuizData();
     });
   }
-  previousQuestion() {
-    if (this.currentQuestionIndex > 0) {
-      this.currentQuestionIndex--;
+
+  loadQuizData() {
+    this.quiz = this.course.modules[this.moduleIndex].quiz;
+    if(this.quiz) {
+      this.isQuizAvailable = true;
+      this.questions = this.quiz.questions;
+      this.currentQuestion = this.questions[0];
     }
   }
-  
+
   onOptionSelect(option: string) {
     this.isAnswerSelected = true;
     this.selectedAnswer = [option];

@@ -47,13 +47,21 @@ export class VideoDetailComponent implements OnInit {
   }
 
   getCourse(enrollment: IEnrollment) {
-    this.courseApi.getCourse([enrollment.courseId]).subscribe(data => {
-      this.course = data[0]; 
-      this.enrollmentCourseStatus = enrollment.course; 
-      this.updateCourse(); 
-      this.getPlayVideo();
-    });
-    //this.course = this.courseApi.courses.find(c => c.courseId === code) as ICourseDetail;
+    if(this.courseApi.currentCourse && this.courseApi.currentCourse.courseId === enrollment.courseId) {
+      this.course = this.courseApi.currentCourse;
+      this.playCourse(enrollment);
+    } else {
+      this.courseApi.getCourse([enrollment.courseId]).subscribe(data => {
+        this.course = data[0]; 
+        this.playCourse(enrollment);
+      });
+    }
+  }
+
+  playCourse(enrollment: IEnrollment) {
+    this.enrollmentCourseStatus = enrollment.course; 
+    this.updateCourse(); 
+    this.getPlayVideo();
   }
 
   updateCourse() {
