@@ -21,7 +21,6 @@ export class VideoListComponent implements OnInit {
   }
 
   onChangeVideo(module: IModule, chapter: IChapter) {
-    console.log('chapter ', chapter);
     this.videoSelect.emit({module, chapter});
   }
 

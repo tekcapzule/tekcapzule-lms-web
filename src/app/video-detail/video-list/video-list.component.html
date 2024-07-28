@@ -2,7 +2,7 @@
   <div class="video-detail-progress gap-3 d-flex px-4 py-2 align-items-end border-bottom border-3 position-relative">
       <button class="btn btn-link p-0"> <img src="assets/stretch.svg" alt=""> </button>
       <button class="btn btn-link p-0"> <img src="assets/edit-text.svg" alt=""> </button>
-      <p class="m-0 ms-auto fw-600 lh-1 text-uppercase">70% Progress</p>
+      <p class="m-0 ms-auto fw-600 lh-1 text-uppercase">{{course.duration ? math.floor((course.watchedDuration / course.duration) * 100) : 0}}% Progress</p>
       <span class="progress-bar position-absolute start-0 bottom-1"></span>
   </div>
   <div class="video-list">
