@@ -7,9 +7,8 @@ NG_CLI_VERSION="16.2.10"
 print_help() {
   echo "\nUsage: ./run_script.sh [option]\n"
   echo "Options:"
-  echo "  start [--port=4321]   Install dependencies and start local dev server"
-  echo "  serve [--port=4321]   Start local dev server"
-  echo "  stop                  Stop local dev server"
+  echo "  start [--port 4200]   Install dependencies and start local dev server"
+  echo "  serve [--port 4200]   Start local dev server"
   echo "  install               Install local dependencies"
   echo "  build                 Generate the dev build"
   echo "  prod                  Generate the prod build"
@@ -20,7 +19,7 @@ print_help() {
 
 docker_run_it() {
   docker run -it --rm \
-    --name tekcapzule-lms-web \
+    --name tekcapzule-lms-web-$EPOCHSECONDS \
     -p "$SERVER_PORT":"$SERVER_PORT" \
     --mount type=bind,source="$(pwd)",target=/app \
     --platform=linux/amd64 \
@@ -30,7 +29,7 @@ docker_run_it() {
 
 docker_run_nonit() {
   docker run --rm \
-    --name tekcapzule-lms-web-runner \
+    --name tekcapzule-lms-web-runner-$EPOCHSECONDS \
     --mount type=bind,source="$(pwd)",target=/app \
     --platform=linux/amd64 \
     akhilpb001/ng-cli:$NG_CLI_VERSION \
@@ -39,7 +38,7 @@ docker_run_nonit() {
 
 docker_run_shell() {
   docker run -it --rm \
-    --name tekcapzule-lms-web-shell \
+    --name tekcapzule-lms-web-shell-$EPOCHSECONDS \
     --mount type=bind,source="$(pwd)",target=/app \
     --platform=linux/amd64 \
     akhilpb001/ng-cli:$NG_CLI_VERSION /bin/sh
@@ -76,7 +75,14 @@ if [ -z "$1" ]; then
 fi
 
 # Extracting server port from the CLI command
+if [[ "$2" == "--port" ]]; then
+  echo "Extracting server port..."
+  SERVER_PORT=$3
+fi
+
+# Extracting server port from the CLI command
 if [[ "$2" == "--port="* ]]; then
+echo "Extracting server port..."
   SERVER_PORT="$(echo $2 | sed 's/--port=//')"
 fi
 
@@ -102,10 +108,6 @@ elif [[ "$1" == "serve" ]]; then
   exit
 elif [[ "$1" == "install" ]]; then
   install_dependencies
-  exit
-elif [[ "$1" == "stop" ]]; then
-  echo "[INFO] Stopping local dev server..."
-  docker stop tekcapzule-lms-web
   exit
 elif [[ "$1" == "shell" ]]; then
   echo "[INFO] Opening shell prompt in the container..."
