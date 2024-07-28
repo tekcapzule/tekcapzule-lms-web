@@ -6,19 +6,6 @@
     min-height: calc(100vh - 10.5rem);
 }
 
-.video-detail-list {
-    background-color: var(--bs-white);
-    box-shadow: -5px 0px 30px #00000017;
-    .video-detail-progress { 
-        p {
-            color: var(--primary-color);
-            font-size: var(--fs-12);
-        }
-        span {
-            bottom: -0.25rem;
-            height: 0.25rem;
-            width: 70%;
-            background-color: var(--active-color);
-        }
-    }
+.resources-row {
+    cursor: pointer;
 }

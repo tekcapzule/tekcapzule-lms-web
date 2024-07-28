@@ -37,6 +37,8 @@ export interface IAnnouncements {
   imageUrl: string;
   summary: string;
   title: string;
+  author: string;
+  date: string;
 }
 
 export interface IResources {
@@ -44,6 +46,7 @@ export interface IResources {
   coverImageUrl: string;
   summary: string;
   title: string;
+  resourceUrl: string;
 }
 
 export interface IQuiz {
