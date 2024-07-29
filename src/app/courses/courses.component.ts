@@ -40,6 +40,10 @@ export class CoursesComponent {
     this.getAllCourse();
   }
 
+  formatCount(count: number): string {
+    return count < 10 ? '0' + count : count.toString();
+  }
+
   getAllCourse() {
     this.spinner.show();
     this.courseApi
