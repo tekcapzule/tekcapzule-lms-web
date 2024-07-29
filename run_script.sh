@@ -19,9 +19,9 @@ print_help() {
 
 docker_run_it() {
   docker run -it --rm \
-    --name tekcapzule-lms-web-$EPOCHSECONDS \
+    --name tekcapzule-lms-web-$(date +%s) \
     -p "$SERVER_PORT":"$SERVER_PORT" \
-    --mount type=bind,source="$(pwd)",target=/app \
+    --mount type=bind,source=$(pwd),target=/app \
     --platform=linux/amd64 \
     akhilpb001/ng-cli:$NG_CLI_VERSION \
     /bin/sh -c "$SHELL_ARG"
@@ -29,8 +29,8 @@ docker_run_it() {
 
 docker_run_nonit() {
   docker run --rm \
-    --name tekcapzule-lms-web-runner-$EPOCHSECONDS \
-    --mount type=bind,source="$(pwd)",target=/app \
+    --name tekcapzule-lms-web-runner-$(date +%s) \
+    --mount type=bind,source=$(pwd),target=/app \
     --platform=linux/amd64 \
     akhilpb001/ng-cli:$NG_CLI_VERSION \
     /bin/sh -c "$SHELL_ARG"
@@ -38,8 +38,8 @@ docker_run_nonit() {
 
 docker_run_shell() {
   docker run -it --rm \
-    --name tekcapzule-lms-web-shell-$EPOCHSECONDS \
-    --mount type=bind,source="$(pwd)",target=/app \
+    --name tekcapzule-lms-web-shell-$(date +%s) \
+    --mount type=bind,source=$(pwd),target=/app \
     --platform=linux/amd64 \
     akhilpb001/ng-cli:$NG_CLI_VERSION /bin/sh
 }

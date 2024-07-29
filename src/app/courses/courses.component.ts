@@ -100,8 +100,12 @@ export class CoursesComponent {
     );
   }
 
-  toggleTab(tabName: string) {
+  switchTab(tabName: string) {
     this.selectedTab = tabName;
+  }
+
+  isSelectedTab(tab: string): boolean {
+    return this.selectedTab === tab;
   }
 
   onFilterUpdate(selectedFilters: any) {
