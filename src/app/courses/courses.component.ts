@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CourseApiService } from '@app/core';
+import { AppSpinnerService, CourseApiService } from '@app/core';
 import { InitService } from '@app/core/services/app-state/init.service';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
-import { IEnrollment, IStatus, IUser } from '@app/shared/models/user-item.model';
+import {
+  IEnrollment,
+  IStatus,
+  IUser
+} from '@app/shared/models/user-item.model';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-courses',
@@ -20,17 +25,18 @@ export class CoursesComponent {
   selectedLevel: string[] = [];
   userData: IUser;
   courseStatus: IEnrollment[] = [];
-  
+
   constructor(
     private router: Router,
     private initService: InitService,
-    private courseApi: CourseApiService
+    private courseApi: CourseApiService,
+    public spinner: AppSpinnerService
   ) {}
 
   ngOnInit(): void {
     this.userData = this.initService.getUserData();
     this.courseStatus = this.userData.enrollments;
-    
+
     this.getAllCourse();
   }
 
@@ -39,25 +45,33 @@ export class CoursesComponent {
   }
 
   getAllCourse() {
-    this.courseApi.getAllCourse().subscribe(
-      data => {
-        this.wishlistList = data;
-        this.filteredList = data;
-        data.forEach(course => {
-          let courseStatus = this.getCourseStatus(course.courseId);
-          if(courseStatus?.course.status === IStatus.COMPLETED) {
-            this.completeList.push(course);
-          } else {
-            this.activeList.push(course);
-          }
-        });
-      },
-      err => {}
-    );
+    this.spinner.show();
+    this.courseApi
+      .getAllCourse()
+      .pipe(
+        finalize(() => {
+          this.spinner.hide();
+        })
+      )
+      .subscribe(
+        data => {
+          this.wishlistList = data;
+          this.filteredList = data;
+          data.forEach(course => {
+            let courseStatus = this.getCourseStatus(course.courseId);
+            if (courseStatus?.course.status === IStatus.COMPLETED) {
+              this.completeList.push(course);
+            } else {
+              this.activeList.push(course);
+            }
+          });
+        },
+        err => {}
+      );
   }
 
   getCourseStatus(courseId: string) {
-    return this.courseStatus.find(c => c.courseId === courseId);
+    return this.courseStatus?.find(c => c.courseId === courseId);
   }
 
   getActiveCourse() {
@@ -71,13 +85,11 @@ export class CoursesComponent {
 
   getCompletedCourse() {
     this.courseApi.getCompletedCourse().subscribe(
-      data => {
-      },
+      data => {},
       err => {}
     );
   }
 
-  
   getWishlistCourse() {
     this.courseApi.getWishlistCourse().subscribe(
       data => {
@@ -88,8 +100,12 @@ export class CoursesComponent {
     );
   }
 
-  toggleTab(tabName: string) {
+  switchTab(tabName: string) {
     this.selectedTab = tabName;
+  }
+
+  isSelectedTab(tab: string): boolean {
+    return this.selectedTab === tab;
   }
 
   onFilterUpdate(selectedFilters: any) {
@@ -101,11 +117,15 @@ export class CoursesComponent {
   filterCourse() {
     let tempList = [...this.wishlistList];
     if (this.selectedTopic.length) {
-      tempList = tempList.filter(tl => this.selectedTopic.includes(tl.topicCode));
+      tempList = tempList.filter(tl =>
+        this.selectedTopic.includes(tl.topicCode)
+      );
     }
     if (this.selectedLevel.length) {
-      tempList = tempList.filter(tl => this.selectedLevel.includes(tl.courseLevel));
+      tempList = tempList.filter(tl =>
+        this.selectedLevel.includes(tl.courseLevel)
+      );
     }
-    this.filteredList = tempList
+    this.filteredList = tempList;
   }
 }
