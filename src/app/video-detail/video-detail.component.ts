@@ -156,8 +156,8 @@ export class VideoDetailComponent implements OnInit {
       status: this.enrollmentCourseStatus.status || IStatus.IN_PROGRESS,
       lastVisitedModule: module.serialNumber,
       lastVisitedChapter: chapter.serialNumber,
-      quizScore: this.enrollmentCourseStatus.quizScore || 0,
-      quizStatus: this.enrollmentCourseStatus.quizStatus,
+      assessmentScore: this.enrollmentCourseStatus.assessmentScore || 0,
+      assessmentStatus: this.enrollmentCourseStatus.assessmentStatus,
       modules: [
         {
           serialNumber: module.serialNumber,

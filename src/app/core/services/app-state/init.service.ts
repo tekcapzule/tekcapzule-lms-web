@@ -42,7 +42,7 @@ export class InitService extends AbstractBaseAuth {
       });
   }
 
-  getUserData() {
+  getUserData(): IUser {
     return this.userData;
   }
 
