@@ -12,7 +12,7 @@
             <p class="quiz-question">{{ questions[currentQuestionIndex].questionText }}</p>
             <ul class="quiz-list">
                 <li *ngFor="let option of questions[currentQuestionIndex].options">
-                    <input class="pr-3" type="radio" [id]="option.id" [value]="option.id" name="option" (change)="onOptionSelect(option.id)">
+                    <input class="pr-3" type="radio" [id]="option.id" [value]="option.id" name="option" (change)="onOptionSelect(option.id)" [checked]="answer?.selectedAnswers && answer.selectedAnswers.length && answer.selectedAnswers[0] === option.id">
                     <label [for]="option">{{ option.name }}</label>
                 </li>
             </ul>
