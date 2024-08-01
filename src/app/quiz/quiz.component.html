@@ -5,7 +5,7 @@
       <h3>Quiz not available at this time!</h3>
     </div>
     <div *ngIf="isQuizAvailable">
-      <div class="back-link m-3">
+      <div class="back-link p-2 ps-4">
         <a class="url-link" [routerLink]="['/lms/video-detail/'+ course.courseId]">{{course.title}}</a>
         <span> > Quiz</span>
       </div>
