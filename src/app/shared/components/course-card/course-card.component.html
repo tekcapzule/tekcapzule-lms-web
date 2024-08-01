@@ -1,68 +1,51 @@
 <div *ngIf="page === 'Dashboard'" class="course-card full-width">
-  <div class="course-img">
-    <img [src]="course.coverImageUrl" alt="course thumbnail" />
-    <div class="resume">
-      <div
-        role="progressbar"
-        [attr.aria-valuenow]="(course.watchedDuration / course.duration) * 100"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        style="--value: {{
-          math.floor((course.watchedDuration / course.duration) * 100)
-        }}"
-      ></div>
-      <button class="btn primary-btn" (click)="onResume()">
-        {{
-          course.status === 'Completed' || course.status === 'Enrolled'
-            ? 'Start'
-            : 'Resume'
-        }}
-      </button>
-    </div>
-  </div>
-  <div class="course-info">
-    <div class="course-footer">
-      <div>Specialization <span> | </span> {{ course.topicCode }}</div>
-      <div class="rating fs-5">
-        {{ course.courseRating }} <span class="star-icon"></span>
-      </div>
-    </div>
-    <div class="primary-heading pb-0">{{ course.title }}</div>
-    <p class="gray-txt">
-      {{ course.author }} <span> ({{ course.publishedOn }})</span>
-    </p>
-    <div class="course-status">
-      <label><span class="user-icon"></span> {{ course.courseLevel }}</label>
-      <label
-        ><span class="clock-icon me-2"></span>
-        {{ (parseInt(course.duration) / 60).toFixed(2) }}</label
-      >
-    </div>
-  </div>
+	<div class="course-img">
+		<img [src]="course.coverImageUrl" alt="course thumbnail" />
+		<div class="resume">
+			<div role="progressbar" [attr.aria-valuenow]="(course.watchedDuration / course.duration) * 100" aria-valuemin="0" aria-valuemax="100"
+				style="--value: {{math.floor((course.watchedDuration/course.duration) * 100)}}"></div>
+			<button class="btn primary-btn" (click)="onResume()">{{(course.status === 'Completed' || course.status === 'Enrolled') ? 'Start' : 'Resume'}}</button>
+		</div>
+	</div>
+	<div class="course-info">
+		<div class="course-footer">
+			<div>Specialization <span> | </span> {{course.topicCode}}</div>
+			<div class="rating fs-5">{{course.courseRating}} <span class="star-icon"></span></div>
+		</div>
+		<div class="primary-heading pb-0">{{course.title}}</div>
+		<p class="gray-txt">{{course.author}} <span> ({{course.publishedOn}})</span></p>
+		<div class="course-status">
+			<label><span class="user-icon"></span> {{course.courseLevel}}</label>
+			<label><span class="clock-icon me-2"></span> {{(parseInt(course.duration) / 60).toFixed(2)}}</label>
+		</div>
+		<div class="progress">
+			<div class="progress-bar w-{{math.floor((course.watchedDuration/course.duration) * 100)}}" role="progressbar" [attr.aria-valuenow]="(course.watchedDuration/course.duration) * 100"
+				aria-valuemin="0" aria-valuemax="100"></div>
+		</div>
+	</div>
+
 </div>
 
 <div *ngIf="page !== 'Dashboard'" class="course-card" (click)="onResume()">
-  <div class="course-img">
-    <img [src]="course.coverImageUrl" alt="course thumbnail" />
-    <!-- <div class="resume"><div role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="--value: 25;"></div><button class="btn primary-btn">Resume</button></div> -->
-  </div>
+	<div class="course-img">
+		<img [src]="course.coverImageUrl" alt="course thumbnail" />
+		<!-- <div class="resume"><div role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="--value: 25;"></div><button class="btn primary-btn">Resume</button></div> -->
+	</div>
 
-  <div class="course-info">
-    <div class="primary-heading pb-0">{{ course.title }}</div>
-    <p class="gray-txt">
-      {{ course.author }} <span>({{ course.publishedOn }})</span>
-    </p>
-    <div class="course-status">
-      <label><span class="user-icon"></span> {{ course.courseLevel }}</label>
-      <label><span class="clock-icon me-2"></span>
-        {{ (parseInt(course.duration) / 60).toFixed(2) }}</label>
-		<label>Assessment {{ courseStatus && courseStatus.assessmentStatus === 'Completed' ? 'Completed' : 'Not Completed' }}</label>
-    </div>
-  </div>
-  <div class="course-footer">
-    <div>Specialization <span> | </span> {{ course.topicCode }}</div>
-    <div class="rating">
-      {{ course.courseRating }} <span class="star-icon"></span>
-    </div>
-  </div>
+	<div class="course-info">
+		<div class="primary-heading pb-0">{{course.title}}</div>
+		<p class="gray-txt">{{course.author}} <span>({{course.publishedOn}})</span></p>
+		<div class="course-status">
+			<label><span class="user-icon"></span> {{course.courseLevel}}</label>
+			<label><span class="clock-icon me-2"></span> {{(parseInt(course.duration)/60).toFixed(2)}}</label>
+		</div>
+
+	</div>
+	<div class="course-footer">
+		<div>Specialization <span> | </span> {{course.topicCode}}</div>
+		<div class="rating">{{course.courseRating}} <span class="star-icon"></span></div>
+
+	</div>
+
+
 </div>

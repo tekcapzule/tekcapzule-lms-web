@@ -10,7 +10,7 @@
             <div class="col-9 pe-5">
                 <h1>{{course.title}} <span class="rating">4.5 <span class="star-icon"></span></span></h1>
                 <p>{{course.summary}}</p>
-                <p class="gray-txt">Taught in English</p>
+                <p class="gray-txt fw-normal">Taught in English</p>
                 <ul class="banner-pills">
                     <li *ngFor="let tag of course.tags">{{tag}}</li>
                 </ul>
@@ -21,7 +21,7 @@
                 <section class="tasks">
                     <div class="row">
                         <div class="col-lg-4">
-                            <div class="task-list rounded-2 p-3">
+                            <div class="task-list rounded-2 p-3 task-bg">
                                 <div class="reading-icon"></div>
                                 <div>
                                     <h3 class="mb-3"> {{course.courseLevel}} level</h3>
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="task-list rounded-2 p-3">
+                            <div class="task-list rounded-2 p-3 task-bg">
                                 <div class="clock-icon-md"></div>
                                 <div>
                                     <h3 class="mb-3"> 3 months at 10 hours a week</h3>
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="task-list rounded-2 p-3">
+                            <div class="task-list rounded-2 p-3 task-bg">
                                 <div class="way-icon"></div>
                                 <div>
                                     <h3 class="mb-3"> Flexible schedule</h3>

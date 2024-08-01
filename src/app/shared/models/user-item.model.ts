@@ -24,8 +24,8 @@ export interface ICourseStatus {
   modules: IModuleStatus[];
   lastVisitedChapter: number;
   lastVisitedModule: number;
-  assessmentScore: number;
-  assessmentStatus: IStatus;
+  quizScore: number;
+  quizStatus: IStatus;
 }
 
 export enum IStatus {

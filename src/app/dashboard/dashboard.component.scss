@@ -23,8 +23,8 @@
     .completed-icon,
     .scored-icon {
       background-repeat: no-repeat;
-      height: 34px;
-      width: 34px;
+      height: 38px;
+      width: 38px;
     }
     .overdue-icon {
       background-image: url(../../assets/dashboard/overdue.svg);
@@ -162,12 +162,21 @@ section {
         height: 65px;
         &:first-child {
           border-left: 5px solid var(--active-color);
+          &:hover {
+            background-color: var(--active-color);
+          }
         }
         &:nth-child(2) {
-          border-left: 5px solid var(--green);
+          border-left: 5px solid var(--blue);
+          &:hover {
+            background-color: var(--blue);
+          }
         }
         &:nth-child(3) {
-          border-left: 5px solid var(--blue);
+          border-left: 5px solid var(--green);
+          &:hover {
+            background-color: var(--green);
+          }
         }
 
         .time {
@@ -323,4 +332,9 @@ section {
   background-size: cover;
   width: 100%;
   padding: 40px;
+}
+.dashboard-banner-image {
+  position: absolute;
+  width: fit-content;
+  right: 27%;
 }
