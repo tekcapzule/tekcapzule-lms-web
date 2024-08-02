@@ -32,15 +32,15 @@
     }
     .correct-answer {
         background-color: #75bf21 !important;
-        color: #fff;;
+        color: var(--bs-white);;
     }
     .wrong-answer {
         background-color: #ec3434 !important;
-        color: #fff;;
+        color: var(--bs-white);;
     }
     .answer-selected {
         background-color: #3059B4 !important;
-        color: #fff;;
+        color: var(--bs-white);;
     }
 }
 
@@ -55,7 +55,7 @@
 }
 
 .quiz-wrapper {
-    background-color: #FFF; /* Example background color */
+    background-color: var(--white-bg); /* Example background color */
     border-radius:20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 50px 100px;

@@ -22,7 +22,7 @@
 
 .login-btn {
   background: #1a73e8;
-  color: #fff;
+  color: var(--bs-white);
 }
 
 .form-control {
@@ -68,6 +68,6 @@
 }
 
 .send-code {
-  color: #fff;
+  color: var(--bs-white);
   font-size: 16px;
 }
