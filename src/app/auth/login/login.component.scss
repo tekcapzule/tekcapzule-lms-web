@@ -15,7 +15,7 @@
 .social-login .google,
 .social-login .facebook,
 .social-login .apple {
-  background-color: #fff;
+  background-color: var(--white-bg);
 }
 
 .icon-google {
@@ -86,7 +86,7 @@
 
 .forgot-pass,
 .sign-up {
-  color: #fff;
+  color: var(--bs-white);
   font-size: 16px;
 }
 

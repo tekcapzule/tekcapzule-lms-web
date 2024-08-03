@@ -1,5 +1,5 @@
 .course-wrapper {
-    background-color: var(--bs-white);
+    background-color: var(--bg-color);
     padding: 0;
 
     h1 {
@@ -33,7 +33,7 @@
         padding: 25px;
         margin-bottom: 30px;
         box-shadow: 0px 0px 35px #00000014;
-border-radius: 2px;
+        border-radius: 2px;
 
         .course-card {
             margin-right: 35px;
@@ -89,7 +89,7 @@ border-radius: 2px;
     border-radius: 50%;
     background: #512DA8;
     font-size: 35px;
-    color: #fff;
+    color: var(--bs-white);
     text-align: center;
     line-height: 150px;
     margin: 20px 0;

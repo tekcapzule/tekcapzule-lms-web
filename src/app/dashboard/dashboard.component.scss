@@ -148,7 +148,7 @@ section {
       padding: 0;
 
       li {
-        background-color: #fff;
+        background-color: var(--white-bg);
         box-sizing: border-box;
         display: grid;
         grid-template-columns: 20% 1fr;
@@ -214,7 +214,7 @@ section {
         .details {
           grid-area: detail;
           padding: 10px;
-          background-color: #fff;
+          background-color: var(--white-bg);
           box-sizing: border-box;
 
           p {
@@ -225,7 +225,7 @@ section {
 
           a:hover {
             background-color: #e91e63;
-            color: #fff;
+            color: var(--bs-white);
             border-color: #e91e63;
           }
         }

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2  } from '@angular/core';
 import { Router } from '@angular/router';
 import { AbstractBaseAuth } from '@app/auth/base-auth';
 import { signOut } from 'aws-amplify/auth';
@@ -16,7 +16,8 @@ export class LayoutComponent
 {
   constructor(
     public override authStateService: AuthStateService,
-    private router: Router
+    private router: Router,
+    private renderer: Renderer2 
   ) {
     super(authStateService);
   }
@@ -27,6 +28,20 @@ export class LayoutComponent
 
   ngOnInit(): void {
     this.onDestroy();
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+      this.renderer.setAttribute(document.body, 'data-theme', 'dark');
+    }
+  
+  }
+  toggleTheme(event: any) {
+    if (event.target.checked) {
+      this.renderer.setAttribute(document.body, 'data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      this.renderer.removeAttribute(document.body, 'data-theme');
+      localStorage.removeItem('theme');
+    }
   }
 
   signOutUser() {
