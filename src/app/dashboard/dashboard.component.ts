@@ -6,6 +6,7 @@ import { InitService } from '@app/core/services/app-state/init.service';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { ITaskItem } from '@app/shared/models/task-item.model';
 import { IEnrollment, IStatus, IUser } from '@app/shared/models/user-item.model';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,7 +29,8 @@ export class DashboardComponent implements OnInit {
     private authState: AuthStateService,
     private dashboardApi: DashboradApiService,
     private initService: InitService,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -60,6 +62,11 @@ export class DashboardComponent implements OnInit {
     this.courseApi.getCourse(courseIds).subscribe(courses => {
       this.courseList = courses;
       this.courseApi.courses = courses;
+      this.messageService.add({
+        key: 'tc',
+        severity: 'success',
+        detail: 'Course Loaded successfully',
+      });
       this.courseList.forEach(course => {
         if(course) {
           course.watchedDuration = this.getWatchedDuration(course.courseId);
