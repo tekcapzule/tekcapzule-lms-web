@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Amplify } from 'aws-amplify';
@@ -15,6 +15,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiInterceptor } from './core/interceptors/api.interceptor';
 import { InitService } from './core/services/app-state/init.service';
 import { AuthGuard } from './core/services/auth-guard/auth-guard';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 Amplify.configure(awsExports);
 
@@ -28,6 +31,7 @@ export function initApp(initService: InitService) {
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     LayoutModule,
     SharedModule,
     CoreModule,
@@ -36,8 +40,10 @@ export function initApp(initService: InitService) {
   providers: [
     AuthGuard,
     { provide: APP_INITIALIZER, useFactory: initApp, deps: [InitService], multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true }   
+    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
+    MessageService 
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}

@@ -93,6 +93,12 @@
 <div *ngIf="course">
   <div class="course-wrapper" *ngIf="!spinner.isLoading">
     <!--div class="back-link">
+    <div class="card flex justify-content-center gap-2">
+        <p-toast position="top-center" key="tc"></p-toast>
+    </div>
+    
+    <div class="course-wrapper">
+        <!--div class="back-link">
             <a class="url-link" [routerLink]="['/skill-dashboard']">SkillStudio</a>
             <a *ngIf="pageId !=='Skill_Studio'" class="url-link" [routerLink]="['/ai-hub/courses']">Courses</a>
             <span>{{learningMt.title}}</span>
