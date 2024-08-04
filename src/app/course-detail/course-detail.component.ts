@@ -5,6 +5,7 @@ import { AuthStateService } from '@app/core/services';
 import { InitService } from '@app/core/services/app-state/init.service';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { IEnrollment, IUser } from '@app/shared/models/user-item.model';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-course-detail',
@@ -27,7 +28,8 @@ export class CourseDetailComponent implements OnInit {
     private dashboardApi: DashboradApiService,
     public authState: AuthStateService,
     private initService: InitService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -58,6 +60,12 @@ export class CourseDetailComponent implements OnInit {
   onEnrollCourse() {
     this.dashboardApi.enrollCourse(this.course.courseId).subscribe(data => {
       console.log('enrollCourse', data);
+      this.messageService.add({
+        key: 'tc',
+        severity: 'success',
+        detail: 'Thank you for Enrolling!',
+      });
+      
     })
   }
 }
