@@ -90,97 +90,236 @@
   </div>
 </div>
 <!-- skeleton loader: end -->
-<div *ngIf="course">
-  <div class="course-wrapper" *ngIf="!spinner.isLoading">
-    <!--div class="back-link">
-    <div class="card flex justify-content-center gap-2">
-        <p-toast position="top-center" key="tc"></p-toast>
-    </div>
-    
+<ng-container *ngIf="!spinner.isLoading">
+  <div *ngIf="course">
     <div class="course-wrapper">
-        <!--div class="back-link">
-            <a class="url-link" [routerLink]="['/skill-dashboard']">SkillStudio</a>
-            <a *ngIf="pageId !=='Skill_Studio'" class="url-link" [routerLink]="['/ai-hub/courses']">Courses</a>
-            <span>{{learningMt.title}}</span>
-        </!--div-->
-    <div class="banner">
-      <div class="col-9 pe-5">
-        <h1>
-          {{ course.title }}
-          <span class="rating">4.5 <span class="star-icon"></span></span>
-        </h1>
-        <p>{{ course.summary }}</p>
-        <p class="gray-txt fw-normal">Taught in English</p>
-        <ul class="banner-pills">
-          <li *ngFor="let tag of course.tags">{{ tag }}</li>
-        </ul>
+      <!--div class="back-link">
+      <div class="card flex justify-content-center gap-2">
+          <p-toast position="top-center" key="tc"></p-toast>
       </div>
-    </div>
-    <div class="inner-container">
-      <div class="col-9 me-5">
-        <section class="tasks">
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="task-list rounded-2 p-3 task-bg">
-                <div class="reading-icon"></div>
-                <div>
-                  <h3 class="mb-3">{{ course.courseLevel }} level</h3>
-                  <p>Recommended experience</p>
+      
+      <div class="course-wrapper">
+          <!--div class="back-link">
+              <a class="url-link" [routerLink]="['/skill-dashboard']">SkillStudio</a>
+              <a *ngIf="pageId !=='Skill_Studio'" class="url-link" [routerLink]="['/ai-hub/courses']">Courses</a>
+              <span>{{learningMt.title}}</span>
+          </!--div-->
+      <div class="banner">
+        <div class="col-9 pe-5">
+          <h1>
+            {{ course.title }}
+            <span class="rating">4.5 <span class="star-icon"></span></span>
+          </h1>
+          <p>{{ course.summary }}</p>
+          <p class="gray-txt fw-normal">Taught in English</p>
+          <ul class="banner-pills">
+            <li *ngFor="let tag of course.tags">{{ tag }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="inner-container">
+        <div class="col-9 me-5">
+          <section class="tasks">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="task-list rounded-2 p-3 task-bg">
+                  <div class="reading-icon"></div>
+                  <div>
+                    <h3 class="mb-3">{{ course.courseLevel }} level</h3>
+                    <p>Recommended experience</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="task-list rounded-2 p-3 task-bg">
+                  <div class="clock-icon-md"></div>
+                  <div>
+                    <h3 class="mb-3">3 months at 10 hours a week</h3>
+                    <p>Recommended experience</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="task-list rounded-2 p-3 task-bg">
+                  <div class="way-icon"></div>
+                  <div>
+                    <h3 class="mb-3">Flexible schedule</h3>
+                    <p>Learn at your own pace</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-4">
-              <div class="task-list rounded-2 p-3 task-bg">
-                <div class="clock-icon-md"></div>
-                <div>
-                  <h3 class="mb-3">3 months at 10 hours a week</h3>
-                  <p>Recommended experience</p>
+          </section>
+          <!-- What you will learn section start-->
+          <section class="mt-5">
+            <div class="course-series">
+              <div class="course-desc">
+                <h3>What you’ll learn</h3>
+                <ul class="learning-desc">
+                  <li>
+                    Build and train deep neural networks, identify key
+                    architecture parameters, implement vectorized neural networks
+                    and deep learning to applications
+                  </li>
+                  <li>
+                    Build a CNN and apply it to detection and recognition tasks,
+                    use neural style transfer to generate art, and apply
+                    algorithms to image and video data
+                  </li>
+                  <li>
+                    Train test sets, analyze variance for DL applications, use
+                    standard techniques and optimization algorithms, and build
+                    neural networks in TensorFlow
+                  </li>
+                  <li>
+                    Build and train RNNs, work with NLP and Word Embeddings, and
+                    use HuggingFace tokenizers and transformer models to perform
+                    NER and Question Answering
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <h2>{{ course.modules.length }} modules in this course</h2>
+              <div class="course-module accordion accordion-flush mb-5">
+                <div
+                  *ngFor="let faq of course.faq; let i = index"
+                  class="accordion-item border"
+                >
+                  <h2 class="accordion-header p-0" [id]="'faq' + i">
+                    <button
+                      class="accordion-button collapsed mb-0 border-0 bg-white"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      [attr.data-bs-target]="'#collapse' + i"
+                      aria-expanded="true"
+                      aria-controls="collapseThree"
+                    ></button>
+                    <div>
+                      <div class="primary-heading">
+                        <span class="course-list">1</span>Introduction to Deep
+                        Learning
+                      </div>
+                      <div class="gray-txt pl-5">2 hours</div>
+                    </div>
+                  </h2>
+                  <div
+                    [id]="'collapse' + i"
+                    class="accordion-collapse collapse"
+                    [attr.aria-labelledby]="'faq' + i"
+                  >
+                    <div class="accordion-body pb-0">
+                      <p>
+                        Build and train RNNs, work with NLP and Word Embeddings,
+                        and use HuggingFace tokenizers and transformer models to
+                        perform NER and Question Answering
+                      </p>
+                      <h3>What's included</h3>
+                      <div class="course-info">
+                        <div class="course-status">
+                          <label
+                            ><span class="rounded video-icon"></span> 2 Videos
+                          </label>
+                          <label
+                            ><span class="rounded notes-icon"></span> 2
+                            Reading</label
+                          >
+                          <label
+                            ><span class="rounded notes-icon"></span> 1
+                            Quiz</label
+                          >
+                          <label
+                            ><span class="rounded notes-icon"></span>4
+                            Assessment</label
+                          >
+                        </div>
+                      </div>
+                      <div class="module-content">
+                        <h3>Module Content</h3>
+                        <div class="course-status">
+                          <label
+                            ><span class="rounded video-icon"></span> Welcome
+                            <span class="gray-txt">20 mins</span></label
+                          >
+                          <label
+                            ><span class="rounded video-icon"></span> What is a
+                            Nueral Network?
+                            <span class="gray-txt">20 mins</span></label
+                          >
+                          <label
+                            ><span class="rounded notes-icon"></span> Supervised
+                            Learning with Nueral Network
+                            <span class="gray-txt">20 mins</span></label
+                          >
+                          <label
+                            ><span class="rounded notes-icon"></span> Why is Deep
+                            Learning taking off?
+                            <span class="gray-txt">20 mins</span></label
+                          >
+                          <label
+                            ><span class="rounded notes-icon"></span> Quiz
+                            <span class="gray-txt">20 mins</span></label
+                          >
+                          <label
+                            ><span class="rounded notes-icon"></span>
+                            Assignment<span class="gray-txt">20 mins</span></label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-4">
-              <div class="task-list rounded-2 p-3 task-bg">
-                <div class="way-icon"></div>
-                <div>
-                  <h3 class="mb-3">Flexible schedule</h3>
-                  <p>Learn at your own pace</p>
+          </section>
+          <!-- What you will learn section End-->
+          <section>
+            <h2>Specialization - 5 course series</h2>
+            <div *ngFor="let modules of course.modules" class="course-series">
+              <div class="course-card">
+                <div class="course-img">
+                  <img alt="course thumbnail" [src]="modules.coverImageUrl" />
+                </div>
+                <div class="course-info">
+                  <div class="primary-heading pb-0">{{ modules.title }}</div>
+                  <div class="course-status">
+                    <label
+                      ><span class="rounded video-icon"></span
+                      ><span class="fw-bold">{{ modules.chapters.length }}</span>
+                      videoes</label
+                    >
+                    <label
+                      ><span class="rounded notes-icon"></span
+                      ><span class="fw-bold">{{ modules.duration }} min</span> of
+                      reading</label
+                    >
+                    <label
+                      ><span class="rounded notes-icon"></span
+                      ><span class="fw-bold">{{ modules.quiz }}</span> Quiz</label
+                    >
+                    <label
+                      ><span class="rounded notes-icon"></span
+                      ><span class="fw-bold">{{ modules.assement }}</span
+                      >Assessment</label
+                    >
+                  </div>
+                </div>
+                <div class="course-footer">
+                  <div>Course</div>
                 </div>
               </div>
+              <div class="course-desc">
+                <h3>What you’ll learn</h3>
+                <ul>
+                  <li *ngFor="let obj of modules.objective">{{ obj }}</li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </section>
-        <!-- What you will learn section start-->
-        <section class="mt-5">
-          <div class="course-series">
-            <div class="course-desc">
-              <h3>What you’ll learn</h3>
-              <ul class="learning-desc">
-                <li>
-                  Build and train deep neural networks, identify key
-                  architecture parameters, implement vectorized neural networks
-                  and deep learning to applications
-                </li>
-                <li>
-                  Build a CNN and apply it to detection and recognition tasks,
-                  use neural style transfer to generate art, and apply
-                  algorithms to image and video data
-                </li>
-                <li>
-                  Train test sets, analyze variance for DL applications, use
-                  standard techniques and optimization algorithms, and build
-                  neural networks in TensorFlow
-                </li>
-                <li>
-                  Build and train RNNs, work with NLP and Word Embeddings, and
-                  use HuggingFace tokenizers and transformer models to perform
-                  NER and Question Answering
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div>
-            <h2>{{ course.modules.length }} modules in this course</h2>
-            <div class="course-module accordion accordion-flush mb-5">
+          </section>
+          <section>
+            <h2>Frequently asked questions</h2>
+  
+            <div class="accordion accordion-flush mb-5">
               <div
                 *ngFor="let faq of course.faq; let i = index"
                 class="accordion-item border"
@@ -193,14 +332,9 @@
                     [attr.data-bs-target]="'#collapse' + i"
                     aria-expanded="true"
                     aria-controls="collapseThree"
-                  ></button>
-                  <div>
-                    <div class="primary-heading">
-                      <span class="course-list">1</span>Introduction to Deep
-                      Learning
-                    </div>
-                    <div class="gray-txt pl-5">2 hours</div>
-                  </div>
+                  >
+                    {{ faq.qus }}
+                  </button>
                 </h2>
                 <div
                   [id]="'collapse' + i"
@@ -208,205 +342,73 @@
                   [attr.aria-labelledby]="'faq' + i"
                 >
                   <div class="accordion-body pb-0">
-                    <p>
-                      Build and train RNNs, work with NLP and Word Embeddings,
-                      and use HuggingFace tokenizers and transformer models to
-                      perform NER and Question Answering
-                    </p>
-                    <h3>What's included</h3>
-                    <div class="course-info">
-                      <div class="course-status">
-                        <label
-                          ><span class="rounded video-icon"></span> 2 Videos
-                        </label>
-                        <label
-                          ><span class="rounded notes-icon"></span> 2
-                          Reading</label
-                        >
-                        <label
-                          ><span class="rounded notes-icon"></span> 1
-                          Quiz</label
-                        >
-                        <label
-                          ><span class="rounded notes-icon"></span>4
-                          Assessment</label
-                        >
-                      </div>
-                    </div>
-                    <div class="module-content">
-                      <h3>Module Content</h3>
-                      <div class="course-status">
-                        <label
-                          ><span class="rounded video-icon"></span> Welcome
-                          <span class="gray-txt">20 mins</span></label
-                        >
-                        <label
-                          ><span class="rounded video-icon"></span> What is a
-                          Nueral Network?
-                          <span class="gray-txt">20 mins</span></label
-                        >
-                        <label
-                          ><span class="rounded notes-icon"></span> Supervised
-                          Learning with Nueral Network
-                          <span class="gray-txt">20 mins</span></label
-                        >
-                        <label
-                          ><span class="rounded notes-icon"></span> Why is Deep
-                          Learning taking off?
-                          <span class="gray-txt">20 mins</span></label
-                        >
-                        <label
-                          ><span class="rounded notes-icon"></span> Quiz
-                          <span class="gray-txt">20 mins</span></label
-                        >
-                        <label
-                          ><span class="rounded notes-icon"></span>
-                          Assignment<span class="gray-txt">20 mins</span></label
-                        >
-                      </div>
-                    </div>
+                    <p>{{ faq.ans }}</p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-        <!-- What you will learn section End-->
-        <section>
-          <h2>Specialization - 5 course series</h2>
-          <div *ngFor="let modules of course.modules" class="course-series">
-            <div class="course-card">
-              <div class="course-img">
-                <img alt="course thumbnail" [src]="modules.coverImageUrl" />
-              </div>
-              <div class="course-info">
-                <div class="primary-heading pb-0">{{ modules.title }}</div>
-                <div class="course-status">
-                  <label
-                    ><span class="rounded video-icon"></span
-                    ><span class="fw-bold">{{ modules.chapters.length }}</span>
-                    videoes</label
-                  >
-                  <label
-                    ><span class="rounded notes-icon"></span
-                    ><span class="fw-bold">{{ modules.duration }} min</span> of
-                    reading</label
-                  >
-                  <label
-                    ><span class="rounded notes-icon"></span
-                    ><span class="fw-bold">{{ modules.quiz }}</span> Quiz</label
-                  >
-                  <label
-                    ><span class="rounded notes-icon"></span
-                    ><span class="fw-bold">{{ modules.assement }}</span
-                    >Assessment</label
-                  >
-                </div>
-              </div>
-              <div class="course-footer">
-                <div>Course</div>
-              </div>
-            </div>
-            <div class="course-desc">
-              <h3>What you’ll learn</h3>
-              <ul>
-                <li *ngFor="let obj of modules.objective">{{ obj }}</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <h2>Frequently asked questions</h2>
-
-          <div class="accordion accordion-flush mb-5">
-            <div
-              *ngFor="let faq of course.faq; let i = index"
-              class="accordion-item border"
-            >
-              <h2 class="accordion-header p-0" [id]="'faq' + i">
-                <button
-                  class="accordion-button collapsed mb-0 border-0 bg-white"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  [attr.data-bs-target]="'#collapse' + i"
-                  aria-expanded="true"
-                  aria-controls="collapseThree"
-                >
-                  {{ faq.qus }}
-                </button>
-              </h2>
-              <div
-                [id]="'collapse' + i"
-                class="accordion-collapse collapse"
-                [attr.aria-labelledby]="'faq' + i"
+          </section>
+        </div>
+        <div class="col-3 enroll-container">
+          <div class="enroll-sec">
+            <img
+              src="../../assets/courses/courses-thumbnail-5.png"
+              class="w-100"
+              alt="course thumbnail"
+            />
+            <div class="px-3 pt-3">
+              <button
+                *ngIf="isUserLoggedIn && !isCourseEnrolled"
+                class="btn secondary-btn w-100 mb-4"
+                (click)="onEnrollCourse()"
               >
-                <div class="accordion-body pb-0">
-                  <p>{{ faq.ans }}</p>
-                </div>
+                Enroll
+              </button>
+              <h3>Instructors</h3>
+              <!--div-- *ngFor="let author of course.authors" class="instructors">
+                              <h3 class="profile-name">
+                                  {{author.name.split(" ")[0].charAt(0)}}{{author.name.split(" ")[1].charAt(0)}}
+                              </h3>
+                              <div>
+                                  <h4>{{author.name}}</h4>
+                                  <p>{{author.title}}</p>
+                              </div>
+                          </!--div-->
+              <div class="instructors">
+                <h3 class="profile-name">
+                  {{ course.author.split(' ')[0].charAt(0) }}
+                  {{
+                    course.author.split(' ').length > 1
+                      ? course.author.split(' ')[1].charAt(0)
+                      : ''
+                  }}
+                </h3>
+                <h3>{{ course.author }}</h3>
               </div>
             </div>
           </div>
-        </section>
-      </div>
-      <div class="col-3 enroll-container">
-        <div class="enroll-sec">
-          <img
-            src="../../assets/courses/courses-thumbnail-5.png"
-            class="w-100"
-            alt="course thumbnail"
-          />
-          <div class="px-3 pt-3">
-            <button
-              *ngIf="isUserLoggedIn && !isCourseEnrolled"
-              class="btn secondary-btn w-100 mb-4"
-              (click)="onEnrollCourse()"
-            >
-              Enroll
-            </button>
-            <h3>Instructors</h3>
-            <!--div-- *ngFor="let author of course.authors" class="instructors">
-                            <h3 class="profile-name">
-                                {{author.name.split(" ")[0].charAt(0)}}{{author.name.split(" ")[1].charAt(0)}}
-                            </h3>
-                            <div>
-                                <h4>{{author.name}}</h4>
-                                <p>{{author.title}}</p>
-                            </div>
-                        </!--div-->
-            <div class="instructors">
-              <h3 class="profile-name">
-                {{ course.author.split(' ')[0].charAt(0) }}
-                {{
-                  course.author.split(' ').length > 1
-                    ? course.author.split(' ')[1].charAt(0)
-                    : ''
-                }}
-              </h3>
-              <h3>{{ course.author }}</h3>
+          <div class="enroll-sec">
+            <div class="icon-text">
+              <div class="badge-icon me-4"></div>
+              <div>
+                <h3 class="mb-2">Earn Badge and Credit</h3>
+                <p>You earn 10 credit points when you complete this course</p>
+              </div>
+            </div>
+            <hr />
+            <div class="icon-text">
+              <div class="certificate-icon me-4"></div>
+              <div>
+                <h3 class="mb-2">Certificate of Completion</h3>
+                <p>Share it on social media</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="enroll-sec">
-          <div class="icon-text">
-            <div class="badge-icon me-4"></div>
-            <div>
-              <h3 class="mb-2">Earn Badge and Credit</h3>
-              <p>You earn 10 credit points when you complete this course</p>
-            </div>
+          <div class="enroll-sec">
+            <h3>Leave your ratings</h3>
           </div>
-          <hr />
-          <div class="icon-text">
-            <div class="certificate-icon me-4"></div>
-            <div>
-              <h3 class="mb-2">Certificate of Completion</h3>
-              <p>Share it on social media</p>
-            </div>
-          </div>
-        </div>
-        <div class="enroll-sec">
-          <h3>Leave your ratings</h3>
         </div>
       </div>
     </div>
   </div>
-</div>
+</ng-container>
