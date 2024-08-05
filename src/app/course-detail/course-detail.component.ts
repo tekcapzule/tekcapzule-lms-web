@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CourseApiService, DashboradApiService } from '@app/core';
+import { AppSpinnerService, CourseApiService, DashboradApiService } from '@app/core';
 import { AuthStateService } from '@app/core/services';
 import { InitService } from '@app/core/services/app-state/init.service';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { IEnrollment, IUser } from '@app/shared/models/user-item.model';
+import { finalize } from 'rxjs';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -24,6 +25,7 @@ export class CourseDetailComponent implements OnInit {
 
   constructor(
     private router: Router,
+    public spinner: AppSpinnerService,
     private courseApi: CourseApiService,
     private dashboardApi: DashboradApiService,
     public authState: AuthStateService,
@@ -45,7 +47,10 @@ export class CourseDetailComponent implements OnInit {
   }
 
   getWishlistCourse(code: string) {
-    this.courseApi.getCourse([code]).subscribe(
+    this.spinner.show();
+    this.courseApi.getCourse([code])
+    .pipe(finalize(() => this.spinner.hide()))
+    .subscribe(
       data => {
         this.course = data[0] as ICourseDetail;
         if(this.courseStatus.length) {

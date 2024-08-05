@@ -5,6 +5,7 @@ import { signOut } from 'aws-amplify/auth';
 
 import { AuthStateService } from '@app/core/services';
 import { deleteAuthStateFromStore } from '@app/shared/utils';
+import { Checkbox } from 'primeng/checkbox';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -31,6 +32,7 @@ export class LayoutComponent
     const theme = localStorage.getItem('theme');
     if (theme === 'dark') {
       this.renderer.setAttribute(document.body, 'data-theme', 'dark');
+      (document.body.querySelector('input[data-name="theme-toggle-switch"]') as HTMLInputElement).checked = true;
     }
   
   }
