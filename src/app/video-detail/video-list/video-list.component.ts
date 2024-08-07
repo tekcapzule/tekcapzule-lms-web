@@ -17,7 +17,7 @@ export class VideoListComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    console.log('courseStatus', this.course, this.courseStatus);
+    console.log('courseStatus', this.courseStatus);
   }
 
   onChangeVideo(module: IModule, chapter: IChapter) {
