@@ -48,15 +48,17 @@ export class DashboardComponent implements OnInit {
       return;
     }
     this.courseStatus.forEach((course) => {
-      if(course.course.status === IStatus.COMPLETED) {
-        this.completedCourses += 1;
-      } else if(course.course.status === IStatus.IN_PROGRESS) {
-        this.activeCourses += 1;
-      } else {
-        this.enrolledCourses += 1;
-      }
-      if(course.courseId){
-        courseIds.push(course.courseId);
+      if(course) {
+        if(course.course.status === IStatus.COMPLETED) {
+          this.completedCourses += 1;
+        } else if(course.course.status === IStatus.IN_PROGRESS) {
+          this.activeCourses += 1;
+        } else {
+          this.enrolledCourses += 1;
+        }
+        if(course.courseId){
+          courseIds.push(course.courseId);
+        }
       }
     });
     this.courseApi.getCourse(courseIds).subscribe(courses => {
