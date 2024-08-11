@@ -1,46 +1,88 @@
 <div id="wrapper">
-    <div class="course-wrapper">
-        <div *ngIf="activeList.length || completeList.length">
-        <h3 class="main-title">My Courses</h3>
+  <div class="course-wrapper" *ngIf="spinner.isLoading">
+    <div class="colby3">
+      <app-course-skeleton
+        *ngFor="let n of [1, 2, 3, 4, 5, 6]"
+      ></app-course-skeleton>
+    </div>
+  </div>
+  <div class="course-wrapper" *ngIf="!spinner.isLoading">
+    <div *ngIf="activeList.length || completeList.length">
+      <h3 class="main-title">My Courses</h3>
+      <nav>
+        <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+          <button
+            class="nav-link"
+            [ngClass]="{ active: selectedTab === 'active' }"
+            type="button"
+            (click)="toggleTab('active')"
+          >
+            Active
+            <span class="badge rounded-pill fw-medium">{{
+              formatCount(activeList.length)
+            }}</span>
+          </button>
+          <button
+            class="nav-link"
+            [ngClass]="{ active: selectedTab === 'completed' }"
+            type="button"
+            (click)="toggleTab('completed')"
+          >
+            Completed
+            <span class="badge rounded-pill fw-medium">{{
+              formatCount(completeList.length)
+            }}</span>
+          </button>
+          <button
+            class="nav-link"
+            [ngClass]="{ active: selectedTab === 'wishlist' }"
+            type="button"
+            (click)="toggleTab('wishlist')"
+          >
+            Wishlisted
+            <span class="badge rounded-pill fw-medium">{{
+              formatCount(wishlistList.length)
+            }}</span>
+          </button>
+        </div>
+      </nav>
+      <div class="tab-content">
+        <div
+          class="tab-pane"
+          [ngClass]="{ 'active show': selectedTab === 'active' }"
+          *ngIf="selectedTab === 'active'"
+        >
+          <div class="colby3">
+            <ng-container *ngFor="let course of activeList">
+              <app-course-card [course]="course"></app-course-card>
+            </ng-container>
+          </div>
+        </div>
+        <div
+          class="tab-pane"
+          [ngClass]="{ 'active show': selectedTab === 'completed' }"
+          *ngIf="selectedTab === 'completed'"
+        >
+          <div class="colby3">
+            <ng-container *ngFor="let course of completeList">
+              <app-course-card [course]="course"></app-course-card>
+            </ng-container>
+          </div>
+        </div>
+        <div
+          class="tab-pane"
+          [ngClass]="{ 'active show': selectedTab === 'wishlist' }"
+          *ngIf="selectedTab === 'wishlist'"
+        >
+          <div class="colby3">
+            <ng-container *ngFor="let course of wishlistList">
+              <app-course-card [course]="course"></app-course-card>
+            </ng-container>
+          </div>
+        </div>
+      </div>
 
-            <nav>
-                <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
-                    <button class="nav-link" [ngClass]="{'active': selectedTab === 'active' }" type="button" (click)="toggleTab('active')">Active
-                        <span class="badge rounded-pill fw-medium">{{formatCount(activeList.length)}}</span></button>
-                    <button class="nav-link" [ngClass]="{'active': selectedTab === 'completed' }" type="button" (click)="toggleTab('completed')">Completed
-                        <span class="badge rounded-pill fw-medium">{{formatCount(completeList.length)}}</span></button>
-                    <button class="nav-link" [ngClass]="{'active': selectedTab === 'wishlist' }" type="button" (click)="toggleTab('wishlist')">Wishlisted
-                        <span class="badge rounded-pill fw-medium">{{formatCount(wishlistList.length)}}</span></button>
-                </div>
-            </nav>
-            <div class="tab-content">
-                <div class="tab-pane" [ngClass]="{'active show': selectedTab === 'active' }" *ngIf="selectedTab === 'active'">
-                    <div class="colby3">
-                        <ng-container *ngFor="let course of activeList;">
-                            <app-course-card [course]="course"></app-course-card>
-                        </ng-container>
-
-
-
-                    </div>
-                </div>
-                <div class="tab-pane" [ngClass]="{'active show': selectedTab === 'completed' }" *ngIf="selectedTab === 'completed'">
-                    <div class="colby3">
-                        <ng-container *ngFor="let course of completeList;">
-                            <app-course-card [course]="course"></app-course-card>
-                        </ng-container>
-                    </div>
-                </div>
-                <div class="tab-pane" [ngClass]="{'active show': selectedTab === 'wishlist' }" *ngIf="selectedTab === 'wishlist'">
-                    <div class="colby3">
-                        <ng-container *ngFor="let course of wishlistList;">
-                            <app-course-card [course]="course"></app-course-card>
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
-
-            <!--section>
+      <!--section>
                 <div class="mt-5 mx-0">
                     <h3 class="main-title">Recommended Courses</h3>
                     <div class="colby3">
@@ -50,28 +92,29 @@
                     </div>
                 </div>
             </!--section-->
-        </div>
-        <section>
-            <div class="mt-5 mx-0">
-                <h3 class="main-title">Available Courses</h3>
-                <div class="d-flex">
-                <div class="col-3 pe-4">
-                <h3>Filter By</h3>
-                <app-data-filter (filterUpdate)="onFilterUpdate($event)"></app-data-filter>
-                </div>
-                <div class="col-9">
-                    <div class="colby3">
-                        <ng-container *ngFor="let course of filteredList;">
-                            <app-course-card [course]="course"></app-course-card>
-                        </ng-container>
-                    </div>
-                    <div class="content-center">
-                        <button class="btn primary-btn-filled">Load more</button>
-                    </div>
-                </div>
-            </div>
-
-            </div>
-        </section>
     </div>
+    <section>
+      <div class="mt-5 mx-0">
+        <h3 class="main-title">Available Courses</h3>
+        <div class="d-flex">
+          <div class="col-3 pe-4">
+            <h3>Filter By</h3>
+            <app-data-filter
+              (filterUpdate)="onFilterUpdate($event)"
+            ></app-data-filter>
+          </div>
+          <div class="col-9">
+            <div class="colby3">
+              <ng-container *ngFor="let course of filteredList">
+                <app-course-card [course]="course"></app-course-card>
+              </ng-container>
+            </div>
+            <div class="content-center">
+              <button class="btn primary-btn-filled">Load more</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>

@@ -1,21 +1,23 @@
 #!/bin/sh
 
-SHELL_ARG="yarn start:dev"
+SHELL_ARG="yarn start"
 SERVER_PORT="4200"
 NG_CLI_VERSION="16.2.10"
 
 print_help() {
   echo "\nUsage: ./run_script.sh [option]\n"
   echo "Options:"
-  echo "  start [--port 4200]   Install dependencies and start local dev server"
-  echo "  serve [--port 4200]   Start local dev server"
-  echo "  install               Install local dependencies"
-  echo "  build                 Generate the dev build"
-  echo "  prod                  Generate the prod build"
-  echo "  shell                 Open shell prompt in the container"
-  echo "  clean                 Delete dependencies and build files"
-  echo "  help                  Show this help\n"
+  echo "  start [--port 4200] [--hmr]   Install dependencies and start local dev server"
+  echo "  serve [--port 4200] [--hmr]   Start local dev server"
+  echo "  install                       Install local dependencies"
+  echo "  build                         Generate the dev build"
+  echo "  prod                          Generate the prod build"
+  echo "  shell                         Open shell prompt in the container"
+  echo "  clean                         Delete dependencies and build files"
+  echo "  help                          Show this help\n"
 }
+
+is_hmr=false
 
 docker_run_it() {
   docker run -it --rm \
@@ -64,7 +66,10 @@ generate_prod_build() {
 
 start_dev_server() {
   echo "[INFO] Starting local dev server..."
-  SHELL_ARG="yarn start:dev --port $SERVER_PORT"
+  SHELL_ARG="yarn start --host 0.0.0.0 --port $SERVER_PORT"
+  if [ "$is_hmr" = true ]; then
+    SHELL_ARG="yarn start --host 0.0.0.0 --port $SERVER_PORT --hmr"
+  fi
   docker_run_it
 }
 
@@ -76,14 +81,22 @@ fi
 
 # Extracting server port from the CLI command
 if [[ "$2" == "--port" ]]; then
-  echo "Extracting server port..."
+  echo "[INFO] Extracting server port..."
   SERVER_PORT=$3
+  if [[ "$4" == "--hmr" ]]; then
+    echo "[INFO] Setting hmr..."
+    is_hmr=true
+  fi
 fi
 
-# Extracting server port from the CLI command
-if [[ "$2" == "--port="* ]]; then
-echo "Extracting server port..."
-  SERVER_PORT="$(echo $2 | sed 's/--port=//')"
+# Extracting hmr from the CLI command
+if [[ "$2" == "--hmr" ]]; then
+  echo "[INFO] Setting hmr..."
+  is_hmr=true
+  if [[ "$3" == "--port" ]]; then
+    echo "[INFO] Extracting server port..."
+    SERVER_PORT=$4
+  fi
 fi
 
 # Parsing CLI commands and running actions
