@@ -11,7 +11,8 @@
               </nav>
             <div class="mb-4 video-js-container">
                 <!-- <img src="assets/video-img.jpg" alt="" class="d-flex"> -->
-                <app-video-player #videoPlayer [options]="options" [course]="course" (playerReady)="onPlayerReady()" (videoEnded)="onVideoEnded()"></app-video-player>
+                <app-video-player *ngIf="!isQuizPage" #videoPlayer [options]="options" [course]="course" (playerReady)="onPlayerReady()" (videoEnded)="onVideoEnded()"></app-video-player>
+                <app-video-player *ngIf="isQuizPage" #videoPlayer [options]="options" [course]="course" (playerReady)="onPlayerReady()" (videoEnded)="onVideoEnded()"></app-video-player>
             </div>
 
            <div>

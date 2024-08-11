@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CourseApiService } from '@app/core';
-import { ICourseDetail, IOption, IQuestion, IQuiz } from '@app/shared/models';
+import { CourseApiService, DashboradApiService } from '@app/core';
+import { ICourseDetail, IModule, IOption, IQuestion, IQuiz } from '@app/shared/models';
 import { IUserAnswer, IValidateQuiz } from '@app/shared/models/quiz.model';
+import { ICourseStatus, IStatus } from '@app/shared/models/user-item.model';
 
 @Component({
   selector: 'app-quiz',
@@ -22,45 +23,37 @@ export class QuizComponent implements OnInit {
   selectedAnswer: string[] = [];
   isSubmitted: boolean;
   currentQuestion: IQuestion;
-  course: ICourseDetail;
-  moduleIndex: number = 0;
   isVideoListPage: boolean;
   isQuizAvailable: boolean;
+  @Input() course: ICourseDetail;
+  @Input() module: IModule;
+  @Input() courseStatus: ICourseStatus;
+  playNextVideo = new EventEmitter();
+  moduleIndex = 0;
 
   constructor(private courseApi: CourseApiService,
     private route: ActivatedRoute,
+    private dashboardApi: DashboradApiService,
     private router: Router) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      if(params['moduleIndex'] || params['moduleIndex'] === 0) {
-        this.isVideoListPage = true;
-        this.moduleIndex = parseInt(params['moduleIndex']);
-      }
-      if(this.courseApi.currentCourse && this.courseApi.currentCourse.courseId === params['code']) {
-        this.course = this.courseApi.currentCourse;
-        this.loadQuizData();
-      } else {
-        this.getCourse(params['code']);
-      }
-    });
-  }
-
-  
-  getCourse(courseId: string) {
-    this.courseApi.getCourse([courseId]).subscribe((data) => {
-      this.course = data[0];
-      this.loadQuizData();
-    });
+    this.isVideoListPage = true;
+    this.loadQuizData();
   }
 
   loadQuizData() {
-    this.quiz = this.course.modules[this.moduleIndex].quiz;
+    this.moduleIndex = this.getIndex(this.course.modules, this.courseStatus.lastVisitedModule);
+    this.quiz = this.module.quiz;
     if(this.quiz) {
       this.isQuizAvailable = true;
       this.questions = this.quiz.questions;
       this.currentQuestion = this.questions[0];
     }
+  }
+
+  getIndex(items: IModule[], serialNumber: number): number {
+    const index = items.findIndex(item => item.serialNumber === serialNumber);
+    return index === -1 ? 0 : index;
   }
 
   onOptionSelect(option: string) {
@@ -90,6 +83,9 @@ export class QuizComponent implements OnInit {
   }
 
   backToCourse() {
-    this.router.navigateByUrl('/lms/video-detail/'+ this.course.courseId);
+    this.courseStatus.modules[0].quizStatus = IStatus.COMPLETED; 
+    this.dashboardApi.updateVideoStatus(this.courseStatus).subscribe(data => {
+      this.playNextVideo.emit();
+    });
   }
 }

@@ -38,6 +38,8 @@ export interface IModuleStatus {
   serialNumber: number;
   watchedDuration: number;
   status: IStatus;
+  quizScore: number;
+  quizStatus: IStatus;
   chapters: IChapterStatus[];
 }
 
