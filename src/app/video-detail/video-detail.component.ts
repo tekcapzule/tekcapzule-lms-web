@@ -25,6 +25,8 @@ export class VideoDetailComponent implements OnInit {
   isVideoPlaying: boolean;
   courseStatus: ICourseStatus;
   enrollmentCourseStatus: ICourseStatus;
+  isQuizPage: boolean;
+  module: IModule;
 
   constructor(
     private router: Router,
@@ -92,6 +94,7 @@ export class VideoDetailComponent implements OnInit {
   }
 
   getPlayVideo() {
+    this.isQuizPage = false;
     this.currentVideo = null;
     this.course.duration = 0;
     if(this.enrollmentCourseStatus.lastVisitedModule === 0 || this.enrollmentCourseStatus.lastVisitedChapter === 0) {
@@ -103,27 +106,32 @@ export class VideoDetailComponent implements OnInit {
     }
     let lastModuleIndex = this.getIndex(this.course.modules, this.enrollmentCourseStatus.lastVisitedModule);
     let lastChapterIndex = this.getIndex(this.course.modules[lastModuleIndex].chapters, this.enrollmentCourseStatus.lastVisitedChapter);
-    let modules = this.course.modules[lastModuleIndex]; 
-    let chapter = modules.chapters[lastChapterIndex]; 
+    this.module = this.course.modules[lastModuleIndex]; 
+    let chapter = this.module.chapters[lastChapterIndex]; 
+    const erollModule = this.getEnrollModule(this.enrollmentCourseStatus.lastVisitedModule);
     if (chapter.status !== IStatus.COMPLETED) {
       this.currentVideo = chapter;
       console.log('not complete ---- ', lastModuleIndex, this.currentVideo);
-      this.createCourseStatus(modules, this.currentVideo);
-    } else if((lastChapterIndex + 1) < modules.chapters.length) {
-      this.currentVideo = modules.chapters[lastChapterIndex + 1];
-      console.log('same module ---- ',lastModuleIndex, this.currentVideo);
+      this.createCourseStatus(this.module, this.currentVideo);
+    } else if((lastChapterIndex + 1) < this.module.chapters.length) {
+      this.currentVideo = this.module.chapters[lastChapterIndex + 1];
+      console.log('same module ---- ', lastModuleIndex, this.currentVideo);
       if(this.currentVideo.status === IStatus.COMPLETED) {
         this.currentVideo.watchedDuration = 0;
       }
       this.enrollmentCourseStatus.lastVisitedChapter = this.currentVideo.serialNumber;
-      this.createCourseStatus(modules, this.currentVideo);
+      this.createCourseStatus(this.module, this.currentVideo);
+    } else if((lastChapterIndex === this.module.chapters.length - 1) && erollModule?.quizStatus !== 'Completed') {
+      this.currentVideo = this.module.chapters[lastChapterIndex];
+      this.createCourseStatus(this.module, this.currentVideo);
+      this.isQuizPage = true;
     } else if((lastModuleIndex + 1) < this.course.modules.length) {
       console.log('next module ---- ', lastModuleIndex + 1, this.currentVideo);
-      modules = this.course.modules[lastModuleIndex + 1];
-      this.currentVideo = modules.chapters[0];
-      this.enrollmentCourseStatus.lastVisitedModule = modules.serialNumber;
+      this.module = this.course.modules[lastModuleIndex + 1];
+      this.currentVideo = this.module.chapters[0];
+      this.enrollmentCourseStatus.lastVisitedModule = this.module.serialNumber;
       this.enrollmentCourseStatus.lastVisitedChapter = this.currentVideo.serialNumber;
-      this.createCourseStatus(modules, this.currentVideo);
+      this.createCourseStatus(this.module, this.currentVideo);
     } else {
       this.enrollmentCourseStatus.status = IStatus.COMPLETED;
       console.log('course completed');
@@ -149,7 +157,12 @@ export class VideoDetailComponent implements OnInit {
     return index === -1 ? 0 : index;
   }
 
-  createCourseStatus(module: IModuleStatus, chapter: IChapterStatus) {
+  getEnrollModule(serialNumber: number): IModuleStatus | undefined {
+    return this.enrollmentCourseStatus.modules.find(module => module.serialNumber === serialNumber);
+  }
+
+  createCourseStatus(module: IModule, chapter: IChapterStatus) {
+    const erollModule = this.getEnrollModule(module.serialNumber);
     this.courseStatus = {
       courseId: this.course.courseId,
       watchedDuration: 0,
@@ -163,6 +176,8 @@ export class VideoDetailComponent implements OnInit {
           serialNumber: module.serialNumber,
           watchedDuration: 0,
           status: IStatus.IN_PROGRESS,
+          quizScore: erollModule?.quizScore || 0,
+          quizStatus: erollModule?.quizStatus || IStatus.IN_PROGRESS,
           chapters:[{
             serialNumber: chapter.serialNumber,
             watchedDuration: 0,
@@ -196,5 +211,9 @@ export class VideoDetailComponent implements OnInit {
     data.chapter.watchedDuration = 0;
     this.createCourseStatus(data.module, data.chapter);
     this.onVideoChange(data.chapter);
+  }
+
+  onPlayNextVideo() {
+    this.onVideoEnded();
   }
 }

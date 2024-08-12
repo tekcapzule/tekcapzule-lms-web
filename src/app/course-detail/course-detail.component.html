@@ -93,17 +93,6 @@
 <ng-container *ngIf="!spinner.isLoading">
   <div *ngIf="course">
     <div class="course-wrapper">
-      <!--div class="back-link">
-      <div class="card flex justify-content-center gap-2">
-          <p-toast position="top-center" key="tc"></p-toast>
-      </div>
-      
-      <div class="course-wrapper">
-          <!--div class="back-link">
-              <a class="url-link" [routerLink]="['/skill-dashboard']">SkillStudio</a>
-              <a *ngIf="pageId !=='Skill_Studio'" class="url-link" [routerLink]="['/ai-hub/courses']">Courses</a>
-              <span>{{learningMt.title}}</span>
-          </!--div-->
       <div class="banner">
         <div class="col-9 pe-5">
           <h1>
@@ -357,23 +346,16 @@
               alt="course thumbnail"
             />
             <div class="px-3 pt-3">
-              <button
-                *ngIf="isUserLoggedIn && !isCourseEnrolled"
-                class="btn secondary-btn w-100 mb-4"
-                (click)="onEnrollCourse()"
-              >
+              <button *ngIf="isUserLoggedIn && !isCourseEnrolled" class="btn secondary-btn w-100 mb-4"
+                (click)="onEnrollCourse()">
                 Enroll
               </button>
+              <button *ngIf="isUserLoggedIn && isCourseEnrolled" class="btn secondary-btn w-100 mb-4"
+                (click)="onStartCourse()">
+                Start
+              </button>
+              
               <h3>Instructors</h3>
-              <!--div-- *ngFor="let author of course.authors" class="instructors">
-                              <h3 class="profile-name">
-                                  {{author.name.split(" ")[0].charAt(0)}}{{author.name.split(" ")[1].charAt(0)}}
-                              </h3>
-                              <div>
-                                  <h4>{{author.name}}</h4>
-                                  <p>{{author.title}}</p>
-                              </div>
-                          </!--div-->
               <div class="instructors">
                 <h3 class="profile-name">
                   {{ course.author.split(' ')[0].charAt(0) }}

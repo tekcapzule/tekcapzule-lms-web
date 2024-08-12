@@ -17,7 +17,7 @@ const COURSE_GETALL_COURSE_CACHE_KEY = 'com.tekcapzule.course.allcourses';
 })
 export class CourseApiService {
   courses: ICourseDetail[] = [];
-  currentCourse: ICourseDetail;
+  currentCourse: ICourseDetail | null;
 
   constructor(private httpClient: HttpClient) {}
 

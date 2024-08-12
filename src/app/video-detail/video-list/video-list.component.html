@@ -10,7 +10,7 @@
           <div *ngFor="let module of course.modules; let i = index" class="accordion-item">
             <h2 class="accordion-header p-0 px-0"  [id]="'module' + i">
               <button class="accordion-button gap-4 px-2 py-3 rounded-0 grid m-0 align-items-start text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  <div class="video-no border ratio ratio-1x1 border-3 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"> 1 </div>
+                  <div class="video-no border ratio ratio-1x1 border-3 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"> {{i + 1}} </div>
                   <div class="video-list-detail">
                       <h4 class="m-0">{{module.name | titlecase}}  {{module.duration | secToMin}} min</h4>
                   </div>
@@ -32,8 +32,12 @@
                   </ng-container>
                   <button *ngIf="module.quiz" type="button" class="video-list-inner position-relative border-0 gap-4 px-2 py-3 w-100 align-items-start text-start"
                     (click)="openQuiz(i)">
-                    <div class="rounded notes-icon"></div>
-                    <div>{{module.quiz.questions.length}} </div>
+                    <div role="progressbar" class="playlist-progress" [attr.aria-valuenow]="courseStatus.modules[0].quizStatus === 'Completed' ? 100 : 0" aria-valuemin="0" aria-valuemax="100" style="--value: {{courseStatus.modules[0].quizStatus === 'Completed' ? 100 : 0}}">
+                      <div class="rounded notes-icon p-0 border ratio ratio-1x1 border-0 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"></div>
+                    </div>
+                   
+                    <!--div class="rounded notes-icon"></!--div-->
+                    <div>Quiz ({{module.quiz.questions.length}}) </div>
                     <div class="video-list-icon">  </div>
                   </button>
 

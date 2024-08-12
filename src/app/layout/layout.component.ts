@@ -6,6 +6,7 @@ import { signOut } from 'aws-amplify/auth';
 import { AuthStateService } from '@app/core/services';
 import { deleteAuthStateFromStore } from '@app/shared/utils';
 import { Checkbox } from 'primeng/checkbox';
+import { CourseApiService } from '@app/core';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -18,7 +19,8 @@ export class LayoutComponent
   constructor(
     public override authStateService: AuthStateService,
     private router: Router,
-    private renderer: Renderer2 
+    private renderer: Renderer2,
+    private courseService: CourseApiService
   ) {
     super(authStateService);
   }
@@ -48,6 +50,7 @@ export class LayoutComponent
 
   signOutUser() {
     signOut().then(() => {
+      this.courseService.currentCourse = null;
       deleteAuthStateFromStore();
       this.authStateService.resetAuthState();
       this.router.navigateByUrl('/auth/login');

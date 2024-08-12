@@ -10,12 +10,14 @@ import { DiscussionComponent } from './discussion/discussion.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { VideoListComponent } from './video-list/video-list.component';
 import { SecondsToMinutesPipe } from '@app/core/pipe/seconds-to-minutes.pipe';
+import { QuizComponent } from '@app/quiz/quiz.component';
 
 @NgModule({
   declarations: [
     VideoDetailComponent,
     OverviewComponent,
     ResourceComponent,
+    QuizComponent,
     DiscussionComponent,
     AnnouncementComponent,
     VideoListComponent,

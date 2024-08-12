@@ -40,10 +40,6 @@ export class CoursesComponent {
     this.getAllCourse();
   }
 
-  formatCount(count: number): string {
-    return count < 10 ? '0' + count : count.toString();
-  }
-
   getAllCourse() {
     this.spinner.show();
     this.courseApi
@@ -55,14 +51,16 @@ export class CoursesComponent {
         data => {
           this.wishlistList = data;
           this.filteredList = data;
-          data.forEach(course => {
-            let courseStatus = this.getCourseStatus(course.courseId);
-            if (courseStatus?.course.status === IStatus.COMPLETED) {
-              this.completeList.push(course);
-            } else {
-              this.activeList.push(course);
-            }
-          });
+          if(this.courseStatus) {
+            data.forEach(course => {
+              let courseStatus = this.getCourseStatus(course.courseId);
+              if (courseStatus?.course.status === IStatus.COMPLETED) {
+                this.completeList.push(course);
+              } else {
+                this.activeList.push(course);
+              }
+            });
+          }
         },
         err => {}
       );

@@ -64,11 +64,6 @@ export class DashboardComponent implements OnInit {
     this.courseApi.getCourse(courseIds).subscribe(courses => {
       this.courseList = courses;
       this.courseApi.courses = courses;
-      this.messageService.add({
-        key: 'tc',
-        severity: 'success',
-        detail: 'Course Loaded successfully',
-      });
       this.courseList.forEach(course => {
         if(course) {
           course.watchedDuration = this.getWatchedDuration(course.courseId);

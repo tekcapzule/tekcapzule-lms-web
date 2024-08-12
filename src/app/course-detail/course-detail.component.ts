@@ -65,12 +65,16 @@ export class CourseDetailComponent implements OnInit {
   onEnrollCourse() {
     this.dashboardApi.enrollCourse(this.course.courseId).subscribe(data => {
       console.log('enrollCourse', data);
+      this.isCourseEnrolled = true;
       this.messageService.add({
         key: 'tc',
         severity: 'success',
         detail: 'Thank you for Enrolling!',
       });
-      
     })
+  }
+
+  onStartCourse() {
+    this.router.navigateByUrl('/lms/video-detail/'+this.course.courseId);    
   }
 }
