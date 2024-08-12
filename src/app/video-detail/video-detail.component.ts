@@ -158,7 +158,7 @@ export class VideoDetailComponent implements OnInit {
   }
 
   getEnrollModule(serialNumber: number): IModuleStatus | undefined {
-    return this.enrollmentCourseStatus.modules.find(module => module.serialNumber === serialNumber);
+    return this.enrollmentCourseStatus?.modules?.find(module => module.serialNumber === serialNumber);
   }
 
   createCourseStatus(module: IModule, chapter: IChapterStatus) {
