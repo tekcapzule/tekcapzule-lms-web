@@ -115,13 +115,15 @@ export class VideoDetailComponent implements OnInit {
       this.createCourseStatus(this.module, this.currentVideo);
     } else if((lastChapterIndex + 1) < this.module.chapters.length) {
       this.currentVideo = this.module.chapters[lastChapterIndex + 1];
-      console.log('same module ---- ',lastModuleIndex, this.currentVideo);
+      console.log('same module ---- ', lastModuleIndex, this.currentVideo);
       if(this.currentVideo.status === IStatus.COMPLETED) {
         this.currentVideo.watchedDuration = 0;
       }
       this.enrollmentCourseStatus.lastVisitedChapter = this.currentVideo.serialNumber;
       this.createCourseStatus(this.module, this.currentVideo);
-    } else if((lastChapterIndex + 1) == this.module.chapters.length && erollModule?.quizStatus !== 'Completed') {
+    } else if((lastChapterIndex === this.module.chapters.length - 1) && erollModule?.quizStatus !== 'Completed') {
+      this.currentVideo = this.module.chapters[lastChapterIndex];
+      this.createCourseStatus(this.module, this.currentVideo);
       this.isQuizPage = true;
     } else if((lastModuleIndex + 1) < this.course.modules.length) {
       console.log('next module ---- ', lastModuleIndex + 1, this.currentVideo);

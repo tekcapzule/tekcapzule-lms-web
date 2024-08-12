@@ -9,10 +9,12 @@
                   <li class="breadcrumb-item"> <a href="javascript:void(0)" class="text-decoration-none"> Neural Networks and Deep Learning </a> </li>
                 </ol>
               </nav>
-            <div class="mb-4 video-js-container">
+            <div [ngClass]="{'hide-video': isQuizPage}" class="mb-4 video-js-container">
                 <!-- <img src="assets/video-img.jpg" alt="" class="d-flex"> -->
                 <app-video-player *ngIf="!isQuizPage" #videoPlayer [options]="options" [course]="course" (playerReady)="onPlayerReady()" (videoEnded)="onVideoEnded()"></app-video-player>
-                <app-video-player *ngIf="isQuizPage" #videoPlayer [options]="options" [course]="course" (playerReady)="onPlayerReady()" (videoEnded)="onVideoEnded()"></app-video-player>
+            </div>
+            <div [ngClass]="{'hide-quiz': !isQuizPage}" class="mb-4 video-js-container">
+                <app-quiz *ngIf="isQuizPage" #quizPlayer [course]="course" [isVideoPlaying]="true" [courseStatus]="courseStatus" [module]="module" (playNextVideo)="onPlayNextVideo()"></app-quiz>
             </div>
 
            <div>

@@ -18,6 +18,7 @@ import { AuthProvider } from '@aws-amplify/auth/dist/esm/types/inputs';
 import { AbstractBaseAuth } from '@app/auth/base-auth';
 import { AuthStateService } from '@app/core/services';
 import { OAuth2Provider } from '@app/shared/models';
+import { InitService } from '@app/core/services/app-state/init.service';
 
 interface LoginFormType {
   email: FormControl<string | null>;
@@ -45,7 +46,8 @@ export class LoginComponent
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    public override authStateService: AuthStateService
+    public override authStateService: AuthStateService,
+    private initService: InitService
   ) {
     super(authStateService);
 
@@ -76,7 +78,9 @@ export class LoginComponent
   }
 
   override signedInCallback(): void {
-    this.router.navigateByUrl('/lms/dashboard');
+    this.initService.loadConfig().then(() => {
+      this.router.navigateByUrl('/lms/dashboard');
+    });
   }
 
   onLoginFormSubmit(event: Event) {

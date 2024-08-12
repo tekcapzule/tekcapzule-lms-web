@@ -13,6 +13,7 @@ export class VideoListComponent implements OnInit {
   @Input() courseStatus: ICourseStatus;
   @Output() videoSelect = new EventEmitter<any>();
   math = Math;
+  completedQuizCount = 0;
   
   constructor(private router: Router) {}
 

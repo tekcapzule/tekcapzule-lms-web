@@ -7,6 +7,12 @@
     height: auto;
     //max-height: 550px !important;
 }
+.hide-video {
+    display: none;
+}
+.hide-quiz {
+    display: none;
+}
 .video-detail-row {
     min-height: calc(100vh - 10.5rem);
 }

@@ -25,6 +25,7 @@ export class QuizComponent implements OnInit {
   currentQuestion: IQuestion;
   isVideoListPage: boolean;
   isQuizAvailable: boolean;
+  @Input() isVideoPlaying: boolean;
   @Input() course: ICourseDetail;
   @Input() module: IModule;
   @Input() courseStatus: ICourseStatus;
