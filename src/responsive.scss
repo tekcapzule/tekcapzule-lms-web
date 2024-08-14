@@ -1,17 +1,193 @@
 
- @media screen and (max-width: 1512px) and (min-width: 1366px) {
-	body {
-		zoom: 85%;
-	}
-  }
-  @media screen and (max-width: 1512px) {
-	body {
-		zoom: 79%;
-	}
-}
+//  @media screen and (max-width: 1512px) and (min-width: 1366px) {
+// 	body {
+// 		zoom: 85%;
+// 	}
+//   }
+//   @media screen and (max-width: 1512px) {
+// 	body {
+// 		zoom: 79%;
+// 	}
+// }
 
-@media screen and (max-width: 1366px) {
-	body {
-		zoom: 72%;
+// @media screen and (max-width: 1366px) {
+// 	body {
+// 		zoom: 72%;
+// 	}
+// }
+
+ @media screen and (max-width: 1512px) and (min-width: 1366px) {
+	body, .table > thead {
+		font-size: 12px !important;
 	}
-}
+
+		.fs-3 {
+			font-size: 1.2rem !important;
+		}
+		.fs-5 {
+			font-size: 16px !important;
+		}
+		
+		section .events ul li 
+		{
+			height: 55px !important;
+			.time {
+				h2 {
+					font-size: 16px !important;
+					span {
+						font-size: 12px !important;
+					}
+				}
+			}
+		}
+		p, .primary-btn, .primary-btn-filled,
+		.details p, h2, h4,
+		.secondary-heading, .course-card .course-info .course-status label
+		 {
+			font-size: 12px !important;
+			line-height: 18px;
+		}
+		h3, .primary-heading, .nav-tabs .nav-link, .fs-6, .quiz-wrapper .quiz-question {
+			font-size: 14px !important;
+		}
+		.p-3, .gray-txt, .course-card .course-footer,
+		.sidebar ul > li > a
+		{
+			font-size: 10px !important;
+		}
+		.tasks .task-desc {
+			min-height: 30px;
+		}
+		.statistics {
+			h2 {
+				font-size: 14px !important;
+			}	
+			.p-3 {
+				padding: 10px 1rem!important;
+			}	  
+			.box {
+			  .overdue-icon,
+			  .inprogress-icon,
+			  .completed-icon,
+			  .scored-icon {
+				background-repeat: no-repeat;
+				height: 30px !important;
+				width: 32px !important;
+			  }
+			  .overdue-icon {
+				background-size: 75%;
+			  }
+		  
+			  .inprogress-icon {
+				background-size: 92%;
+			  }
+			  .completed-icon {
+				background-size: 90%;
+			  }
+			  .scored-icon {
+				background-size: 82%;
+			  }
+		  
+			  p {
+				color: var(--secondary-color);
+			  }
+			}
+		  }
+	.ms-3 {
+		margin-left: 10px !important;
+	}
+	.course-wrapper {
+		padding: 25px !important;
+		h1 {
+			font-size: 25px !important;
+		}
+		h2 {
+			font-size: 16px !important;
+		}
+		.course-card {
+			width: 293px;
+			height: 260px;
+			.course-img {
+				height: 120px !important;
+			}
+			.course-info {
+				min-height: 90px;
+			}
+		}
+		.inner-container {
+			padding: 25px;
+			.col-9 {
+				width: 72%;
+			}
+		}
+		.banner {
+			min-height: 250px;
+			padding: 40px;
+		}
+		.enroll-container .enroll-sec 
+		{
+			width: 315px !important;
+		}
+		.course-status label {
+			font-size: 12px;
+		}
+		.course-series .course-card 
+		{
+			width: 320px !important;
+			.course-img {
+				width: 305px !important;
+			}
+			.course-status label {
+				font-size: 12px;
+				margin-right: 15px !important;
+			}
+		}
+		.learning-desc li {
+			margin-right: 80px !important;
+		}
+	}
+	.sidebar {
+		width: 80px !important;
+	}
+	main {
+		margin-left: 80px;
+	}
+	.search input {
+		font-size: 10px;
+	}
+	div[role=progressbar] {
+		--size: 50px;
+	}
+	.quick-links li, .poll .options {
+		height: 32px;
+	}
+	.dashboard-banner {
+		padding: 40px 10px !important;
+		.dashboard-banner {
+			right: 25% !important;
+		}
+	}
+	.course-card.full-width {
+		height: 151px;
+		.course-img {
+			height: 135px;
+			img {
+				height: 135px;
+			}
+		}
+	}
+	.instructors {
+		gap: 10px;
+		h3 {
+			margin-bottom: 0 !important;
+		}
+		.profile-name {
+			height: 35px;
+			width: 35px;
+			margin-right: 0;
+		}
+	}
+	.task-bg p {
+		margin-bottom: 0;
+	}
+ }

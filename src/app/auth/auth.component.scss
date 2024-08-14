@@ -58,3 +58,10 @@ a:hover {
   left: 7%;
   background-size: 100%;
 }
+
+@media screen and (max-width: 1512px) and (min-width: 1366px) {  
+  .form-bg {
+    padding: 70px;
+    width: 490px;
+  }
+}
