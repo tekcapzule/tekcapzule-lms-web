@@ -88,3 +88,33 @@
   border-bottom-right-radius: 30px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1512px) and (min-width: 1366px) { 
+  .form-bg {
+    width: 525px !important;
+  }
+  h2 {
+    font-size: 16px !important;
+  }
+  .form-control {
+    height: 40px;
+    font-size: 12px ;
+  }
+  .forgot-pass, .sign-up {
+    font-size: 12px ;
+  }
+  .btn {
+    height: 40px;
+    font-size: 14px;
+  }
+  .signup-wrapper {
+    width: 350px !important;
+  }
+  .input-error-text {
+    font-size: 12px;
+  }
+  .input-group-text {
+    height: 40px;
+
+  }
+}
