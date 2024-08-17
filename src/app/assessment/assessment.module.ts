@@ -6,7 +6,7 @@ import { AssessmentComponent } from './assessment.component';
 import { SafePipe } from '@app/core/pipe/safe.pipe';
 
 @NgModule({
-  declarations: [AssessmentComponent, SafePipe],
+  declarations: [SafePipe],
   imports: [CommonModule, AssessmentRoutingModule],
 })
 export class AssessmentModule {}

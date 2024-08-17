@@ -1,55 +1,60 @@
 <div *ngIf="course" id="wrapper">
     <div *ngIf="!isPDFLoaded">
 
-        <div class="back-link p-2 ps-4">
-            <a class="url-link" [routerLink]="['/lms/video-detail/'+ course.courseId]">{{course.title}}</a>
-            <span> > Assessment</span>
-        </div>
         <div class="quiz-component">
-          <div class="quiz-wrapper">
-        <div *ngIf="quiz && !quizFinished;">
-            <h2>Question {{ currentQuestionIndex + 1 }}:</h2>
-            <p class="quiz-question">{{ questions[currentQuestionIndex].questionText }}</p>
-            <ul class="quiz-list">
-                <li *ngFor="let option of questions[currentQuestionIndex].options">
-                    <input class="pr-3" type="radio" [id]="option.id" [value]="option.id" name="option" (change)="onOptionSelect(option.id)">
-                    <label [for]="option">{{ option.name }}</label>
-                </li>
-            </ul>
-
-            <div class="my-3 pt-4">
-                <button class="me-3 btn primary-btn" *ngIf="currentQuestionIndex > 0" (click)="lastQuestion()"
-                    [disabled]="!isAnswerSelected">Back</button>
-                <button class="me-3 btn primary-btn" *ngIf="currentQuestionIndex < this.questions.length - 1" (click)="nextQuestion()"
-                    [disabled]="!answer">Next</button>
-                <button class="me-3 btn primary-btn" *ngIf="currentQuestionIndex === this.questions.length - 1" (click)="submitAnswer()"
-                    [disabled]="!answer">Submit Answer</button>
-            </div>
-        </div>
-
-        <div *ngIf="quizFinished && !isPDFLoaded">
-            <h2>Result: <span [ngStyle]="{ 'color': quizResult.passed ? 'green' : 'red' }">{{quizResult.passed ? 'Pass': 'Fail'}}</span></h2>
-            <h2>Your Score: {{quizResult.scorePercentage ? quizResult.scorePercentage.toFixed(2) : 0}}</h2>
-
-            <ng-container *ngFor="let question of questions; let i = index;">
-                <div *ngIf="question.correctAnswer[0] !== validateRequestBody.userAnswers[i].selectedAnswers[0]">
-                    <p>{{ question.questionText }}</p>
-
+            <div class="quiz-wrapper">
+                <h1>Assessment</h1>
+                <div *ngIf="quiz && !quizFinished;">
+                    <h2>Question {{ currentQuestionIndex + 1 }}:</h2>
+                    <p class="quiz-question">{{ questions[currentQuestionIndex].questionText }}</p>
                     <ul class="quiz-list">
-                        <li *ngFor="let option of question.options">
-                            <input class="pr-3" type="radio" [id]="option.id" [value]="option.id" name="option" (change)="onOptionSelect(option.id)">
+                        <li *ngFor="let option of questions[currentQuestionIndex].options">
+                            <input class="pr-3" type="radio" [id]="option.id" [value]="option.id" name="option" [checked]="this.answer?.selectedAnswers[0] === option.id"
+                                (change)="onOptionSelect(option.id)">
                             <label [for]="option">{{ option.name }}</label>
                         </li>
                     </ul>
-                </div>
-            </ng-container>
 
-            <button class="me-3 btn primary-btn" (click)="onBack()">Back</button>
-            <button class="me-3 btn primary-btn" *ngIf="quizResult.scorePercentage < 100" (click)="restartQuiz()">Retake Quiz</button>
-            <button class="me-3 btn primary-btn" *ngIf="quizResult.passed" (click)="loadCertificate()">View Certificate</button>
+                    <div class="my-3 pt-4">
+                        <button class="me-3 btn primary-btn" *ngIf="currentQuestionIndex > 0" (click)="lastQuestion()"
+                            [disabled]="!isAnswerSelected">Back</button>
+                        <button class="me-3 btn primary-btn" *ngIf="currentQuestionIndex < this.questions.length - 1"
+                            (click)="nextQuestion()" [disabled]="!answer">Next</button>
+                        <button class="me-3 btn primary-btn" *ngIf="currentQuestionIndex === this.questions.length - 1"
+                            (click)="submitAnswer()" [disabled]="!answer">Submit Answer</button>
+                    </div>
+                </div>
+
+                <div *ngIf="quizFinished && !isPDFLoaded">
+                    <h2>Result: <span [ngStyle]="{ 'color': quizResult.passed ? 'green' : 'red' }">{{quizResult.passed ?
+                            'Pass': 'Fail'}}</span></h2>
+                    <h2>Your Score: {{quizResult.scorePercentage ? quizResult.scorePercentage.toFixed(2) : 0}}</h2>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h2>Wrong Answer:</h2>
+                        <ng-container *ngFor="let question of questions; let i = index;">
+                            <div
+                                *ngIf="question.correctAnswer[0] !== validateRequestBody.userAnswers[i].selectedAnswers[0]">
+                                <p>{{ question.questionText }}</p>
+
+                                <ul class="quiz-list">
+                                    <li *ngFor="let option of question.options" [ngClass]="{'wrong-answer': validateRequestBody.userAnswers[i].selectedAnswers[0] === option.id}">
+                                        <input class="pr-3" type="radio" [id]="option.id" [value]="option.id" name="option"
+                                            (change)="onOptionSelect(option.id)" disabled [checked]="validateRequestBody.userAnswers[i].selectedAnswers[0] === option.id">
+                                        <label [for]="option">{{ option.name }}</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ng-container>
+                    <button *ngIf="!quizFinished" class="me-3 btn primary-btn" (click)="onBack()">Back</button>
+                    <button class="me-3 btn primary-btn" *ngIf="quizResult.scorePercentage < 100"
+                        (click)="restartQuiz()">Retake Quiz</button>
+                    <button class="me-3 btn primary-btn" *ngIf="quizResult.passed" (click)="loadCertificate()">View
+                        Certificate</button>
+                </div>
+            </div>
         </div>
-</div>
-</div>
     </div>
 
 

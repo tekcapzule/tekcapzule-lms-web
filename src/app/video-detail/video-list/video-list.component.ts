@@ -12,10 +12,12 @@ export class VideoListComponent implements OnInit {
   @Input() course: ICourseDetail;
   @Input() courseStatus: ICourseStatus;
   @Output() videoSelect = new EventEmitter<any>();
+  @Output() playQuiz = new EventEmitter<number>();
+  @Output() playAssessment = new EventEmitter();
   math = Math;
   completedQuizCount = 0;
   
-  constructor(private router: Router) {}
+  constructor() {}
 
   ngOnInit(): void {
     console.log('courseStatus', this.courseStatus);
@@ -26,7 +28,11 @@ export class VideoListComponent implements OnInit {
   }
 
   openQuiz(moduleIndex: number) {
-    this.router.navigateByUrl(`lms/quiz/${this.course.courseId}/${moduleIndex}`);
+    this.playQuiz.emit(moduleIndex);
+  }
+
+  openAssessment() {
+    this.playAssessment.emit();
   }
 
 }

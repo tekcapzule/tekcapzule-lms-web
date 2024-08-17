@@ -9,12 +9,15 @@
                   <li class="breadcrumb-item"> <a href="javascript:void(0)" class="text-decoration-none"> Neural Networks and Deep Learning </a> </li>
                 </ol>
               </nav>
-            <div [ngClass]="{'hide-video': isQuizPage}" class="mb-4 video-js-container">
+            <div [ngClass]="{'hide-video': currenPage !== 'Video'}" class="mb-4 video-js-container">
                 <!-- <img src="assets/video-img.jpg" alt="" class="d-flex"> -->
-                <app-video-player *ngIf="!isQuizPage" #videoPlayer [options]="options" [course]="course" (playerReady)="onPlayerReady()" (videoEnded)="onVideoEnded()"></app-video-player>
+                <app-video-player #videoPlayer [options]="options" [course]="course" (playerReady)="onPlayerReady()" (videoEnded)="onVideoEnded()"></app-video-player>
             </div>
-            <div [ngClass]="{'hide-quiz': !isQuizPage}" class="mb-4 video-js-container">
-                <app-quiz *ngIf="isQuizPage" #quizPlayer [course]="course" [isVideoPlaying]="true" [courseStatus]="courseStatus" [module]="module" (playNextVideo)="onPlayNextVideo()"></app-quiz>
+            <div [ngClass]="{'hide-quiz': currenPage !== 'Quiz'}" class="mb-4 video-js-container">
+                <app-quiz *ngIf="currenPage === 'Quiz'" #quizPlayer [course]="course" [isVideoPlaying]="true" [courseStatus]="courseStatus" [module]="module" (playNextVideo)="onPlayNextVideo()"></app-quiz>
+            </div>
+            <div [ngClass]="{'hide-assessment': currenPage !== 'Assessment'}" class="mb-4 video-js-container">
+                <app-assessment *ngIf="currenPage === 'Assessment'" #assessmentPlayer [course]="course" [courseStatus]="courseStatus"></app-assessment>
             </div>
 
            <div>
@@ -60,7 +63,7 @@
         </div>
 
         <div class="col-3 video-detail-list p-0">
-            <app-video-list [course]="course" [courseStatus]="courseStatus" (videoSelect)="onVideoSelect($event)"></app-video-list>
+            <app-video-list [course]="course" [courseStatus]="courseStatus" (videoSelect)="onVideoSelect($event)" (playQuiz)="onPlayQuiz($event)" (playAssessment)="onPlayAssessment()"></app-video-list>
         </div>
     </div>
 </section>
