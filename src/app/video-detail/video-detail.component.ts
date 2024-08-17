@@ -25,7 +25,7 @@ export class VideoDetailComponent implements OnInit {
   isVideoPlaying: boolean;
   courseStatus: ICourseStatus;
   enrollmentCourseStatus: ICourseStatus;
-  isQuizPage: boolean;
+  currenPage: ''| 'Video' | 'Quiz' | 'Assessment';
   module: IModule;
 
   constructor(
@@ -64,6 +64,7 @@ export class VideoDetailComponent implements OnInit {
     this.enrollmentCourseStatus = enrollment.course; 
     this.updateCourse(); 
     this.getPlayVideo();
+    console.log('curren ', this.currenPage);
   }
 
   updateCourse() {
@@ -94,7 +95,7 @@ export class VideoDetailComponent implements OnInit {
   }
 
   getPlayVideo() {
-    this.isQuizPage = false;
+    this.currenPage = '';
     this.currentVideo = null;
     this.course.duration = 0;
     if(this.enrollmentCourseStatus.lastVisitedModule === 0 || this.enrollmentCourseStatus.lastVisitedChapter === 0) {
@@ -102,6 +103,7 @@ export class VideoDetailComponent implements OnInit {
       this.enrollmentCourseStatus.lastVisitedModule = this.course.modules[0].serialNumber; 
       this.enrollmentCourseStatus.lastVisitedChapter = this.course.modules[0].chapters[0].serialNumber;
       this.createCourseStatus(this.course.modules[0], this.currentVideo);
+      this.currenPage = 'Video';
       return;
     }
     let lastModuleIndex = this.getIndex(this.course.modules, this.enrollmentCourseStatus.lastVisitedModule);
@@ -113,6 +115,7 @@ export class VideoDetailComponent implements OnInit {
       this.currentVideo = chapter;
       console.log('not complete ---- ', lastModuleIndex, this.currentVideo);
       this.createCourseStatus(this.module, this.currentVideo);
+      this.currenPage = 'Video';
     } else if((lastChapterIndex + 1) < this.module.chapters.length) {
       this.currentVideo = this.module.chapters[lastChapterIndex + 1];
       console.log('same module ---- ', lastModuleIndex, this.currentVideo);
@@ -121,10 +124,11 @@ export class VideoDetailComponent implements OnInit {
       }
       this.enrollmentCourseStatus.lastVisitedChapter = this.currentVideo.serialNumber;
       this.createCourseStatus(this.module, this.currentVideo);
+      this.currenPage = 'Video';
     } else if((lastChapterIndex === this.module.chapters.length - 1) && erollModule?.quizStatus !== 'Completed') {
       this.currentVideo = this.module.chapters[lastChapterIndex];
       this.createCourseStatus(this.module, this.currentVideo);
-      this.isQuizPage = true;
+      this.currenPage = 'Quiz';
     } else if((lastModuleIndex + 1) < this.course.modules.length) {
       console.log('next module ---- ', lastModuleIndex + 1, this.currentVideo);
       this.module = this.course.modules[lastModuleIndex + 1];
@@ -132,6 +136,10 @@ export class VideoDetailComponent implements OnInit {
       this.enrollmentCourseStatus.lastVisitedModule = this.module.serialNumber;
       this.enrollmentCourseStatus.lastVisitedChapter = this.currentVideo.serialNumber;
       this.createCourseStatus(this.module, this.currentVideo);
+      this.currenPage = 'Video';
+    } else if(this.enrollmentCourseStatus.assessmentStatus !== 'Completed') {
+      this.currenPage = 'Assessment';
+      this.openAssessment();
     } else {
       this.enrollmentCourseStatus.status = IStatus.COMPLETED;
       console.log('course completed');
@@ -152,6 +160,10 @@ export class VideoDetailComponent implements OnInit {
     });*/
   }
 
+  openAssessment() {
+
+  }
+
   getIndex(items: IModule[] | IChapter[], serialNumber: number): number {
     const index = items.findIndex(item => item.serialNumber === serialNumber);
     return index === -1 ? 0 : index;
@@ -169,8 +181,8 @@ export class VideoDetailComponent implements OnInit {
       status: this.enrollmentCourseStatus.status || IStatus.IN_PROGRESS,
       lastVisitedModule: module.serialNumber,
       lastVisitedChapter: chapter.serialNumber,
-      quizScore: this.enrollmentCourseStatus.quizScore || 0,
-      quizStatus: this.enrollmentCourseStatus.quizStatus,
+      assessmentScore: this.enrollmentCourseStatus.assessmentScore || 0,
+      assessmentStatus: this.enrollmentCourseStatus.assessmentStatus,
       modules: [
         {
           serialNumber: module.serialNumber,
@@ -198,13 +210,21 @@ export class VideoDetailComponent implements OnInit {
   onVideoEnded() {
     this.currentVideo = null;
     this.getPlayVideo();
-    if(this.currentVideo) {
+    if(this.currenPage === 'Video' && this.currentVideo) {
       this.onVideoChange(this.currentVideo);
     }
   }
 
   onVideoChange(chapter: IChapter) {
     this.videoPlayer.changeVideo(this.course, this.courseStatus, chapter);
+  }
+
+  onPlayQuiz(moduleIndex: number) {
+
+  }
+
+  onPlayAssessment() {
+    this.currenPage = 'Assessment';
   }
 
   onVideoSelect(data: any) {

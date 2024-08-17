@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { CourseApiService } from '@app/core';
@@ -6,6 +6,7 @@ import { AuthStateService } from '@app/core/services';
 import { InitService } from '@app/core/services/app-state/init.service';
 import { ICourseDetail, IOption, IQuestion, IQuiz } from '@app/shared/models';
 import { IUserAnswer, IValidateQuiz } from '@app/shared/models/quiz.model';
+import { ICourseStatus } from '@app/shared/models/user-item.model';
 
 @Component({
   selector: 'app-assessment',
@@ -22,7 +23,8 @@ export class AssessmentComponent implements OnInit {
   validateRequestBody: IValidateQuiz;
   isAnswerSelected: boolean;
   quizResult: any;
-  course: ICourseDetail;
+  @Input() course: ICourseDetail;
+  @Input() courseStatus: ICourseStatus;
   pdfSource: SafeResourceUrl;
   isPDFLoaded: boolean;
   answer: any;
@@ -35,21 +37,7 @@ export class AssessmentComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      if(this.courseApi.currentCourse && this.courseApi.currentCourse.courseId === params['code']) {
-        this.course = this.courseApi.currentCourse;
-        this.loadQuizData();
-      } else {
-        this.getCourse(params['code']);
-      }
-    });
-  }
-
-  getCourse(courseId: string) {
-    this.courseApi.getCourse([courseId]).subscribe((data) => {
-      this.course = data[0];
-      this.loadQuizData();
-    });
+    this.loadQuizData();
   }
 
   loadQuizData() {
