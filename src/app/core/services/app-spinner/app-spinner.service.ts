@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 
+import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppSpinnerService {
-  private isSpinnerShown = false;
+  showSpinner = false;
+  private spinnerChange$ = new BehaviorSubject<boolean>(this.showSpinner);
 
   constructor() {}
 
@@ -16,11 +18,16 @@ export class AppSpinnerService {
     this.setSpinner(false);
   }
 
-  get isLoading(): boolean {
-    return this.isSpinnerShown;
+  private setSpinner(showSpinner: boolean): void {
+    this.showSpinner = showSpinner;
+    this.spinnerChange$.next(this.showSpinner);
   }
 
-  private setSpinner(flag: boolean): void {
-    this.isSpinnerShown = flag;
+  public onSpinnerChange$(): Observable<boolean> {
+    return this.spinnerChange$.asObservable();
+  }
+
+  public get isLoading(): boolean {
+    return this.showSpinner;
   }
 }

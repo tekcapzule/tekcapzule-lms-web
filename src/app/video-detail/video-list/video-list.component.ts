@@ -12,23 +12,27 @@ export class VideoListComponent implements OnInit {
   @Input() course: ICourseDetail;
   @Input() courseStatus: ICourseStatus;
   @Output() videoSelect = new EventEmitter<any>();
-  @Output() playQuiz = new EventEmitter<number>();
+  @Output() playQuiz = new EventEmitter<IModule>();
   @Output() playAssessment = new EventEmitter();
+  quizStatus: any = {};
   math = Math;
   completedQuizCount = 0;
   
   constructor() {}
 
   ngOnInit(): void {
-    console.log('courseStatus', this.courseStatus);
+    this.courseStatus.modules.forEach(module => {
+      this.quizStatus[module.serialNumber] = module.quizStatus;
+    });
+    console.log('quizStatus', this.courseStatus, this.quizStatus);
   }
 
   onChangeVideo(module: IModule, chapter: IChapter) {
     this.videoSelect.emit({module, chapter});
   }
 
-  openQuiz(moduleIndex: number) {
-    this.playQuiz.emit(moduleIndex);
+  openQuiz(module: IModule) {
+    this.playQuiz.emit(module);
   }
 
   openAssessment() {

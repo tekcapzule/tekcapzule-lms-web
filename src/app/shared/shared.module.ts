@@ -13,13 +13,15 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { CourseSkeletonComponent } from './components/course-skeleton/course-skeleton.component';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { SecondsToMinutesPipe } from '@app/core/pipe/seconds-to-minutes.pipe';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
     CourseSkeletonComponent,
     CourseCardComponent,
     DataFilterComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { SecondsToMinutesPipe } from '@app/core/pipe/seconds-to-minutes.pipe';
     CourseSkeletonComponent,
     CourseCardComponent,
     DataFilterComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    SpinnerComponent
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]

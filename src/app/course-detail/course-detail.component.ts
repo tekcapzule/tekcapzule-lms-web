@@ -63,6 +63,7 @@ export class CourseDetailComponent implements OnInit {
   }
 
   onEnrollCourse() {
+    this.spinner.show();
     this.dashboardApi.enrollCourse(this.course.courseId).subscribe(data => {
       console.log('enrollCourse', data);
       this.isCourseEnrolled = true;
@@ -71,6 +72,9 @@ export class CourseDetailComponent implements OnInit {
         severity: 'success',
         detail: 'Thank you for Enrolling!',
       });
+      this.spinner.hide();
+    }, err => {
+      this.spinner.hide();
     })
   }
 

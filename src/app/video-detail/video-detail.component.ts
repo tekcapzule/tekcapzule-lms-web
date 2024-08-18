@@ -1,6 +1,7 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CourseApiService, DashboradApiService } from '@app/core';
+import { AppSpinnerService, CourseApiService, DashboradApiService } from '@app/core';
+import { QuizComponent } from '@app/quiz/quiz.component';
 import { VideoPlayerComponent } from '@app/shared/components/video-player/video-player.component';
 import { IChapter, ICourseDetail, IModule } from '@app/shared/models/course-item.model';
 import { IChapterStatus, ICourseStatus, IEnrollment, IModuleStatus, IStatus } from '@app/shared/models/user-item.model';
@@ -20,6 +21,7 @@ export class VideoDetailComponent implements OnInit {
     controls: true
   }
   @ViewChild('videoPlayer') videoPlayer: VideoPlayerComponent;
+  @ViewChild('quizPlayer') quizPlayer: QuizComponent;
   playerReady: boolean;
   currentVideo: IChapter | any;
   isVideoPlaying: boolean;
@@ -27,15 +29,18 @@ export class VideoDetailComponent implements OnInit {
   enrollmentCourseStatus: ICourseStatus;
   currenPage: ''| 'Video' | 'Quiz' | 'Assessment';
   module: IModule;
+  
 
   constructor(
-    private router: Router,
+    private cdr: ChangeDetectorRef,
     private courseApi: CourseApiService,
     private route: ActivatedRoute,
-    private dashboardApi: DashboradApiService
+    private dashboardApi: DashboradApiService,
+    private spinner: AppSpinnerService
   ) {}
 
   ngOnInit(): void {
+    this.spinner.show();
     this.route.params.subscribe(params => {
       this.getUserDetails(params['code']);
     });
@@ -52,10 +57,12 @@ export class VideoDetailComponent implements OnInit {
     if(this.courseApi.currentCourse && this.courseApi.currentCourse.courseId === enrollment.courseId) {
       this.course = this.courseApi.currentCourse;
       this.playCourse(enrollment);
+      this.spinner.hide();
     } else {
       this.courseApi.getCourse([enrollment.courseId]).subscribe(data => {
         this.course = data[0]; 
         this.playCourse(enrollment);
+        this.spinner.hide();
       });
     }
   }
@@ -129,6 +136,8 @@ export class VideoDetailComponent implements OnInit {
       this.currentVideo = this.module.chapters[lastChapterIndex];
       this.createCourseStatus(this.module, this.currentVideo);
       this.currenPage = 'Quiz';
+      this.cdr.detectChanges();
+      this.quizPlayer.loadQuizData();
     } else if((lastModuleIndex + 1) < this.course.modules.length) {
       console.log('next module ---- ', lastModuleIndex + 1, this.currentVideo);
       this.module = this.course.modules[lastModuleIndex + 1];
@@ -173,14 +182,14 @@ export class VideoDetailComponent implements OnInit {
     return this.enrollmentCourseStatus?.modules?.find(module => module.serialNumber === serialNumber);
   }
 
-  createCourseStatus(module: IModule, chapter: IChapterStatus) {
+  createCourseStatus(module: IModule, chapter: IChapterStatus | null = null) {
     const erollModule = this.getEnrollModule(module.serialNumber);
     this.courseStatus = {
       courseId: this.course.courseId,
       watchedDuration: 0,
       status: this.enrollmentCourseStatus.status || IStatus.IN_PROGRESS,
       lastVisitedModule: module.serialNumber,
-      lastVisitedChapter: chapter.serialNumber,
+      lastVisitedChapter: this.enrollmentCourseStatus.lastVisitedChapter,
       assessmentScore: this.enrollmentCourseStatus.assessmentScore || 0,
       assessmentStatus: this.enrollmentCourseStatus.assessmentStatus,
       modules: [
@@ -190,12 +199,16 @@ export class VideoDetailComponent implements OnInit {
           status: IStatus.IN_PROGRESS,
           quizScore: erollModule?.quizScore || 0,
           quizStatus: erollModule?.quizStatus || IStatus.IN_PROGRESS,
-          chapters:[{
-            serialNumber: chapter.serialNumber,
-            watchedDuration: 0,
-            status: IStatus.IN_PROGRESS,
-          }]
+          chapters:[]
         }]     
+    }
+
+    if(chapter) {
+      this.courseStatus.modules[0].chapters = [{
+        serialNumber: chapter.serialNumber,
+        watchedDuration: 0,
+        status: IStatus.IN_PROGRESS,
+      }];
     }
   }
 
@@ -219,8 +232,12 @@ export class VideoDetailComponent implements OnInit {
     this.videoPlayer.changeVideo(this.course, this.courseStatus, chapter);
   }
 
-  onPlayQuiz(moduleIndex: number) {
-
+  onPlayQuiz(module: IModule) {
+    this.module = module;
+    this.createCourseStatus(module);
+    this.currenPage = 'Quiz';
+    this.cdr.detectChanges();
+    this.quizPlayer.loadQuizData();
   }
 
   onPlayAssessment() {
@@ -233,7 +250,10 @@ export class VideoDetailComponent implements OnInit {
     this.onVideoChange(data.chapter);
   }
 
-  onPlayNextVideo() {
-    this.onVideoEnded();
+  onQuizCompleted() {
+    const module = this.getEnrollModule(this.module.serialNumber);
+    if(module) {
+      module.quizStatus = IStatus.COMPLETED;
+    }
   }
 }
