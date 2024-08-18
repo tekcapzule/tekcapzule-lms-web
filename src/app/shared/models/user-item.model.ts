@@ -40,7 +40,7 @@ export interface IModuleStatus {
   watchedDuration: number;
   status: IStatus;
   quizScore: number;
-  quizStatus: IStatus;
+  quizStatus: string;
   chapters: IChapterStatus[];
 }
 

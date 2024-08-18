@@ -29,21 +29,17 @@ export class QuizComponent implements OnInit {
   @Input() course: ICourseDetail;
   @Input() module: IModule;
   @Input() courseStatus: ICourseStatus;
-  playNextVideo = new EventEmitter();
+  quizCompleted = new EventEmitter();
   moduleIndex = 0;
 
-  constructor(private courseApi: CourseApiService,
-    private route: ActivatedRoute,
-    private dashboardApi: DashboradApiService,
-    private router: Router) {}
+  constructor( private dashboardApi: DashboradApiService) {}
 
   ngOnInit(): void {
     this.isVideoListPage = true;
-    this.loadQuizData();
   }
 
   loadQuizData() {
-    this.moduleIndex = this.getIndex(this.course.modules, this.courseStatus.lastVisitedModule);
+    this.moduleIndex = this.getIndex(this.course.modules, this.module.serialNumber);
     this.quiz = this.module.quiz;
     if(this.quiz) {
       this.isQuizAvailable = true;
@@ -86,7 +82,7 @@ export class QuizComponent implements OnInit {
   backToCourse() {
     this.courseStatus.modules[0].quizStatus = IStatus.COMPLETED; 
     this.dashboardApi.updateVideoStatus(this.courseStatus).subscribe(data => {
-      this.playNextVideo.emit();
+      this.quizCompleted.emit();
     });
   }
 }
