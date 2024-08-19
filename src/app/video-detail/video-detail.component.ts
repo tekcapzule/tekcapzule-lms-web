@@ -27,9 +27,8 @@ export class VideoDetailComponent implements OnInit {
   isVideoPlaying: boolean;
   courseStatus: ICourseStatus;
   enrollmentCourseStatus: ICourseStatus;
-  currenPage: ''| 'Video' | 'Quiz' | 'Assessment';
+  currentPage: ''| 'Video' | 'Quiz' | 'Assessment';
   module: IModule;
-  
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -71,7 +70,7 @@ export class VideoDetailComponent implements OnInit {
     this.enrollmentCourseStatus = enrollment.course; 
     this.updateCourse(); 
     this.getPlayVideo();
-    console.log('curren ', this.currenPage);
+    console.log('curren ', this.currentPage);
   }
 
   updateCourse() {
@@ -102,7 +101,7 @@ export class VideoDetailComponent implements OnInit {
   }
 
   getPlayVideo() {
-    this.currenPage = '';
+    this.currentPage = '';
     this.currentVideo = null;
     this.course.duration = 0;
     if(this.enrollmentCourseStatus.lastVisitedModule === 0 || this.enrollmentCourseStatus.lastVisitedChapter === 0) {
@@ -110,7 +109,7 @@ export class VideoDetailComponent implements OnInit {
       this.enrollmentCourseStatus.lastVisitedModule = this.course.modules[0].serialNumber; 
       this.enrollmentCourseStatus.lastVisitedChapter = this.course.modules[0].chapters[0].serialNumber;
       this.createCourseStatus(this.course.modules[0], this.currentVideo);
-      this.currenPage = 'Video';
+      this.currentPage = 'Video';
       return;
     }
     let lastModuleIndex = this.getIndex(this.course.modules, this.enrollmentCourseStatus.lastVisitedModule);
@@ -122,7 +121,7 @@ export class VideoDetailComponent implements OnInit {
       this.currentVideo = chapter;
       console.log('not complete ---- ', lastModuleIndex, this.currentVideo);
       this.createCourseStatus(this.module, this.currentVideo);
-      this.currenPage = 'Video';
+      this.currentPage = 'Video';
     } else if((lastChapterIndex + 1) < this.module.chapters.length) {
       this.currentVideo = this.module.chapters[lastChapterIndex + 1];
       console.log('same module ---- ', lastModuleIndex, this.currentVideo);
@@ -131,11 +130,11 @@ export class VideoDetailComponent implements OnInit {
       }
       this.enrollmentCourseStatus.lastVisitedChapter = this.currentVideo.serialNumber;
       this.createCourseStatus(this.module, this.currentVideo);
-      this.currenPage = 'Video';
+      this.currentPage = 'Video';
     } else if((lastChapterIndex === this.module.chapters.length - 1) && erollModule?.quizStatus !== 'Completed') {
       this.currentVideo = this.module.chapters[lastChapterIndex];
       this.createCourseStatus(this.module, this.currentVideo);
-      this.currenPage = 'Quiz';
+      this.currentPage = 'Quiz';
       this.cdr.detectChanges();
       this.quizPlayer.loadQuizData();
     } else if((lastModuleIndex + 1) < this.course.modules.length) {
@@ -145,9 +144,10 @@ export class VideoDetailComponent implements OnInit {
       this.enrollmentCourseStatus.lastVisitedModule = this.module.serialNumber;
       this.enrollmentCourseStatus.lastVisitedChapter = this.currentVideo.serialNumber;
       this.createCourseStatus(this.module, this.currentVideo);
-      this.currenPage = 'Video';
+      this.currentPage = 'Video';
     } else if(this.enrollmentCourseStatus.assessmentStatus !== 'Completed') {
-      this.currenPage = 'Assessment';
+      console.log('CAme Assessment');
+      this.currentPage = 'Assessment';
       this.openAssessment();
     } else {
       this.enrollmentCourseStatus.status = IStatus.COMPLETED;
@@ -223,7 +223,7 @@ export class VideoDetailComponent implements OnInit {
   onVideoEnded() {
     this.currentVideo = null;
     this.getPlayVideo();
-    if(this.currenPage === 'Video' && this.currentVideo) {
+    if(this.currentPage === 'Video' && this.currentVideo) {
       this.onVideoChange(this.currentVideo);
     }
   }
@@ -233,20 +233,23 @@ export class VideoDetailComponent implements OnInit {
   }
 
   onPlayQuiz(module: IModule) {
+    this.videoPlayer.pauseVideo();
     this.module = module;
     this.createCourseStatus(module);
-    this.currenPage = 'Quiz';
+    this.currentPage = 'Quiz';
     this.cdr.detectChanges();
     this.quizPlayer.loadQuizData();
   }
 
   onPlayAssessment() {
-    this.currenPage = 'Assessment';
+    this.videoPlayer.pauseVideo();
+    this.currentPage = 'Assessment';
   }
 
   onVideoSelect(data: any) {
     data.chapter.watchedDuration = 0;
     this.createCourseStatus(data.module, data.chapter);
+    this.currentPage = 'Video';
     this.onVideoChange(data.chapter);
   }
 
@@ -255,5 +258,6 @@ export class VideoDetailComponent implements OnInit {
     if(module) {
       module.quizStatus = IStatus.COMPLETED;
     }
+    this.onVideoEnded();
   }
 }

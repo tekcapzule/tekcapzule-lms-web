@@ -147,25 +147,8 @@
               <div class="course-desc">
                 <h3>What you’ll learn</h3>
                 <ul class="learning-desc">
-                  <li>
-                    Build and train deep neural networks, identify key
-                    architecture parameters, implement vectorized neural networks
-                    and deep learning to applications
-                  </li>
-                  <li>
-                    Build a CNN and apply it to detection and recognition tasks,
-                    use neural style transfer to generate art, and apply
-                    algorithms to image and video data
-                  </li>
-                  <li>
-                    Train test sets, analyze variance for DL applications, use
-                    standard techniques and optimization algorithms, and build
-                    neural networks in TensorFlow
-                  </li>
-                  <li>
-                    Build and train RNNs, work with NLP and Word Embeddings, and
-                    use HuggingFace tokenizers and transformer models to perform
-                    NER and Question Answering
+                  <li *ngFor="let obj of course.learningObjectives">
+                    {{obj}}
                   </li>
                 </ul>
               </div>
@@ -216,12 +199,10 @@
                             Reading</label
                           >
                           <label
-                            ><span class="rounded notes-icon"></span> 1
-                            Quiz</label
+                            ><span class="rounded notes-icon"></span>Quiz</label
                           >
                           <label
-                            ><span class="rounded notes-icon"></span>4
-                            Assessment</label
+                            ><span class="rounded notes-icon"></span>Assessment</label
                           >
                         </div>
                       </div>

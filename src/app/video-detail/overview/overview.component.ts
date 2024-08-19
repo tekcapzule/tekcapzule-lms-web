@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
+import { ICourseStatus } from '@app/shared/models/user-item.model';
 
 @Component({
   selector: 'app-overview',
@@ -9,10 +10,12 @@ import { ICourseDetail } from '@app/shared/models/course-item.model';
 })
 export class OverviewComponent {
   @Input() course: ICourseDetail;
+  @Input() enrollmentCourseStatus: ICourseStatus;
+  @Output() openAssessment = new EventEmitter();
 
   constructor(private router: Router) {}
 
-  openLink(page: string) {
-    this.router.navigateByUrl(`lms/${page}/${this.course.courseId}`);
+  openLink() {
+    this.openAssessment.emit();
   }
 }
