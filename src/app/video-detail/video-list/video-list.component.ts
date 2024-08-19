@@ -11,6 +11,8 @@ import { ICourseStatus } from '@app/shared/models/user-item.model';
 export class VideoListComponent implements OnInit {
   @Input() course: ICourseDetail;
   @Input() courseStatus: ICourseStatus;
+  @Input() currentPage:  ''| 'Video' | 'Quiz' | 'Assessment';
+  @Input() enrollmentCourseStatus: ICourseStatus;
   @Output() videoSelect = new EventEmitter<any>();
   @Output() playQuiz = new EventEmitter<IModule>();
   @Output() playAssessment = new EventEmitter();
@@ -21,10 +23,12 @@ export class VideoListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.courseStatus.modules.forEach(module => {
-      this.quizStatus[module.serialNumber] = module.quizStatus;
-    });
-    console.log('quizStatus', this.courseStatus, this.quizStatus);
+    if(this.enrollmentCourseStatus && this.enrollmentCourseStatus.modules) { 
+      this.enrollmentCourseStatus.modules.forEach(module => {
+        this.quizStatus[module.serialNumber] = module.quizStatus;
+      });
+      console.log('quizStatus', this.courseStatus, this.quizStatus);
+    }
   }
 
   onChangeVideo(module: IModule, chapter: IChapter) {

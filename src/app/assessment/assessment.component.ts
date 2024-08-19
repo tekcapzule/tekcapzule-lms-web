@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { CourseApiService } from '@app/core';
+import { AppSpinnerService, CourseApiService } from '@app/core';
 import { AuthStateService } from '@app/core/services';
 import { InitService } from '@app/core/services/app-state/init.service';
 import { ICourseDetail, IOption, IQuestion, IQuiz } from '@app/shared/models';
@@ -31,7 +31,7 @@ export class AssessmentComponent implements OnInit {
 
   constructor(private courseApi: CourseApiService,
     private initService: InitService,
-    private route: ActivatedRoute,
+    private spinner: AppSpinnerService,
     private authState: AuthStateService,
     private sanitizer: DomSanitizer) {}
 
@@ -77,15 +77,18 @@ export class AssessmentComponent implements OnInit {
     }
   }
 
-  submitAnswer() {
+  submitAnswer() {    
+    this.spinner.show();
     this.courseApi.validateQuizAnswer(this.validateRequestBody).subscribe(data => {
       this.quizFinished = true;
       this.quizResult = data;
+      this.spinner.hide();
       console.log('  submitAnswer  --- ', data);
     });
   }
 
   loadCertificate() {
+    this.spinner.show();
     const requestBody = {
       userId: this.authState.getEmail(),
       firstName: this.authState.getFirstName(),
@@ -102,6 +105,7 @@ export class AssessmentComponent implements OnInit {
       const url = URL.createObjectURL(blob);
       this.pdfSource = this.sanitizer.bypassSecurityTrustResourceUrl(url);
       this.isPDFLoaded = true;
+      this.spinner.hide();
     });
   }
 

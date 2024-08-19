@@ -1,8 +1,7 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CourseApiService, DashboradApiService } from '@app/core';
-import { ICourseDetail, IModule, IOption, IQuestion, IQuiz } from '@app/shared/models';
-import { IUserAnswer, IValidateQuiz } from '@app/shared/models/quiz.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AppSpinnerService, DashboradApiService } from '@app/core';
+import { ICourseDetail, IModule, IQuestion, IQuiz } from '@app/shared/models';
+import { IValidateQuiz } from '@app/shared/models/quiz.model';
 import { ICourseStatus, IStatus } from '@app/shared/models/user-item.model';
 
 @Component({
@@ -29,16 +28,19 @@ export class QuizComponent implements OnInit {
   @Input() course: ICourseDetail;
   @Input() module: IModule;
   @Input() courseStatus: ICourseStatus;
-  quizCompleted = new EventEmitter();
+  @Output() quizCompleted = new EventEmitter();
   moduleIndex = 0;
 
-  constructor( private dashboardApi: DashboradApiService) {}
+  constructor( private dashboardApi: DashboradApiService,
+    private spinner: AppSpinnerService
+  ) {}
 
   ngOnInit(): void {
     this.isVideoListPage = true;
   }
 
   loadQuizData() {
+    this.currentQuestionIndex = 0;
     this.moduleIndex = this.getIndex(this.course.modules, this.module.serialNumber);
     this.quiz = this.module.quiz;
     if(this.quiz) {
@@ -80,9 +82,11 @@ export class QuizComponent implements OnInit {
   }
 
   backToCourse() {
+    this.spinner.show();
     this.courseStatus.modules[0].quizStatus = IStatus.COMPLETED; 
     this.dashboardApi.updateVideoStatus(this.courseStatus).subscribe(data => {
       this.quizCompleted.emit();
+      this.spinner.hide();
     });
   }
 }

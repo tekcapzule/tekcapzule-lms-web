@@ -29,6 +29,7 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
   courseStatus: ICourseStatus;
   previousSaved: number;
   @Input() course: ICourseDetail;
+  @Input() enrollmentCourseStatus: ICourseStatus;
   @Output() playerReady = new EventEmitter();
   @Output() videoEnded = new EventEmitter();
 
@@ -49,11 +50,17 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
     this.playerReady.emit();
   }
 
+  pauseVideo() {
+    if(this.player) {
+      this.player.pause();
+    }
+  }
+
   onTimeupdate(data: any) {
     this.videoDetail.watchedDuration = this.player.currentTime() || 0;
     //console.log('this.videoDetail.watchedDuration  ', Math.floor(this.videoDetail.watchedDuration))
     const duration = Math.floor(this.videoDetail.watchedDuration);
-    if(this.previousSaved !== duration && duration % 60 === 0) {
+    if(this.previousSaved !== duration && duration % 120 === 0) {
       this.previousSaved = duration;
       this.courseStatus.modules[0].chapters[0].watchedDuration = this.videoDetail.watchedDuration;
       this.updateProgress();

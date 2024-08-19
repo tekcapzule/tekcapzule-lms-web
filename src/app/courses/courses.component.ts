@@ -51,7 +51,7 @@ export class CoursesComponent {
         data => {
           this.wishlistList = data;
           this.filteredList = data;
-          if(this.courseStatus) {
+          if(this.courseStatus.length) {
             data.forEach(course => {
               let courseStatus = this.getCourseStatus(course.courseId);
               if (courseStatus?.course.status === IStatus.COMPLETED) {

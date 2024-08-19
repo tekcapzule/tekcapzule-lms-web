@@ -29,6 +29,9 @@ export interface ICourseDetail {
   quiz: IQuiz;
   assessment: IQuiz; 
   faq: IFAQ[];
+  learningObjectives: string[];
+  preRequisites: any[];
+  targetedAudiences: string[];
   announcements: IAnnouncements[];
   resources: IResources[];
 }
