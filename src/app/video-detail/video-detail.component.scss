@@ -3,7 +3,7 @@
     background-color: var(--bg-color);
 }
 .video-js-container {
-    width: 98%;
+    width: 100%;
     height: auto;
     //max-height: 550px !important;
 }
@@ -23,9 +23,9 @@
 .video-detail-list {
     background-color: var(--bs-white);
     box-shadow: -5px 0px 30px #00000017;
-    position: fixed;
+    //position: fixed;
     right: 0;
-    height: 100vh;
+    height: auto;
 
     .video-detail-progress { 
         p {

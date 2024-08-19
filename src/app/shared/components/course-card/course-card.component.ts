@@ -15,14 +15,14 @@ export class CourseCardComponent implements OnInit {
   @Input() page: string;
   parseInt = parseInt;
   math = Math;
+  formattedDuration: string;
 
-  constructor(private router: Router,
-    private courseApi: CourseApiService
-  ) {}
+  constructor(private router: Router, private courseApi: CourseApiService) {}
 
   ngOnInit(): void {
-    //this.updateCourseTime();
     this.course.publishedOn = this.course.publishedOn ? moment(this.course.publishedOn, 'DD/MM/YYYY').fromNow() : 'NA';
+    this.updateCourseTime();
+    this.formattedDuration = this.getFormattedDuration(this.course.duration);
   }
 
   updateCourseTime() {
@@ -36,12 +36,18 @@ export class CourseCardComponent implements OnInit {
     console.log('this.course.duration  ', this.course.duration, this.course.watchedDuration);
   }
 
+  getFormattedDuration(duration: number): string {
+    const hours = Math.floor(duration / 60);
+    const minutes = Math.round(duration % 60);
+    return `${hours}hr ${minutes}min`;
+  }
+
   onResume() {
     this.courseApi.currentCourse = this.course;
-    if(this.page === 'Dashboard') {
-      this.router.navigateByUrl('/lms/video-detail/'+this.course.courseId);
+    if (this.page === 'Dashboard') {
+      this.router.navigateByUrl('/lms/video-detail/' + this.course.courseId);
     } else {
-      this.router.navigateByUrl('/lms/course-detail/'+this.course.courseId);
+      this.router.navigateByUrl('/lms/course-detail/' + this.course.courseId);
     }
   }
 }

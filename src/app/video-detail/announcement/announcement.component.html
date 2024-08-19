@@ -1,7 +1,7 @@
 <div>
 
     <div *ngFor="let ann of announcements" class="announcement border py-3 px-4">
-        <div class="list-group-item border-0 p-0 list-group-item-action bg-transparent d-flex gap-2 mb-2 align-items-center">
+        <div class="border-0 p-0 list-group-item-action bg-transparent d-flex gap-2 mb-2 align-items-center">
             <div class="d-inline-flex rounded-circle flex-shrink-0 profile-col justify-content-center align-items-center bg-primary text-white"> {{ann.author.split(" ")[0].charAt(0)}}
               {{ann.author.split(" ").length > 1 ? ann.author.split(" ")[1].charAt(0) : ''}} </div>
             <div class="d-flex gap-2 w-100 justify-content-between">

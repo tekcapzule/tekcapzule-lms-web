@@ -6,7 +6,7 @@
         <!--button class="d-flex justify-content-center align-items-center gap-2 border py-2 px-4 fw-medium text-white bg-pink border-0" disabled> <span class="download-ico"></span> Download all </!--button-->
     </div>
     <div *ngFor="let resource of resources" class="resources-row" (click)="openResource(resource)">
-        <div class="col border p-3 position-relative" (click)="openResource(resource)">
+        <div class="col p-3 position-relative" (click)="openResource(resource)">
             <h4 class="fs-6 text-body fw-medium mb-1 pe-4">Learn to Code Resource</h4>
             <p class="fs-14 text-secondary fw-medium mb-1 pe-4">{{resource.title}}</p>
             <div class="reasources-card-icon position-absolute"> <img src="assets/courses/video-icon.svg" alt=""> </div>
