@@ -26,10 +26,9 @@ export class QuizComponent implements OnInit {
   isQuizAvailable: boolean;
   @Input() isVideoPlaying: boolean;
   @Input() course: ICourseDetail;
-  @Input() module: IModule;
   @Input() courseStatus: ICourseStatus;
   @Output() quizCompleted = new EventEmitter();
-  moduleIndex = 0;
+  @Input() moduleIndex = 0;
 
   constructor( private dashboardApi: DashboradApiService,
     private spinner: AppSpinnerService
@@ -41,8 +40,7 @@ export class QuizComponent implements OnInit {
 
   loadQuizData() {
     this.currentQuestionIndex = 0;
-    this.moduleIndex = this.getIndex(this.course.modules, this.module.serialNumber);
-    this.quiz = this.module.quiz;
+    this.quiz = this.course.modules[this.moduleIndex].quiz;
     if(this.quiz) {
       this.isQuizAvailable = true;
       this.questions = this.quiz.questions;
@@ -83,7 +81,7 @@ export class QuizComponent implements OnInit {
 
   backToCourse() {
     this.spinner.show();
-    this.courseStatus.modules[0].quizStatus = IStatus.COMPLETED; 
+    this.courseStatus.modules[this.moduleIndex].quizStatus = IStatus.COMPLETED; 
     this.dashboardApi.updateVideoStatus(this.courseStatus).subscribe(data => {
       this.quizCompleted.emit();
       this.spinner.hide();

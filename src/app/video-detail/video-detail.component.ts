@@ -25,10 +25,11 @@ export class VideoDetailComponent implements OnInit {
   playerReady: boolean;
   currentVideo: IChapter | any;
   isVideoPlaying: boolean;
-  courseStatus: ICourseStatus;
   enrollmentCourseStatus: ICourseStatus;
   currentPage: ''| 'Video' | 'Quiz' | 'Assessment';
   module: IModule;
+  moduleIndex = 0;
+  chapterIndex = 0;
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -67,37 +68,56 @@ export class VideoDetailComponent implements OnInit {
   }
 
   playCourse(enrollment: IEnrollment) {
-    this.enrollmentCourseStatus = enrollment.course; 
-    this.updateCourse(); 
+    this.enrollmentCourseStatus = enrollment.course;
+    if(!enrollment.course.modules || enrollment.course.modules?.length ! == this.course.modules.length) {
+      this.updateEnrollmentStatus();
+    }
+    this.updateCourseDuration(); 
     this.getPlayVideo();
     console.log('curren ', this.currentPage);
   }
 
-  updateCourse() {
+  updateCourseDuration() {
     this.course.watchedDuration = 0;
     this.course.status = this.enrollmentCourseStatus.status;
-    this.course.modules.forEach((module, i) => {
+    this.enrollmentCourseStatus.modules.forEach((module, i) => {
       module.watchedDuration = 0;
-      if(this.enrollmentCourseStatus.modules && this.enrollmentCourseStatus.modules.length) {
-        const enrollmentModule = this.enrollmentCourseStatus.modules[i]
-        if (enrollmentModule) {
-          module['status'] = enrollmentModule.status;
-          module.chapters.forEach((chapter, j) => {
-            const enrollmentChapter = enrollmentModule.chapters[j];
-            chapter.watchedDuration = 0;
-            if(enrollmentChapter) {
-              chapter.watchedDuration = enrollmentChapter.watchedDuration;
-              chapter['status'] = enrollmentChapter.status;
-            }
-            module.watchedDuration = module.watchedDuration + chapter.watchedDuration; 
-          });
-        }
-      }
+      const enrollmentModule = this.enrollmentCourseStatus.modules[i]
+      module.chapters.forEach((chapter, j) => {
+        const enrollmentChapter = enrollmentModule.chapters[j];
+        chapter.watchedDuration = 0;
+        chapter.watchedDuration = enrollmentChapter.watchedDuration;
+        chapter['status'] = enrollmentChapter.status;
+        module.watchedDuration = module.watchedDuration + chapter.watchedDuration; 
+      });
       this.course.watchedDuration = this.course.watchedDuration + module.watchedDuration; 
       if(module.watchedDuration) {
         module.watchedDuration = module.watchedDuration;
       }
     });
+  }
+
+  updateStatus(module: IModule, chapter: IChapterStatus | null = null) {
+    this.enrollmentCourseStatus.lastVisitedModule = module.serialNumber;
+    if(chapter) {
+      this.enrollmentCourseStatus.lastVisitedChapter = chapter.serialNumber;
+    }
+    if(this.enrollmentCourseStatus.modules[this.moduleIndex].status !== 'Completed') {
+      this.enrollmentCourseStatus.modules[this.moduleIndex].status = IStatus.IN_PROGRESS;
+    }
+    if(this.enrollmentCourseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].status !== 'Completed') {
+      this.enrollmentCourseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].status = IStatus.IN_PROGRESS;
+    } else {
+      this.enrollmentCourseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration = 0;
+    }
+  }
+
+  setDefaultValues() {
+    this.moduleIndex = 0;
+    this.chapterIndex = 0;
+    this.enrollmentCourseStatus.lastVisitedModule = this.course.modules[0].serialNumber; 
+    this.enrollmentCourseStatus.lastVisitedChapter = this.course.modules[0].chapters[0].serialNumber;
+    this.enrollmentCourseStatus.status = IStatus.IN_PROGRESS;
   }
 
   getPlayVideo() {
@@ -106,9 +126,8 @@ export class VideoDetailComponent implements OnInit {
     this.course.duration = 0;
     if(this.enrollmentCourseStatus.lastVisitedModule === 0 || this.enrollmentCourseStatus.lastVisitedChapter === 0) {
       this.currentVideo = this.course.modules[0].chapters[0];
-      this.enrollmentCourseStatus.lastVisitedModule = this.course.modules[0].serialNumber; 
-      this.enrollmentCourseStatus.lastVisitedChapter = this.course.modules[0].chapters[0].serialNumber;
-      this.createCourseStatus(this.course.modules[0], this.currentVideo);
+      this.setDefaultValues();
+      this.updateStatus(this.course.modules[0], this.currentVideo);
       this.currentPage = 'Video';
       return;
     }
@@ -117,33 +136,33 @@ export class VideoDetailComponent implements OnInit {
     this.module = this.course.modules[lastModuleIndex]; 
     let chapter = this.module.chapters[lastChapterIndex]; 
     const erollModule = this.getEnrollModule(this.enrollmentCourseStatus.lastVisitedModule);
-    if (chapter.status !== IStatus.COMPLETED) {
+    this.moduleIndex = lastModuleIndex;
+    this.chapterIndex = lastChapterIndex;
+    if (chapter.status !== IStatus.COMPLETED) {  
       this.currentVideo = chapter;
       console.log('not complete ---- ', lastModuleIndex, this.currentVideo);
-      this.createCourseStatus(this.module, this.currentVideo);
+      this.updateStatus(this.module, this.currentVideo);
       this.currentPage = 'Video';
     } else if((lastChapterIndex + 1) < this.module.chapters.length) {
       this.currentVideo = this.module.chapters[lastChapterIndex + 1];
+      this.chapterIndex = lastChapterIndex + 1;
       console.log('same module ---- ', lastModuleIndex, this.currentVideo);
-      if(this.currentVideo.status === IStatus.COMPLETED) {
-        this.currentVideo.watchedDuration = 0;
-      }
-      this.enrollmentCourseStatus.lastVisitedChapter = this.currentVideo.serialNumber;
-      this.createCourseStatus(this.module, this.currentVideo);
+      this.updateStatus(this.module, this.currentVideo);
       this.currentPage = 'Video';
     } else if((lastChapterIndex === this.module.chapters.length - 1) && erollModule?.quizStatus !== 'Completed') {
       this.currentVideo = this.module.chapters[lastChapterIndex];
-      this.createCourseStatus(this.module, this.currentVideo);
+      this.chapterIndex = lastChapterIndex;
+      this.updateStatus(this.module, this.currentVideo);
       this.currentPage = 'Quiz';
       this.cdr.detectChanges();
       this.quizPlayer.loadQuizData();
     } else if((lastModuleIndex + 1) < this.course.modules.length) {
       console.log('next module ---- ', lastModuleIndex + 1, this.currentVideo);
       this.module = this.course.modules[lastModuleIndex + 1];
+      this.moduleIndex = lastModuleIndex + 1;
+      this.chapterIndex = 0;
       this.currentVideo = this.module.chapters[0];
-      this.enrollmentCourseStatus.lastVisitedModule = this.module.serialNumber;
-      this.enrollmentCourseStatus.lastVisitedChapter = this.currentVideo.serialNumber;
-      this.createCourseStatus(this.module, this.currentVideo);
+      this.updateStatus(this.module, this.currentVideo);
       this.currentPage = 'Video';
     } else if(this.enrollmentCourseStatus.assessmentStatus !== 'Completed') {
       console.log('CAme Assessment');
@@ -153,20 +172,6 @@ export class VideoDetailComponent implements OnInit {
       this.enrollmentCourseStatus.status = IStatus.COMPLETED;
       console.log('course completed');
     }
-    
-    
-    /*this.course.modules.forEach(module => {
-      module.chapters.forEach(chapter => {
-        if((!chapter.status || chapter.status.toLowerCase() !== 'complete') && !this.currentVideo) {
-          this.createCourseStatus(module, chapter);
-          this.currentVideo = chapter as IChapter;
-          if(this.playerReady) {
-            this.isVideoPlaying = true;
-            this.onVideoChange(this.currentVideo);
-          }
-        }
-      });
-    });*/
   }
 
   openAssessment() {
@@ -182,7 +187,30 @@ export class VideoDetailComponent implements OnInit {
     return this.enrollmentCourseStatus?.modules?.find(module => module.serialNumber === serialNumber);
   }
 
-  createCourseStatus(module: IModule, chapter: IChapterStatus | null = null) {
+  updateEnrollmentStatus() {
+    this.enrollmentCourseStatus.modules = [];
+    this.course.modules.forEach(module => {
+      let chapteStatus: IChapterStatus[] = []
+      module.chapters.forEach(chapter => {
+        chapteStatus.push({
+          serialNumber: chapter.serialNumber,
+          watchedDuration: 0,
+          status: IStatus.IN_PROGRESS,
+        });
+      });
+      const moduleStatus = {
+        serialNumber: module.serialNumber,
+          watchedDuration: 0,
+          status: IStatus.IN_PROGRESS,
+          quizScore: 0,
+          quizStatus: IStatus.IN_PROGRESS,
+          chapters: chapteStatus
+      }
+      this.enrollmentCourseStatus.modules.push(moduleStatus);
+    });
+  }
+
+  /*createCourseStatus(module: IModule, chapter: IChapterStatus | null = null) {
     const erollModule = this.getEnrollModule(module.serialNumber);
     this.courseStatus = {
       courseId: this.course.courseId,
@@ -210,7 +238,7 @@ export class VideoDetailComponent implements OnInit {
         status: IStatus.IN_PROGRESS,
       }];
     }
-  }
+  }*/
 
   onPlayerReady() {
     this.playerReady = true;
@@ -229,13 +257,13 @@ export class VideoDetailComponent implements OnInit {
   }
 
   onVideoChange(chapter: IChapter) {
-    this.videoPlayer.changeVideo(this.course, this.courseStatus, chapter);
+    this.videoPlayer.changeVideo(this.course, chapter);
   }
 
   onPlayQuiz(module: IModule) {
     this.videoPlayer.pauseVideo();
     this.module = module;
-    this.createCourseStatus(module);
+    this.updateStatus(module);
     this.currentPage = 'Quiz';
     this.cdr.detectChanges();
     this.quizPlayer.loadQuizData();
@@ -248,7 +276,7 @@ export class VideoDetailComponent implements OnInit {
 
   onVideoSelect(data: any) {
     data.chapter.watchedDuration = 0;
-    this.createCourseStatus(data.module, data.chapter);
+    this.updateStatus(data.module, data.chapter);
     this.currentPage = 'Video';
     this.onVideoChange(data.chapter);
   }
