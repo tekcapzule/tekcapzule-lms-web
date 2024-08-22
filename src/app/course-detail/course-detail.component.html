@@ -156,91 +156,7 @@
             <div>
               <h2>{{ course.modules.length }} modules in this course</h2>
               <div class="course-module accordion accordion-flush mb-5">
-                <div
-                  *ngFor="let faq of course.faq; let i = index"
-                  class="accordion-item border"
-                >
-                  <h2 class="accordion-header p-0" [id]="'faq' + i">
-                    <button
-                      class="accordion-button collapsed mb-0 border-0 bg-white"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      [attr.data-bs-target]="'#collapse' + i"
-                      aria-expanded="true"
-                      aria-controls="collapseThree"
-                    ></button>
-                    <div>
-                      <div class="primary-heading">
-                        <span class="course-list">1</span>Introduction to Deep
-                        Learning
-                      </div>
-                      <div class="gray-txt pl-5">2 hours</div>
-                    </div>
-                  </h2>
-                  <div
-                    [id]="'collapse' + i"
-                    class="accordion-collapse collapse"
-                    [attr.aria-labelledby]="'faq' + i"
-                  >
-                    <div class="accordion-body pb-0">
-                      <p>
-                        Build and train RNNs, work with NLP and Word Embeddings,
-                        and use HuggingFace tokenizers and transformer models to
-                        perform NER and Question Answering
-                      </p>
-                      <h3>What's included</h3>
-                      <div class="course-info">
-                        <div class="course-status">
-                          <label
-                            ><span class="rounded video-icon"></span> 2 Videos
-                          </label>
-                          <label
-                            ><span class="rounded notes-icon"></span> 2
-                            Reading</label
-                          >
-                          <label
-                            ><span class="rounded notes-icon"></span>Quiz</label
-                          >
-                          <label
-                            ><span class="rounded notes-icon"></span>Assessment</label
-                          >
-                        </div>
-                      </div>
-                      <div class="module-content">
-                        <h3>Module Content</h3>
-                        <div class="course-status">
-                          <label
-                            ><span class="rounded video-icon"></span> Welcome
-                            <span class="gray-txt">20 mins</span></label
-                          >
-                          <label
-                            ><span class="rounded video-icon"></span> What is a
-                            Nueral Network?
-                            <span class="gray-txt">20 mins</span></label
-                          >
-                          <label
-                            ><span class="rounded notes-icon"></span> Supervised
-                            Learning with Nueral Network
-                            <span class="gray-txt">20 mins</span></label
-                          >
-                          <label
-                            ><span class="rounded notes-icon"></span> Why is Deep
-                            Learning taking off?
-                            <span class="gray-txt">20 mins</span></label
-                          >
-                          <label
-                            ><span class="rounded notes-icon"></span> Quiz
-                            <span class="gray-txt">20 mins</span></label
-                          >
-                          <label
-                            ><span class="rounded notes-icon"></span>
-                            Assignment<span class="gray-txt">20 mins</span></label
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <app-faq [faqs]="course.faqs"></app-faq>
               </div>
             </div>
           </section>
@@ -292,32 +208,7 @@
             <h2>Frequently asked questions</h2>
   
             <div class="accordion accordion-flush mb-5">
-              <div
-                *ngFor="let faq of course.faq; let i = index"
-                class="accordion-item border"
-              >
-                <h2 class="accordion-header p-0" [id]="'faq' + i">
-                  <button
-                    class="accordion-button collapsed mb-0 border-0 bg-white"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    [attr.data-bs-target]="'#collapse' + i"
-                    aria-expanded="true"
-                    aria-controls="collapseThree"
-                  >
-                    {{ faq.qus }}
-                  </button>
-                </h2>
-                <div
-                  [id]="'collapse' + i"
-                  class="accordion-collapse collapse"
-                  [attr.aria-labelledby]="'faq' + i"
-                >
-                  <div class="accordion-body pb-0">
-                    <p>{{ faq.ans }}</p>
-                  </div>
-                </div>
-              </div>
+              <app-faq [faqs]="course.faqs"></app-faq>
             </div>
           </section>
         </div>

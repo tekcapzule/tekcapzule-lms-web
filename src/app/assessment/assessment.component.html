@@ -32,7 +32,7 @@
                     <br/>
                     <br/>
                     <br/>
-                    <h2>Wrong Answer:</h2>
+                    <h2 *ngIf="quizResult.scorePercentage < 100">Wrong Answer:</h2>
                         <ng-container *ngFor="let question of questions; let i = index;">
                             <div
                                 *ngIf="question.correctAnswer[0] !== validateRequestBody.userAnswers[i].selectedAnswers[0]">

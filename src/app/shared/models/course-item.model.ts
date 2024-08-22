@@ -28,7 +28,7 @@ export interface ICourseDetail {
   watchedDuration: number;
   quiz: IQuiz;
   assessment: IQuiz; 
-  faq: IFAQ[];
+  faqs: IFAQ[];
   learningObjectives: string[];
   preRequisites: any[];
   targetedAudiences: string[];
@@ -70,8 +70,8 @@ export interface IOption {
 }
 
 export interface IFAQ {
-  qus: string;
-  ans: string;
+  question: string;
+  answer: string;
 }
 
 export interface IAuthorDetail {
