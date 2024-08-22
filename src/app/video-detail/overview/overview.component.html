@@ -35,7 +35,7 @@
 
     <div class="row g-sm-4 mb-5">
         <div class="col-12 col-sm-4">
-            <div class="h-100 border p-4 video-detail-tile">
+            <div class="h-100 p-4 video-detail-tile">
                 <h3 class="mb-4">What you’ll learn?</h3>
                 <ul>
                     <li *ngFor="let obj of course.learningObjectives" class="mb-4">{{obj}}</li>
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="col-12 col-sm-4">
-            <div class="h-100 border p-4 video-detail-tile">
+            <div class="h-100 p-4 video-detail-tile">
                 <h3 class="mb-4">Any course requirements?</h3>
                 <ul>
                     <li class="mb-3" *ngFor="let preReq of course.preRequisites">{{preReq}}</li>
@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="col-12 col-sm-4">
-            <div class="h-100 border p-4 video-detail-tile">
+            <div class="h-100 p-4 video-detail-tile">
                 <h3 class="mb-4">Who this course is for?</h3>
                 <ul>
                     <li class="mb-4" *ngFor="let audience of course.targetedAudiences">{{audience}}</li>

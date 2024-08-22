@@ -101,6 +101,7 @@ body {
 
 	.user-icon,
 	.clock-icon,
+	.due-icon,
 	.rounded.video-icon,
 	.rounded.notes-icon,
 	.notepad-icon {
@@ -289,7 +290,12 @@ body {
 		color: var(--light-gray);
 	  }
 }
-
+.list-group-item, .announcement {
+	box-shadow: 0px 0px 35px #00000014;
+    border-radius: 2px;
+    background: var(--bs-white);
+	border: 0 none;
+}
 $sidebar-width: var(--sidebar-width);
 
 h1 {
@@ -434,6 +440,7 @@ main {
 		border: 1px solid var(--active-color);
 		box-shadow: 0px 0px 35px #00000014;
 		border-radius: 2px;
+		background: var(--white-bg);
 	}
 
 	.task-bg-1 {
@@ -471,6 +478,13 @@ main {
 	background: url('./assets/dashboard/clock-icon.svg') no-repeat;
 	width: 17px;
 	height: 17px;
+	// margin-left: 10px;
+	display: inline-flex;
+}
+.due-icon {
+	background: url('./assets/dashboard/duration-icon.svg') no-repeat;
+	width: 16px;
+	height: 15px;
 	// margin-left: 10px;
 	display: inline-flex;
 }
@@ -566,7 +580,7 @@ main {
 
 	&.notes-icon {
 		background: url('./assets/courses/notes-icon.svg') no-repeat center center;
-		width: 13px;
+		width: inherit;
 		height: 15px;
 	}
 }
@@ -638,7 +652,7 @@ main {
 .course-card {
 	width: 392px;
 	height: 386px;
-	border: 1px solid var(--border-color);
+	// border: 1px solid var(--border-color);
 	border-radius: 5px;
 	padding: 7px 7px 20px;
 	margin-bottom: 20px;
@@ -664,9 +678,10 @@ main {
 				display: inline-flex;
 				align-items: center;
 				@extend .secondary-heading;
-
-				&:first-child {
-					margin-right: 45px;
+				font-weight: 400;
+				margin-right: 22px;
+				&:last-child {
+					margin-right: 0px;
 				}
 			}
 		}
@@ -996,8 +1011,9 @@ div[role="progressbar"]:not(.playlist-progress)::before {
 			button {
 				display: grid;
 				grid-template-columns: 2.3025rem 1fr 1.25rem;
-				height: 70px;
+				height: 86px;
 				align-items: center !important;
+				border-bottom: 1px solid #dee2e6;
 
 				.video-no {
 					color: var(--secondary-color);
@@ -1007,6 +1023,8 @@ div[role="progressbar"]:not(.playlist-progress)::before {
 					p {
 						color: var(--tertiary-color);
 						font-weight: 400;
+						font-size: 14px;
+						margin-bottom: 0;
 					}
 
 					h4 {
@@ -1191,6 +1209,11 @@ img {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
 	gap: 1.25rem;
+	.col {
+		box-shadow: 0px 0px 35px #00000014;
+    border-radius: 2px;
+	background: var(--bs-white);
+	}
 }
 
 .form-control-search {
@@ -1438,7 +1461,14 @@ header {
 	}
 }
 
-
+.link-btn {
+	border: 0 none;
+    background: none;
+    display: inline-flex;
+    align-items: center;
+    color: var(--secondary-color);
+    margin-right: 20px;
+}
 
 .theme-switch-wrapper {
 	display: flex;

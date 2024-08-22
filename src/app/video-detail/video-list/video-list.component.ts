@@ -21,7 +21,11 @@ export class VideoListComponent implements OnInit {
   completedQuizCount = 0;
   
   constructor() {}
+  openedIndex: number | null = null;
 
+  toggleAccordion(index: number): void {
+    this.openedIndex = this.openedIndex === index ? null : index;
+  }
   ngOnInit(): void {
     if(this.enrollmentCourseStatus && this.enrollmentCourseStatus.modules) { 
       this.enrollmentCourseStatus.modules.forEach(module => {
@@ -31,7 +35,7 @@ export class VideoListComponent implements OnInit {
     }
   }
 
-  onChangeVideo(module: IModule, chapter: IChapter) {
+  onChangeVideo(module: IModule, chapter: IChapter): void { 
     this.videoSelect.emit({module, chapter});
   }
 

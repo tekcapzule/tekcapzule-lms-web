@@ -29,11 +29,12 @@
 
   .course-series {
     display: flex;
-    border: 1px solid #e0e0e0;
+   // border: 1px solid #e0e0e0;
     padding: 25px;
     margin-bottom: 30px;
     box-shadow: 0px 0px 35px #00000014;
     border-radius: 2px;
+    background: var(--white-bg);
 
     .course-card {
       margin-right: 35px;
@@ -70,7 +71,7 @@
     right: 0;
 
     .enroll-sec {
-      border: 1px solid var(--border-color);
+      // border: 1px solid var(--border-color);
       border-radius: 5px;
       padding: 12px;
       width: 390px;
