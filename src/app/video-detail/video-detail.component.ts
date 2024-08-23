@@ -102,12 +102,12 @@ export class VideoDetailComponent implements OnInit {
     if(chapter) {
       this.enrollmentCourseStatus.lastVisitedChapter = chapter.serialNumber;
     }
-    if(this.enrollmentCourseStatus.modules[this.moduleIndex].status !== 'Completed') {
+    if(this.enrollmentCourseStatus.modules[this.moduleIndex].status !== IStatus.COMPLETED) {
       this.enrollmentCourseStatus.modules[this.moduleIndex].status = IStatus.IN_PROGRESS;
     }
-    if(this.enrollmentCourseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].status !== 'Completed') {
+    if(this.enrollmentCourseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].status !== IStatus.COMPLETED) {
       this.enrollmentCourseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].status = IStatus.IN_PROGRESS;
-    } else {
+    } else if(this.enrollmentCourseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].status === IStatus.COMPLETED) {
       this.enrollmentCourseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration = 0;
     }
   }
@@ -135,10 +135,11 @@ export class VideoDetailComponent implements OnInit {
     let lastChapterIndex = this.getIndex(this.course.modules[lastModuleIndex].chapters, this.enrollmentCourseStatus.lastVisitedChapter);
     this.module = this.course.modules[lastModuleIndex]; 
     let chapter = this.module.chapters[lastChapterIndex]; 
-    const erollModule = this.getEnrollModule(this.enrollmentCourseStatus.lastVisitedModule);
+    const erollModule = this.enrollmentCourseStatus.modules[lastModuleIndex];
+    let ernollChapter = erollModule.chapters[lastChapterIndex];
     this.moduleIndex = lastModuleIndex;
     this.chapterIndex = lastChapterIndex;
-    if (chapter.status !== IStatus.COMPLETED) {  
+    if (ernollChapter.status !== IStatus.COMPLETED) {  
       this.currentVideo = chapter;
       console.log('not complete ---- ', lastModuleIndex, this.currentVideo);
       this.updateStatus(this.module, this.currentVideo);
@@ -149,10 +150,10 @@ export class VideoDetailComponent implements OnInit {
       console.log('same module ---- ', lastModuleIndex, this.currentVideo);
       this.updateStatus(this.module, this.currentVideo);
       this.currentPage = 'Video';
-    } else if((lastChapterIndex === this.module.chapters.length - 1) && erollModule?.quizStatus !== 'Completed') {
+    } else if((lastChapterIndex === this.module.chapters.length - 1) && erollModule?.quizStatus !== IStatus.COMPLETED) {
       this.currentVideo = this.module.chapters[lastChapterIndex];
       this.chapterIndex = lastChapterIndex;
-      this.updateStatus(this.module, this.currentVideo);
+      //this.updateStatus(this.module, this.currentVideo);
       this.currentPage = 'Quiz';
       this.cdr.detectChanges();
       this.quizPlayer.loadQuizData();
@@ -164,7 +165,7 @@ export class VideoDetailComponent implements OnInit {
       this.currentVideo = this.module.chapters[0];
       this.updateStatus(this.module, this.currentVideo);
       this.currentPage = 'Video';
-    } else if(this.enrollmentCourseStatus.assessmentStatus !== 'Completed') {
+    } else if(this.enrollmentCourseStatus.assessmentStatus !== IStatus.COMPLETED) {
       console.log('CAme Assessment');
       this.currentPage = 'Assessment';
       this.openAssessment();
