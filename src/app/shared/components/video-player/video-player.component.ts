@@ -64,10 +64,7 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
     const duration = Math.floor(this.videoDetail.watchedDuration);
     if(this.previousSaved !== duration && duration % 120 === 0) {
       this.previousSaved = duration;
-      this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration = this.videoDetail.watchedDuration;
       this.updateProgress();
-      console.log('status updated');
-      
     }
   }
 
