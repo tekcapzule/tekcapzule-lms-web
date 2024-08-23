@@ -40,7 +40,7 @@
                    
                     <!--div class="rounded notes-icon"></!--div-->
                     <div>
-                      <h4 class="m-0 fs-14 fw-normal" [ngClass]="{'current-topic': currentPage=== 'Quiz' && module.serialNumber === courseStatus.modules[i].serialNumber}">Quiz ({{module.quiz.questions.length}}) </h4>
+                      <h4 class="m-0 fs-14 fw-normal" [ngClass]="{'current-topic': currentPage=== 'Quiz' && module.serialNumber === courseStatus.modules[this.moduleIndex].serialNumber}">Quiz ({{module.quiz.questions.length}}) </h4>
                     </div>
                     <div class="video-list-icon">  </div>
                   </button>
