@@ -19,14 +19,14 @@
             </h2>
             <div  [id]="'collapse' + i"  class="accordion-collapse collapse show" aria-labelledby="headingOne" >
               <div class="accordion-body">
-                  <ng-container *ngFor="let chapter of module.chapters; let i = index">
+                  <ng-container *ngFor="let chapter of module.chapters; let j = index">
                     <button type="button" class="video-list-inner position-relative border-0 gap-4 px-2 py-3 w-100 align-items-start text-start"
                       (click)="onChangeVideo(module, chapter)">
-                      <div role="progressbar" class="playlist-progress" [attr.aria-valuenow]="math.floor((chapter.watchedDuration / chapter.duration) * 100)" aria-valuemin="0" aria-valuemax="100" style="--value: {{math.floor((chapter.watchedDuration / chapter.duration) * 100)}}">
+                      <div role="progressbar" class="playlist-progress" [attr.aria-valuenow]="math.floor((courseStatus.modules[i].chapters[j].watchedDuration / chapter.duration) * 100)" aria-valuemin="0" aria-valuemax="100" style="--value: {{math.floor((courseStatus.modules[i].chapters[j].watchedDuration / chapter.duration) * 100)}}">
                         <div class="video-no p-0 border ratio ratio-1x1 border-0 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"> <img src="assets/courses/video-icon.svg" alt=""> </div>
                       </div>
                       <div class="video-list-detail">
-                        <h4 class="m-0 fs-14 fw-normal" [ngClass]="{'current-topic': currentPage==='Video' && courseStatus && courseStatus.modules.length && courseStatus.modules[0].chapters.length && courseStatus.modules[0].chapters[0].serialNumber === chapter?.serialNumber && courseStatus.modules[0].serialNumber === module?.serialNumber}">{{chapter.name}} {{chapter.duration | secToMin}} min</h4>
+                        <h4 class="m-0 fs-14 fw-normal" [ngClass]="{'current-topic': currentPage==='Video' && courseStatus.modules[moduleIndex].chapters[chapterIndex].serialNumber === chapter?.serialNumber && courseStatus.modules[moduleIndex].serialNumber === module?.serialNumber}">{{chapter.name}}</h4>
                         <p class="fs-14 fw-normal">{{chapter.duration | secToMin}} min</p>
                       </div>
                       <div *ngIf="chapter.status === 'Completed'" class="video-list-icon">  </div>
@@ -34,13 +34,13 @@
                   </ng-container>
                   <button *ngIf="module.quiz" type="button" class="video-list-inner position-relative border-0 gap-4 px-2 py-3 w-100 align-items-start text-start"
                     (click)="openQuiz(module)">
-                    <div role="progressbar" class="playlist-progress" [attr.aria-valuenow]="quizStatus[module.serialNumber] === 'Completed' ? 100 : 0" aria-valuemin="0" aria-valuemax="100" style="--value: {{quizStatus[module.serialNumber] === 'Completed' ? 100 : 0}}">
+                    <div role="progressbar" class="playlist-progress" [attr.aria-valuenow]="courseStatus.modules[i].quizStatus == 'Completed' ? 100 : 0" aria-valuemin="0" aria-valuemax="100" style="--value: {{courseStatus.modules[i].quizStatus === 'Completed' ? 100 : 0}}">
                       <div class="rounded notes-icon p-0 border ratio ratio-1x1 border-0 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"></div>
                     </div>
                    
                     <!--div class="rounded notes-icon"></!--div-->
                     <div>
-                      <h4 class="m-0 fs-14 fw-normal" [ngClass]="{'current-topic': currentPage=== 'Quiz' && module.serialNumber === courseStatus.modules[0].serialNumber}">Quiz ({{module.quiz.questions.length}}) </h4>
+                      <h4 class="m-0 fs-14 fw-normal" [ngClass]="{'current-topic': currentPage=== 'Quiz' && module.serialNumber === courseStatus.modules[i].serialNumber}">Quiz ({{module.quiz.questions.length}}) </h4>
                     </div>
                     <div class="video-list-icon">  </div>
                   </button>
@@ -49,8 +49,8 @@
           </div>
           
           <button *ngIf="course.assessment" type="button" class="video-list-inner position-relative border-0 gap-4 px-2 py-3 w-100 align-items-start text-start"
-          (click)="openAssessment()"  [disabled]="enrollmentCourseStatus.status === 'Completed'" >
-          <div role="progressbar" class="playlist-progress" [attr.aria-valuenow]="enrollmentCourseStatus.assessmentStatus === 'Completed' ? 100 : 0" aria-valuemin="0" aria-valuemax="100" style="--value: {{enrollmentCourseStatus.assessmentStatus === 'Completed' ? 100 : 0}}">
+          (click)="openAssessment()"  [disabled]="courseStatus.status === 'Completed'" >
+          <div role="progressbar" class="playlist-progress" [attr.aria-valuenow]="courseStatus.assessmentStatus === 'Completed' ? 100 : 0" aria-valuemin="0" aria-valuemax="100" style="--value: {{courseStatus.assessmentStatus === 'Completed' ? 100 : 0}}">
             <div class="rounded notes-icon p-0 border ratio ratio-1x1 border-0 border-secondary fs-14 rounded-circle d-flex justify-content-center align-items-center"></div>
           </div>
          

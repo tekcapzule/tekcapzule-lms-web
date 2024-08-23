@@ -10,9 +10,10 @@ import { ICourseStatus } from '@app/shared/models/user-item.model';
 })
 export class VideoListComponent implements OnInit {
   @Input() course: ICourseDetail;
-  @Input() courseStatus: ICourseStatus;
   @Input() currentPage:  ''| 'Video' | 'Quiz' | 'Assessment';
-  @Input() enrollmentCourseStatus: ICourseStatus;
+  @Input() courseStatus: ICourseStatus;
+  @Input() moduleIndex = 0;
+  @Input() chapterIndex = 0;
   @Output() videoSelect = new EventEmitter<any>();
   @Output() playQuiz = new EventEmitter<IModule>();
   @Output() playAssessment = new EventEmitter();
@@ -27,11 +28,10 @@ export class VideoListComponent implements OnInit {
     this.openedIndex = this.openedIndex === index ? null : index;
   }
   ngOnInit(): void {
-    if(this.enrollmentCourseStatus && this.enrollmentCourseStatus.modules) { 
-      this.enrollmentCourseStatus.modules.forEach(module => {
+    if(this.courseStatus && this.courseStatus.modules) { 
+      this.courseStatus.modules.forEach(module => {
         this.quizStatus[module.serialNumber] = module.quizStatus;
       });
-      console.log('quizStatus', this.courseStatus, this.quizStatus);
     }
   }
 

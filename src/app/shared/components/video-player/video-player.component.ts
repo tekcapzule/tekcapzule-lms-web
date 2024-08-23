@@ -26,10 +26,11 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
   videoDetail: IChapter;
   player: Player;
   isVideoStarted: boolean;
-  courseStatus: ICourseStatus;
   previousSaved: number;
   @Input() course: ICourseDetail;
-  @Input() enrollmentCourseStatus: ICourseStatus;
+  @Input() courseStatus: ICourseStatus;
+  @Input() moduleIndex = 0;
+  @Input() chapterIndex = 0;
   @Output() playerReady = new EventEmitter();
   @Output() videoEnded = new EventEmitter();
 
@@ -58,27 +59,25 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
 
   onTimeupdate(data: any) {
     this.videoDetail.watchedDuration = this.player.currentTime() || 0;
+    this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration = this.videoDetail.watchedDuration;
     //console.log('this.videoDetail.watchedDuration  ', Math.floor(this.videoDetail.watchedDuration))
     const duration = Math.floor(this.videoDetail.watchedDuration);
     if(this.previousSaved !== duration && duration % 120 === 0) {
       this.previousSaved = duration;
-      this.courseStatus.modules[0].chapters[0].watchedDuration = this.videoDetail.watchedDuration;
       this.updateProgress();
-      console.log('status updated');
-      
     }
   }
 
   onVideoEnded() {
     let isModuleCompleted = true;
     let isChapterCompleted = true;
-    this.courseStatus.modules[0].chapters[0].watchedDuration = this.videoDetail.duration;
-    this.courseStatus.modules[0].chapters[0].status = IStatus.COMPLETED;
-    console.log('this.courseStatus.modules[0]', this.courseStatus.modules[0].chapters[0].watchedDuration, this.videoDetail.duration)
+    this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration = this.videoDetail.duration;
+    this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].status = IStatus.COMPLETED;
+    //console.log('this.courseStatus.modules[0]', this.courseStatus.modules[this.moduleIndex].chapters[this.moduleIndex].watchedDuration, this.videoDetail.duration)
     this.course.modules.forEach(module => {
-      if(module.serialNumber === this.courseStatus.modules[0].serialNumber) {
+      if(module.serialNumber === this.courseStatus.modules[this.moduleIndex].serialNumber) {
         module.chapters.forEach(chapter => {
-          if(chapter.serialNumber === this.courseStatus.modules[0].chapters[0].serialNumber) {
+          if(chapter.serialNumber === this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].serialNumber) {
             chapter.status = IStatus.COMPLETED;
           }
           if(chapter.status !== IStatus.COMPLETED) {
@@ -87,7 +86,7 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
         });
         if(isChapterCompleted) {
           module.status = IStatus.COMPLETED;
-          this.courseStatus.modules[0].status = IStatus.COMPLETED;
+          this.courseStatus.modules[this.moduleIndex].status = IStatus.COMPLETED;
         }
         if(module.status !== IStatus.COMPLETED) {
           isModuleCompleted = false;
@@ -116,9 +115,8 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
     }
   }
 
-  changeVideo(course: ICourseDetail, courseStatus: ICourseStatus, chapter: IChapter) {
+  changeVideo(course: ICourseDetail, chapter: IChapter) {
     this.course = course;
-    this.courseStatus = courseStatus;
     this.videoDetail = chapter;
     //this.videoDetail.watchedDuration = this.player.currentTime() || 0;
     this.player.src({ src: this.videoDetail.resourceUrl, type: 'video/mp4'});
