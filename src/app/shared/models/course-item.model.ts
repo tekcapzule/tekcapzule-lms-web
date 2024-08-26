@@ -105,7 +105,7 @@ export interface IChapter {
   name: string;
   src: string;
   resourceUrl: string;
-  duration: number;
+  duration: any;
   watchedDuration: number;
   status: IStatus;
   coverImageUrl: string;

@@ -59,7 +59,7 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
 
   onTimeupdate(data: any) {
     this.videoDetail.watchedDuration = this.player.currentTime() || 0;
-    this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration = this.videoDetail.watchedDuration;
+    this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration = this.player.currentTime() || 0;
     //console.log('this.videoDetail.watchedDuration  ', Math.floor(this.videoDetail.watchedDuration))
     const duration = Math.floor(this.videoDetail.watchedDuration);
     if(this.previousSaved !== duration && duration % 120 === 0) {
@@ -71,7 +71,7 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
   onVideoEnded() {
     let isModuleCompleted = true;
     let isChapterCompleted = true;
-    this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration = this.videoDetail.duration;
+    this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration = parseInt(this.videoDetail.duration);
     this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].status = IStatus.COMPLETED;
     //console.log('this.courseStatus.modules[0]', this.courseStatus.modules[this.moduleIndex].chapters[this.moduleIndex].watchedDuration, this.videoDetail.duration)
     this.course.modules.forEach(module => {

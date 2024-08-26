@@ -69,7 +69,7 @@ export class VideoDetailComponent implements OnInit {
 
   playCourse(enrollment: IEnrollment) {
     this.enrollmentCourseStatus = enrollment.course;
-    if(!enrollment.course.modules || enrollment.course.modules?.length ! == this.course.modules.length) {
+    if(!enrollment.course.modules || enrollment.course.modules?.length !== this.course.modules.length) {
       this.updateEnrollmentStatus();
     }
     this.updateCourseDuration(); 
@@ -85,15 +85,10 @@ export class VideoDetailComponent implements OnInit {
       const enrollmentModule = this.enrollmentCourseStatus.modules[i]
       module.chapters.forEach((chapter, j) => {
         const enrollmentChapter = enrollmentModule.chapters[j];
-        chapter.watchedDuration = 0;
         chapter.watchedDuration = enrollmentChapter.watchedDuration;
-        chapter['status'] = enrollmentChapter.status;
         module.watchedDuration = module.watchedDuration + chapter.watchedDuration; 
       });
-      this.course.watchedDuration = this.course.watchedDuration + module.watchedDuration; 
-      if(module.watchedDuration) {
-        module.watchedDuration = module.watchedDuration;
-      }
+      this.enrollmentCourseStatus.watchedDuration = this.enrollmentCourseStatus.watchedDuration + module.watchedDuration; 
     });
   }
 
@@ -145,9 +140,9 @@ export class VideoDetailComponent implements OnInit {
       this.updateStatus(this.module, this.currentVideo);
       this.currentPage = 'Video';
     } else if((lastChapterIndex + 1) < this.module.chapters.length) {
-      this.currentVideo = this.module.chapters[lastChapterIndex + 1];
       this.chapterIndex = lastChapterIndex + 1;
-      console.log('same module ---- ', lastModuleIndex, this.currentVideo);
+      this.currentVideo = this.module.chapters[this.chapterIndex];
+      console.log('same module ---- ', this.chapterIndex);
       this.updateStatus(this.module, this.currentVideo);
       this.currentPage = 'Video';
     } else if((lastChapterIndex === this.module.chapters.length - 1) && erollModule?.quizStatus !== IStatus.COMPLETED) {
@@ -158,9 +153,9 @@ export class VideoDetailComponent implements OnInit {
       this.cdr.detectChanges();
       this.quizPlayer.loadQuizData();
     } else if((lastModuleIndex + 1) < this.course.modules.length) {
-      console.log('next module ---- ', lastModuleIndex + 1, this.currentVideo);
-      this.module = this.course.modules[lastModuleIndex + 1];
+      console.log('next module ---- ', this.moduleIndex);
       this.moduleIndex = lastModuleIndex + 1;
+      this.module = this.course.modules[this.moduleIndex];
       this.chapterIndex = 0;
       this.currentVideo = this.module.chapters[0];
       this.updateStatus(this.module, this.currentVideo);
@@ -243,7 +238,7 @@ export class VideoDetailComponent implements OnInit {
 
   onPlayerReady() {
     this.playerReady = true;
-    if (!this.isVideoPlaying && this.currentVideo) {
+    if (!this.isVideoPlaying && this.currentVideo && this.currentPage === 'Video') {
       this.isVideoPlaying = true;
       this.onVideoChange(this.currentVideo);
     }
