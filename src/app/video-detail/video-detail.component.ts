@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AppSpinnerService, CourseApiService, DashboradApiService } from '@app/core';
 import { QuizComponent } from '@app/quiz/quiz.component';
 import { VideoPlayerComponent } from '@app/shared/components/video-player/video-player.component';
-import { IChapter, ICourseDetail, IModule } from '@app/shared/models/course-item.model';
+import { IChapter, IChapterType, ICourseDetail, IModule } from '@app/shared/models/course-item.model';
 import { IChapterStatus, ICourseStatus, IEnrollment, IModuleStatus, IStatus } from '@app/shared/models/user-item.model';
 
 @Component({
@@ -153,8 +153,8 @@ export class VideoDetailComponent implements OnInit {
       this.cdr.detectChanges();
       this.quizPlayer.loadQuizData();
     } else if((lastModuleIndex + 1) < this.course.modules.length) {
-      console.log('next module ---- ', this.moduleIndex);
       this.moduleIndex = lastModuleIndex + 1;
+      console.log('next module ---- ', this.moduleIndex);
       this.module = this.course.modules[this.moduleIndex];
       this.chapterIndex = 0;
       this.currentVideo = this.module.chapters[0];
@@ -247,7 +247,7 @@ export class VideoDetailComponent implements OnInit {
   onVideoEnded() {
     this.currentVideo = null;
     this.getPlayVideo();
-    if(this.currentPage === 'Video' && this.currentVideo) {
+    if(this.currentPage === 'Video' && this.currentVideo.chapterType === IChapterType.VIDEO_CONTENT && this.currentVideo) {
       this.onVideoChange(this.currentVideo);
     }
   }

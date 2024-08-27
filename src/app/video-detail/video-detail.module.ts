@@ -12,6 +12,7 @@ import { VideoListComponent } from './video-list/video-list.component';
 import { SecondsToMinutesPipe } from '@app/core/pipe/seconds-to-minutes.pipe';
 import { QuizComponent } from '@app/quiz/quiz.component';
 import { AssessmentComponent } from '@app/assessment/assessment.component';
+import { PDFPlayerComponent } from '@app/shared/components/pdf-player/pdf-player.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AssessmentComponent } from '@app/assessment/assessment.component';
     DiscussionComponent,
     AnnouncementComponent,
     VideoListComponent,
+    PDFPlayerComponent,
     SecondsToMinutesPipe
   ],
   imports: [

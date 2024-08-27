@@ -1,0 +1,19 @@
+/* Container for the video player */
+/* Video.js player customization */
+.video-js {
+  width: 100% !important; /* Ensures the player stretches to container width */
+  height: auto !important; /* Adjusts height automatically based on the aspect ratio */
+  font-size: 16px !important;
+  max-height: 550px !important;
+}
+
+
+
+/* Example: Progress bar color */
+.video-js .vjs-play-progress,
+.video-js .vjs-volume-level {
+    background-color: #1a73e8; /* Red progress and volume bars */
+}
+.vjs-fluid {
+  padding-top: 41.25% !important;
+}

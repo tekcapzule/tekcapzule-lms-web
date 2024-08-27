@@ -6,11 +6,14 @@
                 <ol class="breadcrumb m-0">
                   <li class="breadcrumb-item"><a [routerLink]="['/lms/dashboard']" class="text-decoration-none"><img src="assets/home.svg" alt=""></a></li>
                   <li class="breadcrumb-item"> <a href="javascript:void(0)" class="text-decoration-none">  {{course.title}} </a> </li>
+                  <li *ngIf="currentPage === 'Video'" class="breadcrumb-item"> <a href="javascript:void(0)" class="text-decoration-none"> > {{currentVideo.title}} </a> </li>
                 </ol>
               </nav>
             <div [ngClass]="{'hide-video': currentPage !== 'Video'}" class="mb-4 video-js-container">
                 <!-- <img src="assets/video-img.jpg" alt="" class="d-flex"> -->
-                <app-video-player #videoPlayer [options]="options" [course]="course" [courseStatus]="enrollmentCourseStatus" [moduleIndex]="moduleIndex" [chapterIndex]="chapterIndex" (playerReady)="onPlayerReady()" (videoEnded)="onVideoEnded()"></app-video-player>
+                <app-video-player [ngClass]="{'hide-video': currentPage!= 'Video' || currentVideo.chapterType !== 'VIDEO_CONTENT'}"  #videoPlayer [options]="options" [course]="course" [courseStatus]="enrollmentCourseStatus" [moduleIndex]="moduleIndex" [chapterIndex]="chapterIndex" (playerReady)="onPlayerReady()" (videoEnded)="onVideoEnded()"></app-video-player>
+                <app-pdf-player [ngClass]="{'hide-pdf': currentPage!= 'Video' || currentVideo.chapterType !== 'PDF_CONTENT'}" #pdfPlayer [course]="course" [courseStatus]="enrollmentCourseStatus" [moduleIndex]="moduleIndex" [chapterIndex]="chapterIndex" (videoEnded)="onVideoEnded()"></app-pdf-player>
+
             </div>
             <div [ngClass]="{'hide-quiz': currentPage !== 'Quiz'}" class="mb-4 video-js-container">
                 <app-quiz *ngIf="currentPage === 'Quiz'" #quizPlayer [course]="course" [isVideoPlaying]="true" [courseStatus]="enrollmentCourseStatus" [moduleIndex]="moduleIndex" (quizCompleted)="onQuizCompleted()"></app-quiz>
