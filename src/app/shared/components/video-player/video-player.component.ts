@@ -59,7 +59,7 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
 
   onTimeupdate(data: any) {
     this.videoDetail.watchedDuration = this.player.currentTime() || 0;
-    this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration = this.videoDetail.watchedDuration;
+    this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration = this.player.currentTime() || 0;
     //console.log('this.videoDetail.watchedDuration  ', Math.floor(this.videoDetail.watchedDuration))
     const duration = Math.floor(this.videoDetail.watchedDuration);
     if(this.previousSaved !== duration && duration % 120 === 0) {
@@ -71,32 +71,32 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
   onVideoEnded() {
     let isModuleCompleted = true;
     let isChapterCompleted = true;
-    this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration = this.videoDetail.duration;
+    console.log("onVideoEnded   ", this.player.currentTime(), parseInt(this.videoDetail.duration));
+    this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration = parseInt(this.videoDetail.duration);
     this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].status = IStatus.COMPLETED;
     //console.log('this.courseStatus.modules[0]', this.courseStatus.modules[this.moduleIndex].chapters[this.moduleIndex].watchedDuration, this.videoDetail.duration)
-    this.course.modules.forEach(module => {
+    let chapterDuration = 0;
+    let moduleDuration = 0;
+    this.courseStatus.modules.forEach(module => {
       if(module.serialNumber === this.courseStatus.modules[this.moduleIndex].serialNumber) {
         module.chapters.forEach(chapter => {
-          if(chapter.serialNumber === this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].serialNumber) {
-            chapter.status = IStatus.COMPLETED;
-          }
+          chapterDuration += chapter.watchedDuration || 0;
           if(chapter.status !== IStatus.COMPLETED) {
             isChapterCompleted = false;
+            isModuleCompleted = false;
           }
         });
         if(isChapterCompleted) {
           module.status = IStatus.COMPLETED;
-          this.courseStatus.modules[this.moduleIndex].status = IStatus.COMPLETED;
         }
-        if(module.status !== IStatus.COMPLETED) {
-          isModuleCompleted = false;
-        }
+        module.watchedDuration = chapterDuration;
+        moduleDuration += chapterDuration;
       }
     });
     if(isModuleCompleted) {
-      this.course.status = IStatus.COMPLETED;
       this.courseStatus.status = IStatus.COMPLETED;
     }
+    this.courseStatus.watchedDuration = moduleDuration;
 
     this.updateProgress();
     this.videoEnded.emit();

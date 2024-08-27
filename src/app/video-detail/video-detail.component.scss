@@ -7,13 +7,7 @@
     height: auto;
     //max-height: 550px !important;
 }
-.hide-video {
-    display: none;
-}
-.hide-quiz {
-    display: none;
-}
-.hide-assessment {
+.hide-video, .hide-pdf, .hide-quiz, .hide-assessment {
     display: none;
 }
 .video-detail-row {

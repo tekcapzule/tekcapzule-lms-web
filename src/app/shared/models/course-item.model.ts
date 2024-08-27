@@ -105,11 +105,18 @@ export interface IChapter {
   name: string;
   src: string;
   resourceUrl: string;
-  duration: number;
+  duration: any;
   watchedDuration: number;
   status: IStatus;
   coverImageUrl: string;
+  chapterType: IChapterType;
 }
+
+export enum IChapterType {
+  VIDEO_CONTENT = 'VIDEO_CONTENT',
+  PDF_CONTENT = 'PDF_CONTENT'
+}
+
 export interface ISchedule {
   startDate: string;
   endDate: string;
