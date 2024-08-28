@@ -76,7 +76,7 @@ export class VideoDetailComponent implements OnInit {
     }
     this.updateCourseDuration(); 
     this.getPlayVideo();
-    console.log('curren ', this.currentPage);
+    //console.log('curren ', this.currentPage);
   }
 
   updateCourseDuration() {
