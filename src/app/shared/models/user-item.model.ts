@@ -34,6 +34,15 @@ export enum IStatus {
   COMPLETED = 'Completed'
 }
 
+
+export enum PAGE_TYPE {
+  EMPTY =  'Empty',
+  VIDEO = 'Video',
+  QUIZ = 'Quiz',
+  ASSESSMENT = 'Assessment',
+  PDF = 'Pdf'
+}
+
 export interface IModuleStatus {
   serialNumber: number;
   watchedDuration: number;

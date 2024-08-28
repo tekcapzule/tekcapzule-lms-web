@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { IChapter, ICourseDetail, IModule } from '@app/shared/models/course-item.model';
-import { ICourseStatus, IStatus } from '@app/shared/models/user-item.model';
+import { ICourseStatus, IStatus, PAGE_TYPE } from '@app/shared/models/user-item.model';
 
 @Component({
   selector: 'app-video-list',
@@ -10,7 +10,7 @@ import { ICourseStatus, IStatus } from '@app/shared/models/user-item.model';
 })
 export class VideoListComponent implements OnInit {
   @Input() course: ICourseDetail;
-  @Input() currentPage:  ''| 'Video' | 'Quiz' | 'Assessment';
+  @Input() currentPage:  PAGE_TYPE;
   @Input() courseStatus: ICourseStatus;
   @Input() moduleIndex = 0;
   @Input() chapterIndex = 0;
@@ -60,8 +60,8 @@ export class VideoListComponent implements OnInit {
     }
   }
 
-  onChangeVideo(module: IModule, chapter: IChapter): void { 
-    this.videoSelect.emit({module, chapter});
+  onChangeVideo(module: IModule, chapter: IChapter, moduleIndex: number, chapterIndex: number): void { 
+    this.videoSelect.emit({module, chapter, moduleIndex, chapterIndex});
   }
 
   openQuiz(module: IModule) {
