@@ -13,6 +13,7 @@ import { SecondsToMinutesPipe } from '@app/core/pipe/seconds-to-minutes.pipe';
 import { QuizComponent } from '@app/quiz/quiz.component';
 import { AssessmentComponent } from '@app/assessment/assessment.component';
 import { PDFPlayerComponent } from '@app/shared/components/pdf-player/pdf-player.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PDFPlayerComponent } from '@app/shared/components/pdf-player/pdf-player
   imports: [
     CommonModule,
     SharedModule,
+    FormsModule,
     VideoDetailRoutingModule
   ],
 })

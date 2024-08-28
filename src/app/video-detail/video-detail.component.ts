@@ -151,7 +151,7 @@ export class VideoDetailComponent implements OnInit {
       this.currentVideo = this.module.chapters[this.chapterIndex];
       //console.log('same module ---- ', this.chapterIndex);
       this.updateStatus(this.module, this.currentVideo);
-      this.currentPage = PAGE_TYPE.VIDEO;
+      this.currentPage = PAGE_TYPE.PDF;
     } else if((lastChapterIndex === this.module.chapters.length - 1) && erollModule?.quizStatus !== IStatus.COMPLETED) {
       this.currentVideo = this.module.chapters[lastChapterIndex];
       this.chapterIndex = lastChapterIndex;
