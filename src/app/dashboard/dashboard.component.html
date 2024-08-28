@@ -316,36 +316,25 @@
         <div class="box-layout m-0 mb-3">
           <h3>Poll</h3>
           <h4>Which technology is going to be a big boom in the year 2024?</h4>
-          <div class="poll">
-            <div class="options">
-              <input type="radio" value="Artificial Intelligence" />
-              <label for="age1">Artificial Intelligence</label>
-            </div>
-            <div class="options">
-              <input type="radio" value="Artificial Intelligence" />
-              <label for="age1">Machine Learning</label>
-            </div>
-            <div class="options">
-              <input type="radio" value="Artificial Intelligence" />
-              <label for="age1">Metaverse</label>
-            </div>
-            <div class="options">
-              <input type="radio" value="Artificial Intelligence" />
-              <label for="age1">Web 3.0</label>
-            </div>
-          </div>
+          <ul class="poll p-0">
+            <li class="options" *ngFor="let option of pollOptions">
+              <input class="pr-3" type="radio" [id]="option.id" [value]="option.id" name="option" [checked]="pollSelectedId === option.id"
+              [disabled]="isPollSubmitted" (change)="onOptionSelect(option.id)">
+              <label [for]="option">{{ option.name }}</label>
+            </li>
+          </ul>
           <div class="d-flex justify-content-center mt-3">
-            <button class="btn primary-btn-filled">Submit</button>
+            <button class="btn primary-btn-filled" [disabled]="isPollSubmitted" (click)="onPollSubmit()">Submit</button>
           </div>
         </div>
         <div class="box-layout m-0 mb-3">
           <h3>Quick Links</h3>
           <ul class="quick-links">
             <li>Intranet Home</li>
-            <li>Udemy</li>
-            <li>Pluralsight</li>
-            <li>Coursera</li>
-            <li>Techcollege</li>
+            <li><a href="https://www.udemy.com/" target="_blank">Udemy</a></li>
+            <li><a href="https://www.pluralsight.com/" target="_blank">Pluralsight</a></li>
+            <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+            <li><a href="https://techcollege.dk/" target="_blank">Techcollege</a></li>
           </ul>
           <div class="no-link content-center">
             <img src="../../assets/dashboard/no-links.png" alt="" />

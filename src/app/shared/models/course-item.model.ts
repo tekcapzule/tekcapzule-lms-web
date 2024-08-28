@@ -7,7 +7,7 @@ export interface ICourseDetail {
   title: string;
   summary: string;
   description: string;
-  authors: IAuthorDetail[];
+  //authors: IAuthorDetail[];
   author: string;
   tags: string[];
   publisher: string;

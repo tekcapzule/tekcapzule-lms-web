@@ -10,7 +10,7 @@ import { ICourseStatus } from '@app/shared/models/user-item.model';
 })
 export class OverviewComponent {
   @Input() course: ICourseDetail;
-  @Input() enrollmentCourseStatus: ICourseStatus;
+  @Input() courseStatus: ICourseStatus;
   @Output() openAssessment = new EventEmitter();
 
   constructor(private router: Router) {}

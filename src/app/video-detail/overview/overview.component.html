@@ -25,7 +25,7 @@
                     <label><span class="rounded notes-icon"></span><span class="fw-bold">2hr </span>
                          of reading</label>
                     <label class=""><span class="rounded notes-icon"></span>Quiz</label>
-                    <button *ngIf="course.assessment" class="link-btn" [disabled]="enrollmentCourseStatus.status === 'Completed'" (click)="openLink()"><span class="rounded notes-icon"></span><span
+                    <button *ngIf="course.assessment" class="link-btn" [disabled]="courseStatus.status !== 'Completed'" (click)="openLink()"><span class="rounded notes-icon"></span><span
                             class="fw-bold"></span> Assessment</button>
                     <label><span class="rounded notes-icon"></span><span
                             class="fw-bold">1</span> Course completion certificate</label>

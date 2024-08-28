@@ -4,6 +4,7 @@ export const environment = {
   apiCacheExpiryHours: 12,
   userApiGateway: '1co3pectr2',
   lmsCourseApiGateway: 'lkyrfc5qhl',
+  lmsCourseUpdateApiGateway: '1co3pectr2',
   eventApiGateway: 't9uk11ucqa',
   courseApiGateway: 'pir8ksji0b',
   marketplaceApiGateway: '2qdikhxbob',
