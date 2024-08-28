@@ -249,9 +249,9 @@ export class VideoDetailComponent implements OnInit {
   }
 
   onVideoSelect(data: any) {
-    this.updateStatus(data.module, data.chapter);
     this.moduleIndex = data.moduleIndex;
     this.chapterIndex = data.chapterIndex;
+    this.updateStatus(data.module, data.chapter);
     if (data.chapter.chapterType === IChapterType.VIDEO_CONTENT) {
       this.currentPage = PAGE_TYPE.VIDEO;
       this.onVideoChange(data.chapter);
