@@ -10,7 +10,7 @@ import { ICourseStatus, IStatus } from '@app/shared/models/user-item.model';
   styleUrls: ['./pdf-player.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class PDFPlayerComponent implements OnInit {
+export class PDFPlayerComponent implements OnInit, OnDestroy {
   videoDetail: IChapter;
   pdfSource: SafeResourceUrl;
   @Input() course: ICourseDetail;
@@ -31,7 +31,11 @@ export class PDFPlayerComponent implements OnInit {
     this.pdfSource =this.sanitizer.bypassSecurityTrustResourceUrl(this.videoDetail.resourceUrl);
   }
   
-  onVideoEnded() {
+  ngOnDestroy(): void {
+    this.onPdfEnded();
+  }
+  
+  onPdfEnded() {
     let isModuleCompleted = true;
     let isChapterCompleted = true;
     this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration = parseInt(this.videoDetail.duration);

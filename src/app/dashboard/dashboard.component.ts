@@ -23,6 +23,14 @@ export class DashboardComponent implements OnInit {
   completedCourses: number = 0;
   fullName: string;
   firstName: string;
+  pollSelectedId: string;
+  isPollSubmitted: boolean;
+  pollOptions = [
+    {id: "1", name:"Artificial Intelligence", percentage: 45},
+    {id: "2", name:"Machine Learning", percentage: 25},
+    {id: "3", name:"Metaverse", percentage: 20},
+    {id: "4", name:"Web 3.0", percentage: 10}
+  ];
 
   constructor(
     private courseApi: CourseApiService,
@@ -101,6 +109,14 @@ export class DashboardComponent implements OnInit {
     } else {
       this.router.navigateByUrl('/lms/feeds');
     }
+  }
+
+  onOptionSelect(optionId: string) {
+    this.pollSelectedId = optionId;
+  }
+  onPollSubmit() {
+    this.isPollSubmitted = true;
+
   }
 
   logOutUser() {}

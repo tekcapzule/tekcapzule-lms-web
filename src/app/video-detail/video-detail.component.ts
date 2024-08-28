@@ -121,8 +121,9 @@ export class VideoDetailComponent implements OnInit {
     this.currentPage = '';
     this.currentVideo = null;
     this.course.duration = 0;
-    if(this.enrollCourseStatus.status === IStatus.COMPLETED || this.enrollCourseStatus.assessmentStatus === IStatus.COMPLETED) {
-      this.currentVideo = this.course.modules[0].chapters[0];this.currentPage = 'Video';
+    if(this.enrollCourseStatus.status === IStatus.COMPLETED && this.enrollCourseStatus.assessmentStatus === IStatus.COMPLETED) {
+      this.currentVideo = this.course.modules[0].chapters[0];
+      this.currentPage = 'Video';
       return;
     }
     if(this.enrollCourseStatus.lastVisitedModule === 0 || this.enrollCourseStatus.lastVisitedChapter === 0) {
@@ -251,7 +252,9 @@ export class VideoDetailComponent implements OnInit {
     data.chapter.watchedDuration = 0;
     this.updateStatus(data.module, data.chapter);
     this.currentPage = 'Video';
-    this.onVideoChange(data.chapter);
+    if (data.chapter.chapterType === IChapterType.VIDEO_CONTENT) {
+      this.onVideoChange(data.chapter);
+    }
   }
 
   onQuizCompleted() {
