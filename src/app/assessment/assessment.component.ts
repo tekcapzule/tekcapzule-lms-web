@@ -1,12 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { AppSpinnerService, CourseApiService } from '@app/core';
+import { AppSpinnerService, CourseApiService, DashboradApiService } from '@app/core';
 import { AuthStateService } from '@app/core/services';
 import { InitService } from '@app/core/services/app-state/init.service';
 import { ICourseDetail, IOption, IQuestion, IQuiz } from '@app/shared/models';
 import { IUserAnswer, IValidateQuiz } from '@app/shared/models/quiz.model';
-import { ICourseStatus } from '@app/shared/models/user-item.model';
+import { ICourseStatus, IStatus } from '@app/shared/models/user-item.model';
 
 @Component({
   selector: 'app-assessment',
@@ -23,16 +23,18 @@ export class AssessmentComponent implements OnInit {
   validateRequestBody: IValidateQuiz;
   isAnswerSelected: boolean;
   quizResult: any;
-  @Input() course: ICourseDetail;
-  @Input() courseStatus: ICourseStatus;
   pdfSource: SafeResourceUrl;
   isPDFLoaded: boolean;
   answer: any;
+  @Input() course: ICourseDetail;
+  @Input() courseStatus: ICourseStatus;
+  @Output() assessmentComplete = new EventEmitter();
 
   constructor(private courseApi: CourseApiService,
     private initService: InitService,
     private spinner: AppSpinnerService,
     private authState: AuthStateService,
+    private dashboradApi: DashboradApiService,
     private sanitizer: DomSanitizer) {}
 
 
@@ -82,9 +84,36 @@ export class AssessmentComponent implements OnInit {
     this.courseApi.validateQuizAnswer(this.validateRequestBody).subscribe(data => {
       this.quizFinished = true;
       this.quizResult = data;
+      console.log('  submitAnswer  --- ', data);  
       this.spinner.hide();
-      console.log('  submitAnswer  --- ', data);
+      if(this.quizResult.passed) {
+        this.courseStatus.assessmentStatus = IStatus.COMPLETED;
+        this.assessmentComplete.emit();
+        this.updateCourseComplete();
+      }
     });
+  }
+
+  updateCourseComplete() {
+      const requestBody = {
+        courseId: this.courseStatus.courseId,
+        watchedDuration: this.courseStatus.watchedDuration,
+        status: IStatus.COMPLETED,
+        courseName: this.course.title,
+        courseDuration: this.course.duration,
+        instructor: this.course.author,
+        lastVisitedModule: this.courseStatus.lastVisitedModule,
+        lastVisitedChapter: this.courseStatus.lastVisitedChapter,
+        points: 10,
+        earnBadge: true,
+        assessmentScore: this.quizResult.scorePercentage,
+        assessmentStatus: IStatus.COMPLETED
+      }
+      this.dashboradApi.courseComplete(requestBody).subscribe(data => {
+        console.log('Course Complete updated successfully');
+      }, err => {
+        console.log('Course Complete updated error');
+      })
   }
 
   loadCertificate() {

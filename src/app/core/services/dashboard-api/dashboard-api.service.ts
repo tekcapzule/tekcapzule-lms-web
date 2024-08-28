@@ -4,8 +4,13 @@ import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { ITaskItem } from '@app/shared/models/task-item.model';
 import { ICourseStatus, IUser } from '@app/shared/models/user-item.model';
 
+import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
 import { AuthStateService } from '../app-state/auth-state.service';
+
+const COURSE_API_PATH = `${environment.apiEndpointTemplate}/lms/user/`
+  .replace('{{api-gateway}}', environment.lmsCourseUpdateApiGateway)
+  .replace('{{aws-region}}', environment.awsRegion);
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +26,7 @@ export class DashboradApiService {
   
   getUserDetails(): Observable<IUser> {
     return this.httpClient.post<IUser>(
-      'https://1co3pectr2.execute-api.us-east-1.amazonaws.com/dev/lms/user/get',
+      COURSE_API_PATH + 'get',
       {
         "userId": this.authState.getEmail(),
         "tenantId": ""
@@ -30,7 +35,7 @@ export class DashboradApiService {
 
   updateVideoStatus(courseStatus: ICourseStatus) {
     return this.httpClient.post<any>(
-      'https://1co3pectr2.execute-api.us-east-1.amazonaws.com/dev/lms/user/updateProgress',
+      COURSE_API_PATH + 'updateProgress',
       {
         userId: this.authState.getEmail(),
         tenantId: "",
@@ -40,11 +45,21 @@ export class DashboradApiService {
   
   enrollCourse(courseId: string) {
     return this.httpClient.post<any>(
-      'https://1co3pectr2.execute-api.us-east-1.amazonaws.com/dev/lms/user/optin',
+      COURSE_API_PATH + 'optin',
       {
         userId: this.authState.getEmail(),
         tenantId: "",
         courseId: courseId
+      });  
+  }
+
+  courseComplete(courseDetail: any) {
+    return this.httpClient.post<any>(
+      COURSE_API_PATH + 'coursecomplete',
+      {
+        userId: this.authState.getEmail(),
+        tenantId: "",
+        course: courseDetail
       });  
   }
 }

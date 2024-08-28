@@ -1,5 +1,5 @@
 <!-- skeleton loader: start -->
-<div class="course-wrapper skeleton-loader" *ngIf="spinner.isLoading">
+<div class="course-wrapper skeleton-loader" *ngIf="showSkeletonLoader">
   <div class="banner skel-banner">
     <div class="col-9 pe-5">
       <h1 class="loading w-75"></h1>
@@ -90,7 +90,7 @@
   </div>
 </div>
 <!-- skeleton loader: end -->
-<ng-container *ngIf="!spinner.isLoading">
+<ng-container *ngIf="!showSkeletonLoader">
   <div *ngIf="course">
     <div class="course-wrapper">
       <app-spinner></app-spinner>

@@ -11,15 +11,15 @@
               </nav>
             <div [ngClass]="{'hide-video': currentPage !== 'Video'}" class="mb-4 video-js-container">
                 <!-- <img src="assets/video-img.jpg" alt="" class="d-flex"> -->
-                <app-video-player [ngClass]="{'hide-video': currentPage!= 'Video' || currentVideo.chapterType !== 'VIDEO_CONTENT'}"  #videoPlayer [options]="options" [course]="course" [courseStatus]="enrollmentCourseStatus" [moduleIndex]="moduleIndex" [chapterIndex]="chapterIndex" (playerReady)="onPlayerReady()" (videoEnded)="onVideoEnded()"></app-video-player>
-                <app-pdf-player [ngClass]="{'hide-pdf': currentPage!= 'Video' || currentVideo.chapterType !== 'PDF_CONTENT'}" #pdfPlayer [course]="course" [courseStatus]="enrollmentCourseStatus" [moduleIndex]="moduleIndex" [chapterIndex]="chapterIndex" (videoEnded)="onVideoEnded()"></app-pdf-player>
+                <app-video-player [ngClass]="{'hide-video': currentPage!= 'Video' || currentVideo.chapterType !== 'VIDEO_CONTENT'}"  #videoPlayer [options]="options" [course]="course" [courseStatus]="enrollCourseStatus" [moduleIndex]="moduleIndex" [chapterIndex]="chapterIndex" (playerReady)="onPlayerReady()" (videoEnded)="onVideoEnded()"></app-video-player>
+                <app-pdf-player [ngClass]="{'hide-pdf': currentPage!= 'Video' || currentVideo.chapterType !== 'PDF_CONTENT'}" #pdfPlayer [course]="course" [courseStatus]="enrollCourseStatus" [moduleIndex]="moduleIndex" [chapterIndex]="chapterIndex" (videoEnded)="onVideoEnded()"></app-pdf-player>
 
             </div>
             <div [ngClass]="{'hide-quiz': currentPage !== 'Quiz'}" class="mb-4 video-js-container">
-                <app-quiz *ngIf="currentPage === 'Quiz'" #quizPlayer [course]="course" [isVideoPlaying]="true" [courseStatus]="enrollmentCourseStatus" [moduleIndex]="moduleIndex" (quizCompleted)="onQuizCompleted()"></app-quiz>
+                <app-quiz *ngIf="currentPage === 'Quiz'" #quizPlayer [course]="course" [isVideoPlaying]="true" [courseStatus]="enrollCourseStatus" [moduleIndex]="moduleIndex" (quizCompleted)="onQuizCompleted()"></app-quiz>
             </div>
             <div [ngClass]="{'hide-assessment': currentPage !== 'Assessment'}" class="mb-4 video-js-container">
-                <app-assessment *ngIf="currentPage === 'Assessment'" #assessmentPlayer [course]="course" [courseStatus]="enrollmentCourseStatus"></app-assessment>
+                <app-assessment *ngIf="currentPage === 'Assessment'" #assessmentPlayer [course]="course" [courseStatus]="enrollCourseStatus" (assessmentComplete)="onAssessmentComplete()"></app-assessment>
             </div>
 
            <div>
@@ -44,7 +44,7 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active px-2 py-2 px-sm-5 py-sm-4" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <app-overview [course]="course"  [enrollmentCourseStatus]="enrollmentCourseStatus" (openAssessment)="onPlayAssessment()"></app-overview>
+                    <app-overview [course]="course"  [courseStatus]="enrollCourseStatus" (openAssessment)="onPlayAssessment()"></app-overview>
                 </div>
                 <!-- Overview -->
                 <div class="tab-pane fade px-2 py-2 px-sm-5 py-sm-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -65,7 +65,7 @@
         </div>
 
         <div class="col-3 video-detail-list p-0">
-            <app-video-list [course]="course" [currentPage]="currentPage" [courseStatus]="enrollmentCourseStatus" [moduleIndex]="moduleIndex" [chapterIndex]="chapterIndex" (videoSelect)="onVideoSelect($event)" (playQuiz)="onPlayQuiz($event)" (playAssessment)="onPlayAssessment()"></app-video-list>
+            <app-video-list #videoList [course]="course" [currentPage]="currentPage" [courseStatus]="enrollCourseStatus" [moduleIndex]="moduleIndex" [chapterIndex]="chapterIndex" (videoSelect)="onVideoSelect($event)" (playQuiz)="onPlayQuiz($event)" (playAssessment)="onPlayAssessment()"></app-video-list>
         </div>
     </div>
 </section>

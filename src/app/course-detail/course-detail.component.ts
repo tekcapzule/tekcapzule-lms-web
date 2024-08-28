@@ -22,6 +22,7 @@ export class CourseDetailComponent implements OnInit {
   userData: IUser;
   courseStatus: IEnrollment[] = [];
   isCourseEnrolled: boolean;
+  showSkeletonLoader: boolean;
 
   constructor(
     private router: Router,
@@ -47,9 +48,9 @@ export class CourseDetailComponent implements OnInit {
   }
 
   getWishlistCourse(code: string) {
-    this.spinner.show();
+    this.showSkeletonLoader = true;
     this.courseApi.getCourse([code])
-    .pipe(finalize(() => this.spinner.hide()))
+    .pipe(finalize(() => this.showSkeletonLoader = false))
     .subscribe(
       data => {
         this.course = data[0] as ICourseDetail;
