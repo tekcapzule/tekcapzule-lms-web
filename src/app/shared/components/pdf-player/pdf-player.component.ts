@@ -32,7 +32,7 @@ export class PDFPlayerComponent implements OnInit, OnDestroy {
   }
   
   ngOnDestroy(): void {
-    this.onPdfEnded();
+    //this.onPdfEnded();
   }
   
   onPdfEnded() {

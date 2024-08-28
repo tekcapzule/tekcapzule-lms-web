@@ -4,7 +4,7 @@ import { AppSpinnerService, CourseApiService, DashboradApiService } from '@app/c
 import { QuizComponent } from '@app/quiz/quiz.component';
 import { VideoPlayerComponent } from '@app/shared/components/video-player/video-player.component';
 import { IChapter, IChapterType, ICourseDetail, IModule } from '@app/shared/models/course-item.model';
-import { IChapterStatus, ICourseStatus, IEnrollment, IModuleStatus, IStatus } from '@app/shared/models/user-item.model';
+import { IChapterStatus, ICourseStatus, IEnrollment, IModuleStatus, IStatus, PAGE_TYPE } from '@app/shared/models/user-item.model';
 import { VideoListComponent } from './video-list/video-list.component';
 
 @Component({
@@ -28,7 +28,7 @@ export class VideoDetailComponent implements OnInit {
   currentVideo: IChapter | any;
   isVideoPlaying: boolean;
   enrollCourseStatus: ICourseStatus;
-  currentPage: ''| 'Video' | 'Quiz' | 'Assessment';
+  currentPage: PAGE_TYPE;
   module: IModule;
   moduleIndex = 0;
   chapterIndex = 0;
@@ -118,19 +118,19 @@ export class VideoDetailComponent implements OnInit {
   }
 
   getPlayVideo() {
-    this.currentPage = '';
+    this.currentPage = PAGE_TYPE.EMPTY;
     this.currentVideo = null;
     this.course.duration = 0;
     if(this.enrollCourseStatus.status === IStatus.COMPLETED && this.enrollCourseStatus.assessmentStatus === IStatus.COMPLETED) {
       this.currentVideo = this.course.modules[0].chapters[0];
-      this.currentPage = 'Video';
+      this.currentPage = PAGE_TYPE.VIDEO;
       return;
     }
     if(this.enrollCourseStatus.lastVisitedModule === 0 || this.enrollCourseStatus.lastVisitedChapter === 0) {
       this.currentVideo = this.course.modules[0].chapters[0];
       this.setDefaultValues();
       this.updateStatus(this.course.modules[0], this.currentVideo);
-      this.currentPage = 'Video';
+      this.currentPage = PAGE_TYPE.VIDEO;
       return;
     }
     let lastModuleIndex = this.getIndex(this.course.modules, this.enrollCourseStatus.lastVisitedModule);
@@ -145,17 +145,17 @@ export class VideoDetailComponent implements OnInit {
       this.currentVideo = chapter;
       //console.log('not complete ---- ', lastModuleIndex, this.currentVideo);
       this.updateStatus(this.module, this.currentVideo);
-      this.currentPage = 'Video';
+      this.currentPage = PAGE_TYPE.VIDEO;
     } else if((lastChapterIndex + 1) < this.module.chapters.length) {
       this.chapterIndex = lastChapterIndex + 1;
       this.currentVideo = this.module.chapters[this.chapterIndex];
       //console.log('same module ---- ', this.chapterIndex);
       this.updateStatus(this.module, this.currentVideo);
-      this.currentPage = 'Video';
+      this.currentPage = PAGE_TYPE.VIDEO;
     } else if((lastChapterIndex === this.module.chapters.length - 1) && erollModule?.quizStatus !== IStatus.COMPLETED) {
       this.currentVideo = this.module.chapters[lastChapterIndex];
       this.chapterIndex = lastChapterIndex;
-      this.currentPage = 'Quiz';
+      this.currentPage = PAGE_TYPE.QUIZ;
       this.cdr.detectChanges();
       this.quizPlayer.loadQuizData();
     } else if((lastModuleIndex + 1) < this.course.modules.length) {
@@ -165,10 +165,10 @@ export class VideoDetailComponent implements OnInit {
       this.chapterIndex = 0;
       this.currentVideo = this.module.chapters[0];
       this.updateStatus(this.module, this.currentVideo);
-      this.currentPage = 'Video';
+      this.currentPage = PAGE_TYPE.VIDEO;
     } else if(this.enrollCourseStatus.assessmentStatus !== IStatus.COMPLETED) {
       //console.log('CAme Assessment');
-      this.currentPage = 'Assessment';
+      this.currentPage = PAGE_TYPE.ASSESSMENT;
       this.openAssessment();
     } else {
       this.enrollCourseStatus.status = IStatus.COMPLETED;
@@ -238,22 +238,27 @@ export class VideoDetailComponent implements OnInit {
     this.videoPlayer.pauseVideo();
     this.module = module;
     this.updateStatus(module);
-    this.currentPage = 'Quiz';
+    this.currentPage = PAGE_TYPE.QUIZ;
     this.cdr.detectChanges();
     this.quizPlayer.loadQuizData();
   }
 
   onPlayAssessment() {
     this.videoPlayer.pauseVideo();
-    this.currentPage = 'Assessment';
+    this.currentPage = PAGE_TYPE.ASSESSMENT;
   }
 
   onVideoSelect(data: any) {
-    data.chapter.watchedDuration = 0;
     this.updateStatus(data.module, data.chapter);
-    this.currentPage = 'Video';
+    this.moduleIndex = data.moduleIndex;
+    this.chapterIndex = data.chapterIndex;
     if (data.chapter.chapterType === IChapterType.VIDEO_CONTENT) {
+      this.currentPage = PAGE_TYPE.VIDEO;
       this.onVideoChange(data.chapter);
+    } else {
+      this.videoPlayer.pauseVideo();
+      this.currentPage = PAGE_TYPE.PDF;
+      this.currentVideo = data.chapter;
     }
   }
 
