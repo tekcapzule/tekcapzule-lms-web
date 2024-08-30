@@ -72,12 +72,6 @@ export class DashboardComponent implements OnInit {
     this.courseApi.getCourse(courseIds).subscribe(courses => {
       this.courseList = courses;
       this.courseApi.courses = courses;
-      this.courseList.forEach(course => {
-        if(course) {
-          course.watchedDuration = this.getWatchedDuration(course.courseId);
-          // console.log('course', course.watchedDuration);
-        }
-      });
     });
   }
 

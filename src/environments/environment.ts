@@ -34,6 +34,7 @@ export const environment = {
     redirectUri: 'http://localhost:4200/',
     domainUri: 'https://tekcapzuledev.auth.us-east-1.amazoncognito.com',
   },
+  isDemo: false
 };
 
 /*

@@ -30,4 +30,5 @@ export const environment = {
     redirectUri: 'https://dev.tekcapzule.com',
     domainUri: 'https://tekcapzuledev.auth.us-east-1.amazoncognito.com',
   },
+  isDemo: true
 };

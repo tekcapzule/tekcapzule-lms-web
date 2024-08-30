@@ -4,10 +4,10 @@
 	  <div class="resume">
 		<div 
 		  role="progressbar" 
-		  [attr.aria-valuenow]="(course.watchedDuration / course.duration) * 100" 
+		  [attr.aria-valuenow]="progress" 
 		  aria-valuemin="0" 
 		  aria-valuemax="100"
-		  style="--value: {{math.floor((course.watchedDuration/course.duration) * 100)}}">
+		  style="--value: {{progress}}">
 		</div>
 		<button class="btn primary-btn" (click)="onResume()">
 		  {{(course.status === 'Completed' || course.status === 'Enrolled') ? 'Start' : 'Resume'}}
@@ -26,7 +26,7 @@
 		<label><span class="clock-icon me-2"></span> {{formattedDuration}}</label>
 		<label><span class="due-icon me-2"></span> Due: 2 months</label>
 	  </div>
-	  <div class="progress">
+	  <!--div class="progress">
 		<div 
 		  class="progress-bar w-{{math.floor((course.watchedDuration/course.duration) * 100)}}" 
 		  role="progressbar" 
@@ -34,7 +34,7 @@
 		  aria-valuemin="0" 
 		  aria-valuemax="100">
 		</div>
-	  </div>
+	  </!--div-->
 	</div>
   </div>
   
@@ -49,11 +49,11 @@
 	  <div class="course-status">
 		<label><span class="user-icon"></span> {{course.courseLevel}}</label>
 		<label><span class="clock-icon me-2"></span> {{formattedDuration}}</label>
-		<label><span class="due-icon me-2"></span> Due: 2m</label>
+		<label><span class="due-icon me-2"></span> Due: 2 months</label>
 	  </div>
 	</div>
 	<div class="course-footer">
-	  <div>Specialization <span> | </span> {{course.topicCode}}</div>
+	  <div>{{course.topicCode}}</div>
 	  <div class="rating">{{course.courseRating}} <span class="star-icon"></span></div>
 	</div>
   </div>

@@ -150,12 +150,12 @@
             <div class="row mt-4">
               <div class="col-lg-9">
                 <h3>Your Badges</h3>
-                <p *ngIf="!userData?.badges">No Badges Yet</p>
-                <ul *ngIf="userData?.badges" class="badges">
-                  <li class="bronze"></li>
-                  <li class="silver"></li>
-                  <li class="gold"></li>
-                  <li class="silver"></li>
+                <p *ngIf="!userData?.points">No Badges Yet</p>
+                <ul *ngIf="userData?.points" class="badges">
+                  <li *ngIf="userData.points > 0" class="bronze"></li>
+                  <li *ngIf="userData.points > 20" class="silver"></li>
+                  <li *ngIf="userData.points > 40" class="gold"></li>
+                  <li *ngIf="userData.points > 60" class="silver"></li>
                 </ul>
               </div>
             </div>
@@ -177,8 +177,8 @@
           <div class="box-layout mx-0">
             <h3>My Courses</h3>
             <div class="col-12">
-              <ng-container *ngFor="let course of courseList;">
-                <app-course-card *ngIf="course" [course]="course" [page]="'Dashboard'"></app-course-card>
+              <ng-container *ngFor="let course of courseList; let i = index">
+                <app-course-card *ngIf="course" [course]="course" [courseStatus]="courseStatus[i].course" [page]="'Dashboard'"></app-course-card>
               </ng-container>
             </div>
             <div *ngIf="!courseList.length" class="no-course content-center">

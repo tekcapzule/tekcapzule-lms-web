@@ -1,12 +1,14 @@
 <section id="wrapper">
     <app-spinner></app-spinner>
+    <div class="row d-flex justify-content-center p-3 w-25">
+        <button class="text-white bg-pink border-0 fs-6" type="button" (click)="saveProgress()">Save</button>
+    </div>
     <div class="row video-detail-row p-0 g-0" *ngIf="course">
         <div class="col-9 video-detail-col">
             <nav class="breadcrumb-nav px-4 py-2 d-flex m-0" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
                 <ol class="breadcrumb m-0">
                   <li class="breadcrumb-item"><a [routerLink]="['/lms/dashboard']" class="text-decoration-none"><img src="assets/home.svg" alt=""></a></li>
                   <li class="breadcrumb-item"> <a href="javascript:void(0)" class="text-decoration-none">  {{course.title}} </a> </li>
-                  <li *ngIf="currentPage === 'Video'" class="breadcrumb-item"> <a href="javascript:void(0)" class="text-decoration-none"> > {{currentVideo.title}} </a> </li>
                 </ol>
               </nav>
             <div [ngClass]="{'hide-content': currentPage !== 'Video'}" class="mb-4 video-js-container">
