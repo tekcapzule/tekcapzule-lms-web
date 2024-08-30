@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { HelperService } from '@app/core/services/common/helper.service';
 import { IChapter, ICourseDetail, IModule } from '@app/shared/models/course-item.model';
 import { ICourseStatus, IStatus, PAGE_TYPE } from '@app/shared/models/user-item.model';
 
@@ -19,11 +20,11 @@ export class VideoListComponent implements OnInit {
   @Output() playAssessment = new EventEmitter();
   math = Math;
   completedQuizCount = 0;
-  chapterCount = 0;
+  progress = 0;
   completedCount = 0;
   openedIndex: number | null = null;
 
-  constructor() {}
+  constructor(private helperService: HelperService) {}
 
   toggleAccordion(index: number): void {
     this.openedIndex = this.openedIndex === index ? null : index;
@@ -31,35 +32,12 @@ export class VideoListComponent implements OnInit {
   ngOnInit(): void {
     this.updateProgress();
   }
-
+  
   updateProgress() {
-    this.chapterCount = 0;
-    this.completedCount = 0;
-    if(this.courseStatus && this.courseStatus.modules) { 
-      this.courseStatus.modules.forEach((module, i) => {
-        module.chapters.forEach(chapter => {
-          this.chapterCount ++;
-          if(chapter.status === IStatus.COMPLETED) {
-            this.completedCount++;
-          }
-        });
-        //QuizCount
-        if(this.course.modules[i].quiz) {
-          this.chapterCount ++;
-          if(module.quizStatus === IStatus.COMPLETED) {
-            this.completedCount++;
-          }
-        }
-      });
-      if(this.course.assessment) {
-        this.chapterCount ++;
-        if(this.courseStatus.assessmentStatus === IStatus.COMPLETED) {
-          this.completedCount++;
-        }
-      }
-    }
+    this.progress = this.helperService.getProgress(this.courseStatus, this.course);
   }
 
+  
   onChangeVideo(module: IModule, chapter: IChapter, moduleIndex: number, chapterIndex: number): void { 
     this.videoSelect.emit({module, chapter, moduleIndex, chapterIndex});
   }

@@ -103,9 +103,9 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
   }
 
   updateProgress() {
-    this.dashboardApi.updateVideoStatus(this.courseStatus).subscribe(data => {
+    /*this.dashboardApi.updateVideoStatus(this.courseStatus).subscribe(data => {
       console.log('status updated', this.videoDetail.watchedDuration);
-    });
+    });*/
   }
 
   // Dispose the player OnDestroy
@@ -123,8 +123,9 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
     this.player.poster(this.videoDetail.coverImageUrl);
     this.player.load();
     this.player.volume(0);
-    console.log('this.videoDetail.watchedDuration --', this.videoDetail, this.videoDetail.watchedDuration)
-    this.player.currentTime(this.videoDetail.watchedDuration);
+    let watchedDuration = this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration || 0;
+    console.log('this.videoDetail.watchedDuration --', this.videoDetail, watchedDuration)
+    this.player.currentTime(watchedDuration);
     
     this.player.play()!.catch(error => {
       if (error.name === 'NotAllowedError') {

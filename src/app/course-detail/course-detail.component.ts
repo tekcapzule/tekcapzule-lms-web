@@ -23,7 +23,7 @@ export class CourseDetailComponent implements OnInit {
   courseStatus: IEnrollment[] = [];
   isCourseEnrolled: boolean;
   showSkeletonLoader: boolean;
-
+  
   constructor(
     private router: Router,
     public spinner: AppSpinnerService,

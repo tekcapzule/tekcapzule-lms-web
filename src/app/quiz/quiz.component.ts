@@ -79,12 +79,10 @@ export class QuizComponent implements OnInit {
     this.isSubmitted = true;
   }
 
-  backToCourse() {
-    this.spinner.show();
+  continueToCourse() {
     this.courseStatus.modules[this.moduleIndex].quizStatus = IStatus.COMPLETED; 
     this.dashboardApi.updateVideoStatus(this.courseStatus).subscribe(data => {
       this.quizCompleted.emit();
-      this.spinner.hide();
     });
   }
 }
