@@ -58,10 +58,9 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
   }
 
   onTimeupdate(data: any) {
-    this.videoDetail.watchedDuration = this.player.currentTime() || 0;
     this.courseStatus.modules[this.moduleIndex].chapters[this.chapterIndex].watchedDuration = this.player.currentTime() || 0;
     //console.log('this.videoDetail.watchedDuration  ', Math.floor(this.videoDetail.watchedDuration))
-    const duration = Math.floor(this.videoDetail.watchedDuration);
+    const duration = Math.floor(this.player.currentTime() || 0);
     if(this.previousSaved !== duration && duration % 120 === 0) {
       this.previousSaved = duration;
       this.updateProgress();

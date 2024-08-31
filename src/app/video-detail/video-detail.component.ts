@@ -231,6 +231,8 @@ export class VideoDetailComponent implements OnInit {
   }
 
   onVideoChange(chapter: IChapter) {
+    this.videoPlayer.moduleIndex = this.moduleIndex;
+    this.videoPlayer.chapterIndex = this.chapterIndex;
     this.videoPlayer.changeVideo(this.course, chapter);
   }
 
