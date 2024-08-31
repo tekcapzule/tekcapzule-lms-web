@@ -9,8 +9,7 @@
         <div class="quiz-wrapper">
           <div class="m-3" *ngIf="quiz">
             <h2>Quiz: Module {{ moduleIndex + 1 }}</h2>
-            <h2>Question {{ currentQuestionIndex + 1 }}:</h2>
-            <p class="quiz-question">{{ currentQuestion.questionText }}</p>
+            <p class="quiz-question">{{ currentQuestionIndex + 1 }}. {{ currentQuestion.questionText }}</p>
             <ul class="quiz-list">
               <li
                 [ngClass]="{'answer-selected': selectedAnswer.includes(option.id) && !isSubmitted, 'correct-answer': currentQuestion.correctAnswer.includes(option.id) && isSubmitted, 'wrong-answer': selectedAnswer.includes(option.id) && !currentQuestion.correctAnswer.includes(option.id) && isSubmitted}"

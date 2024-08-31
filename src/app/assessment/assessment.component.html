@@ -6,8 +6,7 @@
             <div class="quiz-wrapper">
                 <h1>Assessment</h1>
                 <div *ngIf="quiz && !quizFinished;">
-                    <h2>Question {{ currentQuestionIndex + 1 }}:</h2>
-                    <p class="quiz-question">{{ questions[currentQuestionIndex].questionText }}</p>
+                    <p class="quiz-question">{{ currentQuestionIndex + 1 }}. {{ questions[currentQuestionIndex].questionText }}</p>
                     <ul class="quiz-list">
                         <li *ngFor="let option of questions[currentQuestionIndex].options">
                             <input class="pr-3" type="radio" [id]="option.id" [value]="option.id" name="option" [checked]="this.answer?.selectedAnswers[0] === option.id"
@@ -37,7 +36,7 @@
                         <ng-container *ngFor="let question of questions; let i = index;">
                             <div
                                 *ngIf="question.correctAnswer[0] !== validateRequestBody.userAnswers[i].selectedAnswers[0]">
-                                <p>{{ question.questionText }}</p>
+                                <p>{{i + 1}}. {{ question.questionText }}</p>
 
                                 <ul class="quiz-list">
                                     <li *ngFor="let option of question.options" [ngClass]="{'wrong-answer': validateRequestBody.userAnswers[i].selectedAnswers[0] === option.id}">
