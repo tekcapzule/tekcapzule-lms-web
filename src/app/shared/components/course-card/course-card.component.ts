@@ -27,27 +27,10 @@ export class CourseCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.course.publishedOn = this.course.publishedOn ? moment(this.course.publishedOn, 'DD/MM/YYYY').fromNow() : 'NA';
-    this.updateCourseTime();
+    this.formattedDuration = this.helperService.updateCourseTime(this.course);
     if(this.courseStatus) {
       this.progress = this.helperService.getProgress(this.courseStatus, this.course);
     }
-  }
-
-  updateCourseTime() {
-    this.course.duration = 0;
-    this.course.modules.forEach(module => {
-      module.chapters.forEach(chapter => {
-        this.course.duration += +chapter.duration;
-      });
-    });
-    this.formattedDuration = this.getFormattedDuration(this.course.duration);
-    //console.log('this.course.duration  ', this.course.duration, this.course.watchedDuration);
-  }
-
-  getFormattedDuration(duration: number): string {
-    const minutes = Math.round(duration % 60);
-    const hours = Math.floor(minutes / 60);
-    return `${hours}hr ${minutes}min`;
   }
 
   onResume() {
