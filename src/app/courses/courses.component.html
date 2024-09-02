@@ -101,13 +101,21 @@
           </div>
           <div class="col-9">
             <div class="colby3">
-              <ng-container *ngFor="let course of filteredList">
-                <app-course-card [course]="course"></app-course-card>
+              <ng-container *ngIf="filteredList.length">
+                <ng-container *ngFor="let course of filteredList">
+                  <app-course-card [course]="course"></app-course-card>
+                </ng-container>
+              </ng-container>
+              <ng-container *ngIf="!filteredList.length" >
+                <div>
+                  <h4>No filtered course available!</h4>
+                </div>
+
               </ng-container>
             </div>
-            <div class="content-center">
+           <!-- <div class="content-center">
               <button class="btn primary-btn-filled">Load more</button>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

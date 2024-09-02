@@ -52,4 +52,26 @@ export class HelperService {
 
     return Math.floor((completedCount / chapterCount) * 100);
   }
+
+  updateCourseTime(course: ICourseDetail) {
+    course.duration = 0;
+    course.modules.forEach(module => {
+      module.chapters.forEach(chapter => {
+        course.duration += +chapter.duration;
+      });
+    });
+    const formattedDuration = this.getFormattedDuration(course.duration);
+    return formattedDuration;
+    //console.log('this.course.duration  ', this.course.duration, this.course.watchedDuration);
+  }
+
+  getFormattedDuration(duration: number): string {
+    const minutes = Math.round(duration % 60);
+    const hours = Math.floor(minutes / 60);
+    if (hours === 0) {
+      return `${minutes} min`;
+    }
+    return `${hours} hr ${minutes} min`;
+  }
+
 }
