@@ -1,4 +1,4 @@
-<div  *ngFor="let faq of faqs;let i = index" class="accordion-item border">
+<div  *ngFor="let faq of faqs;let i = index" class="accordion-item">
     <h2 class="accordion-header p-0" [id]="'faq' + i">
     <button class="accordion-button collapsed mb-0 border-0 bg-white show" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i"  aria-expanded="false" aria-controls="flush-collapseOne">
         {{faq.question}}

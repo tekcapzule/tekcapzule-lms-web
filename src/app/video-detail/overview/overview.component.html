@@ -24,7 +24,7 @@
                          of videos</label>
                     <label><span class="rounded notes-icon"></span><span class="fw-bold">2hr </span>
                          of reading</label>
-                    <label class=""><span class="rounded notes-icon"></span>Quiz</label>
+                    <button class="link-btn"><span class="rounded notes-icon"></span>Quiz</button>
                     <button *ngIf="course.assessment" class="link-btn" [disabled]="courseStatus.status !== 'Completed'" (click)="openLink()"><span class="rounded notes-icon"></span><span
                             class="fw-bold"></span> Assessment</button>
                     <label><span class="rounded notes-icon"></span><span
@@ -62,7 +62,7 @@
 
     <h3 class="mb-3">Frequently asked questions</h3>
 
-    <div class="accordion accordion-flush mb-3" id="accordionFlushExample">
+    <div class="accordion accordion-flush mb-3 box-shadow" id="accordionFlushExample">
         <app-faq [faqs]="course.faqs"></app-faq>
       </div>
 </div>
