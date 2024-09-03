@@ -677,7 +677,7 @@ main {
 		min-height: 130px;
 
 		.course-status {
-			display: flex;
+			display: flow-root;
 
 			label {
 				display: inline-flex;
@@ -693,7 +693,7 @@ main {
 	}
 
 	.course-footer {
-		padding: 0 10px;
+		padding: 5px 10px;
 		display: flex;
 		justify-content: space-between;
 		color: var(--light-gray) !important;
@@ -1488,6 +1488,9 @@ header {
     align-items: center;
     color: var(--secondary-color);
     margin-right: 20px;
+		&:hover {
+			color: var(--link-color);;
+		}
 }
 
 .theme-switch-wrapper {
