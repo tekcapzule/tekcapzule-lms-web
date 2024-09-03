@@ -623,6 +623,11 @@ main {
 		padding-bottom: 20px;
 	}
 }
+.box-shadow {
+	box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.0784313725);
+    border-radius: 4px;
+    background: var(--white-bg);
+}
 
 .poll {
 	.options {
@@ -805,6 +810,12 @@ footer {
 		cursor: pointer;
 		font-weight: 500;
 	}
+	a {
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
 
 
@@ -951,6 +962,8 @@ div[role="progressbar"]:not(.playlist-progress)::before {
 
 /********Accordion*********/
 .accordion-item {
+	border: 1px solid #dee2e6;
+    border-top: 0;
 	.accordion-header {
 
 		// padding: 0 10px !important;
@@ -1011,7 +1024,7 @@ div[role="progressbar"]:not(.playlist-progress)::before {
 			button {
 				display: grid;
 				grid-template-columns: 2.3025rem 1fr 1.25rem;
-				height: 86px;
+				height: 70px;
 				align-items: center !important;
 				border-bottom: 1px solid #dee2e6;
 
@@ -1042,6 +1055,7 @@ div[role="progressbar"]:not(.playlist-progress)::before {
 				grid-template-columns: 2.3025rem 1fr 1.25rem;
 				background-color: transparent;
 				align-items: center !important;
+				height: 70px;
 
 				&.current,
 				&:hover {
@@ -1094,6 +1108,11 @@ div[role="progressbar"]:not(.playlist-progress)::before {
 	}
 }
 
+.accordion-button {
+	font-size: 14px;
+    color: var(--secondary-color) !important;
+	font-weight: 500 !important;
+}
 button:focus,
 .accordion-button:focus {
 	box-shadow: none;
@@ -1306,6 +1325,7 @@ header {
 			font-size: 16px;
 			font-weight: 600;
 			height: 40px;
+			padding: 0;
 		}
 
 		.accordion-collapse {
