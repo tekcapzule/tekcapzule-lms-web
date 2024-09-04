@@ -56,7 +56,7 @@ export class CoursesComponent {
               let courseStatus = this.getCourseStatus(course.courseId);
               if (courseStatus?.course.status === IStatus.COMPLETED) {
                 this.completeList.push(course);
-              } else if (courseStatus?.course.status === IStatus.ENROLLED || courseStatus?.course.status === IStatus.IN_PROGRESS) {
+              } else if (!courseStatus?.course.status || courseStatus?.course.status === IStatus.ENROLLED || courseStatus?.course.status === IStatus.IN_PROGRESS) {
                 this.activeList.push(course);
               }
             });
