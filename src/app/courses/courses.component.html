@@ -9,6 +9,10 @@
   <div class="course-wrapper" *ngIf="!spinner.isLoading">
     <div>
       <h3 class="main-title">My Courses</h3>
+      <button class="btn secondary-btn w-20 mb-4" [routerLink]="['/lms/create-course']"
+      >
+      Create Course
+    </button>
       <nav>
         <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
           <button

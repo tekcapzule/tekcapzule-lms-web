@@ -26,6 +26,14 @@ const routes: Routes = [
         loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule)
       },
       {
+        path: 'calendar',
+        loadChildren: () => import('./calendar/calendar.module').then(m => m.CalendarModule)
+      },
+      {
+        path: 'inbox',
+        loadChildren: () => import('./inbox/inbox.module').then(m => m.InboxModule)
+      },
+      {
         path: 'course-detail/:code',
         loadChildren: () => import('./course-detail/course-detail.module').then(m => m.CourseDetailModule)
       },
@@ -54,8 +62,8 @@ const routes: Routes = [
         loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
       },
       {
-        path: 'assessment/:code',
-        loadChildren: () => import('./assessment/assessment.module').then(m => m.AssessmentModule)
+        path: 'create-course',
+        loadChildren: () => import('./create-course/create-course.module').then(m => m.CreateCourseModule)
       },
       {
         path: '',
