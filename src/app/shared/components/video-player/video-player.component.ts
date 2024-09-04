@@ -77,7 +77,6 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
     let chapterDuration = 0;
     let moduleDuration = 0;
     this.courseStatus.modules.forEach(module => {
-      if(module.serialNumber === this.courseStatus.modules[this.moduleIndex].serialNumber) {
         module.chapters.forEach(chapter => {
           chapterDuration += chapter.watchedDuration || 0;
           if(chapter.status !== IStatus.COMPLETED) {
@@ -90,7 +89,6 @@ export class VideoPlayerComponent implements OnInit, OnDestroy {
         }
         module.watchedDuration = chapterDuration;
         moduleDuration += chapterDuration;
-      }
     });
     if(isModuleCompleted) {
       this.courseStatus.status = IStatus.COMPLETED;
