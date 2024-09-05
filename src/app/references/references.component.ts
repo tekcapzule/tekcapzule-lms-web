@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class ReferencesComponent {
 
+  selectedTopic: string[] = [];
+  selectedLevel: string[] = [];
+
+  onFilterUpdate(selectedFilters: any) {
+    this.selectedTopic = selectedFilters.topic;
+    this.selectedLevel = selectedFilters.level;
+    this.filterCourse();
+  }
+  filterCourse() {
+  }
+
 }
