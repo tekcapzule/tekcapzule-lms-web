@@ -27,7 +27,7 @@
       height: 220px;
       padding: 0 24px;
       .title{
-          font-size: 18px;
+          font-size: 1.125rem;
         //   font-family: $primary-font-black;
           line-height: 23px;
           max-height: 70px;
@@ -41,7 +41,7 @@
         //   font-family: $primary-font-medium;
         }
         .description {
-          font-size: 14px;
+          font-size: 0.875rem;
           min-height: 85px;
           display: -webkit-box;
           -webkit-box-orient: vertical;
@@ -110,7 +110,7 @@
         background: none;
         border: 0 none;
         padding: 10px 0 30px;
-        font-size: 14px;
+        font-size: 0.875rem;
     }
   }
   .pills {
@@ -120,7 +120,7 @@
     height: fit-content;
     color: #fff;
     // font-family: $primary-font-regular;
-    font-size: 12px;
+    font-size: 0.75rem;
     margin-right: 10px;
     width: fit-content;
   }
@@ -150,7 +150,7 @@
     }
   }
   .font-16 {
-    font-size: 16px;
+    font-size: 1rem;
   }
   .more {
     height: 17px;
@@ -199,7 +199,7 @@
     cursor: pointer;
     position: absolute;
     color: #fff;
-    font-size: 12px;
+    font-size: 0.75rem;
     // font-family: $primary-font-medium;
     width: fit-content;
   
@@ -215,7 +215,7 @@
       border-radius: 0px;
       color: #fff;
       margin-top: 10px;
-      font-size: 12px;
+      font-size: 0.75rem;
       height: auto;
       padding: 2px 7px;
     }
@@ -250,7 +250,7 @@
   
 //     input[type='search'] {
 //       font-family: 'Roboto';
-//       font-size: 16px;
+//       font-size: 1rem;
 //       border: 1px solid #a1a1a1;
 //       min-width: 280px;
 //       height: 46px;
@@ -284,7 +284,7 @@
 //     .input-search-rounded {
 //       height: 30px;
 //       border-radius: 30px !important;
-//       font-size: 14px;
+//       font-size: 0.875rem;
 //       font-family: TTCommons-Medium;
 //       border: 1px solid #cdcfea;
 //     }

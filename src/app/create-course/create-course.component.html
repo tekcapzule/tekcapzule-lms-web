@@ -1,1 +1,189 @@
-<p>Create Course!</p>
+<div id="wrapper">
+    <nav class="breadcrumb-nav px-4 py-2 d-flex m-0"
+        style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+        aria-label="breadcrumb">
+        <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item"><a [routerLink]="['/lms/dashboard']" class="text-decoration-none"><img
+                        src="assets/home.svg" alt=""></a></li>
+            <li class="breadcrumb-item"> <a href="javascript:void(0)" class="text-decoration-none"> Courses</a> </li>
+            <li class="breadcrumb-item"> <a href="javascript:void(0)" class="text-decoration-none"> Create Course</a>
+            </li>
+
+        </ol>
+    </nav>
+    <div class="course-wrapper create-course-form">
+        <div>
+            <h2 class="main-title">Create Course</h2>
+            <span>Start creating a new course</span>
+        </div>
+        <h3 class="main-title">Course Card View Details</h3>
+        <div class="form-col">
+            <label htmlFor="title">Title</label>
+            <input pInputText id="title" />
+        </div>
+        <div class="form-col">
+            <label>Specialization</label>
+            <p-dropdown [options]="specialization" [(ngModel)]="selectedSpecialization"
+                placeholder="Select Specialization">
+            </p-dropdown>
+        </div>
+        <div class="form-col">
+            <label>Learns Category</label>
+
+            <div class="radio-group">
+                <div class="d-flex align-items-center">
+                    <p-radioButton name="beginner" value="Beginner"></p-radioButton>
+                    <label class="ml-2">Beginner</label>
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <p-radioButton name="intermediate" value="Intermediate"></p-radioButton>
+                    <label class="ml-2">Intermediate</label>
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <p-radioButton name="advance" value="Advance"></p-radioButton>
+                    <label class="ml-2">Advance</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-col">
+            <label htmlFor="price">Price</label>
+            <input id="price" [(ngModel)]="value" />
+
+            <label>or</label>
+            <form class="flex align-items-center gap-1" [formGroup]="formGroup">
+                <p-checkbox formControlName="free" value="free"></p-checkbox>
+                <label>Make this course free</label>
+
+            </form>
+
+
+        </div>
+        <div class="form-col card">
+            <p-fileUpload mode="basic" chooseLabel="Choose" chooseIcon="pi pi-upload" name="demo[]"
+                accept="image/*, .jpg, .jpeg, .png" />
+        </div>
+        <!-- Profile View Details -->
+        <h3 class="main-title">Profile View Details</h3>
+        <div class="form-col">
+            <label htmlFor="title">Course Description</label>
+            <textarea rows="5" cols="30" pInputTextarea></textarea>
+        </div>
+        <div class="d-flex gap-5">
+            <div class="form-col">
+                <label>Course Language *</label>
+                <p-dropdown [options]="language" placeholder="Select Language">
+                </p-dropdown>
+            </div>
+            <div class="form-col">
+                <label>Add Tags *</label>
+                <p-dropdown [options]="tags" placeholder="Select Tags">
+                </p-dropdown>
+            </div>
+
+        </div>
+        <div class="form-col">
+            <label>Course Duration</label>
+            <div class="d-flex gap-5">
+
+                <p-dropdown placeholder="Months">
+                </p-dropdown>
+                <span>Or</span>
+
+                <p-dropdown placeholder="Hours">
+                </p-dropdown>
+            </div>
+        </div>
+
+
+        <div class="form-col">
+            <label>Set Enrollment Date</label>
+            <p-calendar [(ngModel)]="date" [showIcon]="true" placeholder="dd/mm/yyyy"></p-calendar>
+
+        </div>
+        <div class="form-col">
+            <label>Instructor (Collaborate with other instructor)</label>
+            <p-dropdown [options]="instructor" placeholder="Select">
+            </p-dropdown>
+        </div>
+        <div class="form-col">
+            <label>What you'll learn?</label>
+            <input pInputText />
+        </div>
+        <!-- Summary Details -->
+        <h3 class="main-title">Summary Details</h3>
+        <div class="form-col">
+            <label htmlFor="title">About this course </label>
+            <textarea rows="5" cols="30" pInputTextarea placeholder="Enter about this course"> </textarea>
+        </div>
+        <div class="form-col">
+            <label>What you'll learn?</label>
+            <input pInputText />
+        </div>
+        <div class="form-col">
+            <label>Any course requirements?</label>
+            <input pInputText />
+        </div>
+        <div class="form-col">
+            <label>Who this course is for?</label>
+            <input pInputText />
+        </div>
+        <div class="form-col card">
+            <p-fileUpload mode="basic" chooseLabel="Upload Image" chooseIcon="pi pi-upload" name="demo[]"
+                accept="image/*, .jpg, .jpeg, .png" />
+        </div>
+
+        <!-- Add/Section Module -->
+        <h3 class="main-title">Add/Section Module</h3>
+        <div class="form-col">
+            <label>Section 01</label>
+            <input pInputText />
+        </div>
+        <!-- side bar -->
+        <p-sidebar [(visible)]="sidebarVisible" position="right">
+            <h2>Section 1 : Introduction to Deep Learning</h2>
+            <hr />
+            <h3 class="main-title">Add Lession</h3>
+            <span>Start adding section to build your course</span>
+            <div class="form-col">
+                <label>Lesson Title *</label>
+                <input pInputText placeholder="Section Title"/>
+            </div>
+            <div class="form-col">
+                <label>Content Type</label>
+                <div class="content">
+                    <div class="type">Video</div>
+                    <div class="type">PDF</div>
+                    <div class="type">Article</div>
+                    <div class="type">PPT Slide</div>
+                    <div class="type">Quiz</div>
+                    <div class="type">Assessment</div>
+                </div>
+            </div>
+            <div class="course-action">
+                <button type="submit" class="btn primary-btn-filled">
+                    Create
+                </button>
+                <button type="button" class="btn primary-btn">
+                    cancel
+                </button>
+            </div>
+        </p-sidebar>
+    
+      
+        <p-button 
+            type="button" 
+            class="mr-2" 
+            (onClick)="sidebarVisible = true" 
+            icon="pi pi-arrow-left" />
+    
+    </div>
+    <div class="course-action">
+        <button type="submit" class="btn primary-btn-filled">
+            Create
+        </button>
+        <button type="button" class="btn primary-btn">
+            cancel
+        </button>
+    </div>

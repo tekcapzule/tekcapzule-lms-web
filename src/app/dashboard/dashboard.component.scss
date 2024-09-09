@@ -115,7 +115,7 @@
       position: absolute;
       height: 70px;
       width: 70px;
-      font-size: 22px;
+      font-size: 1.375rem;
       padding: 15px;
       top: -25px;
       left: -25px;
@@ -199,11 +199,11 @@ section {
             margin: 0;
             padding: 0;
             color: var(--primary-color);
-            font-size: 24px;
+            font-size: 1.5rem;
             line-height: 30px;
 
             span {
-              font-size: 14px;
+              font-size: 0.875rem;
     text-transform: uppercase;
     color: var(--tertiary-color);
     font-weight: 400;
@@ -219,7 +219,7 @@ section {
 
           p {
             padding: 0;
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: 500;
           }
 

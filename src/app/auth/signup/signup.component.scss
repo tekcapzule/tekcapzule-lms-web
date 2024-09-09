@@ -8,7 +8,7 @@
 .forgot-pass {
   font-family: 'Work Sans', sans-serif;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-optical-sizing: auto;
 }
 
@@ -63,14 +63,14 @@
 }
 
 .input-error-text {
-  font-size: 14px;
+  font-size: 0.875rem;
   padding-left: 30px;
 }
 
 .forgot-pass,
 .sign-up {
   color: var(--bs-white);
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .password-tooltip {
@@ -105,13 +105,13 @@
   }
   .btn {
     height: 40px;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .signup-wrapper {
     width: 350px !important;
   }
   .input-error-text {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
   .input-group-text {
     height: 40px;
