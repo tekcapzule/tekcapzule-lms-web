@@ -1,4 +1,8 @@
 .course-wrapper {
     padding: 50px 80px;
     background-color: var(--bg-color);
+    .title-button {
+        display: flex;
+        justify-content: space-between;
+    }
 }
