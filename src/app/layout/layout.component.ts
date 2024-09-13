@@ -16,6 +16,7 @@ export class LayoutComponent
   extends AbstractBaseAuth
   implements OnInit, OnDestroy
 {
+  activeMenu: string = '';
   constructor(
     public override authStateService: AuthStateService,
     private router: Router,
@@ -24,7 +25,35 @@ export class LayoutComponent
   ) {
     super(authStateService);
   }
+  menus = [
+    { name: 'hamburger', label: '', link: '#', icon: 'hamburger-icon' },
+    { name: 'home', label: 'Home', link: '/lms/dashboard', icon: 'home-icon' },
+    { name: 'courses', label: 'Courses', link: '/lms/courses', icon: 'course-icon' },
+    { name: 'references', label: 'References', link: '/lms/references', icon: 'references-icon' },
+    { name: 'calendar', label: 'Calendar', link: '/lms/calendar', icon: 'calendar-icon' },
+    { name: 'inbox', label: 'Inbox', link: '/lms/inbox', icon: 'inbox-icon' },
+    { name: 'reports', label: 'Reports', link: '/lms/reports', icon: 'reports-icon' },
+    { name: 'settings', label: 'Settings', link: '/lms/settings', icon: 'settings-icon' }
+  ];
+  getUserInitials(): string {
+    const firstName = this.authStateService.getFirstName();
+    const lastName = this.authStateService.getLastName();
+    
+    // If both first name and last name are available, return the initials
+    if (firstName && lastName) {
+      return firstName.charAt(0) + lastName.charAt(0);
+    }
+    
+    // Fallback to just first name initial if no last name is present
+    return firstName ? firstName.charAt(0) : '';
+  }
+  setActive(menuName: string) {
+    this.activeMenu = menuName;
+  }
 
+  isActive(menuName: string): boolean {
+    return this.activeMenu === menuName;
+  }
   ngOnDestroy(): void {
     this.onInit();
   }
