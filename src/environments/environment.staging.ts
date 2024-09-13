@@ -7,6 +7,7 @@ export const environment = {
   lmsCourseUpdateApiGateway: '1co3pectr2',
   eventApiGateway: 't9uk11ucqa',
   courseApiGateway: 'pir8ksji0b',
+  referenceApiGateway: 'q1reed1ex4',
   marketplaceApiGateway: '2qdikhxbob',
   capsuleApiGateway: 'zgzztfoaxe',
   topicApiGateway: 'q7y9oyz0d9',

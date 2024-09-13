@@ -9,7 +9,7 @@
                 align-items: center;
                 justify-content: flex-end;
               ">
-                <input type="text" class="form-control w-100 border-0 bg-transparent" placeholder="Search here" />
+                <input type="text" class="form-control w-100 border-0 bg-transparent " placeholder="Search here" />
                 <i class="fa fa-search position-absolute d-block fs-6"></i>
               </div>
         </div>
@@ -35,45 +35,43 @@
                         </div>
                 </div>
                     <div class="colby3">
+                    <ng-container *ngFor="let ref of filterList" >
                         <div class="course-card carousel-card mx-0">
                             <div class="position-relative">
                                 <div class="icons timer"><img src="../../assets/images/timer.svg" alt="timer icon"
-                                        class="rounded-img"><span>5 min</span></div>
-                                <div class="icons labelRed"><span>#Artificial Intelligence</span></div>
+                                        class="rounded-img"><span>{{ ref.duration }}</span></div>
+                                <div class="icons labelRed"><span>#{{ ref.topicCode }}</span></div>
                                 <div class="icons publisher"><img src="../../assets/images/course-list-icon.svg"
-                                        alt="publisher icon"><span>TekCapzule</span>
+                                        alt="publisher icon"><span>{{ ref.publisher }}</span>
                                 </div>
                                 <div class="icons topic-name"><img alt=""
-                                        src="../../assets/images/course-icon.svg"><span>Tekbyte</span>
+                                        src="../../assets/images/video-icon.svg"><span>{{ ref.type }}</span>
                                 </div>
                                 <div ng-reflect-ng-class="tekbyte-tile-bg" class="tekbyte-tile-bg"></div>
                             </div>
                             <div class="content">
-                                <div class="title"> Machine Learning <p class="author"> TekCapzule <span> |
-                                        </span><span>9 months
-                                            ago</span></p>
+                                <div class="title">{{ ref.title }} <p class="author"> {{ ref.author }} <span> |
+                                        </span><span>{{ ref.publishedOn }}</span></p>
                                 </div>
-                                <div class="description"> Sed ut perspiciatis unde omnis
-                                    iste natus error sit qsiuss voluptatem accusantium doloremque laudantium, sdda
-                                    sdftotam rem aperiam, eaque ipsa quae ab illo quae ainventore veritatis et quasi
-                                    architecto beatae vitae quia dicta sunt explicabo. Nemo enim ipsam voluptatem
-                                    quia voluptas sit aspernatur aut odit aut fugit, sed quia uuntur magni dolores
-                                    eos qui ratione voluptatem sequi. sed quia uuntur magni dolores eos qui ratione
-                                    voluptatem sequi. </div>
+                                <div class="description"> {{ ref.description }} </div>
                                 <div class="d-flex ng-star-inserted">
-                                    <div class="pills ng-star-inserted">#AI</div>
-                                    <div class="pills ng-star-inserted">#cloud</div>
+                                    <div class="pills ng-star-inserted">{{ ref.tags }}</div>
+                                    <div class="pills ng-star-inserted">{{ ref.level }}</div>
+                                    <!-- <div class="pills ng-star-inserted">#cloud</div> -->
                                 </div>
                             </div>
                             <div class="mt-2 d-flex align-items-center justify-content-between px-4 card-footer">
                                 <div class="recommend"><span class="okhand-gray-icon"></span>Recommend <span
-                                        class="count">(0)</span></div>
+                                        class="count">({{ ref.recommendations }})</span></div>
                                 <div class="icon bookmark-icon-animated"></div>
-                                <div class="d-flex align-items-center"><span class="mr-2 paid-icon"
-                                        ng-reflect-ng-class="paid-icon"></span>Paid </div>
+                                <div class="d-flex align-items-center">
+                                    <span *ngIf = "ref.prizingModel === 'PAID'" class="mr-2 paid-icon" ng-reflect-ng-class="paid-icon"></span>
+                                    {{ ref.prizingModel }} 
+                                </div>
                             </div>
                         </div>
-                        <div class="course-card carousel-card mx-0">
+                    </ng-container>
+                        <!-- <div class="course-card carousel-card mx-0">
                             <div class="position-relative">
                                 <div class="icons timer"><img src="../../assets/images/timer.svg" alt="timer icon"
                                         class="rounded-img"><span>5 min</span></div>
@@ -110,8 +108,8 @@
                                 <div class="d-flex align-items-center"><span class="mr-2 free-icon"
                                         ng-reflect-ng-class="free-icon"></span>Free </div>
                             </div>
-                        </div>
-                        <div class="course-card carousel-card mx-0">
+                        </div> -->
+                        <!-- <div class="course-card carousel-card mx-0">
                             <div class="position-relative">
                                 <div class="icons timer"><img src="../../assets/images/timer.svg" alt="timer icon"
                                         class="rounded-img"><span>5 min</span></div>
@@ -190,8 +188,8 @@
                                 <div class="d-flex align-items-center"><span class="mr-2 paid-icon"
                                         ng-reflect-ng-class="paid-icon"></span>Paid </div>
                             </div>
-                        </div>
-                        <div class="course-card carousel-card mx-0">
+                        </div> -->
+                        <!-- <div class="course-card carousel-card mx-0">
                             <div class="position-relative">
                                 <div class="icons timer"><img src="../../assets/images/timer.svg" alt="timer icon"
                                         class="rounded-img"><span>5 min</span></div>
@@ -228,8 +226,8 @@
                                 <div class="d-flex align-items-center"><span class="mr-2 free-icon"
                                         ng-reflect-ng-class="free-icon"></span>Free </div>
                             </div>
-                        </div>
-                        <div class="course-card carousel-card mx-0">
+                        </div> -->
+                        <!-- <div class="course-card carousel-card mx-0">
                             <div class="position-relative">
                                 <div class="icons timer"><img src="../../assets/images/timer.svg" alt="timer icon"
                                         class="rounded-img"><span>5 min</span></div>
@@ -266,10 +264,11 @@
                                 <div class="d-flex align-items-center"><span class="mr-2 freemium-icon"
                                         ng-reflect-ng-class="freemium-icon"></span>Freemium </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>

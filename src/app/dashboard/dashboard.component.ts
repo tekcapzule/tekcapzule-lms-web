@@ -5,7 +5,7 @@ import { AuthStateService } from '@app/core/services';
 import { InitService } from '@app/core/services/app-state/init.service';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { ITaskItem } from '@app/shared/models/task-item.model';
-import { IEnrollment, IStatus, IUser } from '@app/shared/models/user-item.model';
+import { IEnrollment, ILeaderboard, IStatus, IUser } from '@app/shared/models/user-item.model';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -15,6 +15,7 @@ import { MessageService } from 'primeng/api';
 })
 export class DashboardComponent implements OnInit {
   courseList: ICourseDetail[] = [];
+  leaderboardList: ILeaderboard[] = [];
   taskList: ITaskItem[] = [];
   userData: IUser;
   courseStatus: IEnrollment[] = [];
@@ -25,11 +26,12 @@ export class DashboardComponent implements OnInit {
   firstName: string;
   pollSelectedId: string;
   isPollSubmitted: boolean;
+  leaderboardDisplayCount: number = 0;
   pollOptions = [
-    {id: "1", name:"Artificial Intelligence", percentage: 45},
-    {id: "2", name:"Machine Learning", percentage: 25},
-    {id: "3", name:"Metaverse", percentage: 20},
-    {id: "4", name:"Web 3.0", percentage: 10}
+    { id: "1", name: "Artificial Intelligence", percentage: 45 },
+    { id: "2", name: "Machine Learning", percentage: 25 },
+    { id: "3", name: "Metaverse", percentage: 20 },
+    { id: "4", name: "Web 3.0", percentage: 10 }
   ];
 
   constructor(
@@ -39,7 +41,7 @@ export class DashboardComponent implements OnInit {
     private initService: InitService,
     private router: Router,
     private messageService: MessageService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.userData = this.initService.getUserData();
@@ -48,23 +50,42 @@ export class DashboardComponent implements OnInit {
     this.fullName = this.authState.getFullName();
     this.getAllTask();
     this.getCourses();
+    this.getLeaderBoard();
+  }
+
+  onLBTabClick(tabName: string) {
+    if (tabName === "myRank") {
+      this.leaderboardDisplayCount = this.leaderboardList.length;
+    }
+    else {
+      this.leaderboardDisplayCount = 5;
+    }
+    console.log("TabName:", tabName)
+  }
+
+  getLeaderBoard() {
+    this.dashboardApi.getLeaderBoardDetails().subscribe(leaderboard => {
+      this.leaderboardList = leaderboard;
+      this.leaderboardDisplayCount = this.leaderboardList.length;
+      console.log("Leaderboard List:", this.leaderboardList);
+    });
   }
 
   getCourses() {
     const courseIds: string[] = [];
-    if(!this.courseStatus) {
+    if (!this.courseStatus) {
       return;
     }
     this.courseStatus.forEach((course) => {
-      if(course) {
-        if(course.course.status === IStatus.COMPLETED) {
+      if (course) {
+        if (course.course.status === IStatus.COMPLETED) {
           this.completedCourses += 1;
-        } else if(course.course.status === IStatus.IN_PROGRESS) {
+        } else if (course.course.status === IStatus.IN_PROGRESS) {
           this.activeCourses += 1;
         } else {
           this.enrolledCourses += 1;
         }
-        if(course.courseId){
+        if (course.courseId) {
           courseIds.push(course.courseId);
         }
       }
@@ -92,7 +113,7 @@ export class DashboardComponent implements OnInit {
       data => {
         this.taskList = data;
       },
-      err => {}
+      err => { }
     );
   }
 
@@ -113,5 +134,5 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  logOutUser() {}
+  logOutUser() { }
 }
