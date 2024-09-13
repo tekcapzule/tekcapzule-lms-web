@@ -40,7 +40,7 @@
 			<div class="collapse navbar-collapse" id="toggle-navbar">
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item">
-						<div class="search position-relative text-center px-4 py-3 mt-2"
+						<div class="search position-relative "
              style="display: flex; align-items: center; justify-content: flex-end;"
              >
 							<input type="text" class="form-control w-100 border-0 bg-transparent"
@@ -161,7 +161,7 @@
             </div>
           </section>
         </div>
-        <!-- <div class="box-layout m-0">
+        <div class="box-layout m-0 d-none">
             <section class="tasks mt-4">
              <h3>Your Tasks</h3>
               <div class="row">
@@ -172,7 +172,7 @@
                 </ng-container>
               </div> 
             </section>  
-        </div> -->
+        </div> 
         <section>
           <div class="box-layout mx-0">
             <h3>My Courses</h3>
@@ -192,10 +192,10 @@
 
       </div>
       <div class="col-3">
-        <div class="box-layout m-0 mb-3">
+        <div class="box-layout m-0 mb-3 px-3">
           <h3>Leaderboard</h3>
           <section id="tabs" class="project-tab">
-            <div class="container">
+            <div class="px-3">
               <div class="row">
                 <div class="col-md-12 px-0">
                   <nav>
@@ -209,7 +209,7 @@
                   </nav>
                   <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                      <table class="table" cellspacing="0">
+                      <table class="table leader-baord-table" cellspacing="0">
                         <thead>
                           <tr>
                             <th>Name</th>
@@ -219,17 +219,25 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td>Mathew Perry</td>
+                            <td>
+                              <span class="name-tile">MP</span>
+                              <span>Mathew Perry</span></td>
                             <td>122.6</td>
                             <td>1</td>
                           </tr>
                           <tr>
-                            <td>Jeniffer Aniston</td>
+                            <td>
+                            <span class="name-tile">JN</span>
+                            <span>Jeniffer Aniston</span>
+                          </td>
                             <td>122.6</td>
                             <td>2</td>
                           </tr>
                           <tr>
-                            <td>Billy Grahms</td>
+                            <td>
+                            <span class="name-tile">BG</span>
+                            <span>Billy Grahms</span>
+                          </td>
                             <td>122.6</td>
                             <td>3</td>
                           </tr>
