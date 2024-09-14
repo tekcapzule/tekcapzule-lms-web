@@ -17,7 +17,7 @@ export class ReferencesComponent implements OnInit {
   selectedTopic: string[] = [];
   selectedLevel: string[] = [];
 
-  constructor( private referenceApi: ReferenceApiService) {
+  constructor(private referenceApi: ReferenceApiService) {
 
   }
 
@@ -25,21 +25,35 @@ export class ReferencesComponent implements OnInit {
     this.getAllReferences();
   }
 
-getAllReferences() {
-  this.referenceApi.getAllReference().subscribe(references => {
-    this.referenceList = references;
-    this.filterList = references;
-    console.log("My Reference",this.referenceList);
-});
-}
+  getAllReferences() {
+    this.referenceApi.getAllReference().subscribe(references => {
+      this.referenceList = references;
+      this.filterList = references;
+      console.log("My Reference", this.referenceList);
+    });
+  }
 
 
   onFilterUpdate(selectedFilters: any) {
     this.selectedTopic = selectedFilters.topic;
     this.selectedLevel = selectedFilters.level;
-    this.filterCourse();
+    this.filterReference();
+    console.log("selected topic:", this.selectedTopic);
   }
-  filterCourse() {
-  }
+  filterReference() {
+    let tempList = [...this.referenceList];
+    if (this.selectedTopic.length) {
+      tempList = tempList.filter(t1 =>
+        this.selectedTopic.includes(t1.topicCode)
+      )
+    }
+    if(this.selectedLevel.length) {
+      tempList = tempList.filter(t1 =>
+        this.selectedLevel.includes(t1.level)
+      )
+    }
+    this.filterList = tempList;
 
+  }
 }
+
