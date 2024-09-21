@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ICourseDetail } from '@app/shared/models/course-item.model';
 import { ITaskItem } from '@app/shared/models/task-item.model';
-import { ICourseStatus, IUser } from '@app/shared/models/user-item.model';
+import { ICourseStatus, ILeaderboard, IUser } from '@app/shared/models/user-item.model';
 
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
@@ -27,6 +27,16 @@ export class DashboradApiService {
   getUserDetails(): Observable<IUser> {
     return this.httpClient.post<IUser>(
       COURSE_API_PATH + 'get',
+      {
+        "userId": this.authState.getEmail(),
+        "tenantId": ""
+      });
+  }
+
+  getLeaderBoardDetails(): Observable<ILeaderboard[]> {
+    console.log("User URL:", COURSE_API_PATH + 'leaderboard');
+    return this.httpClient.post<ILeaderboard[]>(
+      COURSE_API_PATH + 'leaderboard',
       {
         "userId": this.authState.getEmail(),
         "tenantId": ""

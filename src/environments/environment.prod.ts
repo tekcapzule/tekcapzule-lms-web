@@ -23,6 +23,7 @@ export const environment = {
   skillStudioApiGateway: 'jcsh0salef',
   certificateApiGateway: '4saoyr6ura',
   awsRegion: 'us-east-1',
+  referenceApiGateway: 'q1reed1ex4',
   apiEndpointTemplate: 'https://{{api-gateway}}.execute-api.{{aws-region}}.amazonaws.com/prod',
   awsCognitoConfigs: {
     clientId: '6oh669hj770mhsg9pss38l9cmb',

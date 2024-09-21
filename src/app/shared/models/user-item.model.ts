@@ -9,6 +9,11 @@ export interface IUser {
   points: number;
   badges: any;
 }
+export interface ILeaderboard {
+  userName: string;
+  points: number;
+  rank: number;
+}
 
 export interface IEnrollment {
   courseId: string;
