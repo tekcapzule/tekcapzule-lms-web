@@ -1,5 +1,5 @@
 .banner {
-    background: linear-gradient(180deg, #ADD3FF, #DEF1FF, #E6F3FF) !important;
+    background: linear-gradient(180deg, #ADD3FF, #DEF1FF, #E6F3FF);
     min-height: 307px;
     height: auto;
     padding: 70px 160px 35px;
@@ -12,7 +12,7 @@
     }
 }
 .tekbyte-tile-bg {
-    background: linear-gradient(90deg, #ADD3FF, #DEF1FF, #E6F3FF) !important;
+    background: linear-gradient(90deg, #ADD3FF, #DEF1FF, #E6F3FF);
     height: 104px;
     width: 100%;
     background-size: cover;
@@ -305,3 +305,9 @@
 //       right: 20px;
 //     }
 //   }
+
+[data-theme="dark"] {
+  .tekbyte-tile-bg {
+  background: #242424 !important;
+  }
+}
