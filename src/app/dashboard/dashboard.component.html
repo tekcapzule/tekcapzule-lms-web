@@ -1,98 +1,18 @@
-<!--aside-- class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
-	<ul>
-		<li>
-			<a href="#"><span class="hamburger-icon"></span></a>
-		</li>
-		<li>
-			<a href="#"><span class="home-icon"></span>Home</a>
-		</li>
-		<li class="">
-			<a href="#"><span class="course-icon"></span> Courses</a>
-		</li>
-		<li class="">
-			<a href="#"><span class="references-icon"></span> References</a>
-		</li>
-		<li class="">
-			<a href="#"><span class="calendar-icon"></span> Calendar</a>
-		</li>
-		<li class="">
-			<a href="#"><span class="inbox-icon"></span> Inbox</a>
-		</li>
-		<li class="">
-			<a href="#"><span class="reports-icon"></span> Reports</a>
-		</li>
-		<li class="">
-			<a href="#"><span class="settings-icon"></span> Settings</a>
-		</li>
-	</ul>
-</aside-->
 
 <section id="wrapper">
-  <!-- <nav class="navbar navbar-expand-md">
-		<div class="container-fluid mx-2">
-			<div class="navbar-header">
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggle-navbar"
-					aria-controls="toggle-navbar" aria-expanded="false" aria-label="Toggle navigation">
-					<i class="uil-bars text-white"></i>
-				</button>
-				<a class="navbar-brand" href="#"><img src="../../assets/tekcapzule-logo.svg" alt="" /></a>
-			</div>
-			<div class="collapse navbar-collapse" id="toggle-navbar">
-				<ul class="navbar-nav ms-auto">
-					<li class="nav-item">
-						<div class="search position-relative "
-             style="display: flex; align-items: center; justify-content: flex-end;"
-             >
-							<input type="text" class="form-control w-100 border-0 bg-transparent"
-								placeholder="Search here" />
-							<i class="fa fa-search position-absolute d-block fs-6"></i>
-						</div>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">
-							<i data-show="show-side-navigation1" class="uil-bars show-side-btn"></i>
-						</a>
-					</li>
-          <li class="align-self-center" (click)="logOutUser()">
-            <i
-              class="fas fa-sign-out-alt"
-              style="font-size: 2rem; cursor: pointer"
-            ></i>
-          </li>
-				</ul>
-			</div>
-		</div>
-	</nav> -->
   <div class="container-fluid">
     <div class="card flex justify-content-center gap-2">
         <p-toast position="top-center" key="tc"></p-toast>
     </div>
     <div class="row">
-      <div class="col-12">
-        <div class="switches-container d-none">
-          <input type="radio" id="switchMonthly" name="switchPlan" value="Dashboard" (click)="onSwitch($event)"
-            checked="checked" />
-          <input type="radio" id="switchYearly" name="switchPlan" value="Socials" (click)="onSwitch($event)" />
-          <label for="switchMonthly">Dashboard</label>
-          <label for="switchYearly">Socials</label>
-          <div class="switch-wrapper">
-            <div class="switch">
-              <div>Dashboard</div>
-              <div>Socials</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
       <div class="col-9">
         <div class="dashboard-banner">
           <h1 class="fs-3">Welcome back, {{fullName}}</h1>
           <p class="mb-0">Greetings {{firstName}}, welcome to your fantastic learning curve dashboard!!!</p>
           <section class="statistics mt-4">
             <div class="row">
-              <div class="col-lg-9">
-                <h3>Your Learning Summary</h3>
+              <div class="col-lg-10">
+                <h4>Your Learning Summary</h4>
                 <div class="d-flex">
                   <div class="col-lg-3">
                     <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
@@ -149,7 +69,7 @@
             </div>
             <div class="row mt-4">
               <div class="col-lg-9">
-                <h3>Your Badges</h3>
+                <h4>Your Badges</h4>
                 <p *ngIf="!userData?.points">No Badges Yet</p>
                 <ul *ngIf="userData?.points" class="badges">
                   <li *ngIf="userData.points > 0" class="bronze"></li>
@@ -244,34 +164,7 @@
                         </tbody>
                       </table>
                     </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                      <table class="table" cellspacing="0">
-                        <thead>
-                          <tr>
-                            <th>Project Name</th>
-                            <th>Employer</th>
-                            <th>Time</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td><a href="#">Work 1</a></td>
-                            <td>Doe</td>
-                            <td>john@example.com</td>
-                          </tr>
-                          <tr>
-                            <td><a href="#">Work 2</a></td>
-                            <td>Moe</td>
-                            <td>mary@example.com</td>
-                          </tr>
-                          <tr>
-                            <td><a href="#">Work 3</a></td>
-                            <td>Dooley</td>
-                            <td>july@example.com</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                   
                   </div>
                 </div>
               </div>

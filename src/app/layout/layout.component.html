@@ -9,15 +9,6 @@
       </a>
     </li>
   </ul>
-  <!-- <ul>
-    <li *ngFor="let menu of menus">
-      <a [routerLink]="menu.link" 
-         routerLinkActive="active" 
-         [ngClass]="menu.icon">
-        <span [ngClass]="menu.icon"></span>{{menu.label}}
-      </a>
-    </li>
-  </ul> -->
 </aside>
 <main>
   <header>
@@ -26,7 +17,7 @@
         <div class="navbar-header">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggle-navbar"
             aria-controls="toggle-navbar" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="uil-bars text-white"></i>
+            <i class="fas fa-bars"></i>
           </button>
           <a class="navbar-brand" href="#"><img src="../../assets/tekcapzule-logo.svg" alt="" class="corporate-logo"/></a>
         </div>
@@ -42,26 +33,14 @@
                 <i class="pi pi-search position-absolute d-block fs-6"></i>
               </div>
             
-            </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i data-show="show-side-navigation1" class="uil-bars show-side-btn"></i>
-              </a>
-            </li> -->
-            
+            </li>            
             <li class="nav-item">
               <div class="theme-switch-wrapper">
                 <label class="theme-switch" for="checkbox">
                   <input type="checkbox" (change)="toggleTheme($event)" data-name="theme-toggle-switch" id="checkbox"/>
-                  <!-- <input type="checkbox" id="checkbox" /> -->
                   <div class="slider round"></div>
                 </label>
               </div>
-              <!-- <div class="theme-switch">
-                <label>
-                  <input type="checkbox" (change)="toggleTheme($event)" /> Toggle Dark Theme
-                </label>
-              </div> -->
             </li>
             <li class="nav-item">
                 <i class="pi pi-question-circle" style="font-size: 1.4rem; color: #222222"></i>
@@ -69,12 +48,7 @@
             <li class="nav-item">
                 <i class="pi pi-bell" style="font-size: 1.4rem; color: #222222"></i>
             </li>
-            <!-- <li *ngIf="authStateService.isUserLoggedIn()" class="d-flex align-self-center" (click)="signOutUser()">
-              <span class="align-self-center" style="margin-right: 10px">{{
-                authStateService.getFirstName() && authStateService.getLastName() 
-                }}</span>
-              <i class="fas fa-sign-out-alt" style="font-size: 1.625rem; cursor: pointer"></i>
-            </li> -->
+
             <li *ngIf="authStateService.isUserLoggedIn()" class="d-flex align-self-center" (click)="signOutUser()">
               <span class="user-initials align-self-center" style="margin-right: 10px">
                 {{

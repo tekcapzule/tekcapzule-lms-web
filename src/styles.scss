@@ -302,23 +302,23 @@ body {
 $sidebar-width: var(--sidebar-width);
 
 h1 {
-	font-size: 24px;
+	font-size: 1.5rem;
 	font-weight: 600;
 }
 
 h2 {
-	font-size: 20px;
+	font-size: 1.25rem;
 }
 
 h3 {
-	font-size: 18px;
+	font-size: 1.125rem;
 	font-weight: 600;
 	color: var(--secondary-color);
 	margin-bottom: 20px;
 }
 
 h4 {
-	font-size: 16px;
+	font-size: 1rem;
 	font-weight: 600;
 	align-items: center;
 	display: flex;
@@ -369,19 +369,19 @@ main {
 }
 
 .primary-heading {
-	font-size: 18px;
+	font-size: 1.125rem;
 	color: var(--primary-color);
 	font-weight: 600;
 }
 
 .secondary-heading {
-	font-size: 16px;
+	font-size: 1rem;
 	color: var(--secondary-color);
 	font-weight: 500;
 }
 
 .main-title {
-	font-size: 24px;
+	font-size: 1.5rem;
 	font-weight: 500;
 	letter-spacing: -0.96px;
 }
@@ -395,7 +395,7 @@ main {
 	border-radius: var(--btn-border-radius);
 	background: var(--white-bg);
 	padding: 5px 20px;
-	font-size: 14px;
+	font-size: 0.875rem;
 	font-weight: 500;
 
 	&:hover {
@@ -410,7 +410,7 @@ main {
 	border-radius: var(--btn-border-radius);
 	background: var(--active-color);
 	padding: 5px 20px;
-	font-size: 14px;
+	font-size: 0.875rem;
 	font-weight: 500;
 	color: var(--bs-white);
 
@@ -426,7 +426,7 @@ main {
 	border-radius: 2px;
 	background: var(--active-color);
 	padding: 5px 20px;
-	font-size: 14px;
+	font-size: 0.875rem;
 	font-weight: 500;
 	color: var(--bs-white);
 	height: 40px;
@@ -471,7 +471,7 @@ main {
 
 .gray-txt {
 	color: var(--tertiary-color) !important;
-	font-size: 14px;
+	font-size: 0.875rem;
 	font-weight: 500;
 	align-items: center;
 	display: flex;
@@ -688,8 +688,12 @@ main {
 				@extend .secondary-heading;
 				font-weight: 400;
 				margin-right: 22px;
+				text-transform: lowercase;
 				&:last-child {
 					margin-right: 0px;
+				}
+				&::first-letter {
+					text-transform: capitalize;
 				}
 			}
 		}
@@ -883,7 +887,7 @@ div[role="progressbar"]:not(.playlist-progress)::before {
 
 .table>thead {
 	color: #848484;
-	font-size: 14px;
+	font-size: 0.875rem;
 
 	th {
 		font-weight: 500 !important;
@@ -901,7 +905,7 @@ div[role="progressbar"]:not(.playlist-progress)::before {
 	gap: 30px;
 
 	.nav-link {
-		font-size: 18px;
+		font-size: 1.125rem;
 		font-weight: 500;
 		padding: .5rem 0rem;
 		color: var(--tertiary-color);
@@ -1041,7 +1045,7 @@ div[role="progressbar"]:not(.playlist-progress)::before {
 					p {
 						color: var(--tertiary-color);
 						font-weight: 400;
-						font-size: 14px;
+						font-size: 0.875rem;
 						margin-bottom: 0;
 					}
 
@@ -1114,7 +1118,7 @@ div[role="progressbar"]:not(.playlist-progress)::before {
 }
 
 .accordion-button {
-	font-size: 14px;
+	font-size: 1rem;
     color: var(--secondary-color) !important;
 	font-weight: 500 !important;
 }
@@ -1327,7 +1331,7 @@ header {
 			border: 0 none;
 			background: #F5F5F5;
 			color: #2C2C2C;
-			font-size: 16px;
+			font-size: 1rem;
 			font-weight: 600;
 			height: 40px;
 			padding: 0;
@@ -1443,7 +1447,7 @@ header {
 	input {
 		border: 1px solid var(--border-color-light) !important;
 		padding: 5px 10px;
-		font-size: 14px;
+		font-size: 0.875rem;
 		background: var(--bs-white);
 
 		.pi .pi-search {
@@ -1613,4 +1617,8 @@ header {
     padding: 7px 6px;
     margin-right: 15px;
 	}
+}
+
+.empty-page {
+	min-height: calc(100vh - 206px);
 }

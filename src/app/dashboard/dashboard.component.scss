@@ -139,7 +139,7 @@
 // Events
 section {
   & .events {
-    grid-area: event;
+    // grid-area: event;
     box-sizing: border-box;
 
     ul {
@@ -159,7 +159,7 @@ section {
           "detail detail";
         margin-bottom: 20px;
         border: 1px solid var(--border-color);
-        height: 65px;
+        height: auto;
         &:first-child {
           border-left: 5px solid var(--active-color);
           &:hover {
@@ -180,7 +180,7 @@ section {
         }
 
         .time {
-          grid-area: time;
+          // grid-area: time;
           position: relative;
           background-color: var(--bg-color);
           box-sizing: border-box;
@@ -206,13 +206,12 @@ section {
               font-size: 0.875rem;
     text-transform: uppercase;
     color: var(--tertiary-color);
-    font-weight: 400;
             }
           }
         }
 
         .details {
-          grid-area: detail;
+          // grid-area: detail;
           padding: 10px;
           background-color: var(--white-bg);
           box-sizing: border-box;
@@ -220,7 +219,6 @@ section {
           p {
             padding: 0;
             font-size: 1rem;
-            font-weight: 500;
           }
 
           a:hover {
@@ -336,5 +334,5 @@ section {
 .dashboard-banner-image {
   position: absolute;
   width: fit-content;
-  right: 27%;
+  right: 25%;
 }
