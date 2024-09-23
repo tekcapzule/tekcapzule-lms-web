@@ -64,9 +64,8 @@
         background: url('../../assets/menu/#{$icon-name}-icon.svg') no-repeat center center;
         filter: none;
       }
-      ul li a.active .#{$icon-name}-icon {
-        filter: invert(1);
-        /* Invert colors of the background image */
+      li a:hover, li a.active .#{$icon-name}-icon {
+        background: url('../../assets/menu/#{$icon-name}-icon-active.svg') no-repeat center center;
       }
     }
   }
@@ -278,6 +277,6 @@ section {
   color: white; 
   border-radius: 50%; 
   text-align: center; 
-  font-size: 12px;
+  font-size: 0.75rem;
   padding: 3px 5px;
 }
