@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Amplify } from 'aws-amplify';
@@ -18,6 +18,7 @@ import { AuthGuard } from './core/services/auth-guard/auth-guard';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 Amplify.configure(awsExports);
 
@@ -28,6 +29,7 @@ export function initApp(initService: InitService) {
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    FullCalendarModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -44,6 +46,6 @@ export function initApp(initService: InitService) {
     MessageService 
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 export class AppModule {}
